@@ -11,70 +11,79 @@ namespace GestureHub
 {
 
 
-    public partial class Site
+    public partial class Dashboard
     {
 
         /// <summary>
-        /// head control.
+        /// AdminPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Panel AdminPanel;
 
         /// <summary>
-        /// CourseDropDownContent control.
+        /// AdminGridPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CourseDropDownContent;
+        protected global::System.Web.UI.WebControls.Panel AdminGridPanel;
 
         /// <summary>
-        /// NavLeftContent control.
+        /// CourseCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavLeftContent;
+        protected global::System.Web.UI.WebControls.Literal CourseCount;
 
         /// <summary>
-        /// GreetContent control.
+        /// StudentCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreetContent;
+        protected global::System.Web.UI.WebControls.Literal StudentCount;
 
         /// <summary>
-        /// NavRightContent control.
+        /// MaleCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavRightContent;
+        protected global::System.Web.UI.WebControls.Literal MaleCount;
 
         /// <summary>
-        /// BreadcrumbContent control.
+        /// FemaleCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder BreadcrumbContent;
+        protected global::System.Web.UI.WebControls.Literal FemaleCount;
 
         /// <summary>
-        /// MainContent control.
+        /// StudentPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Panel StudentPanel;
+
+        /// <summary>
+        /// StudentGridPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel StudentGridPanel;
     }
 }

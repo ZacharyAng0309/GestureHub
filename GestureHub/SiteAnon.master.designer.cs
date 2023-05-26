@@ -11,7 +11,7 @@ namespace GestureHub
 {
 
 
-    public partial class Site
+    public partial class SiteAnon
     {
 
         /// <summary>
@@ -22,42 +22,6 @@ namespace GestureHub
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-
-        /// <summary>
-        /// CourseDropDownContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CourseDropDownContent;
-
-        /// <summary>
-        /// NavLeftContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavLeftContent;
-
-        /// <summary>
-        /// GreetContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreetContent;
-
-        /// <summary>
-        /// NavRightContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavRightContent;
 
         /// <summary>
         /// BreadcrumbContent control.

@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SiteAnon.master.cs" Inherits="GestureHub.SiteAnon" %>
+
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
+    <!-- general top right side navbar -->
+  <li class="nav-item">
+    <a href="/Login.aspx" class="nav-link" data-nav-loc="login">Login</a>
+  </li>
+  <li class="nav-item">
+    <a href="/Register.aspx" class="nav-link" data-nav-loc="register">Register</a>
+  </li>
+</asp:Content>
+
+<asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
+    <!-- breadcrumb content -->
+  <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+  </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- main content -->
+  <asp:ContentPlaceHolder ID="MainContent" runat="server">
+  </asp:ContentPlaceHolder>
+</asp:Content>

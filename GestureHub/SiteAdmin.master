@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SiteAdmin.master.cs" Inherits="GestureHub.SiteAdmin" %>
+
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+  <title>Admin | <%: Page.Title %></title>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
+  <!-- Admin's top left side navbar -->
+  <li class="nav-item">
+    <a href="/Dashboard.aspx" class="nav-link" data-nav-loc="dashboard">Dashboard</a>
+  </li>
+  <li class="nav-item">
+    <a href="/Admin/StudentData/StudentList.aspx" class="nav-link" data-nav-loc="student">Student</a>
+  </li>
+  <li class="nav-item">
+    <a href="/Admin/Feedback/FeedbackList.aspx" class="nav-link" data-nav-loc="feedback">Feedback</a>
+  </li>
+</asp:Content>
+
+<asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
+  <!-- Admin's top right side navbar -->
+  <li class="nav-item">
+    <a href="/Logout.aspx" class="nav-link" data-nav-loc="logout">Logout</a>
+  </li>
+</asp:Content>
+
+<asp:Content ID="CourseDropDown" ContentPlaceHolderID="CourseDropDownContent" runat="server">
+  <!-- Admin's course dropdown list -->
+  <li><a class="dropdown-item" href="/Admin/Course/AddCourse.aspx">Add Course</a></li>
+</asp:Content>
+
+<asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
+  <!-- breadcrumb content -->
+  <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+  </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+  <!-- main content -->
+  <asp:ContentPlaceHolder ID="MainContent" runat="server">
+  </asp:ContentPlaceHolder>
+</asp:Content>
