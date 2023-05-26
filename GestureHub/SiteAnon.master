@@ -5,15 +5,15 @@
   </asp:ContentPlaceHolder>
 </asp:Content>
 
-<asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
+<%--<asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
     <!-- general top right side navbar -->
-  <li class="nav-item">
+  <li class="nav-item col-6">
     <a href="/Login.aspx" class="nav-link" data-nav-loc="login">Login</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item col-6">
     <a href="/Register.aspx" class="nav-link" data-nav-loc="register">Register</a>
   </li>
-</asp:Content>
+</asp:Content>--%>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <!-- breadcrumb content -->

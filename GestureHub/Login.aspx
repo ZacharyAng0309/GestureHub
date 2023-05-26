@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/SiteAnon.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GestureHub.Login" ValidateRequest="false" %>
+﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GestureHub.Login" ValidateRequest="false" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <script src="/Scripts/togglePassword.js" defer></script>
