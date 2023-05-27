@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-    <li class="breadcrumb-item"><a href="/Default.aspx">Home</a></li>
+    <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Login</li>
 </asp:Content>
 
@@ -58,6 +58,7 @@
                         <asp:Label ID="ErrorLbl" runat="server" Text="Login credential is incorrect."></asp:Label>
                     </asp:Panel>
                 </div>
+            </div>
         </form>
     </div>
 
