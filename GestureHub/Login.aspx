@@ -11,7 +11,6 @@
 
 <asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container p-4">
- 
         <h1 class="border-bottom mb-3">Login.</h1>
         <h6>
             Not a member? <a href="/Register.aspx">Create Account</a>

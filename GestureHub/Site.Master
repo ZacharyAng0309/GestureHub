@@ -94,7 +94,7 @@
                 </li>
               <asp:ContentPlaceHolder ID="NavLeftContent" runat="server"></asp:ContentPlaceHolder>
             </ul>
-           <%--   <asp:ContentPlaceHolder ID="GreetContent" runat="server"></asp:ContentPlaceHolder>--%>
+           <asp:ContentPlaceHolder ID="GreetContent" runat="server"></asp:ContentPlaceHolder>
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item col-6">
                     <a class="nav-link mx-5" data-nav-loc="register" href="/Register.aspx" style=" color: white !important;">REGISTER</a>
