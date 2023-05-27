@@ -11,8 +11,26 @@ namespace GestureHub.Admin
 {
 
 
-    public partial class AdminEditQuizQuestion
+    public partial class ManageQuizQuestion
     {
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// btnAddQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddQuestion;
 
         /// <summary>
         /// GridView1 control.

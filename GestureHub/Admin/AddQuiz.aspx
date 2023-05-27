@@ -1,15 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.master" AutoEventWireup="true" CodeBehind="EditQuiz.aspx.cs" Inherits="GestureHub.AdminEditQuiz" %>
+﻿
+<!-- Might not need this page, can be done when adding the course dy -->
+
+<!--<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.master" AutoEventWireup="true" CodeBehind="AddQuiz.aspx.cs" Inherits="GestureHub.Admin.AddQuiz" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Home</a></li>
-    <li class="breadcrumb-item"><a href="/Admin/ManageQuiz.aspx">Manage Quiz</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Edit Quiz</li>
+    <li class="breadcrumb-item active" aria-current="page">Add Quiz</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container shadow rounded-3 p-4 mb-5 bg-white">
-        <h3 class="mb-3">Edit Quiz</h3>
+        <h3 class="mb-3">Add Quiz</h3>
         <form>
             <div class="form-group mb-2">
                 <label for="quizIDField">Quiz ID:</label>
@@ -22,7 +24,12 @@
 
             <div class="form-group mb-2">
                 <label for="courseIDField">Course ID:</label>
-                <input type="text" class="form-control" id="courseIDField" placeholder="Course ID" readonly>
+                <select class="form-control" id="courseIdDropdown">
+                    use data from database
+                    <option value="(courseID)">Course 1</option>
+                    <option value="(courseID)">Course 2</option>
+                    <option value="(courseID)">Course 3</option>
+                </select>
             </div>
             <div class="form-group mb-4">
                 <label for="descriptionField">Description:</label>
@@ -34,4 +41,4 @@
             </div>
         </form>
     </div>
-</asp:Content>
+</asp:Content>-->

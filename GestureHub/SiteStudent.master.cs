@@ -20,7 +20,7 @@ namespace GestureHub
             else if (h >= 18 && h < 22) time = "evening";
             else if (h >= 22 || h < 6) time = "evening";
             int student_id = Convert.ToInt32(Session["user_id"]);
-            DataRow studentData = StudentC.GetStudentData(student_id);
+            DataRow studentData = UserC.GetUserData(student_id);
             GreetingLbl.Text = $"Good {time}, {studentData["username"]}!";
         }
     }

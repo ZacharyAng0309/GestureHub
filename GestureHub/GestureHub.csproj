@@ -130,11 +130,17 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\AddCourse.aspx" />
+    <Content Include="Admin\AddQuiz.aspx" />
     <Content Include="Admin\AddUser.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\EditCourse.aspx" />
     <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="Admin\EditQuizQuestion.aspx" />
+    <Content Include="Admin\EditUser.aspx" />
+    <Content Include="Admin\ManageCourse.aspx" />
+    <Content Include="Admin\ManageQuiz.aspx" />
+    <Content Include="Admin\ManageQuizQuestion.aspx" />
+    <Content Include="Admin\ManageUser.aspx" />
     <Content Include="Admin\ViewFeedback.aspx" />
     <Content Include="App_Data\GestureHubDatabase.mdf" />
     <Content Include="App_Data\GestureHubDatabase_log.ldf">
@@ -158,10 +164,10 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Dashboard.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\GestureHubLogo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MemberProfile.aspx" />
@@ -195,7 +201,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="MyService.asmx" />
-    <Content Include="Admin\EditUser.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\chart.min.js" />
@@ -239,6 +244,13 @@
     <Compile Include="Admin\AddCourse.aspx.designer.cs">
       <DependentUpon>AddCourse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddQuiz.aspx.cs">
+      <DependentUpon>AddQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddQuiz.aspx.designer.cs">
+      <DependentUpon>AddQuiz.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -274,6 +286,41 @@
     <Compile Include="Admin\EditQuizQuestion.aspx.designer.cs">
       <DependentUpon>EditQuizQuestion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageCourse.aspx.cs">
+      <DependentUpon>ManageCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageCourse.aspx.designer.cs">
+      <DependentUpon>ManageCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageQuiz.aspx.cs">
+      <DependentUpon>ManageQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageQuiz.aspx.designer.cs">
+      <DependentUpon>ManageQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageQuizQuestion.aspx.cs">
+      <DependentUpon>ManageQuizQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageQuizQuestion.aspx.designer.cs">
+      <DependentUpon>ManageQuizQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ViewFeedback.aspx.cs">
       <DependentUpon>ViewFeedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,19 +344,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -397,7 +437,7 @@
     <Compile Include="UtilClass\MyUtil.cs" />
     <Compile Include="UtilClass\Question.cs" />
     <Compile Include="UtilClass\SessionManager.cs" />
-    <Compile Include="UtilClass\StudentC.cs" />
+    <Compile Include="UtilClass\UserC.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,13 +448,6 @@
     <Compile Include="MyService.asmx.cs">
       <DependentUpon>MyService.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Admin\EditUser.aspx.cs">
-      <DependentUpon>EditUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\EditUser.aspx.designer.cs">
-      <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

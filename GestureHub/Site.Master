@@ -224,17 +224,22 @@
         })
 
         //force footer to be at the bottom
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.getElementById("header_nav").offsetHeight + document.getElementById("main").offsetHeight;
-        const footer = document.getElementById("footer");
-        const footerHeight = footer.offsetHeight;
-        if (documentHeight < windowHeight) {
-            if ((windowHeight - documentHeight) > footerHeight) {
-                footer.style.position = "absolute";
-                footer.style.width = "100%";
-                footer.style.bottom = "0";
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.getElementById("header_nav").offsetHeight + document.getElementById("main").offsetHeight;
+            const footer = document.getElementById("footer");
+            const footerHeight = footer.offsetHeight;
+
+            if ((documentHeight) < windowHeight) {
+                if (((windowHeight - documentHeight) * 0.8) > footerHeight) {
+                    footer.style.position = "absolute";
+                    footer.style.width = "100%";
+                    footer.style.bottom = "0";
+                }
             }
-        }
+
+        });
     </script>
 </body>
 </html>

@@ -4,65 +4,50 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-    <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
-  <li class="breadcrumb-item active" aria-current="page">Edit Course</li>
+    <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Home</a></li>
+    <li class="breadcrumb-item"><a href="/Admin/ManageCourse.aspx">Manage Course</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Course</li>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="container shadow rounded-3 p-5 bg-white">
-        <h3 class="mb-3">Add User</h3>
-        <form class="row justify-content-around">
-            <div class="col-md-5">
-                <div class="form-group mb-2">
-                    <label for="idField">ID:</label>
-                    <input type="text" class="form-control" id="idField" placeholder="User ID" readonly>
-                </div>
-                <div class="form-group mb-2">
-                    <label for="firstNameField">First Name:</label>
-                    <input type="text" class="form-control" id="firstNameField" placeholder="Insert first name">
-                </div>
-                <div class="form-group mb-2">
-                    <label for="emailField">Email:</label>
-                    <input type="text" class="form-control" id="emailField" placeholder="Insert email">
-                </div>
-                <div class="form-group mb-2">
-                    <label for="genderField">Gender:</label>
-                    <select class="form-control" id="genderField">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                </div>
-                <div class="form-group mb-2">
-                    <label for="roleField">Role:</label>
-                    <select class="form-control" id="roleField">
-                        <option>Admin</option>
-                        <option>Member</option>
-                    </select>
-                </div>
-
+    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
+        <h3 class="mb-4">Edit Course</h3>
+        <form>
+            <div class="form-group mb-4">
+                <label for="idField">Course ID:</label>
+                <input type="text" class="form-control" id="idField" placeholder="Course ID" readonly>
             </div>
-            <div class="col-md-5">
-                <div class="form-group mb-2">
-                    <label for="usernameField">Username:</label>
-                    <input type="text" class="form-control" id="usernameField" placeholder="Insert username">
-                </div>
-                <div class="form-group mb-2">
-                    <label for="lastNameField">Last Name:</label>
-                    <input type="text" class="form-control" id="lastNameField" placeholder="Insert last name">
-                </div>
+            <div class="form-group mb-4">
+                <label for="descriptionField">Description:</label>
+                <textarea class="form-control" id="descriptionField" rows="3"></textarea>
+            </div>
 
-                <div class="form-group mb-2">
-                    <label for="passwordField">Password:</label>
-                    <input type="password" class="form-control" id="passwordField" placeholder="Insert password">
+            <div class="form-group mb-5">
+                <label for="titleField">Title:</label>
+                <input type="text" class="form-control" id="titleField" placeholder="Insert title">
+            </div>
+            <div class="form-group mt-3 mb-4">
+                <label for="difficultyField">Difficulty:</label>
+                <select class="form-control" id="difficultyField">
+                    <option>Easy</option>
+                    <option>Intermediate</option>
+                    <option>Hard</option>
+                </select>
+            </div>
+
+            <div class="row mb-4">
+                <div class="form-group col-md-6 mb-4">
+                    <label for="createdAtField">Created At:</label>
+                    <input type="text" class="form-control" id="createdAtField" placeholder="YYYY-MM-DD" readonly>
                 </div>
-                <div class="form-group mb-2">
-                    <label for="ageField">Age:</label>
-                    <input type="text" class="form-control" id="ageField" placeholder="Insert age">
+                <div class="form-group col-md-6 mb-4">
+                    <label for="updatedAtField">Updated At:</label>
+                    <input type="text" class="form-control" id="updatedAtField" placeholder="YYYY-MM-DD" readonly>
                 </div>
-                <div class="form-group mt-4 pt-2 row justify-content-around">
-                    <button type="submit" class="btn btn-primary col-md-5">Add</button>
-                    <a href="#" class="btn btn-secondary col-md-5">Back</a>
-                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary col-md-4 me-3">Update</button>
+                <a href="#" class="btn btn-secondary col-md-4">Back</a>
             </div>
         </form>
     </div>
