@@ -9,14 +9,18 @@
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
   <!-- Admin's top left side navbar -->
   <li class="nav-item">
-    <a href="/Dashboard.aspx" class="nav-link" data-nav-loc="dashboard">Dashboard</a>
+    <a href="/Dashboard.aspx" class="nav-link" data-nav-loc="dashboard">DASHBOARD</a>
   </li>
+<li class="nav-item">
+    <a href="/Admin/Feedback/FeedbackList.aspx" class="nav-link" data-nav-loc="feedback">MANAGE FEEDBACK</a>
+</li>
   <li class="nav-item">
-    <a href="/Admin/StudentData/StudentList.aspx" class="nav-link" data-nav-loc="student">Student</a>
+    <a href="/Admin/StudentData/StudentList.aspx" class="nav-link" data-nav-loc="student">MANAGE MEMBER</a>
   </li>
-  <li class="nav-item">
-    <a href="/Admin/Feedback/FeedbackList.aspx" class="nav-link" data-nav-loc="feedback">Feedback</a>
-  </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link" data-nav-loc="material">MANAGE MATERIALS</a>
+    </li>
+  
 </asp:Content>
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
