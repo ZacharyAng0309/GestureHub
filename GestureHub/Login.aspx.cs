@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Text;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -14,6 +7,7 @@ namespace GestureHub
     public partial class Login : GestureHub.UtilClass.BasePage
     {
         private string DbTable;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -46,7 +40,7 @@ namespace GestureHub
                         if (dt.Rows.Count > 0)
                         {
                             ErrorPanel.Visible = false;
-                            string user_id = dt.Rows[0][DbTable+"_id"].ToString();
+                            string user_id = dt.Rows[0][DbTable + "_id"].ToString();
                             Session["username"] = username;
                             Session["user_id"] = Convert.ToInt32(user_id);
                             Session["isAdmin"] = DbTable == "admin";

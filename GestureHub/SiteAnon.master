@@ -2,27 +2,49 @@
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <asp:ContentPlaceHolder ID="head" runat="server">
-  </asp:ContentPlaceHolder>
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
-<%--<asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
+<asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
+    <li class="nav-item col-8">
+        <a class="nav-link" data-nav-loc="home" href="/Default.aspx" style="color: white !important;">HOME</a>
+    </li>
+    <li class="nav-item dropdown col-8">
+        <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-nav-loc="course"
+            data-bs-toggle="dropdown"
+            style="color: white !important;">COURSE</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/ListCourse.aspx">All Courses</a></li>
+            <asp:ContentPlaceHolder ID="CourseDropDownContent" runat="server"></asp:ContentPlaceHolder>
+        </ul>
+    </li>
+    <li class="nav-item col-8">
+        <a class="nav-link" data-nav-loc="about" href="/About.aspx" style="color: white !important;">ABOUT US</a>
+    </li>
+</asp:Content>
+
+<asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
     <!-- general top right side navbar -->
-  <li class="nav-item col-6">
-    <a href="/Login.aspx" class="nav-link" data-nav-loc="login">Login</a>
-  </li>
-  <li class="nav-item col-6">
-    <a href="/Register.aspx" class="nav-link" data-nav-loc="register">Register</a>
-  </li>
-</asp:Content>--%>
+    <li class="nav-item col-6">
+        <a class="nav-link mx-5" data-nav-loc="register" href="/Register.aspx" style="color: white !important;">REGISTER</a>
+    </li>
+    <li class="nav-item col-6 ">
+        <a class="nav-link mx-5" data-nav-loc="login" href="/Login.aspx" style="color: white !important;">LOGIN</a>
+    </li>
+</asp:Content>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <!-- breadcrumb content -->
-  <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
-  </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- main content -->
-  <asp:ContentPlaceHolder ID="MainContent" runat="server">
-  </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>

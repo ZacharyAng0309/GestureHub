@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GestureHub._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/SiteAnon.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GestureHub._Default" %>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Default.aspx">Home</a></li>
@@ -8,7 +8,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main>
-        <div class="container">
+        <div class="container pb-4">
             <section class="row" aria-labelledby="aspnetTitle">
                 <h1 id="aspnetTitle">ASP.NET</h1>
                 <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
