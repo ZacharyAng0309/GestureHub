@@ -6,7 +6,7 @@
 <head runat="server">
   <title><%: Page.Title %></title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
@@ -44,12 +44,12 @@
 
 </head>
 
-<body style="background-color: #F5F5F5; padding-top: 90px;">
-  <header>
+<body style="background-color: #F5F5F5;">
+  <header class="mb-2">
 
     <!-- fixed top nav bar -->
     <div id="header_nav">
-      <nav class="navbar navbar-expand-md fixed-top" style="background-color: #6A5ACD;">
+      <nav class="navbar navbar-expand-md" style="background-color: #6A5ACD;">
         <div class="container-fluid">
           <a class="navbar-brand" href="/Home.aspx" style="margin-right: 0px">
             <figure style="margin: 0.7rem;">
@@ -74,7 +74,7 @@
           <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav mx-5">
               <li class="nav-item col-8">
-                <a class="nav-link" data-nav-loc="home" href="/Home.aspx" style=" color: white !important;">HOME</a>
+                <a class="nav-link" data-nav-loc="home" href="/Default.aspx" style=" color: white !important;">HOME</a>
               </li>
                 <li class="nav-item dropdown col-8">
                     <a
@@ -90,7 +90,7 @@
                     </ul>
                 </li>
                 <li class="nav-item col-8">
-                    <a class="nav-link" data-nav-loc="about" href="#" style=" color: white !important;">ABOUT US</a>
+                    <a class="nav-link" data-nav-loc="about" href="/About.aspx" style=" color: white !important;">ABOUT US</a>
                 </li>
               <asp:ContentPlaceHolder ID="NavLeftContent" runat="server"></asp:ContentPlaceHolder>
             </ul>
@@ -113,8 +113,6 @@
 
   </header>
 
-  <br />
-
   <main id="main">
     <!-- breadcrumb navigation -->
     <div class="container">
@@ -129,15 +127,13 @@
     </asp:ContentPlaceHolder>
   </main>
 
-  <br />
-  <br />
   <footer id="footer" class="bg-dark">
     <div class="container-fluid">
-      <div class="row p-5 my-3 text-white border-bottom">
+      <div class="row  my-1 p-4 pb-2 text-white border-bottom justify-content-around">
          
-        <div class="col-sm-4"">
-          <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">GESTUREHUB</h3> 
-          <figure>
+        <div class="col-md-4 text-center text-md-start">
+          <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3> 
+          <figure class="mb-0">
             <img
               src="/images/GestureHubLogo.png"
               alt="GestureHub Logo"
@@ -145,8 +141,8 @@
               class="rounded-pill" />
           </figure>
         </div>
-        <div class="col-sm-4">
-          <h5 data-toc-skip="true">CONTACT US</h5>
+        <div class="col-md-3 mb-4 text-center text-md-start">
+          <h3 data-toc-skip="true">CONTACT US</h3>
           <ul class="nav flex-column">
             <li class="nav-item">
               <a href="mailto:a@example.com" class="nav-link text-white">
@@ -162,8 +158,8 @@
           </ul>
         </div>
 
-        <div class="col-sm-4">
-          <h5 data-toc-skip="true">ABOUT US</h5>
+        <div class="col-md-3 mb-4 text-center text-md-start">
+          <h3 data-toc-skip="true">ABOUT US</h3>
           <ul class="nav flex-column">
             <li class="nav-item">
               <a href="/Home.aspx#Story" class="nav-link text-white">OUR STORY</a>
@@ -205,9 +201,15 @@
       appendToParent: true,
     })
 
-    // force footer to be at the bottom
-    const footerHeight = $("#footer").outerHeight()
-    $("#main").css("padding-bottom", footerHeight)
-    </script>
+    //force footer to be at the bottom
+      const footerPadding = $("#footer").outerHeight()
+      const footerPaddingTop = footerPadding / 3 * 1
+      const footerPaddingBottom = footerPadding / 3 * 2
+      $("#main").css("padding-bottom", footerPaddingBottom)
+      $("#main").css("padding-top", footerPaddingTop)
+
+    
+
+  </script>
 </body>
 </html>
