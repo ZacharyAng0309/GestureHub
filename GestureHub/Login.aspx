@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GestureHub.Login" ValidateRequest="false" %>
+﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/SiteAnon.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GestureHub.Login" ValidateRequest="false" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <script src="/Scripts/togglePassword.js" defer></script>
@@ -6,15 +6,13 @@
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Default.aspx">Home</a></li>
-  <li class="breadcrumb-item active" aria-current="page">Login</li>
+    <li class="breadcrumb-item active" aria-current="page">Login</li>
 </asp:Content>
 
 <asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container p-4">
- 
         <h1 class="border-bottom mb-3">Login.</h1>
-        <h6>
-            Not a member? <a href="/Register.aspx">Create Account</a>
+        <h6>Not a member? <a href="/Register.aspx">Create Account</a>
         </h6>
         <form id="form1" runat="server">
             <div class="form-floating mt-3">
@@ -53,16 +51,16 @@
                         <asp:ListItem Selected="False" Text="Student" Value="student"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
-               
-            <div class="d-grid gap-2 col-6 mx-auto">
-            <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click" CssClass="btn btn-primary btn-md btn-block" style="background-color: #6A5ACD;"/>
-            <asp:Panel ID="ErrorPanel" runat="server" class="alert alert-danger mt-3" role="alert" Visible="false">
-                <asp:Label ID="ErrorLbl" runat="server" Text="Login credential is incorrect."></asp:Label>
-            </asp:Panel>
-            </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click" CssClass="btn btn-primary btn-md btn-block" Style="background-color: #6A5ACD;" />
+                    <asp:Panel ID="ErrorPanel" runat="server" class="alert alert-danger mt-3" role="alert" Visible="false">
+                        <asp:Label ID="ErrorLbl" runat="server" Text="Login credential is incorrect."></asp:Label>
+                    </asp:Panel>
+                </div>
         </form>
     </div>
-     
+
     <input type="hidden" id="NavLocation" value="login" disabled="disabled" />
     <script>
 </script>

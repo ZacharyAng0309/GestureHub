@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,7 +7,6 @@ namespace GestureHub
 {
     public static class StudentC
     {
-
         public static void Unenroll(int student_id, int course_id)
         {
             DataTable courseTable = CourseC.GetCourseData(course_id);
@@ -44,7 +41,6 @@ namespace GestureHub
                 }
                 conn.Close();
             }
-
         }
 
         public static void Enroll(int student_id, int course_id)
@@ -169,6 +165,7 @@ namespace GestureHub
             }
             return count;
         }
+
         public static int GetStudentCount(string gender)
         {
             int count;
@@ -187,6 +184,5 @@ namespace GestureHub
             }
             return count;
         }
-
     }
 }
