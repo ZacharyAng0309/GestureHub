@@ -9,13 +9,13 @@
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
     <!-- Admin's top left side navbar -->
     <li class="nav-item">
-        <a href="/Admin/Dashboard.aspx" class="nav-link" data-nav-loc="dashboard">HOME</a>
+        <a href="/Admin/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
     </li>
     <li class="nav-item">
-        <a href="/Admin/ManageUser.aspx" class="nav-link" data-nav-loc="student">MANAGE USER</a>
+        <a href="/Admin/ManageUser.aspx" class="nav-link text-white" data-nav-loc="student">MANAGE USER</a>
     </li>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="manageMaterialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MANAGE MATERIAL
+        <a class="nav-link dropdown-toggle text-white" href="#" id="manageMaterialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MANAGE MATERIAL
         </a>
         <div class="dropdown-menu" aria-labelledby="manageMaterialDropdown">
             <a class="dropdown-item" href="/Admin/ManageCourse.aspx">MANAGE COURSE</a>
@@ -25,14 +25,17 @@
         </div>
     </li>
     <li class="nav-item">
-        <a href="/Admin/ViewFeedback.aspx" class="nav-link" data-nav-loc="feedback">VIEW FEEDBACK</a>
+        <a href="/Admin/ViewFeedback.aspx" class="nav-link text-white" data-nav-loc="feedback">VIEW FEEDBACK</a>
     </li>
 </asp:Content>
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
     <!-- Admin's top right side navbar -->
     <li class="nav-item">
-        <a href="/Logout.aspx" class="nav-link" data-nav-loc="logout">Logout</a>
+        <a href="/Admin/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
+    </li>
+    <li class="nav-item">
+        <a href="/Logout.aspx" class="nav-link text-white" data-nav-loc="logout">LOGOUT</a>
     </li>
 </asp:Content>
 

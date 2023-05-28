@@ -7,20 +7,10 @@
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
     <li class="nav-item col-8">
-        <a class="nav-link" data-nav-loc="home" href="/Default.aspx" style="color: white !important;">HOME</a>
+        <a class="nav-link" data-nav-loc="home" href="/Home.aspx" style="color: white !important;">HOME</a>
     </li>
-    <li class="nav-item dropdown col-8">
-        <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-nav-loc="course"
-            data-bs-toggle="dropdown"
-            style="color: white !important;">COURSE</a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/ListCourse.aspx">All Courses</a></li>
-            <asp:ContentPlaceHolder ID="CourseDropDownContent" runat="server"></asp:ContentPlaceHolder>
-        </ul>
+    <li class="nav-item col-8">
+        <a class="nav-link" data-nav-loc="about" href="/Course.aspx" style="color: white !important;">COURSE</a>
     </li>
     <li class="nav-item col-8">
         <a class="nav-link" data-nav-loc="about" href="/About.aspx" style="color: white !important;">ABOUT US</a>

@@ -8,12 +8,23 @@
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
   <!-- Student top left side navbar -->
-  <li class="nav-item">
-    <a href="/Dashboard.aspx" class="nav-link" data-nav-loc="dashboard">Dashboard</a>
+
+    <li class="nav-item">
+        <a href="/Home.aspx" class="nav-link text-white" data-nav-loc="home">HOME</a>
+    </li>
+     <li class="nav-item">
+    <a href="/Course.aspx" class="nav-link text-white" data-nav-loc="dashboard">COURSE</a>
   </li>
-  <li>
+     <li class="nav-item">
+    <a href="/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
+  </li>
+     <li class="nav-item">
+    <a href="/About.aspx" class="nav-link text-white" data-nav-loc="about">ABOUT US</a>
+  </li>
+
+ <%-- <li>
     <a href="/Student/MyGrade.aspx" class="nav-link" data-nav-loc="grade">My Grades</a>
-  </li>
+  </li>--%>
 </asp:Content>
 
 <asp:Content ID="Greet" ContentPlaceHolderID="GreetContent" runat="server">
@@ -23,18 +34,14 @@
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
   <!-- Student top right side navbar -->
-  <li class="nav-item">
-    <a href="/Logout.aspx" class="nav-link" data-nav-loc="logout">Logout</a>
-  </li>
-  <li class="nav-item">
-    <a href="/Student/Profile.aspx" class="nav-link" data-nav-loc="profile">Profile</a>
-  </li>
+    <li class="nav-item">
+        <a href="/Member/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
+    </li>
+    <li class="nav-item">
+        <a href="/Logout.aspx" class="nav-link text-white" data-nav-loc="logout">LOGOUT</a>
+    </li>
 </asp:Content>
 
-<asp:Content ID="CourseDropDown" ContentPlaceHolderID="CourseDropDownContent" runat="server">
-  <!-- Student course dropdown list -->
-  <li><a class="dropdown-item" href="/Student/Course/MyCourse.aspx">My Courses</a></li>
-</asp:Content>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
   <!-- breadcrumb content -->
