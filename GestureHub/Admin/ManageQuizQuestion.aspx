@@ -13,20 +13,14 @@
             <div class="input-group col-md-3 me-2 mb-3">
                 <span class="input-group-text" for="columnSelect">Select Column:</span>
                 <select class="form-select" id="columnSelect" name="columnSelect">
-                    <option value="QuestionID">Question ID</option>
-                    <option value="QuizID">Quiz ID</option>
-                    <option value="Question">Question</option>
                 </select>
             </div>
             <div class="input-group col-md-3 mb-3">
                 <span class="input-group-text" for="search">Search:</span>
                 <input type="text" class="form-control" id="search" name="search">
+                <button type="button" class="btn btn-primary" onclick="location.href='ManageQuizQuestion.aspx?Search=' + document.getElementById('search').value + '&Column=' + document.getElementById('columnSelect').value">Search</button>
             </div>
         </div>
-        <div class="mb-3">
-            <button type="button" class="btn btn-primary" onclick="location.href='ManageQuizQuestion.aspx?QuizID=@QuizID&Search=' + document.getElementById('search').value + '&Column=' + document.getElementById('columnSelect').value">Search</button>
-        </div>
-        <asp:Button ID="Button1" runat="server" Text="Add" PostBackUrl="~/AddQuizQuestion.aspx" CssClass="btn btn-primary mb-3" />
         <asp:Button ID="btnAddQuestion" runat="server" Text="Add" PostBackUrl="~/AddQuizQuestion.aspx" CssClass="btn btn-primary mb-3" />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="true">
             <asp:BoundField DataField="QuestionID" HeaderText="Question ID" SortExpression="QuestionID" />
@@ -34,9 +28,27 @@
             <asp:BoundField DataField="Question" HeaderText="Question" SortExpression="Question" />
             <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="Edit" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [QuestionID], [QuizID], [Question] FROM [QuizQuestion] WHERE QuizID = @QuizID and Question like '%'+@Search+'%';">
-            <asp:QueryStringParameter Name="QuizID" Type="Int32" />
-            <asp:QueryStringParameter Name="Search" Type="String" />
-        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [QuestionID], [QuizID], [Question] FROM [QuizQuestion];"></asp:SqlDataSource>
     </div>
+    <script>
+        using(SqlConnection connection = new SqlConnection(connectionString))
+        {
+            // Open the connection
+            connection.Open();
+
+            // Get all columns from the table in the database
+            SqlCommand cmd = new SqlCommand("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'QuizQuestion'", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            // Populate the options with the column names
+            while (reader.Read()) {
+                string columnName = reader.GetString(0);
+                this.columnSelect.Items.Add(new ListItem(columnName));
+            }
+
+            // Close the reader and connection
+            reader.Close();
+            connection.Close();
+        }
+    </script>
 </asp:Content>

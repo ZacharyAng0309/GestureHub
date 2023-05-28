@@ -35,7 +35,7 @@
         <a href="/Admin/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
     </li>
     <li class="nav-item">
-        <a href="/Logout.aspx" class="nav-link text-white" data-nav-loc="logout">LOGOUT</a>
+        <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" CssClass="nav-link text-white" data-nav-loc="logout" />
     </li>
 </asp:Content>
 

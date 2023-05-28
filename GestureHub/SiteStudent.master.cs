@@ -23,5 +23,11 @@ namespace GestureHub
             //DataRow studentData = UserC.GetUserData(student_id);
             //GreetingLbl.Text = $"Good {time}, {studentData["username"]}!";
         }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("/Home.aspx");
+        }
     }
 }
