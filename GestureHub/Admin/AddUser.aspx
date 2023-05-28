@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="Add User" Language="C#" MasterPageFile="~/SiteAdmin.master" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="GestureHub.AdminAddUser" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-        <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
+    <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Home</a></li>
+    <li class="breadcrumb-item"><a href="/Admin/ManageUser.aspx">Manage User</a></li>
     <li class="breadcrumb-item active" aria-current="page">Add User</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container shadow rounded-3 p-5 bg-white">
+    <div class="container shadow rounded-3 p-5 mb-5 bg-white">
         <h3 class="mb-3">Add User</h3>
         <form class="row justify-content-around">
             <div class="col-md-5">

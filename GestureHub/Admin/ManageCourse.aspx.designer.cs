@@ -11,7 +11,7 @@ namespace GestureHub.Admin
 {
 
 
-    public partial class AdminEditQuizQuestion
+    public partial class ManageCourse
     {
 
         /// <summary>

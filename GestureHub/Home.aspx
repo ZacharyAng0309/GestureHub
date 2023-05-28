@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/SiteAnon.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GestureHub._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/SiteAnon.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="GestureHub._Default" %>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Default.aspx">Home</a></li>
