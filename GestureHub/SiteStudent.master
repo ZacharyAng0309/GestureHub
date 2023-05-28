@@ -1,14 +1,13 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SiteStudent.master.cs" Inherits="GestureHub.SiteStudent" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
-    <title>Student | <%: Page.Title %></title>
+  <title>Student | <%: Page.Title %></title>
   <asp:ContentPlaceHolder ID="head" runat="server">
   </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
-    <!-- Student top left side navbar -->
-
+  <!-- Student top left side navbar -->
     <li class="nav-item">
         <a href="/Home.aspx" class="nav-link text-white" data-nav-loc="home">HOME</a>
     </li>
@@ -28,29 +27,29 @@
 </asp:Content>
 
 <asp:Content ID="Greet" ContentPlaceHolderID="GreetContent" runat="server">
-    <!-- Greetings -->
+  <!-- Greetings -->
   <asp:Label ID="GreetingLbl" CssClass="navbar-text text-white" runat="server"></asp:Label>
 </asp:Content>
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
-    <!-- Student top right side navbar -->
+  <!-- Student top right side navbar -->
     <li class="nav-item">
         <a href="/Member/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
     </li>
     <li class="nav-item">
-        <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" CssClass="nav-link text-white" data-nav-loc="logout" />
+        <a href="/Logout.aspx" class="nav-link text-white" data-nav-loc="logout">LOGOUT</a>
     </li>
 </asp:Content>
 
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-    <!-- breadcrumb content -->
+  <!-- breadcrumb content -->
   <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
   </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- main content -->
+  <!-- main content -->
   <asp:ContentPlaceHolder ID="MainContent" runat="server">
   </asp:ContentPlaceHolder>
 </asp:Content>
