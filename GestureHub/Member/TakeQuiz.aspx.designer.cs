@@ -11,7 +11,7 @@ namespace GestureHub
 {
 
 
-    public partial class CourseOverview
+    public partial class TakeQuiz
     {
     }
 }

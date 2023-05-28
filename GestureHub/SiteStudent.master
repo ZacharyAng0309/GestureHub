@@ -8,7 +8,6 @@
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
   <!-- Student top left side navbar -->
-
     <li class="nav-item">
         <a href="/Home.aspx" class="nav-link text-white" data-nav-loc="home">HOME</a>
     </li>

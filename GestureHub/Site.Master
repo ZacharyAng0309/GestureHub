@@ -152,7 +152,7 @@
 
   <main id="main">
     <!-- breadcrumb navigation -->
-    <div class="container pt-4">
+    <div class="container pt-5">
       <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
         <ol class="breadcrumb">
           <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
@@ -188,8 +188,8 @@
               <a href="tel:+60123456789" class="nav-link text-white">
                 <i class="bi bi-telephone-fill"></i> PHONE
             </a>
-              <a href="/Student/Feedback.aspx" class="nav-link text-white">
-                <i class="bi bi-chat-right-dots-fill"></i> FEEDBACK
+              <a href="#" class="nav-link text-white">
+                <i class="bi bi-instagram"></i> INSTAGRAM
             </a>
             </li>
           </ul>
