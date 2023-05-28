@@ -12,5 +12,11 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        { 
+            Session.Abandon();
+            Response.Redirect("/Home.aspx");
+        }
     }
 }

@@ -35,6 +35,7 @@
                 </div>
             </div>
         </div>
+
         <%--INTERMEDIATE LEVEL--%>
         <h2 class="border-bottom border-3 text-center p-2">INTERMEDIATE LEVEL</h2>
         <div class="row justify-content-evenly py-3 mb-3">
