@@ -6,6 +6,7 @@
     <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Manage Course</li>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Manage Course</h1>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CourseID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">

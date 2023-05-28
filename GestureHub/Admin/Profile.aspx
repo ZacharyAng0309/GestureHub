@@ -1,15 +1,26 @@
-﻿<%@ Page Title="Member Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberProfile.aspx.cs" Inherits="GestureHub.MemberProfile" ValidateRequest="false" %>
+﻿<%@ Page Title="Admin Profile" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="GestureHub.Admin.Profile" ValidateRequest="false" %>
+
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-    <li class="breadcrumb-item"><a href="/Default.aspx">Home</a></li>
-  <li class="breadcrumb-item active" aria-current="page">Member Profile</li>
+    <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Admin Profile</li>
 </asp:Content>
 
-<asp:Content ID="MemberProfContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+<asp:Content ID="AdminProfContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
          
         <form id="form2" runat="server">
             <div class="row justify-content-evenly">
+                 <div class="col-sm-5 col-md-6 mb-3">
+                      <h5>Member ID:</h5>
+                    <asp:TextBox ID="MemberIDProfile"
+                        runat="server"
+                        TextMode="SingleLine"
+                        ToolTip="Username"
+                        Required="required" CssClass="form-control"
+                        Placeholder="MemberID"
+                        ReadOnly="true"></asp:TextBox>
+                </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Username:</h5>
                     <asp:TextBox ID="UsernameProfile"
@@ -73,9 +84,7 @@
                         Required="required" CssClass="form-control"
                         Placeholder="Gender"></asp:TextBox>
                 </div>
-                <div class="col-sm-5 col-md-6 mb-3">
-                </div>
-                 <div class="col-sm-5 col-md-6 mb-3">
+                 <div class="col-sm-5 col-md-6 mb-5">
                     <h5>Delete Account:</h5>
                      <div class="d-grid gap-2 col-6">
                          <asp:Button ID="DeleteBtn" runat="server" Text="Delete" CssClass="btn btn-danger btn-md btn-block" />
@@ -83,9 +92,14 @@
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                 </div>
-                 <div class="d-grid gap-2 col-6">
-                         <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" />
+                 <div class="d-grid gap-2 col-3">
+                     <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" />
+                    
                      </div>
+                 <div class="d-grid gap-2 col-3">
+                      <asp:Button ID="BackBtn" runat="server" a href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
+                </div>
+               
             </div>
            
            
@@ -93,4 +107,3 @@
        
     </div>
 </asp:Content>
-

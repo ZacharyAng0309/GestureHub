@@ -12,7 +12,7 @@
 </asp:Content>
 
 <asp:Content ID="RegisterContent" ContentPlaceHolderID="MainContent" runat="server">
-  <div class="container pb-4">
+  <div class="container shadow rounded-3 p-4 mb-5 bg-white">
     <h1 class="border-bottom mb-3">Register</h1>
     <form id="form1" runat="server">
       <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

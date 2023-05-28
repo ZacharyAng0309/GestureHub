@@ -10,7 +10,7 @@
 </asp:Content>
 
 <asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container p-4">
+    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <h1 class="border-bottom mb-3">Login.</h1>
         <h6>Not a member? <a href="/Register.aspx">Create Account</a>
         </h6>
@@ -45,7 +45,7 @@
             </div>
             <div class="mt-3">
                 <asp:Label ID="UserTypeLbl" runat="server" Text="Login as"></asp:Label>
-                <div class="p-2">
+                <div class="p-2 mb-5">
                     <asp:RadioButtonList ID="UserTypeRadio" runat="server">
                         <asp:ListItem Selected="True" Text="Admin" Value="admin"></asp:ListItem>
                         <asp:ListItem Selected="False" Text="Student" Value="student"></asp:ListItem>
