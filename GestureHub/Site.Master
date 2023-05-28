@@ -71,7 +71,7 @@
                         <ul class="navbar-nav mx-5">
                             <asp:ContentPlaceHolder ID="NavLeftContent" runat="server"></asp:ContentPlaceHolder>
                         </ul>
-                        <%--   <asp:ContentPlaceHolder ID="GreetContent" runat="server"></asp:ContentPlaceHolder>--%>
+                        <asp:ContentPlaceHolder ID="GreetContent" runat="server"></asp:ContentPlaceHolder>
                         <ul class="navbar-nav ms-auto ">
                             <asp:ContentPlaceHolder ID="NavRightContent" runat="server"></asp:ContentPlaceHolder>
                         </ul>
@@ -82,7 +82,7 @@
 
     </header>
 
-    <main id="main" class="container-fluid ps-5 pt-4">
+<%--    <main id="main" class="container-fluid ps-5 pt-4">
         <!-- breadcrumb navigation -->
         <div class="container">
             <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
@@ -94,9 +94,9 @@
         </div>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
-    </main>
+    </main>--%>
 
-    <footer id="footer" class="bg-dark">
+<%--    <footer id="footer" class="bg-dark">
         <div class="container-fluid">
             <div class="row my-1 p-4 pb-2 text-white border-bottom justify-content-around">
 
@@ -145,14 +145,14 @@
           </div>
         </div>
       </nav>
-    </div>
+    </div>--%>
 
 
-  </header>
+<%--  </header>--%>
 
   <main id="main">
     <!-- breadcrumb navigation -->
-    <div class="container">
+    <div class="container pt-4">
       <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
         <ol class="breadcrumb">
           <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">

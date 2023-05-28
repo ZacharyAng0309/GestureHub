@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Home</a></li>
+    <li class="breadcrumb-item"><a href="/Admin/ManageUser.aspx">Manage User</a></li>
     <li class="breadcrumb-item active" aria-current="page">Edit User</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
@@ -13,7 +14,7 @@
             <div class="col-md-5">
                 <div class="form-group mb-2">
                     <label for="idField">ID:</label>
-                    <input type="text" class="form-control" id="idField" placeholder="User ID" readonly>
+                    <input type="text" class="form-control" id="idField" placeholder="Member ID" readonly>
                 </div>
                 <div class="form-group mb-2">
                     <label for="firstNameField">First Name:</label>
