@@ -11,7 +11,7 @@
 
 <asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container shadow rounded-3 p-4 mb-5 bg-white">
-        <h1 class="border-bottom mb-3">Login.</h1>
+        <h1 class="border-bottom mb-3">Login</h1>
         <h6>Not a member? <a href="/Register.aspx">Create Account</a>
         </h6>
         <form id="form1" runat="server">
@@ -53,9 +53,10 @@
                     </asp:Panel>
                 </div>
             </div>
+            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
         </form>
     </div>
-
+    
     <input type="hidden" id="NavLocation" value="login" disabled="disabled" />
     <script>
 </script>
