@@ -42,13 +42,13 @@ namespace GestureHub
         protected global::System.Web.UI.WebControls.Literal CourseCount;
 
         /// <summary>
-        /// StudentCount control.
+        /// UserCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal StudentCount;
+        protected global::System.Web.UI.WebControls.Literal UserCount;
 
         /// <summary>
         /// MaleCount control.

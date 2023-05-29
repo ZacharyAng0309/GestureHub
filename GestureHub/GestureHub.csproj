@@ -53,6 +53,9 @@
     <Reference Include="HtmlSanitizer, Version=8.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlSanitizer.8.0.645\lib\net461\HtmlSanitizer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -125,12 +128,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\AddCourse.aspx" />
+    <Content Include="Admin\AddQuiz.aspx" />
+    <Content Include="Admin\AddUser.aspx" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\EditCourse.aspx" />
+    <Content Include="Admin\EditQuiz.aspx" />
+    <Content Include="Admin\EditQuizQuestion.aspx" />
+    <Content Include="Admin\EditUser.aspx" />
+    <Content Include="Admin\ManageCourse.aspx" />
+    <Content Include="Admin\ManageQuiz.aspx" />
+    <Content Include="Admin\ManageQuizQuestion.aspx" />
+    <Content Include="Admin\ManageUser.aspx" />
+    <Content Include="Admin\Profile.aspx" />
+    <Content Include="Admin\ViewFeedback.aspx" />
     <Content Include="App_Data\GestureHubDatabase.mdf" />
     <Content Include="App_Data\GestureHubDatabase_log.ldf">
       <DependentUpon>GestureHubDatabase.mdf</DependentUpon>
@@ -152,40 +164,26 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\OwlCarousel\AjaxLoader.gif" />
+    <Content Include="Content\OwlCarousel\grabbing.png" />
+    <Content Include="Content\OwlCarousel\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel\owl.theme.css" />
+    <Content Include="Content\OwlCarousel\owl.transitions.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Dashboard.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="CourseOverview.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\bodylanguage_a.jpg" />
-    <Content Include="Images\bodylanguage_b.jpg" />
-    <Content Include="Images\bodylanguage_c.jpg" />
-    <Content Include="Images\bodylanguage_d.jpg" />
-    <Content Include="Images\bodylanguage_e.jpg" />
-    <Content Include="Images\bodylanguage_f.jpg" />
-    <Content Include="Images\bodylanguage_g.jpg" />
-    <Content Include="Images\bodylanguage_h.jpg" />
-    <Content Include="Images\bodylanguage_i.jpg" />
-    <Content Include="Images\bodylanguage_j.jpg" />
-    <Content Include="Images\bodylanguage_k.jpg" />
-    <Content Include="Images\bodylanguage_l.jpg" />
-    <Content Include="Images\bodylanguage_m.jpg" />
-    <Content Include="Images\bodylanguage_n.jpg" />
-    <Content Include="Images\bodylanguage_o.jpg" />
-    <Content Include="Images\bodylanguage_p.jpg" />
-    <Content Include="Images\bodylanguage_q.jpg" />
-    <Content Include="Images\bodylanguage_r.jpg" />
-    <Content Include="Images\bodylanguage_s.jpg" />
-    <Content Include="Images\bodylanguage_t.jpg" />
-    <Content Include="Images\bodylanguage_u.jpg" />
-    <Content Include="Images\bodylanguage_v.jpg" />
-    <Content Include="Images\bodylanguage_w.jpg" />
-    <Content Include="Images\bodylanguage_x.jpg" />
-    <Content Include="Images\bodylanguage_y.jpg" />
-    <Content Include="Images\bodylanguage_z.jpg" />
     <Content Include="Images\GestureHubLogo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Member\CourseOverview.aspx" />
+    <Content Include="Member\Courses.aspx" />
+    <Content Include="Member\Dashboard.aspx" />
+    <Content Include="Member\Feedback.aspx" />
+    <Content Include="Member\Profile.aspx" />
+    <Content Include="Member\QuizPage.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -214,15 +212,22 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="MyService.asmx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\chart.js" />
+    <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\Home.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\JavaScript.js" />
     <Content Include="Scripts\WebForms\Menu.js" />
     <Content Include="Scripts\WebForms\MenuStandards.js" />
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
@@ -248,6 +253,104 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddQuiz.aspx.cs">
+      <DependentUpon>AddQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddQuiz.aspx.designer.cs">
+      <DependentUpon>AddQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditCourse.aspx.cs">
+      <DependentUpon>EditCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCourse.aspx.designer.cs">
+      <DependentUpon>EditCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditQuiz.aspx.cs">
+      <DependentUpon>EditQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditQuiz.aspx.designer.cs">
+      <DependentUpon>EditQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditQuizQuestion.aspx.cs">
+      <DependentUpon>EditQuizQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditQuizQuestion.aspx.designer.cs">
+      <DependentUpon>EditQuizQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageCourse.aspx.cs">
+      <DependentUpon>ManageCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageCourse.aspx.designer.cs">
+      <DependentUpon>ManageCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageQuiz.aspx.cs">
+      <DependentUpon>ManageQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageQuiz.aspx.designer.cs">
+      <DependentUpon>ManageQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageQuizQuestion.aspx.cs">
+      <DependentUpon>ManageQuizQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageQuizQuestion.aspx.designer.cs">
+      <DependentUpon>ManageQuizQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewFeedback.aspx.cs">
+      <DependentUpon>ViewFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewFeedback.aspx.designer.cs">
+      <DependentUpon>ViewFeedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -264,19 +367,19 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
+    <Compile Include="CourseOverview.aspx.cs">
+      <DependentUpon>CourseOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
+    <Compile Include="CourseOverview.aspx.designer.cs">
+      <DependentUpon>CourseOverview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -295,7 +398,56 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Member\CourseOverview.aspx.cs">
+      <DependentUpon>CourseOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\CourseOverview.aspx.designer.cs">
+      <DependentUpon>CourseOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\QuizPage.aspx.cs">
+      <DependentUpon>QuizPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\QuizPage.aspx.designer.cs">
+      <DependentUpon>QuizPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -344,13 +496,13 @@
     <Compile Include="UtilClass\ChapterC.cs" />
     <Compile Include="UtilClass\CourseC.cs" />
     <Compile Include="UtilClass\DatabaseManager.cs" />
-    <Compile Include="UtilClass\ExamC.cs" />
+    <Compile Include="UtilClass\QuizC.cs" />
     <Compile Include="UtilClass\FeedbackC.cs" />
     <Compile Include="UtilClass\MyAutoComplete.cs" />
     <Compile Include="UtilClass\MyUtil.cs" />
     <Compile Include="UtilClass\Question.cs" />
     <Compile Include="UtilClass\SessionManager.cs" />
-    <Compile Include="UtilClass\StudentC.cs" />
+    <Compile Include="UtilClass\UserC.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -358,10 +510,12 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="MyService.asmx.cs">
+      <DependentUpon>MyService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\App_LocalResources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

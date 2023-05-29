@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace GestureHub
 {
-    public static class StudentC
+    public static class UserC
     {
-
         public static void Unenroll(int student_id, int course_id)
         {
             DataTable courseTable = CourseC.GetCourseData(course_id);
@@ -44,7 +41,6 @@ namespace GestureHub
                 }
                 conn.Close();
             }
-
         }
 
         public static void Enroll(int student_id, int course_id)
@@ -70,7 +66,7 @@ namespace GestureHub
             }
         }
 
-        public static DataRow GetStudentData(int student_id)
+        public static DataRow GetUserData(int user_id)
         {
             DataTable dataTable = new DataTable();
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
@@ -79,8 +75,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM student WHERE student_id=@student_id;";
-                    cmd.Parameters.AddWithValue("@student_id", student_id);
+                    cmd.CommandText = "SELECT * FROM user WHERE user_id=@user_id;";
+                    cmd.Parameters.AddWithValue("@user_id", user_id);
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         sda.Fill(dataTable);
@@ -152,7 +148,7 @@ namespace GestureHub
             return result;
         }
 
-        public static int GetStudentCount()
+        public static int GetUserCount()
         {
             int count;
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -161,25 +157,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [student];";
-                    var result = cmd.ExecuteScalar();
-                    count = Convert.ToInt32(result);
-                }
-                conn.Close();
-            }
-            return count;
-        }
-        public static int GetStudentCount(string gender)
-        {
-            int count;
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [student] WHERE gender=@gender;";
-                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE role = 'member';";
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
                 }
@@ -188,5 +166,23 @@ namespace GestureHub
             return count;
         }
 
+        public static int GetUserCountByGender(string gender)
+        {
+            int count;
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE gender=@gender;";
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    var result = cmd.ExecuteScalar();
+                    count = Convert.ToInt32(result);
+                }
+                conn.Close();
+            }
+            return count;
+        }
     }
 }

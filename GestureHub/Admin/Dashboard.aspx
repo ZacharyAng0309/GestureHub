@@ -36,7 +36,7 @@
                 </span>
               </div>
               <div class="my-2">
-                <a href="/ListCourse.aspx" class="btn btn-primary btn-lg stretched-link">View</a>
+                <a href="Admin/ManageCourse.aspx" class="btn btn-primary btn-lg stretched-link">Manage Course</a>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
         <div class="col-lg-6">
           <div class="card text-center">
             <div class="card-header">
-              <h4>Student</h4>
+              <h4>Users</h4>
             </div>
             <div class="row g-0 card-body">
               <div class="col">
@@ -54,7 +54,7 @@
               </div>
               <div class="col p-4 fs-5 statistic d-flex flex-column justify-content-center align-items-start">
                 <span>
-                  <i class="bi bi-hash"></i>Count: <asp:Literal ID="StudentCount" runat="server"></asp:Literal>
+                  <i class="bi bi-hash"></i>Count: <asp:Literal ID="UserCount" runat="server"></asp:Literal>
                 </span>
                 <span>
                   <i class="bi bi-gender-male"></i>Male: <asp:Literal ID="MaleCount" runat="server"></asp:Literal>
@@ -64,7 +64,7 @@
                 </span>
               </div>
               <div class="my-2">
-                <a href="/Admin/StudentData/StudentList.aspx" class="btn btn-primary btn-lg stretched-link">View</a>
+                <a href="/Admin/ManageUser.aspx" class="btn btn-primary btn-lg stretched-link">Manage User</a>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ namespace GestureHub
 {
 
 
-    public partial class _Default
+    public partial class AdminAddCourse
     {
     }
 }

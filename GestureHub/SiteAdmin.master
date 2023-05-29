@@ -1,44 +1,52 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SiteAdmin.master.cs" Inherits="GestureHub.SiteAdmin" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
-  <title>Admin | <%: Page.Title %></title>
-  <asp:ContentPlaceHolder ID="head" runat="server">
-  </asp:ContentPlaceHolder>
+    <title>Admin | <%: Page.Title %></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
-  <!-- Admin's top left side navbar -->
-  <li class="nav-item">
-    <a href="/Dashboard.aspx" class="nav-link" data-nav-loc="dashboard">Dashboard</a>
-  </li>
-  <li class="nav-item">
-    <a href="/Admin/StudentData/StudentList.aspx" class="nav-link" data-nav-loc="student">Student</a>
-  </li>
-  <li class="nav-item">
-    <a href="/Admin/Feedback/FeedbackList.aspx" class="nav-link" data-nav-loc="feedback">Feedback</a>
-  </li>
+    <!-- Admin's top left side navbar -->
+    <li class="nav-item">
+        <a href="/Admin/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
+    </li>
+    <li class="nav-item">
+        <a href="/Admin/ManageUser.aspx" class="nav-link text-white" data-nav-loc="student">MANAGE USER</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="manageMaterialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MANAGE MATERIAL
+        </a>
+        <div class="dropdown-menu" aria-labelledby="manageMaterialDropdown">
+            <a class="dropdown-item" href="/Admin/ManageCourse.aspx">MANAGE COURSE</a>
+            <a class="dropdown-item" href="/Admin/ManageVocabulary.aspx">MANAGE VOCABULARY</a>
+            <a class="dropdown-item" href="/Admin/ManagerQuiz.aspx">MANAGE QUIZ</a>
+            <a class="dropdown-item" href="/Admin/ManageQuizQuestion.aspx">MANAGE QUIZ QUESTION</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a href="/Admin/ViewFeedback.aspx" class="nav-link text-white" data-nav-loc="feedback">VIEW FEEDBACK</a>
+    </li>
 </asp:Content>
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
-  <!-- Admin's top right side navbar -->
-  <li class="nav-item">
-    <a href="/Logout.aspx" class="nav-link" data-nav-loc="logout">Logout</a>
-  </li>
-</asp:Content>
-
-<asp:Content ID="CourseDropDown" ContentPlaceHolderID="CourseDropDownContent" runat="server">
-  <!-- Admin's course dropdown list -->
-  <li><a class="dropdown-item" href="/Admin/Course/AddCourse.aspx">Add Course</a></li>
+    <!-- Admin's top right side navbar -->
+    <li class="nav-item">
+        <a href="/Admin/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
+    </li>
+    <li class="nav-item">
+        <a href="/logout.aspx" class="nav-link text-white bg-transparent border border-0 p-2" data-nav-loc="logout">LOGOUT</a>
+    </li>
 </asp:Content>
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-  <!-- breadcrumb content -->
-  <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
-  </asp:ContentPlaceHolder>
+    <!-- breadcrumb content -->
+    <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-  <!-- main content -->
-  <asp:ContentPlaceHolder ID="MainContent" runat="server">
-  </asp:ContentPlaceHolder>
+    <!-- main content -->
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
