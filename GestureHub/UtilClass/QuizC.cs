@@ -32,17 +32,18 @@ namespace GestureHub
         //    return dataTable;
         //}
 
-        public static DataTable GetQuizData(int exam_id)
+        public static DataTable GetQuizData(int quiz_id)
         {
-            DataTable dataTable = new DataTable();
+           //use the quiz_id to fetch the quiz data from the database called GestureHubDatabase
+           DataTable dataTable = new DataTable();
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM exam WHERE exam_id=@exam_id;";
-                    cmd.Parameters.AddWithValue("@exam_id", exam_id);
+                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quiz_id;";
+                    cmd.Parameters.AddWithValue("@quiz_id", quiz_id);
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;

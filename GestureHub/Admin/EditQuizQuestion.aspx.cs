@@ -13,9 +13,9 @@ namespace GestureHub.Admin
         {
             //get the quiz id from the query string
             string quizId = Request.QueryString["QuizID"];
-            //get the quiz data from the database accoring to the quizId which is converted to int
             if (quizId != null)
             {
+                SqlDataSource1.SelectParameters["questionId"].DefaultValue = quizId;
                 var quizData = QuizC.GetQuizData(Convert.ToInt32(quizId));
 
             }
