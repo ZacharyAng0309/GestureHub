@@ -11,7 +11,7 @@ namespace GestureHub.Member
 {
 
 
-    public partial class Courses
+    public partial class Dashboard
     {
     }
 }
