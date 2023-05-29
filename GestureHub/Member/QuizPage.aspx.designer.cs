@@ -11,7 +11,7 @@ namespace GestureHub.Member
 {
 
 
-    public partial class Dashboard
+    public partial class QuizPage
     {
     }
 }
