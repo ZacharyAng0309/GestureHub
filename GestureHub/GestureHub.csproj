@@ -170,7 +170,6 @@
     <Content Include="Content\OwlCarousel\owl.theme.css" />
     <Content Include="Content\OwlCarousel\owl.transitions.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Course.aspx" />
     <Content Include="CourseOverview.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="favicon.ico" />
@@ -368,12 +367,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Course.aspx.cs">
-      <DependentUpon>Course.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Course.aspx.designer.cs">
-      <DependentUpon>Course.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CourseOverview.aspx.cs">
       <DependentUpon>CourseOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -414,6 +407,7 @@
     </Compile>
     <Compile Include="Member\Courses.aspx.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Courses.aspx.designer.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
@@ -427,18 +421,21 @@
     </Compile>
     <Compile Include="Member\Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Feedback.aspx.designer.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\QuizPage.aspx.cs">
       <DependentUpon>QuizPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\QuizPage.aspx.designer.cs">
       <DependentUpon>QuizPage.aspx</DependentUpon>
