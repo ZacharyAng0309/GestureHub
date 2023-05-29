@@ -407,6 +407,7 @@
     </Compile>
     <Compile Include="Member\CourseOverview.aspx.cs">
       <DependentUpon>CourseOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\CourseOverview.aspx.designer.cs">
       <DependentUpon>CourseOverview.aspx</DependentUpon>
@@ -419,6 +420,7 @@
     </Compile>
     <Compile Include="Member\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
