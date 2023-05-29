@@ -157,6 +157,33 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bodylanguage_a.jpg" />
+    <Content Include="Images\bodylanguage_b.jpg" />
+    <Content Include="Images\bodylanguage_c.jpg" />
+    <Content Include="Images\bodylanguage_d.jpg" />
+    <Content Include="Images\bodylanguage_e.jpg" />
+    <Content Include="Images\bodylanguage_f.jpg" />
+    <Content Include="Images\bodylanguage_g.jpg" />
+    <Content Include="Images\bodylanguage_h.jpg" />
+    <Content Include="Images\bodylanguage_i.jpg" />
+    <Content Include="Images\bodylanguage_j.jpg" />
+    <Content Include="Images\bodylanguage_k.jpg" />
+    <Content Include="Images\bodylanguage_l.jpg" />
+    <Content Include="Images\bodylanguage_m.jpg" />
+    <Content Include="Images\bodylanguage_n.jpg" />
+    <Content Include="Images\bodylanguage_o.jpg" />
+    <Content Include="Images\bodylanguage_p.jpg" />
+    <Content Include="Images\bodylanguage_q.jpg" />
+    <Content Include="Images\bodylanguage_r.jpg" />
+    <Content Include="Images\bodylanguage_s.jpg" />
+    <Content Include="Images\bodylanguage_t.jpg" />
+    <Content Include="Images\bodylanguage_u.jpg" />
+    <Content Include="Images\bodylanguage_v.jpg" />
+    <Content Include="Images\bodylanguage_w.jpg" />
+    <Content Include="Images\bodylanguage_x.jpg" />
+    <Content Include="Images\bodylanguage_y.jpg" />
+    <Content Include="Images\bodylanguage_z.jpg" />
+    <Content Include="Images\GestureHubLogo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -332,7 +359,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\App_LocalResources\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
