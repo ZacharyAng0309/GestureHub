@@ -370,7 +370,6 @@
     </Compile>
     <Compile Include="Course.aspx.cs">
       <DependentUpon>Course.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Course.aspx.designer.cs">
       <DependentUpon>Course.aspx</DependentUpon>
@@ -408,42 +407,36 @@
     </Compile>
     <Compile Include="Member\CourseOverview.aspx.cs">
       <DependentUpon>CourseOverview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\CourseOverview.aspx.designer.cs">
       <DependentUpon>CourseOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Courses.aspx.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Courses.aspx.designer.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Feedback.aspx.designer.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\QuizPage.aspx.cs">
       <DependentUpon>QuizPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\QuizPage.aspx.designer.cs">
       <DependentUpon>QuizPage.aspx</DependentUpon>
