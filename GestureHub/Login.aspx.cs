@@ -56,12 +56,11 @@ namespace GestureHub
         //            }
         //        }
         //    }
-        }
-
-        //protected void SetDbTable()
-        //{
-        //    string userType = this.UserTypeRadio.SelectedValue;
-        //    DbTable = userType;
-        //}
     }
+
+    //protected void SetDbTable()
+    //{
+    //    string userType = this.UserTypeRadio.SelectedValue;
+    //    DbTable = userType;
+    //}
 }
