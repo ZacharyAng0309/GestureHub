@@ -1,14 +1,12 @@
-﻿<%@ Page Title="Member Courses" Language="C#" MasterPageFile="~/SiteStudent.master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="GestureHub.Member.Courses" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAnon.master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="GestureHub.Courses" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-     <li class="breadcrumb-item"><a href="/Member/Dashboard.aspx">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Courses</li>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
+      <div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <%--BEGINNER LEVEL--%>
         <h2 class="border-bottom border-3 text-center p-2 mt-3">BEGINNER LEVEL</h2>
         <div class="row justify-content-evenly py-2">
@@ -19,8 +17,8 @@
                     <h5 class="card-title">Alphabet</h5>
                     <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                    <div class="row justify-content-around">
-                        <a href="/Member/CourseOverview.aspx" class="btn btn-success aliegn-items-center col-5">VIEW</a>
-                        <a href="/Member/QuizPage.aspx" class="btn btn-secondary align-items-center col-5">TAKE QUIZ</a>
+                        <a href="/CourseOverview.aspx" class="btn btn-success align-items-center col-5">VIEW</a>
+                        <a href="#" class="btn btn-secondary align-items-center col-5">TAKE QUIZ</a>
                     </div> 
                 </div>
             </div>
