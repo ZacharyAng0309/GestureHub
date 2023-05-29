@@ -170,7 +170,6 @@
     <Content Include="Content\OwlCarousel\owl.theme.css" />
     <Content Include="Content\OwlCarousel\owl.transitions.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Course.aspx" />
     <Content Include="CourseOverview.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="favicon.ico" />
@@ -178,12 +177,6 @@
     <Content Include="Images\GestureHubLogo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
-    <Content Include="Member\CourseOverview.aspx" />
-    <Content Include="Member\Courses.aspx" />
-    <Content Include="Member\Dashboard.aspx" />
-    <Content Include="Member\Feedback.aspx" />
-    <Content Include="Member\Profile.aspx" />
-    <Content Include="Member\QuizPage.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -368,12 +361,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Course.aspx.cs">
-      <DependentUpon>Course.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Course.aspx.designer.cs">
-      <DependentUpon>Course.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CourseOverview.aspx.cs">
       <DependentUpon>CourseOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,44 +391,6 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\CourseOverview.aspx.cs">
-      <DependentUpon>CourseOverview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Member\CourseOverview.aspx.designer.cs">
-      <DependentUpon>CourseOverview.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Courses.aspx.cs">
-      <DependentUpon>Courses.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Courses.aspx.designer.cs">
-      <DependentUpon>Courses.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Member\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Feedback.aspx.cs">
-      <DependentUpon>Feedback.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Feedback.aspx.designer.cs">
-      <DependentUpon>Feedback.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\Profile.aspx.designer.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\QuizPage.aspx.cs">
-      <DependentUpon>QuizPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Member\QuizPage.aspx.designer.cs">
-      <DependentUpon>QuizPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
