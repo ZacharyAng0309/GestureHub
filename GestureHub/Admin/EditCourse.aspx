@@ -10,44 +10,44 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
+<div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <h3 class="mb-4">Edit Course</h3>
         <form>
             <div class="form-group mb-4">
-                <label for="idField">Course ID:</label>
-                <input type="text" class="form-control" id="idField" placeholder="Course ID" readonly>
+                <asp:Label runat="server" AssociatedControlID="idField">Course ID:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="idField" ReadOnly="true" placeholder="Course ID"></asp:TextBox>
             </div>
             <div class="form-group mb-4">
-                <label for="descriptionField">Description:</label>
-                <textarea class="form-control" id="descriptionField" rows="3"></textarea>
+                <asp:Label runat="server" AssociatedControlID="descriptionField">Description:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="descriptionField" TextMode="MultiLine" Rows="3"></asp:TextBox>
             </div>
 
             <div class="form-group mb-5">
-                <label for="titleField">Title:</label>
-                <input type="text" class="form-control" id="titleField" placeholder="Insert title">
+                <asp:Label runat="server" AssociatedControlID="titleField">Title:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="titleField" placeholder="Insert title"></asp:TextBox>
             </div>
             <div class="form-group mt-3 mb-4">
-                <label for="difficultyField">Difficulty:</label>
-                <select class="form-control" id="difficultyField">
-                    <option>Easy</option>
-                    <option>Intermediate</option>
-                    <option>Hard</option>
-                </select>
+                <asp:Label runat="server" AssociatedControlID="difficultyField">Difficulty:</asp:Label>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="difficultyField">
+                    <asp:ListItem>Easy</asp:ListItem>
+                    <asp:ListItem>Intermediate</asp:ListItem>
+                    <asp:ListItem>Hard</asp:ListItem>
+                </asp:DropDownList>
             </div>
 
             <div class="row mb-4">
                 <div class="form-group col-md-6 mb-4">
-                    <label for="createdAtField">Created At:</label>
-                    <input type="text" class="form-control" id="createdAtField" placeholder="YYYY-MM-DD" readonly>
+                    <asp:Label runat="server" AssociatedControlID="createdAtField">Created At:</asp:Label>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="createdAtField" ReadOnly="true" placeholder="YYYY-MM-DD"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-6 mb-4">
-                    <label for="updatedAtField">Updated At:</label>
-                    <input type="text" class="form-control" id="updatedAtField" placeholder="YYYY-MM-DD" readonly>
+                    <asp:Label runat="server" AssociatedControlID="updatedAtField">Updated At:</asp:Label>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="updatedAtField" ReadOnly="true" placeholder="YYYY-MM-DD"></asp:TextBox>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary col-md-4 me-3">Update</button>
-                <a href="#" class="btn btn-secondary col-md-4">Back</a>
+                <asp:Button runat="server" CssClass="btn btn-primary col-md-4 me-3" Text="Update" OnClick="UpdateButton_Click" />
+                <asp:HyperLink runat="server" CssClass="btn btn-secondary col-md-4" NavigateUrl="#">Back</asp:HyperLink>
             </div>
         </form>
     </div>
