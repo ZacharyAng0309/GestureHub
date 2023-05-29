@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace GestureHub.Member
 {
-    public partial class Courses : System.Web.UI.Page
+    public partial class Feedback : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
