@@ -7,16 +7,15 @@
 </asp:Content>
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
-    <!-- Student top left side navbar -->
-
+  <!-- Student top left side navbar -->
     <li class="nav-item">
-        <a href="/Home.aspx" class="nav-link text-white" data-nav-loc="home">HOME</a>
+        <a href="/Member/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
     </li>
     <li class="nav-item">
-        <a href="/Course.aspx" class="nav-link text-white" data-nav-loc="dashboard">COURSE</a>
+        <a href="/Member/Course.aspx" class="nav-link text-white" data-nav-loc="dashboard">COURSE</a>
     </li>
     <li class="nav-item">
-        <a href="/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
+        <a href="/Member/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
     </li>
     <li class="nav-item">
         <a href="/About.aspx" class="nav-link text-white" data-nav-loc="about">ABOUT US</a>
@@ -33,7 +32,7 @@
 </asp:Content>
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
-    <!-- Student top right side navbar -->
+  <!-- Student top right side navbar -->
     <li class="nav-item">
         <a href="/Member/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
     </li>

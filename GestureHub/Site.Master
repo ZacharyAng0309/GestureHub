@@ -150,50 +150,50 @@
 
     <%--  </header>--%>
 
-    <main id="main">
-        <!-- breadcrumb navigation -->
-        <div class="container pt-4">
-            <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
-                <ol class="breadcrumb">
-                    <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
-                    </asp:ContentPlaceHolder>
-                </ol>
-            </nav>
+  <main id="main">
+    <!-- breadcrumb navigation -->
+    <div class="container pt-5">
+      <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
+        <ol class="breadcrumb">
+          <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+          </asp:ContentPlaceHolder>
+        </ol>
+      </nav>
+    </div>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+  </main>
+
+  <footer id="footer" class="bg-dark">
+    <div class="container-fluid">
+      <div class="row  my-1 p-4 pb-2 text-white border-bottom justify-content-around">
+         
+        <div class="col-md-4 text-center text-md-start">
+          <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3> 
+          <figure class="mb-0">
+            <img
+              src="/images/GestureHubLogo.png"
+              alt="GestureHub Logo"
+              style="width: 150px;"
+              class="rounded-pill" />
+          </figure>
         </div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        </asp:ContentPlaceHolder>
-    </main>
-
-    <footer id="footer" class="bg-dark">
-        <div class="container-fluid">
-            <div class="row  my-1 p-4 pb-2 text-white border-bottom justify-content-around">
-
-                <div class="col-md-4 text-center text-md-start">
-                    <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3>
-                    <figure class="mb-0">
-                        <img
-                            src="/images/GestureHubLogo.png"
-                            alt="GestureHub Logo"
-                            style="width: 150px;"
-                            class="rounded-pill" />
-                    </figure>
-                </div>
-                <div class="col-md-3 mb-4 text-center text-md-start">
-                    <h3 data-toc-skip="true">CONTACT US</h3>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="mailto:a@example.com" class="nav-link text-white">
-                                <i class="bi bi-envelope-fill"></i>EMAIL
-                            </a>
-                            <a href="tel:+60123456789" class="nav-link text-white">
-                                <i class="bi bi-telephone-fill"></i>PHONE
-                            </a>
-                            <a href="/Student/Feedback.aspx" class="nav-link text-white">
-                                <i class="bi bi-chat-right-dots-fill"></i>FEEDBACK
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="col-md-3 mb-4 text-center text-md-start">
+          <h3 data-toc-skip="true">CONTACT US</h3>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="mailto:a@example.com" class="nav-link text-white">
+                <i class="bi bi-envelope-fill"></i> EMAIL
+            </a>
+              <a href="tel:+60123456789" class="nav-link text-white">
+                <i class="bi bi-telephone-fill"></i> PHONE
+            </a>
+              <a href="#" class="nav-link text-white">
+                <i class="bi bi-instagram"></i> INSTAGRAM
+            </a>
+            </li>
+          </ul>
+        </div>
 
 
             </div>
