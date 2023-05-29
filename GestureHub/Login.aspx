@@ -44,16 +44,10 @@
                 </span>
             </div>
             <div class="mt-3">
-                <asp:Label ID="UserTypeLbl" runat="server" Text="Login as"></asp:Label>
-                <div class="p-2 mb-5">
-                    <asp:RadioButtonList ID="UserTypeRadio" runat="server">
-                        <asp:ListItem Selected="True" Text="Admin" Value="admin"></asp:ListItem>
-                        <asp:ListItem Selected="False" Text="Student" Value="student"></asp:ListItem>
-                    </asp:RadioButtonList>
-                </div>
+               <h6 class="mb-4"><a href="#">Forget Password?</a></h6>
 
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click" CssClass="btn btn-primary btn-md btn-block" Style="background-color: #6A5ACD;" />
+                    <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click" CssClass="btn btn-md btn-block text-white" Style="background-color: #6A5ACD;" />
                     <asp:Panel ID="ErrorPanel" runat="server" class="alert alert-danger mt-3" role="alert" Visible="false">
                         <asp:Label ID="ErrorLbl" runat="server" Text="Login credential is incorrect."></asp:Label>
                     </asp:Panel>

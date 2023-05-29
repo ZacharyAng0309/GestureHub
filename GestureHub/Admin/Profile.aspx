@@ -34,7 +34,7 @@
                     <h5>Email:</h5>
                     <asp:TextBox ID="EmailProfile"
                         runat="server"
-                        TextMode="SingleLine"
+                        TextMode="Email"
                         ToolTip="Email"
                         Required="required" CssClass="form-control"
                         Placeholder="Email"></asp:TextBox>
@@ -61,7 +61,7 @@
                     <h5>Updated Password:</h5>
                     <asp:TextBox ID="PasswordProfile"
                         runat="server"
-                        TextMode="SingleLine"
+                        TextMode="Password"
                         ToolTip="Password"
                         Required="required" CssClass="form-control"
                         Placeholder="Updated Password"></asp:TextBox>
@@ -70,7 +70,7 @@
                     <h5>Age:</h5>
                     <asp:TextBox ID="AgeProfile"
                         runat="server"
-                        TextMode="SingleLine"
+                        TextMode="Number"
                         ToolTip="Age"
                         Required="required" CssClass="form-control"
                         Placeholder="Age"></asp:TextBox>
@@ -97,7 +97,7 @@
                     
                      </div>
                  <div class="d-grid gap-2 col-3">
-                      <asp:Button ID="BackBtn" runat="server" a href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
+                      <asp:Button ID="BackBtn" runat="server" href="/Admin/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
                 </div>
                
             </div>
