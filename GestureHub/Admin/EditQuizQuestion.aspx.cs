@@ -12,11 +12,11 @@ namespace GestureHub.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //get the quiz id from the query string
-            string quizId = Request.QueryString["QuizID"];
-            //get the quiz data from the database accoring to the quizId which is converted to int
-            if (quizId != null)
+            string questionId = Request.QueryString["questionId"];
+            if (questionId != null)
             {
-                var quizData = QuizC.GetQuizData(Convert.ToInt32(quizId));
+                SqlDataSource1.SelectParameters["questionId"].DefaultValue = questionId;
+                var quizData = QuizC.GetQuizData(Convert.ToInt32(questionId));
 
             }
         }

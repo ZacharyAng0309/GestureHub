@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
     <div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <%--BEGINNER LEVEL--%>
         <h2 class="border-bottom border-3 text-center p-2 mt-3">BEGINNER LEVEL</h2>
