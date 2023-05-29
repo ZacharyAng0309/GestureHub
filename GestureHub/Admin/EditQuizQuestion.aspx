@@ -25,8 +25,8 @@
                 <label for="questionField">Question:</label>
                 <textarea class="form-control" id="questionField" rows="3"></textarea>
             </div>
-                        <div class="table-responsive">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowInserts ="True">
+            <div class="table-responsive">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowInserts="True">
                     <Columns>
                         <asp:BoundField DataField="OptionID" HeaderText="Option ID" SortExpression="OptionID" />
                         <asp:BoundField DataField="OptionText" HeaderText="Option Text" SortExpression="OptionText" />
@@ -58,5 +58,6 @@
                     <asp:ControlParameter ControlID="questionIDField" Name="QuestionID" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
+        </form>
     </div>
 </asp:Content>

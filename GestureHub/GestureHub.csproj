@@ -472,7 +472,7 @@
     <Compile Include="UtilClass\ChapterC.cs" />
     <Compile Include="UtilClass\CourseC.cs" />
     <Compile Include="UtilClass\DatabaseManager.cs" />
-    <Compile Include="UtilClass\ExamC.cs" />
+    <Compile Include="UtilClass\QuizC.cs" />
     <Compile Include="UtilClass\FeedbackC.cs" />
     <Compile Include="UtilClass\MyAutoComplete.cs" />
     <Compile Include="UtilClass\MyUtil.cs" />

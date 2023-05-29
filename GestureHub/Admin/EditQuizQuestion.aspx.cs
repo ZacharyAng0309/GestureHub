@@ -11,7 +11,10 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //get the quiz id from the query string
+            string quizId = Request.QueryString["QuizID"];
+            //get the quiz data from the database
+            var quizData = QuizC.GetQuizData(quizId);
         }
 
         protected void Insert_New_Quiz_Question()

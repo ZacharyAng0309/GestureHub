@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Web.Security;
 
 namespace GestureHub
 {
@@ -27,7 +28,8 @@ namespace GestureHub
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("/Home.aspx");
+            FormsAuthentication.SignOut();
+            Response.Redirect("Home.aspx");
         }
     }
 }

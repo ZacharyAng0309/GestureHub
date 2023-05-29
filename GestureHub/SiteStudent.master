@@ -2,8 +2,8 @@
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <title>Student | <%: Page.Title %></title>
-  <asp:ContentPlaceHolder ID="head" runat="server">
-  </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="NavLeft" ContentPlaceHolderID="NavLeftContent" runat="server">
@@ -12,24 +12,24 @@
     <li class="nav-item">
         <a href="/Home.aspx" class="nav-link text-white" data-nav-loc="home">HOME</a>
     </li>
-     <li class="nav-item">
-    <a href="/Course.aspx" class="nav-link text-white" data-nav-loc="dashboard">COURSE</a>
-  </li>
-     <li class="nav-item">
-    <a href="/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
-  </li>
-     <li class="nav-item">
-    <a href="/About.aspx" class="nav-link text-white" data-nav-loc="about">ABOUT US</a>
-  </li>
+    <li class="nav-item">
+        <a href="/Course.aspx" class="nav-link text-white" data-nav-loc="dashboard">COURSE</a>
+    </li>
+    <li class="nav-item">
+        <a href="/Dashboard.aspx" class="nav-link text-white" data-nav-loc="dashboard">DASHBOARD</a>
+    </li>
+    <li class="nav-item">
+        <a href="/About.aspx" class="nav-link text-white" data-nav-loc="about">ABOUT US</a>
+    </li>
 
- <%-- <li>
+    <%-- <li>
     <a href="/Student/MyGrade.aspx" class="nav-link" data-nav-loc="grade">My Grades</a>
   </li>--%>
 </asp:Content>
 
 <asp:Content ID="Greet" ContentPlaceHolderID="GreetContent" runat="server">
     <!-- Greetings -->
-  <asp:Label ID="GreetingLbl" CssClass="navbar-text text-white" runat="server"></asp:Label>
+    <asp:Label ID="GreetingLbl" CssClass="navbar-text text-white" runat="server"></asp:Label>
 </asp:Content>
 
 <asp:Content ID="NavRight" ContentPlaceHolderID="NavRightContent" runat="server">
@@ -38,19 +38,19 @@
         <a href="/Member/Profile.aspx" class="nav-link text-white" data-nav-loc="profile">PROFILE</a>
     </li>
     <li class="nav-item">
-        <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" CssClass="nav-link text-white" data-nav-loc="logout" />
+        <a href="/logout.aspx" class="nav-link text-white bg-transparent border border-0 p-2" data-nav-loc="logout">LOGOUT</a>
     </li>
 </asp:Content>
 
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <!-- breadcrumb content -->
-  <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
-  </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- main content -->
-  <asp:ContentPlaceHolder ID="MainContent" runat="server">
-  </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
