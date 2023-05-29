@@ -52,7 +52,7 @@
         </div>
         <div class="row justify-content-around mt-5">
             <a href="/Courses.aspx" class="btn btn-secondary align-items-center col-5">BACK</a>
-            <a href="/Member/Feedback.aspx" class="btn btn-primary align-items-center col-5">GIVE FEEDBACK</a>
+            <a href="#" class="btn btn-primary align-items-center col-5">GIVE FEEDBACK</a>
         </div>
         </div>
        
