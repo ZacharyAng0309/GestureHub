@@ -18,23 +18,19 @@
             <div class="card col-md-3 mb-4">
                 <div class="card-body">
                     <h4 class="card-title">Number of Members</h4>
-                     <p class="card-text">19238 Members</p>
-                   
-                   
+                     <asp:Label ID="MembersNumberLabel" runat="server" Text="19238 Members"></asp:Label>
                 </div>
             </div>
              <div class="card col-md-3 mb-4">
                 <div class="card-body">
                     <h4 class="card-title">Number of Admins</h4>
-                    <p class="card-text">19238 Admins</p> 
-                  
+                    <asp:Label ID="AdminsNumberLabel" runat="server" Text="19238 Members"></asp:Label>
                 </div>
             </div>
              <div class="card col-md-3 mb-4">
                 <div class="card-body">
                     <h4 class="card-title">Total Users</h4>
-                    <p class="card-text">19238 Total Users</p>
-                   
+                    <asp:Label ID="UsersNumberLabel" runat="server" Text="19238 Members"></asp:Label>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ namespace GestureHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            idField.Text = CourseC.GetNextCourseId().ToString();
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -22,10 +22,10 @@ namespace GestureHub
             string description = descriptionField.Text;
             //get selected value for difficulty
             string difficulty = difficultyField.SelectedValue.ToString();
-            //get current datetime
-            DateTime date = DateTime.Now;
+            String newCourseId = CourseC.GetNextCourseId().ToString();
             //AddNewCourse
-            CourseC.AddNewCourse(title, description,difficulty,date,date);
+            CourseC.AddNewCourse(title, description,difficulty);
+            QuizC.addNewQuiz(newCourseId,title,description);
         }
     }
 }

@@ -24,13 +24,6 @@
             <PagerSettings Mode="NumericFirstLast" PageButtonCount="5"></PagerSettings>
         </asp:GridView>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FeedbackID, Feedback, Date, UserID, UserName, Email, Phone, Subject, Message, Status FROM [Feedback]" DeleteCommand="DELETE FROM [Feedback] WHERE [FeedbackID] = @FeedbackID" UpdateCommand="UPDATE [Feedback] SET [Status] = @Status WHERE [FeedbackID] = @FeedbackID">
-        <DeleteParameters>
-            <asp:Parameter Name="FeedbackID" Type="Int32" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="Status" Type="String" />
-            <asp:Parameter Name="FeedbackID" Type="Int32" />
-        </UpdateParameters>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FeedbackID, Feedback, Date, UserID, UserName, Email, Phone, Subject, Message, Status FROM [Feedback]" >
     </asp:SqlDataSource>
 </asp:Content>

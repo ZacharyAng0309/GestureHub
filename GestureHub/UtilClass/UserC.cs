@@ -300,5 +300,30 @@ namespace GestureHub
             }
             return isUnique;
         }
+
+        public static int GetNewUserId()
+        {
+            //get current user count
+            int count = GetUserCount();
+            return count + 1;
+        }
+        public static int getMemberCount()
+        {
+            int count;
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE role = 'member';";
+                    var result = cmd.ExecuteScalar();
+                    count = Convert.ToInt32(result);
+                }
+                conn.Close();
+            }
+            return count;
+        }
+
     }
 }
