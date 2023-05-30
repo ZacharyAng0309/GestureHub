@@ -28,7 +28,8 @@
                         TextMode="SingleLine"
                         ToolTip="Username"
                         Required="required" CssClass="form-control"
-                        Placeholder="Username"></asp:TextBox>
+                        Placeholder="Username"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Email:</h5>
@@ -37,7 +38,8 @@
                         TextMode="Email"
                         ToolTip="Email"
                         Required="required" CssClass="form-control"
-                        Placeholder="Email"></asp:TextBox>
+                        Placeholder="Email"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>First Name:</h5>
@@ -46,7 +48,8 @@
                         TextMode="SingleLine"
                         ToolTip="First Name"
                         Required="required" CssClass="form-control"
-                        Placeholder="First Name"></asp:TextBox>
+                        Placeholder="First Name"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Last Name:</h5>
@@ -55,7 +58,8 @@
                         TextMode="SingleLine"
                         ToolTip="Last Name"
                         Required="required" CssClass="form-control"
-                        Placeholder="Last Name"></asp:TextBox>
+                        Placeholder="Last Name"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Updated Password:</h5>
@@ -64,7 +68,8 @@
                         TextMode="Password"
                         ToolTip="Password"
                         Required="required" CssClass="form-control"
-                        Placeholder="Updated Password"></asp:TextBox>
+                        Placeholder="Updated Password"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Age:</h5>
@@ -73,7 +78,8 @@
                         TextMode="Number"
                         ToolTip="Age"
                         Required="required" CssClass="form-control"
-                        Placeholder="Age"></asp:TextBox>
+                        Placeholder="Age"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Gender:</h5>
@@ -82,21 +88,11 @@
                         TextMode="SingleLine"
                         ToolTip="Gender"
                         Required="required" CssClass="form-control"
-                        Placeholder="Gender"></asp:TextBox>
+                        Placeholder="Gender"
+                        ReadOnly="true"></asp:TextBox>
                 </div>
-                 <div class="col-sm-5 col-md-6 mb-5">
-                    <h5>Delete Account:</h5>
-                     <div class="d-grid gap-2 col-6">
-                         <asp:Button ID="DeleteBtn" runat="server" Text="Delete" CssClass="btn btn-danger btn-md btn-block" />
-                     </div>
-                </div>
-                <div class="col-sm-5 col-md-6 mb-3">
-                </div>
-                 <div class="d-grid gap-2 col-3">
-                     <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" />
-                    
-                     </div>
-                 <div class="d-grid gap-2 col-3">
+                
+                 <div class="d-grid gap-2 col-6 mt-5">
                       <asp:Button ID="BackBtn" runat="server" href="/Admin/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
                 </div>
                
