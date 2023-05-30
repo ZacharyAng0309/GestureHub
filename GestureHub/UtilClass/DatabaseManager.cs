@@ -10,10 +10,10 @@ namespace GestureHub
 {
     public static class DatabaseManager
     {
-        public static string ConnectionString = "iLearnDBConStr";
+        public static string ConnectionString = "DestureHubDatabase";
         public static SqlConnection CreateConnection()
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString);
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["GestureHubDatabase"].ConnectionString);
         }
     }
 }
