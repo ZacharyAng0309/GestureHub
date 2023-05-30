@@ -24,7 +24,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
-        <section class="container-fluid pt-3 px-5">
+        <section class="container pt-3 px-5">
             <div class="row justify-content-around">
                 <div class="col-md-6 d-flex flex-column justify-content-center ms-5 ps-5">
                     <h3 class="mb-2">LEARN ABOUT SIGN LANGUAGES FOR FREE!
@@ -74,9 +74,9 @@
             <div class="d-flex justify-content-center pt-5">
                 <h2 class="text-center">Recent Courses</h2>
             </div>
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme mx-5 justify-content-center mt-3">
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images\GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -146,18 +146,18 @@
                     </div>
                 </div>
                 <div class="col-md-5 ">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <img src="Images\GestureHubLogo.png" class="img-fluid rounded" alt="...">
+                    <div class="row justify-content-center mb-4 ">
+                        <div class="col-md-6 mb-4">
+                            <img src="Images/HomePage1.png" class="img-fluid rounded" alt="...">
                         </div>
-                        <div class="col-md-6">
-                            <img src="Images\GestureHubLogo.png" class="img-fluid rounded" alt="...">
+                        <div class="col-md-6 mb-4">
+                            <img src="Images/HomePage2.png" class="img-fluid rounded" alt="...">
                         </div>
-                        <div class="col-md-6">
-                            <img src="Images\GestureHubLogo.png" class="img-fluid rounded" alt="...">
+                        <div class="col-md-6 mb-4">
+                            <img src="Images/HomePage3.png" class="img-fluid rounded" alt="...">
                         </div>
-                        <div class="col-md-6">
-                            <img src="Images\GestureHubLogo.png" class="img-fluid rounded" alt="...">
+                        <div class="col-md-6 mb-4">
+                            <img src="Images/HomePage4.png" class="img-fluid rounded" alt="...">
                         </div>
                     </div>
                 </div>
