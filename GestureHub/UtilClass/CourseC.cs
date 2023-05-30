@@ -12,7 +12,7 @@ namespace GestureHub
     {
         public static Panel DisplayCourse(int course_id, string userType, List<int> enrolledCourseID = null)
         {
-            DataTable courseTable = CourseC.GetCourseData(course_id);
+            DataTable courseTable = CourseC.GetAllCourseData(course_id);
             if (courseTable.Rows.Count == 0) return null;
             DataRow dr = courseTable.Rows[0];
             DataTable courseCatTable = Category.GetCourseCategoryData(course_id);
@@ -177,7 +177,7 @@ namespace GestureHub
                 }
             }
         }
-        public static DataTable GetCourseData(int course_id)
+        public static DataTable GetAllCourseData(int course_id)
         {
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -197,6 +197,32 @@ namespace GestureHub
                     }
                 }
             }
+        }
+        public static DataRow GetCourseData(int course_id)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM course WHERE course_id=@course_id";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@course_id", course_id);
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        sda.SelectCommand = cmd;
+                        sda.Fill(dataTable);
+                        conn.Close();
+                    }
+                }
+                conn.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                return dataTable.Rows[0];
+            }
+            return null;
         }
 
         //public static DataTable GetEnrolledCourseData(int student_id)
@@ -337,6 +363,50 @@ namespace GestureHub
                 }
                 conn.Close();
             }
+        }
+
+        public static void UpdateCourse(String courseId, String title, String description, String difficulty) { 
+            //update course in the database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,updated_at=@updatedAt WHERE course_id=@courseId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@description", description);
+                    cmd.Parameters.AddWithValue("@difficulty", difficulty);
+                    cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        internal static List<string> GetCourseIdList()
+        {
+            //get all course id from database
+            List<string> courseIdList = new List<string>();
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT course_id FROM course";
+                    cmd.Connection = conn;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            courseIdList.Add(reader["course_id"].ToString());
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return courseIdList;
         }
     }
 }

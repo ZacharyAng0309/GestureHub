@@ -14,53 +14,53 @@
             <div class="col-md-5">
                 <div class="form-group mb-2">
                     <label for="idField">ID:</label>
-                    <input type="text" class="form-control" id="idField" placeholder="User ID" readonly>
+                    <asp:TextBox runat="server" ID="idField" ReadOnly="true" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group mb-2">
                     <label for="firstNameField">First Name:</label>
-                    <input type="text" class="form-control" id="firstNameField" placeholder="Insert first name">
+                    <asp:TextBox runat="server" ID="firstNameField" CssClass="form-control" placeholder="Insert first name"></asp:TextBox>
                 </div>
                 <div class="form-group mb-2">
                     <label for="emailField">Email:</label>
-                    <input type="text" class="form-control" id="emailField" placeholder="Insert email">
+                    <asp:TextBox runat="server" ID="emailField" CssClass="form-control" placeholder="Insert email"></asp:TextBox>
                 </div>
                 <div class="form-group mb-2">
                     <label for="genderField">Gender:</label>
-                    <select class="form-control" id="genderField">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
+                    <asp:DropDownList runat="server" ID="genderField" CssClass="form-control">
+                        <asp:ListItem Text="Male"></asp:ListItem>
+                        <asp:ListItem Text="Female"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="form-group mb-2">
                     <label for="roleField">Role:</label>
-                    <select class="form-control" id="roleField">
-                        <option>Admin</option>
-                        <option>Member</option>
-                    </select>
+                    <asp:DropDownList runat="server" ID="roleField" CssClass="form-control">
+                        <asp:ListItem Text="Admin"></asp:ListItem>
+                        <asp:ListItem Text="Member"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
 
             </div>
             <div class="col-md-5">
                 <div class="form-group mb-2">
                     <label for="usernameField">Username:</label>
-                    <input type="text" class="form-control" id="usernameField" placeholder="Insert username">
+                    <asp:TextBox runat="server" ID="usernameField" CssClass="form-control" placeholder="Insert username"></asp:TextBox>
                 </div>
                 <div class="form-group mb-2">
                     <label for="lastNameField">Last Name:</label>
-                    <input type="text" class="form-control" id="lastNameField" placeholder="Insert last name">
+                    <asp:TextBox runat="server" ID="lastNameField" CssClass="form-control" placeholder="Insert last name"></asp:TextBox>
                 </div>
 
                 <div class="form-group mb-2">
                     <label for="passwordField">Password:</label>
-                    <input type="password" class="form-control" id="passwordField" placeholder="Insert password">
+                   <asp:TextBox runat="server" ID="passwordField" CssClass="form-control" placeholder="Password"></asp:TextBox>
                 </div>
                 <div class="form-group mb-2">
                     <label for="ageField">Age:</label>
-                    <input type="text" class="form-control" id="ageField" placeholder="Insert age">
+                    <asp:TextBox runat="server" ID="ageField" CssClass="form-control" placeholder="Insert age"></asp:TextBox>
                 </div>
                 <div class="form-group mt-4 pt-2 row justify-content-around">
-                    <button type="submit" class="btn btn-primary col-md-5">Add</button>
-                    <a href="#" class="btn btn-secondary col-md-5">Back</a>
+                    <asp:Button runat="server" ID="addButton" Text="Add" CssClass="btn btn-primary col-md-5" OnClick="addButton_Click" />
+                    <a href="#" runat="server" id="backButton" cssclass="btn btn-secondary col-md-5">Back</a>
                 </div>
             </div>
         </form>

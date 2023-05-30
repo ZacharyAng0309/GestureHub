@@ -12,13 +12,13 @@
         <form id="form2" runat="server">
             <div class="row justify-content-evenly">
                  <div class="col-sm-5 col-md-6 mb-3">
-                      <h5>Member ID:</h5>
-                    <asp:TextBox ID="MemberIDProfile"
+                      <h5>User ID:</h5>
+                    <asp:TextBox ID="UserIDProfile"
                         runat="server"
                         TextMode="SingleLine"
                         ToolTip="Username"
                         Required="required" CssClass="form-control"
-                        Placeholder="MemberID"
+                        Placeholder="UserID"
                         ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
