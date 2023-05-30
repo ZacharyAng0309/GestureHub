@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-    <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
+    <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Dashboard</a></li>
   <li class="breadcrumb-item active" aria-current="page">Admin Profile</li>
 </asp:Content>
 

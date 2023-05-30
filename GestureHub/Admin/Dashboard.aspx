@@ -1,81 +1,70 @@
-﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="GestureHub.Dashboard" %>
-
-<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
-  <link rel="stylesheet" href="/Content/course.css" />
-  <style>
-    .statistic span {
-      margin-bottom: 5px;
-    }
-  </style>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="GestureHub.Admin.Dashboard" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
-<asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
-  <li class="breadcrumb-item"><a href="/Home.aspx">Home</a></li>
-  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+<asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
+     <li class="breadcrumb-item active"><a href="/Admin/Dashboard.aspx">Dashboard</a></li>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container shadow rounded-3 p-5 mb-5 bg-white">
+          <div class="row justify-content-between p-3 px-2">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Welcome back, Admin</h3>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <%--<a href="/Member/Courses.aspx" class="btn btn-primary ">Continue Learning</a>--%>
+                </div>
+            </div>
+            <%--Number of Users--%>
+            <div class="card col-md-3 mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Members</h4>
+                     <p class="card-text">19238 Members</p>
+                   
+                   
+                </div>
+            </div>
+             <div class="card col-md-3 mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Admins</h4>
+                    <p class="card-text">19238 Admins</p> 
+                  
+                </div>
+            </div>
+             <div class="card col-md-3 mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Total Users</h4>
+                    <p class="card-text">19238 Total Users</p>
+                   
+                </div>
+            </div>
+        </div>
+         <%--Next Line--%>
+          <div class="row justify-content-between p-3 px-2">
+                 <div class="card col-md-3 mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Courses/Quizzes</h4>
+                     <p class="card-text">Beginner Level:</p>
+                    <p class="card-text">Intermediate Level:</p>
+                    <p class="card-text">Advanced Level:</p>
+                   
+                      
+                </div>
+            </div>
+            <div class="card col-md-3 mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Female</h4>
+                     <p class="card-text">5</p>
+                   
+                </div>
+            </div>
+            <div class="card  col-md-3 mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Number of Male</h4>
+                     <p class="card-text">5</p>
+                   </div>
+            </div>
+            </div>
+        
 
-<asp:Content ID="DashContent" ContentPlaceHolderID="MainContent" runat="server">
-  <div class="container">
-    <h1 class="border-bottom mb-3">Dashboard</h1>
-    <asp:Panel ID="AdminPanel" runat="server" Visible="false">
-      <asp:Panel ID="AdminGridPanel" runat="server" CssClass="row g-4">
-        <div class="col-lg-6">
-          <div class="card text-center">
-            <div class="card-header">
-              <h4>Course</h4>
-            </div>
-            <div class="row g-0 card-body">
-              <div class="col">
-                <div class="card-title" style="font-size: 8em">
-                  <i class="bi bi-mortarboard-fill"></i>
-                </div>
-              </div>
-              <div class="col p-4 fs-5 statistic d-flex flex-column justify-content-center align-items-start">
-                <span>
-                  <i class="bi bi-hash"></i>Count: <asp:Literal ID="CourseCount" runat="server"></asp:Literal>
-                </span>
-              </div>
-              <div class="my-2">
-                <a href="Admin/ManageCourse.aspx" class="btn btn-primary btn-lg stretched-link">Manage Course</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="card text-center">
-            <div class="card-header">
-              <h4>Users</h4>
-            </div>
-            <div class="row g-0 card-body">
-              <div class="col">
-                <div class="card-title" style="font-size: 8em">
-                  <i class="bi bi-person-fill"></i>
-                </div>
-              </div>
-              <div class="col p-4 fs-5 statistic d-flex flex-column justify-content-center align-items-start">
-                <span>
-                  <i class="bi bi-hash"></i>Count: <asp:Literal ID="UserCount" runat="server"></asp:Literal>
-                </span>
-                <span>
-                  <i class="bi bi-gender-male"></i>Male: <asp:Literal ID="MaleCount" runat="server"></asp:Literal>
-                </span>
-                <span>
-                  <i class="bi bi-gender-female"></i>Female: <asp:Literal ID="FemaleCount" runat="server"></asp:Literal>
-                </span>
-              </div>
-              <div class="my-2">
-                <a href="/Admin/ManageUser.aspx" class="btn btn-primary btn-lg stretched-link">Manage User</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </asp:Panel>
-    </asp:Panel>
-    <asp:Panel ID="StudentPanel" runat="server" Visible="false">
-      <h2 class="border-bottom mb-3">Popular Courses</h2>
-      <asp:Panel ID="StudentGridPanel" runat="server" CssClass="row g-4">
-      </asp:Panel>
-    </asp:Panel>
-  </div>
-  <input type="hidden" id="NavLocation" value="dashboard" disabled="disabled" />
+    </div>
 </asp:Content>
