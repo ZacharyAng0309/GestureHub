@@ -71,13 +71,13 @@ namespace GestureHub
             detail.Controls.Add(title);
             detail.Controls.Add(new Literal { Text = "<br />" });
 
-            double overallRating = CourseC.GetCourseOverallRating(course_id);
-            int ratingCount = CourseC.GetCourseRatingCount(course_id);
-            Label rating = new Label
-            {
-                Text = $"Rating: {overallRating:0.00}/5.00 ({ratingCount})",
-            };
-            detail.Controls.Add(rating);
+            //double overallRating = CourseC.GetCourseOverallRating(course_id);
+            //int ratingCount = CourseC.GetCourseRatingCount(course_id);
+            //Label rating = new Label
+            //{
+            //    Text = $"Rating: {overallRating:0.00}/5.00 ({ratingCount})",
+            //};
+            //detail.Controls.Add(rating);
 
 
             Panel categoryPanel = new Panel
@@ -199,87 +199,87 @@ namespace GestureHub
             }
         }
 
-        public static DataTable GetEnrolledCourseData(int student_id)
-        {
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "SELECT * FROM [course] INNER JOIN [enroll] ON course.course_id = enroll.course_id WHERE enroll.student_id=@student_id";
-                    cmd.Connection = conn;
-                    cmd.Parameters.AddWithValue("@student_id", student_id);
-                    using (SqlDataAdapter sda = new SqlDataAdapter())
-                    {
-                        sda.SelectCommand = cmd;
-                        DataTable dataTable = new DataTable();
-                        sda.Fill(dataTable);
-                        conn.Close();
-                        return dataTable;
-                    }
-                }
-            }
-        }
+        //public static DataTable GetEnrolledCourseData(int student_id)
+        //{
+        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.CommandText = "SELECT * FROM [course] INNER JOIN [enroll] ON course.course_id = enroll.course_id WHERE enroll.student_id=@student_id";
+        //            cmd.Connection = conn;
+        //            cmd.Parameters.AddWithValue("@student_id", student_id);
+        //            using (SqlDataAdapter sda = new SqlDataAdapter())
+        //            {
+        //                sda.SelectCommand = cmd;
+        //                DataTable dataTable = new DataTable();
+        //                sda.Fill(dataTable);
+        //                conn.Close();
+        //                return dataTable;
+        //            }
+        //        }
+        //    }
+        //}
 
-        public static DataTable GetCourseRating(int course_id)
-        {
-            DataTable ratingTable = new DataTable();
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM rating WHERE course_id=@course_id;";
-                    cmd.Parameters.AddWithValue("@course_id", course_id);
-                    using (SqlDataAdapter sda = new SqlDataAdapter())
-                    {
-                        sda.SelectCommand = cmd;
-                        sda.Fill(ratingTable);
-                    }
-                }
-                conn.Close();
-            }
-            return ratingTable;
-        }
+        //public static DataTable GetCourseRating(int course_id)
+        //{
+        //    DataTable ratingTable = new DataTable();
+        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = conn;
+        //            cmd.CommandText = "SELECT * FROM rating WHERE course_id=@course_id;";
+        //            cmd.Parameters.AddWithValue("@course_id", course_id);
+        //            using (SqlDataAdapter sda = new SqlDataAdapter())
+        //            {
+        //                sda.SelectCommand = cmd;
+        //                sda.Fill(ratingTable);
+        //            }
+        //        }
+        //        conn.Close();
+        //    }
+        //    return ratingTable;
+        //}
 
-        public static double GetCourseOverallRating(int course_id)
-        {
-            double rating = 0;
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ISNULL(AVG(CAST(rating as DECIMAL)), 0) FROM [rating] WHERE course_id=@course_id;";
-                    cmd.Parameters.AddWithValue("@course_id", course_id);
-                    var result = cmd.ExecuteScalar();
-                    rating = double.Parse(result.ToString());
-                }
-                conn.Close();
-            }
-            return rating;
-        }
+        //public static double GetCourseOverallRating(int course_id)
+        //{
+        //    double rating = 0;
+        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = conn;
+        //            cmd.CommandText = "SELECT ISNULL(AVG(CAST(rating as DECIMAL)), 0) FROM [rating] WHERE course_id=@course_id;";
+        //            cmd.Parameters.AddWithValue("@course_id", course_id);
+        //            var result = cmd.ExecuteScalar();
+        //            rating = double.Parse(result.ToString());
+        //        }
+        //        conn.Close();
+        //    }
+        //    return rating;
+        //}
 
-        public static int GetCourseRatingCount(int course_id)
-        {
-            int count;
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [rating] WHERE course_id=@course_id;";
-                    cmd.Parameters.AddWithValue("@course_id", course_id);
-                    var result = cmd.ExecuteScalar();
-                    count = Convert.ToInt32(result);
-                }
-                conn.Close();
-            }
-            return count;
-        }
+        //public static int GetCourseRatingCount(int course_id)
+        //{
+        //    int count;
+        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = conn;
+        //            cmd.CommandText = "SELECT COUNT(*) FROM [rating] WHERE course_id=@course_id;";
+        //            cmd.Parameters.AddWithValue("@course_id", course_id);
+        //            var result = cmd.ExecuteScalar();
+        //            count = Convert.ToInt32(result);
+        //        }
+        //        conn.Close();
+        //    }
+        //    return count;
+        //}
 
         public static DataTable GetPopularCourseID()
         {
@@ -318,6 +318,25 @@ namespace GestureHub
                 conn.Close();
             }
             return count;
+        }
+        public static void AddNewCourse(string title, string description, string difficulty, DateTime createdAt, DateTime updatedAt) {
+            //Insert record into course table
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "INSERT INTO course (title, description, difficulty, createdAt, updatedAt) VALUES (@title, @description, @difficulty, @createdAt, @updatedAt)";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@description", description);
+                    cmd.Parameters.AddWithValue("@difficulty", difficulty);
+                    cmd.Parameters.AddWithValue("@createdAt", createdAt);
+                    cmd.Parameters.AddWithValue("@updatedAt", updatedAt);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
         }
     }
 }

@@ -91,7 +91,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM [option] WHERE question_id=@question_id;";
+                    cmd.CommandText = "SELECT * FROM questionoption WHERE question_id=@question_id;";
                     cmd.Parameters.AddWithValue("@question_id", question_id);
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
@@ -113,7 +113,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT option_id FROM [option] WHERE question_id=@question_id AND isAnswer='True';";
+                    cmd.CommandText = "SELECT option_id FROM [option] WHERE question_id=@question_id AND isCorrect='True';";
                     cmd.Parameters.AddWithValue("@question_id", question_id);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
