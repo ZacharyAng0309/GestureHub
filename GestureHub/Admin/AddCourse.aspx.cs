@@ -13,5 +13,19 @@ namespace GestureHub
         {
 
         }
+
+        protected void AddButton_Click(object sender, EventArgs e)
+        {
+            //get selected value for title
+            string title = titleField.Text;
+            //get selected value for description
+            string description = descriptionField.Text;
+            //get selected value for difficulty
+            string difficulty = difficultyField.SelectedValue.ToString();
+            //get current datetime
+            DateTime date = DateTime.Now;
+            //AddNewCourse
+            CourseC.AddNewCourse(title, description,difficulty,date,date);
+        }
     }
 }

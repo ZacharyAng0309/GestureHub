@@ -9,7 +9,7 @@ namespace GestureHub.UtilClass
 {
     public class FeedbackC
     {
-        public static DataTable GetFeedbackData(int feed_id)
+        public static DataTable GetFeedbackData(int course_id)
         {
             DataTable dt = new DataTable();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -18,8 +18,7 @@ namespace GestureHub.UtilClass
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM feed WHERE feed_id=@feed_id;";
-                    cmd.Parameters.AddWithValue("@feed_id", feed_id);
+                    cmd.CommandText = "SELECT * FROM feedback WHERE course_id=@course_id;";
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;

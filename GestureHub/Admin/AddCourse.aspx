@@ -14,37 +14,35 @@
             <div class="row justify-content-around mb-3">
                 <div class="col-md-5">
                     <div class="form-group mb-2">
-                        <label for="idField">Course ID:</label>
-                        <input type="text" class="form-control" id="idField" placeholder="Course ID" readonly>
+                        <asp:Label runat="server" AssociatedControlID="idField">Course ID:</asp:Label>
+                        <asp:TextBox runat="server" ID="idField" CssClass="form-control" placeholder="Course ID" ReadOnly="true"></asp:TextBox>
                     </div>
                     <div class="form-group mb-2">
-                        <label for="descriptionField">Description:</label>
-                        <input type="text" class="form-control" id="descriptionField" placeholder="Insert description">
+                        <asp:Label runat="server" AssociatedControlID="descriptionField">Description:</asp:Label>
+                        <asp:TextBox runat="server" ID="descriptionField" CssClass="form-control" placeholder="Insert description"></asp:TextBox>
                     </div>
                     <div class="form-group mb-2">
-                        <label for="createdAtField">Created At:</label>
-                        <input type="text" class="form-control" id="createdAtField" placeholder="YYYY-MM-DD" readonly>
+                        <asp:Label runat="server" AssociatedControlID="createdAtField">Created At:</asp:Label>
+                        <asp:TextBox runat="server" ID="createdAtField" CssClass="form-control" placeholder="YYYY-MM-DD" ReadOnly="true"></asp:TextBox>
                     </div>
                     <div class="d-flex justify-content-center mt-4">
-                        <button type="submit" class="btn btn-primary col-md-4 me-3">Add</button>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form-group mb-2">
-                        <label for="titleField">Title:</label>
-                        <input type="text" class="form-control" id="titleField" placeholder="Insert title">
+                        <asp:Button runat="server" Text="Add" CssClass="btn btn-primary col-md-4 me-3" OnClick="AddButton_Click" />
                     </div>
                     <div class="form-group mb-2">
-                        <label for="difficultyField">Difficulty:</label>
-                        <select class="form-control" id="difficultyField">
-                            <option>Easy</option>
-                            <option>Intermediate</option>
-                            <option>Hard</option>
-                        </select>
+                        <asp:Label runat="server" AssociatedControlID="titleField">Title:</asp:Label>
+                        <asp:TextBox runat="server" ID="titleField" CssClass="form-control" placeholder="Insert title"></asp:TextBox>
                     </div>
                     <div class="form-group mb-2">
-                        <label for="updatedAtField">Updated At:</label>
-                        <input type="text" class="form-control" id="updatedAtField" placeholder="YYYY-MM-DD" readonly>
+                        <asp:Label runat="server" AssociatedControlID="difficultyField">Difficulty:</asp:Label>
+                        <asp:DropDownList runat="server" ID="difficultyField" CssClass="form-control">
+                            <asp:ListItem Text="Easy" Value="Easy"></asp:ListItem>
+                            <asp:ListItem Text="Intermediate" Value="Intermediate"></asp:ListItem>
+                            <asp:ListItem Text="Hard" Value="Hard"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="form-group mb-2">
+                        <asp:Label runat="server" AssociatedControlID="updatedAtField">Updated At:</asp:Label>
+                        <asp:TextBox runat="server" ID="updatedAtField" CssClass="form-control" placeholder="YYYY-MM-DD" ReadOnly="true"></asp:TextBox>
                     </div>
                     <div class="d-flex justify-content-center mt-4">
                         <a href="#" class="btn btn-secondary col-md-4">Back</a>
