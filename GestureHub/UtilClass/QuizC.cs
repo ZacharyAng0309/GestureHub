@@ -34,8 +34,8 @@ namespace GestureHub
 
         public static DataTable GetQuizData(int quiz_id)
         {
-           //use the quiz_id to fetch the quiz data from the database called GestureHubDatabase
-           DataTable dataTable = new DataTable();
+            //use the quiz_id to fetch the quiz data from the database called GestureHubDatabase
+            DataTable dataTable = new DataTable();
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -92,7 +92,7 @@ namespace GestureHub
                     ID = $"optList_{question_id}",
                     Enabled = enable,
                 };
-                optList.Attributes.Add("data-question-id", question_id.ToString()); 
+                optList.Attributes.Add("data-question-id", question_id.ToString());
                 foreach (DataRow optData in optTable.Rows)
                 {
                     ListItem optListItem = new ListItem
@@ -111,7 +111,7 @@ namespace GestureHub
                     ID = $"optList_{question_id}",
                     Enabled = enable,
                 };
-                optList.Attributes.Add("data-question-id", question_id.ToString()); 
+                optList.Attributes.Add("data-question-id", question_id.ToString());
                 foreach (DataRow optData in optTable.Rows)
                 {
                     ListItem optListItem = new ListItem
@@ -124,6 +124,94 @@ namespace GestureHub
                 qQuestionPanel.Controls.Add(optList);
             }
             return qPanel;
+        }
+
+        public static void addNewQuiz(String courseId, String title, String description)
+        {
+            //add new quiz to the database
+            using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO quiz (course_id, title, description) VALUES (@course_id, @title, @description);";
+                    cmd.Parameters.AddWithValue("@course_id", courseId);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@description", description);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        internal static DataRow GetQuizById(string quizId)
+        {
+            //get the quiz data from the database
+            DataTable dataTable = new DataTable();
+            using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quiz_id;";
+                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.SelectCommand = cmd;
+                        adapter.Fill(dataTable);
+                    }
+                }
+                conn.Close();
+            }
+            return dataTable.Rows[0];
+        }
+
+        public static List<string> GetQuizIdList()
+        {
+            //get the quiz id list from the database
+            List<string> quizIdList = new List<string>();
+            DataTable dataTable = new DataTable();
+            using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT quiz_id FROM quiz;";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.SelectCommand = cmd;
+                        adapter.Fill(dataTable);
+                    }
+                }
+                conn.Close();
+            }
+            foreach (DataRow row in dataTable.Rows)
+            {
+                quizIdList.Add(row["quiz_id"].ToString());
+            }
+            return quizIdList;
+        }
+
+        public static void UpdateQuiz(string quizId, string title, string description)
+        {
+            //update the quiz data in the database
+            using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "UPDATE quiz SET title=@title, description=@description WHERE quiz_id=@quiz_id;";
+                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@description", description);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
         }
     }
 }

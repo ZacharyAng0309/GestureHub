@@ -15,7 +15,7 @@
                 <div class="col-md-5">
                     <div class="form-group mb-2">
                         <label for="idField">ID:</label>
-                        <asp:DropDownList runat="server" ID="idField" CssClass="form-control" OnSelectedIndexChanged="idField_SelectedIndexChanged" AutoPostBack="true">
+                        <asp:DropDownList runat="server" ID="idField" CssClass="form-control" OnSelectedIndexChanged="IdField_SelectedIndexChanged" AutoPostBack="true">
                         </asp:DropDownList>
                     </div>
                     <div class="form-group mb-2">

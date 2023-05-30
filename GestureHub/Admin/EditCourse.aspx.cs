@@ -44,7 +44,7 @@ namespace GestureHub
             return;
         }
 
-        protected void idField_SelectedIndexChanged(object sender, EventArgs e) {
+        protected void IdField_SelectedIndexChanged(object sender, EventArgs e) {
             var courseId = ((DropDownList)sender).SelectedItem;
             updateInputFields(courseId.ToString());
         }

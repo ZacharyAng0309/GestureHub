@@ -13,6 +13,8 @@ namespace GestureHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //get new userid
+            idField.Text = UserC.GetNewUserId().ToString();
         }
 
         protected void addButton_Click(object sender, EventArgs e)
