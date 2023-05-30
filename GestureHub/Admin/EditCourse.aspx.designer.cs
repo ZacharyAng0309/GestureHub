@@ -21,7 +21,7 @@ namespace GestureHub
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idField;
+        protected global::System.Web.UI.WebControls.DropDownList idField;
 
         /// <summary>
         /// descriptionField control.
@@ -67,5 +67,23 @@ namespace GestureHub
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox updatedAtField;
+
+        /// <summary>
+        /// MsgPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MsgPanel;
+
+        /// <summary>
+        /// MsgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgLabel;
     }
 }
