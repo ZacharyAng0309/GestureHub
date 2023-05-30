@@ -123,7 +123,8 @@ namespace GestureHub
             }
             else if (userType == "student")
             {
-                if (enrolledCourseID != null && enrolledCourseID.Contains(course_id)) {
+                if (enrolledCourseID != null && enrolledCourseID.Contains(course_id))
+                {
                     HyperLink unenrollLink = new HyperLink
                     {
                         NavigateUrl = $"/Student/Course/UnenrollCourse.aspx?course_id={course_id}",
@@ -345,7 +346,10 @@ namespace GestureHub
             }
             return count;
         }
-        public static void AddNewCourse(string title, string description, string difficulty, DateTime createdAt, DateTime updatedAt) {
+        public static void AddNewCourse(string title, string description, string difficulty)
+        {
+            DateTime createdAt = DateTime.Now;
+            DateTime updatedAt = DateTime.Now;
             //Insert record into course table
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -365,7 +369,8 @@ namespace GestureHub
             }
         }
 
-        public static void UpdateCourse(String courseId, String title, String description, String difficulty) { 
+        public static void UpdateCourse(String courseId, String title, String description, String difficulty)
+        {
             //update course in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -407,6 +412,11 @@ namespace GestureHub
                 conn.Close();
             }
             return courseIdList;
+        }
+
+        public static String GetNextCourseId()
+        {
+            return (CourseC.GetCourseCount() + 1).ToString();
         }
     }
 }

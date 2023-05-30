@@ -15,7 +15,7 @@
         <form runat="server">
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="idField">Course ID:</asp:Label>
-                <asp:DropDownList runat="server" CssClass="form-control" ID="idField" OnSelectedIndexChanged="idField_SelectedIndexChanged" AutoPostBack="true">
+                <asp:DropDownList runat="server" CssClass="form-control" ID="idField" OnSelectedIndexChanged="IdField_SelectedIndexChanged" AutoPostBack="true">
                 </asp:DropDownList>
             </div>
             <div class="form-group mb-4">

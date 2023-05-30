@@ -85,7 +85,7 @@ namespace GestureHub
             return;
         }
 
-        protected void idField_SelectedIndexChanged(object sender, EventArgs e)
+        protected void IdField_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected item from the dropdown list
             var userId = ((DropDownList)sender).SelectedItem;

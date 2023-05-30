@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace GestureHub.UtilClass
 {
@@ -18,7 +19,8 @@ namespace GestureHub.UtilClass
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM feedback WHERE course_id=@course_id;";
+                    cmd.CommandText = "SELECT * FROM feedback WHERE course_id=@courseid;";
+                    cmd.Parameters.AddWithValue("@courseid", course_id);
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;
