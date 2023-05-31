@@ -36,11 +36,10 @@ namespace GestureHub
             //update course in database
             CourseC.UpdateCourse(course_id, title, description, difficulty);
             //display the message panel with success message
-            MsgPanel.Visible = true;
-            //add boostrap class to the message panel
-            MsgPanel.CssClass = "alert alert-success";
-            //set the message panel text
-            MsgLabel.Text = "Course updated successfully.";
+            MsgLabel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+            MsgLabel.Text = "Course '" + course_id + "' has been updated.";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
             return;
         }
 

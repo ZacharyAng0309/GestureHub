@@ -78,10 +78,10 @@ namespace GestureHub
             //use the values to update the user
             UserC.updateUser(userId,username,email,password,fname,lname,age,gender,role);
             //display the message panel with success message
-            MsgPanel.Visible = true;
-            //add boostrap class to the message panel
-            MsgPanel.CssClass = "alert alert-success";
+            MsgLabel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "User '" + username + "' has been updated.";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
             return;
         }
 

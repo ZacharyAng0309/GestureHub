@@ -24,22 +24,22 @@ namespace GestureHub.Member
         protected global::System.Web.UI.HtmlControls.HtmlForm form3;
 
         /// <summary>
-        /// MemberIDFeedback control.
+        /// MemberIdFeedback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MemberIDFeedback;
+        protected global::System.Web.UI.WebControls.TextBox MemberIdFeedback;
 
         /// <summary>
-        /// CourseIDFeedback control.
+        /// CourseIdFeedback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CourseIDFeedback;
+        protected global::System.Web.UI.WebControls.TextBox CourseIdFeedback;
 
         /// <summary>
         /// CommentsFeedback control.
@@ -49,5 +49,41 @@ namespace GestureHub.Member
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CommentsFeedback;
+
+        /// <summary>
+        /// BtnBackToOverview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink BtnBackToOverview;
+
+        /// <summary>
+        /// BtnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSubmit;
+
+        /// <summary>
+        /// MsgPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MsgPanel;
+
+        /// <summary>
+        /// MsgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgLabel;
     }
 }
