@@ -10,20 +10,22 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>View Feedback</h1>
-    <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True">
-            <Columns>
-                <asp:BoundField DataField="FeedbackID" HeaderText="FeedbackID" SortExpression="FeedbackID" />
-                <asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" />
-                <asp:BoundField DataField="CourseID" HeaderText="CourseID" SortExpression="CourseID" />
-                <asp:BoundField DataField="Feedback" HeaderText="Feedback" SortExpression="Feedback" />
-                <asp:BoundField DataField="CreatedAt" HeaderText="CreatedDate" SortExpression="Date" />
-            </Columns>
+    <div class="container">
+        <h1>View Feedback</h1>
+        <form runat="server">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True" DataKeyNames="feedback_id">
+                <HeaderStyle CssClass="bg-dark"></HeaderStyle>
+                <Columns>
+                    <asp:BoundField DataField="feedback_id" HeaderText="Feedback ID" SortExpression="feedback_id" InsertVisible="False" ReadOnly="True" />
+                    <asp:BoundField DataField="user_id" HeaderText="User ID" SortExpression="user_id" />
+                    <asp:BoundField DataField="course_id" HeaderText="Course ID" SortExpression="course_id" />
+                    <asp:BoundField DataField="feedback" HeaderText="Feedback" SortExpression="feedback" />
+                    <asp:BoundField DataField="created_at" HeaderText="Created Date" SortExpression="created_at" />
+                </Columns>
 
-            <PagerSettings Mode="NumericFirstLast" PageButtonCount="5"></PagerSettings>
-        </asp:GridView>
+                <PagerSettings Mode="NumericFirstLast" PageButtonCount="5"></PagerSettings>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [feedback]"></asp:SqlDataSource>
+        </form>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FeedbackID, Feedback, Date, UserID, UserName, Email, Phone, Subject, Message, Status FROM [Feedback]" >
-    </asp:SqlDataSource>
 </asp:Content>

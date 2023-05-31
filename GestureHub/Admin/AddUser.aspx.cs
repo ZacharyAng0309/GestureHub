@@ -24,11 +24,11 @@ namespace GestureHub
             //check if the username is unique
             if (UserC.isUsernameUnique(username))
             {
-                //create error message
-                string errorMessage = "Username " + username + " is already taken.";
-                //display error message
-                Response.Write("<script>alert('" + errorMessage + "')</script>");
-                return;
+                //display the message panel with error message
+                MsgLabel.Visible = true;
+                MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                MsgLabel.Text = "Username already exists";
+                MsgLabel.ForeColor = System.Drawing.Color.Red;
             }
             string password = passwordField.Text;
             string email = emailField.Text;
@@ -40,6 +40,11 @@ namespace GestureHub
             string role = roleField.SelectedValue;
             //add user to database
             UserC.addUser(username, email, firstName, lastName, age, gender, role, password);
+            //display the message panel with success message
+            MsgLabel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+            MsgLabel.Text = "User added successfully";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
         }
     }
 }

@@ -24,13 +24,13 @@ namespace GestureHub.Member
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
 
         /// <summary>
-        /// MemberIDProfile control.
+        /// IdField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MemberIDProfile;
+        protected global::System.Web.UI.WebControls.TextBox IdField;
 
         /// <summary>
         /// UsernameProfile control.
@@ -87,13 +87,13 @@ namespace GestureHub.Member
         protected global::System.Web.UI.WebControls.TextBox AgeProfile;
 
         /// <summary>
-        /// GenderProfile control.
+        /// GenderProfileDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox GenderProfile;
+        protected global::System.Web.UI.WebControls.DropDownList GenderProfileDropdown;
 
         /// <summary>
         /// DeleteBtn control.
@@ -121,5 +121,23 @@ namespace GestureHub.Member
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SaveBtn;
+
+        /// <summary>
+        /// MsgPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MsgPanel;
+
+        /// <summary>
+        /// MsgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgLabel;
     }
 }

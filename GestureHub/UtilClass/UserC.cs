@@ -307,7 +307,7 @@ namespace GestureHub
             int count = GetUserCount();
             return count + 1;
         }
-        public static int getMemberCount()
+        public static int GetMemberCount()
         {
             int count;
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -325,5 +325,21 @@ namespace GestureHub
             return count;
         }
 
+        public static void DeleteUser(String userId) {
+            //delete the user from the database according to the userId
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    //delete the user from the database
+                    cmd.Connection = conn;
+                    cmd.CommandText = "DELETE FROM [users] WHERE user_id=@userId;";
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
     }
 }
