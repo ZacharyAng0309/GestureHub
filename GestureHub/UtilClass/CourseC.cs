@@ -140,8 +140,9 @@ namespace GestureHub
             return colPanel;
         }
 
-        public static Panel DisplayCoursesByDifficulty(String difficulty, String usertype) { 
-        
+        public static Panel DisplayCoursesByDifficulty(String difficulty, String usertype) {
+            Panel row = new Panel();
+            return row;
         }
 
         public static DataTable GetAllCourseData()
