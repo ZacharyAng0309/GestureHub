@@ -28,8 +28,7 @@
                         TextMode="SingleLine"
                         ToolTip="Username"
                         Required="required" CssClass="form-control"
-                        Placeholder="Username"
-                        ReadOnly="true"></asp:TextBox>
+                        Placeholder="Username"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Email:</h5>
@@ -38,8 +37,7 @@
                         TextMode="Email"
                         ToolTip="Email"
                         Required="required" CssClass="form-control"
-                        Placeholder="Email"
-                        ReadOnly="true"></asp:TextBox>
+                        Placeholder="Email"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>First Name:</h5>
@@ -48,8 +46,7 @@
                         TextMode="SingleLine"
                         ToolTip="First Name"
                         Required="required" CssClass="form-control"
-                        Placeholder="First Name"
-                        ReadOnly="true"></asp:TextBox>
+                        Placeholder="First Name"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Last Name:</h5>
@@ -58,8 +55,7 @@
                         TextMode="SingleLine"
                         ToolTip="Last Name"
                         Required="required" CssClass="form-control"
-                        Placeholder="Last Name"
-                        ReadOnly="true"></asp:TextBox>
+                        Placeholder="Last Name"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Updated Password:</h5>
@@ -68,8 +64,7 @@
                         TextMode="Password"
                         ToolTip="Password"
                         Required="required" CssClass="form-control"
-                        Placeholder="Updated Password"
-                        ReadOnly="true"></asp:TextBox>
+                        Placeholder="Updated Password"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Age:</h5>
@@ -78,24 +73,24 @@
                         TextMode="Number"
                         ToolTip="Age"
                         Required="required" CssClass="form-control"
-                        Placeholder="Age"
-                        ReadOnly="true"></asp:TextBox>
+                        Placeholder="Age"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
-                    <h5>Gender:</h5>
-                    <asp:TextBox ID="GenderProfile"
-                        runat="server"
-                        TextMode="SingleLine"
-                        ToolTip="Gender"
-                        Required="required" CssClass="form-control"
-                        Placeholder="Gender"
-                        ReadOnly="true"></asp:TextBox>
+                      <h5>Gender:</h5>
+                     <asp:DropDownList ID="GenderDropDownList" runat="server" Required="required" CssClass="form-select">
+                    <asp:ListItem Selected="False" Text="Male" Value="m"></asp:ListItem>
+                    <asp:ListItem Selected="False" Text="Female" Value="f"></asp:ListItem>
+                </asp:DropDownList>
+               
+                </div>
+                <div class="d-grid gap-2 col-3 mt-4">
+                    <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" href="#" />
+
+                </div>
+               <div class="d-grid gap-2 col-3 mt-4">
+                    <asp:Button ID="BackBtn" runat="server" href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
                 </div>
                 
-                 <div class="d-grid gap-2 col-6 mt-5">
-                      <asp:Button ID="BackBtn" runat="server" href="/Admin/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
-                </div>
-               
             </div>
            
            

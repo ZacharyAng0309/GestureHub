@@ -21,8 +21,8 @@ namespace GestureHub.Member
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+      
         protected global::System.Web.UI.WebControls.Panel EasyCoursePanelHolder;
-
         /// <summary>
         /// IntermediateCoursePanelHolder control.
         /// </summary>
@@ -30,8 +30,8 @@ namespace GestureHub.Member
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+      
         protected global::System.Web.UI.WebControls.Panel IntermediateCoursePanelHolder;
-
         /// <summary>
         /// HardCoursePanelHolder control.
         /// </summary>
@@ -39,6 +39,7 @@ namespace GestureHub.Member
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+      
         protected global::System.Web.UI.WebControls.Panel HardCoursePanelHolder;
     }
 }
