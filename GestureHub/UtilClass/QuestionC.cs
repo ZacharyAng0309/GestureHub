@@ -4,11 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace GestureHub
 {
-    public static class Question
+    public static class QuestionC
     {
+        public static Panel DisplayQuestion(String questionId) {
+            //get question from database
+            DataTable question = QuestionC.GetQuestionData(questionId);
+            Panel row = new Panel();
+
+            return row;
+        }
+        
         public static void AddQuestion(int quizId, string question, string type, string picture,string video, string isCorrect)
         {
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -29,14 +38,8 @@ namespace GestureHub
                 conn.Close();
             }
         }
-        public static void DeleteQuestion(int question_id)
+        public static void DeleteQuestion(String question_id)
         {
-            DataTable questTable = Question.GetQuestionData(question_id);
-            if (questTable.Rows.Count == 0) return;
-            DataRow questRow = questTable.Rows[0];
-            int quiz_id = Convert.ToInt32(questRow["quizId"]);
-            //int oldSeq = Convert.ToInt32(questRow["sequence"]);
-            //int maxSeq = Question.GetQueMaxSeq(quiz_id);
             //Question.UpdateQueSequence(quiz_id, maxSeq, oldSeq);
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -44,7 +47,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "DELETE [option] WHERE question_id=@question_id;";
+                    cmd.CommandText = "DELETE questionoption WHERE question_id=@question_id;";
                     cmd.Parameters.AddWithValue("@question_id", question_id);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
@@ -55,9 +58,10 @@ namespace GestureHub
                 }
                 conn.Close();
             }
+
         }
 
-        public static DataTable GetQuestionData(int question_id)
+        public static DataTable GetQuestionData(String question_id)
         {
             DataTable dataTable = new DataTable();
             using (SqlConnection conn = DatabaseManager.CreateConnection())

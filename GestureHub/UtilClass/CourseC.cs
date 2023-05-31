@@ -10,13 +10,11 @@ namespace GestureHub
 {
     public static class CourseC
     {
-        public static Panel DisplayCourse(int course_id, string userType, List<int> enrolledCourseID = null)
+        public static Panel DisplayCourse(String courseId, string userType)
         {
-            DataTable courseTable = CourseC.GetAllCourseData(course_id);
+            DataTable courseTable = CourseC.GetCourseData(courseId);
             if (courseTable.Rows.Count == 0) return null;
             DataRow dr = courseTable.Rows[0];
-            DataTable courseCatTable = Category.GetCourseCategoryData(course_id);
-
             Panel colPanel = new Panel
             {
                 CssClass = "col-lg-4 course-container d-flex align-items-stretch",
@@ -64,7 +62,7 @@ namespace GestureHub
 
             HyperLink title = new HyperLink
             {
-                NavigateUrl = $"/ViewCourse.aspx?course_id={course_id}",
+                NavigateUrl = $"/ViewCourse.aspx?courseId={courseId}",
                 Text = dr["title"].ToString(),
                 CssClass = "course-title card-title fs-4 mb-1",
             };
@@ -78,23 +76,21 @@ namespace GestureHub
             //    Text = $"Rating: {overallRating:0.00}/5.00 ({ratingCount})",
             //};
             //detail.Controls.Add(rating);
+            //Panel categoryPanel = new Panel
+            //{
+            //    CssClass = "course-category mb-3"
+            //};
+            //detail.Controls.Add(categoryPanel);
 
-
-            Panel categoryPanel = new Panel
-            {
-                CssClass = "course-category mb-3"
-            };
-            detail.Controls.Add(categoryPanel);
-
-            foreach (DataRow categoryRow in courseCatTable.Rows)
-            {
-                Label cat = new Label
-                {
-                    Text = categoryRow["name"].ToString(),
-                    CssClass = "course-category-item badge rounded-pill bg-secondary",
-                };
-                categoryPanel.Controls.Add(cat);
-            }
+            //foreach (DataRow categoryRow in courseCatTable.Rows)
+            //{
+            //    Label cat = new Label
+            //    {
+            //        Text = categoryRow["name"].ToString(),
+            //        CssClass = "course-category-item badge rounded-pill bg-secondary",
+            //    };
+            //    categoryPanel.Controls.Add(cat);
+            //}
 
             Panel linkBtnGroup = new Panel
             {
@@ -108,14 +104,14 @@ namespace GestureHub
                 HyperLink editLink = new HyperLink
                 {
                     Text = "Edit Course",
-                    NavigateUrl = $"/Admin/Course/EditCourse.aspx?course_id={course_id}",
+                    NavigateUrl = $"/Admin/EditCourse.aspx?courseId={courseId}",
                     CssClass = "btn btn-outline-primary btn-sm",
                 };
                 linkBtnGroup.Controls.Add(editLink);
                 HyperLink delLink = new HyperLink
                 {
                     Text = "Delete Course",
-                    NavigateUrl = $"~/Admin/Course/DeleteCourse.aspx?course_id={course_id}",
+                    NavigateUrl = $"~/Admin/DeleteCourse.aspx?courseId={courseId}",
                     CssClass = "btn btn-outline-danger btn-sm",
                 };
                 delLink.Attributes.Add("data-action", "warn");
@@ -123,39 +119,29 @@ namespace GestureHub
             }
             else if (userType == "student")
             {
-                if (enrolledCourseID != null && enrolledCourseID.Contains(course_id))
+                HyperLink navLink = new HyperLink
                 {
-                    HyperLink unenrollLink = new HyperLink
-                    {
-                        NavigateUrl = $"/Student/Course/UnenrollCourse.aspx?course_id={course_id}",
-                        Text = "Unenroll",
-                        CssClass = "btn btn-outline-danger btn-sm",
-                    };
-                    unenrollLink.Attributes.Add("data-action", "warn");
-                    linkBtnGroup.Controls.Add(unenrollLink);
-                    colPanel.Attributes.Add("data-enrolled", "true");
-                }
-                else
-                {
-                    HyperLink enrollLink = new HyperLink
-                    {
-                        Text = "Enroll",
-                        NavigateUrl = $"/Student/Course/EnrollCourse.aspx?course_id={course_id}",
-                        CssClass = "btn btn-outline-primary btn-sm",
-                    };
-                    linkBtnGroup.Controls.Add(enrollLink);
-                    colPanel.Attributes.Add("data-enrolled", "false");
-                }
+                    Text = "View",
+                    NavigateUrl = $"/Member/CourseOverview.aspx?courseId={courseId}",
+                    CssClass = "btn btn-outline-primary btn-sm",
+                };
+                linkBtnGroup.Controls.Add(navLink);
+                colPanel.Attributes.Add("data-enrolled", "false");
+
             }
             HyperLink viewLink = new HyperLink
             {
-                NavigateUrl = $"/ViewCourse.aspx?course_id={course_id}",
+                NavigateUrl = $"/ViewCourse.aspx?courseId={courseId}",
                 Text = "View Course",
                 CssClass = "btn btn-outline-primary btn-sm",
             };
             linkBtnGroup.Controls.Add(viewLink);
             detail.Controls.Add(linkBtnGroup);
             return colPanel;
+        }
+
+        public static Panel DisplayCoursesByDifficulty(String difficulty, String usertype) { 
+        
         }
 
         public static DataTable GetAllCourseData()
@@ -178,16 +164,16 @@ namespace GestureHub
                 }
             }
         }
-        public static DataTable GetAllCourseData(int course_id)
+        public static DataTable GetCourseData(String course_id)
         {
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM course WHERE course_id=@course_id";
+                    cmd.CommandText = "SELECT * FROM course WHERE courseId=@courseId";
                     cmd.Connection = conn;
-                    cmd.Parameters.AddWithValue("@course_id", course_id);
+                    cmd.Parameters.AddWithValue("@courseId", course_id);
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
                         sda.SelectCommand = cmd;
@@ -207,9 +193,9 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM course WHERE course_id=@course_id";
+                    cmd.CommandText = "SELECT * FROM course WHERE courseId=@courseId";
                     cmd.Connection = conn;
-                    cmd.Parameters.AddWithValue("@course_id", course_id);
+                    cmd.Parameters.AddWithValue("@courseId", course_id);
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
                         sda.SelectCommand = cmd;
@@ -317,7 +303,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT course.course_id, ISNULL(AVG(CAST(rating AS DECIMAL)), 0) AS rate FROM course FULL JOIN [rating] ON course.course_id = rating.course_id GROUP BY course.course_id ORDER BY rate DESC;";
+                    cmd.CommandText = "SELECT course.courseId, ISNULL(AVG(CAST(rating AS DECIMAL)), 0) AS rate FROM course FULL JOIN [rating] ON course.courseId = rating.courseId GROUP BY course.courseId ORDER BY rate DESC;";
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;
@@ -369,14 +355,15 @@ namespace GestureHub
             }
         }
 
-        public static void UpdateCourse(String courseId, String title, String description, String difficulty) { 
+        public static void UpdateCourse(String courseId, String title, String description, String difficulty)
+        {
             //update course in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,updated_at=@updatedAt WHERE course_id=@courseId";
+                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,updated_at=@updatedAt WHERE courseId=@courseId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@courseId", courseId);
                     cmd.Parameters.AddWithValue("@title", title);
@@ -398,13 +385,13 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT course_id FROM course";
+                    cmd.CommandText = "SELECT courseId FROM course";
                     cmd.Connection = conn;
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            courseIdList.Add(reader["course_id"].ToString());
+                            courseIdList.Add(reader["courseId"].ToString());
                         }
                     }
                 }
@@ -416,6 +403,44 @@ namespace GestureHub
         public static String GetNextCourseId()
         {
             return (CourseC.GetCourseCount() + 1).ToString();
+        }
+
+        public static void DeleteCourse(String courseId) {
+            //delete the course from the course table in the database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "DELETE FROM course WHERE courseId=@courseId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            //get quiz id from database that is with the course id
+            String quizId = "";
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT quizId FROM quiz WHERE courseId=@courseId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            quizId=reader["quizId"].ToString();
+                        }
+                    }
+                }
+                conn.Close();
+            } 
+            QuizC.DeleteQuiz(quizId);
+            
         }
     }
 }
