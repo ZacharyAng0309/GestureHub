@@ -369,8 +369,7 @@ namespace GestureHub
             }
         }
 
-        public static void UpdateCourse(String courseId, String title, String description, String difficulty)
-        {
+        public static void UpdateCourse(String courseId, String title, String description, String difficulty) { 
             //update course in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
