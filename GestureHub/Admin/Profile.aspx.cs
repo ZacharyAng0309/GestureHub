@@ -11,7 +11,12 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //check if user is admin
+            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
         }
     }
 }

@@ -184,6 +184,25 @@ namespace GestureHub
             return count;
         }
 
+        public static int GetUserCountByRole(string role)
+        {
+            int count;
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE user_role=@role;";
+                    cmd.Parameters.AddWithValue("@role", role);
+                    var result = cmd.ExecuteScalar();
+                    count = Convert.ToInt32(result);
+                }
+                conn.Close();
+            }
+            return count;
+        }
+
         public static List<String> GetUserIdList()
         {
             List<String> userIdList = new List<String>();
@@ -307,23 +326,6 @@ namespace GestureHub
             int count = GetUserCount();
             return count + 1;
         }
-        public static int GetMemberCount()
-        {
-            int count;
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE role = 'member';";
-                    var result = cmd.ExecuteScalar();
-                    count = Convert.ToInt32(result);
-                }
-                conn.Close();
-            }
-            return count;
-        }
 
         public static void DeleteUser(String userId) {
             //delete the user from the database according to the userId
@@ -341,5 +343,6 @@ namespace GestureHub
                 conn.Close();
             }
         }
+
     }
 }

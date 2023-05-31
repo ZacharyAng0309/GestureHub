@@ -15,6 +15,42 @@ namespace GestureHub.Admin
     {
 
         /// <summary>
+        /// AdminNumberField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField AdminNumberField;
+
+        /// <summary>
+        /// MemberNumberField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField MemberNumberField;
+
+        /// <summary>
+        /// MaleNumberField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField MaleNumberField;
+
+        /// <summary>
+        /// FemaleNumberField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField FemaleNumberField;
+
+        /// <summary>
         /// MembersNumberLabel control.
         /// </summary>
         /// <remarks>

@@ -12,6 +12,12 @@ namespace GestureHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is admin
+            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack) {
                 //get course_id from query string
                 string course_id = Request.QueryString["course_id"] ?? "1";
@@ -50,7 +56,8 @@ namespace GestureHub
         protected void updateInputFields(String courseId)
         {
             //get course from database
-            DataRow course = CourseC.GetCourseData(int.Parse(courseId));
+            DataTable courseTable = CourseC.GetCourseData(courseId);
+            DataRow course = courseTable.Rows[0];
             if (course != null)
             {
                 //set course_id to the idField
