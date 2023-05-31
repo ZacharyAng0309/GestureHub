@@ -22,7 +22,6 @@
                     <asp:BoundField DataField="feedback" HeaderText="Feedback" SortExpression="feedback" />
                     <asp:BoundField DataField="created_at" HeaderText="Created Date" SortExpression="created_at" />
                 </Columns>
-
                 <PagerSettings Mode="NumericFirstLast" PageButtonCount="5"></PagerSettings>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [feedback]"></asp:SqlDataSource>
