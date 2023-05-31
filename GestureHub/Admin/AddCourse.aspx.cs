@@ -26,6 +26,11 @@ namespace GestureHub
             //AddNewCourse
             CourseC.AddNewCourse(title, description,difficulty);
             QuizC.addNewQuiz(newCourseId,title,description);
+            //display the message panel with success message
+            MsgLabel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+            MsgLabel.Text = "Course '" + title + "' has been added.";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
         }
     }
 }

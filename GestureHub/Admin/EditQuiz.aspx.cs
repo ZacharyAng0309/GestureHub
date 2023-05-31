@@ -49,6 +49,12 @@ namespace GestureHub
             string description = descriptionField.Text;
             //update quiz in database
             QuizC.UpdateQuiz(quizId, title, description);
+            //set the success message
+            //display the message panel with success message
+            MsgLabel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+            MsgLabel.Text = "Quiz "+ quizId + " updated successfully!";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
         }
 
         protected void IdField_SelectedIndexChanged(object sender, EventArgs e)

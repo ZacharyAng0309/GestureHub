@@ -16,11 +16,11 @@ namespace GestureHub.UtilClass
 
         protected void SetUserType()
         {
-            if (Session["user_id"] == null)
+            if (Session["userId"] == null)
             {
-                userType = "nobody";
+                userType = "guest";
             }
-            else if ((bool)Session["isAdmin"])
+            else if (Session["userRole"].Equals( "admin"))
             {
                 userType = "admin";
             }
@@ -32,7 +32,7 @@ namespace GestureHub.UtilClass
 
         protected void SetMasterPageFile()
         {
-            if (userType == "nobody")
+            if (userType == "guest")
             {
                 Page.MasterPageFile = "~/SiteAnon.Master";
             }

@@ -83,8 +83,8 @@ namespace GestureHub
                 Text = $"{questData["content"]}",
             };
             qQuestionPanel.Controls.Add(question);
-            int numOfAnswer = Question.GetAnswerID(question_id).Count;
-            DataTable optTable = Question.GetQuestionOption(question_id);
+            int numOfAnswer = QuestionC.GetAnswerID(question_id).Count;
+            DataTable optTable = QuestionC.GetQuestionOption(question_id);
             if (numOfAnswer > 1)
             {
                 CheckBoxList optList = new CheckBoxList
@@ -213,5 +213,46 @@ namespace GestureHub
                 conn.Close();
             }
         }
+        public static void DeleteQuiz(string quizId)
+        {
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "DELETE FROM quiz WHERE quiz_Id=@quizId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+
+            //get question id from database that is with the quiz id
+            List<String> questionIdList = new List<String>();
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT questionId FROM question WHERE quizId=@quizId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            questionIdList.Add(reader["questionId"].ToString());
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            //delete all question in the question table
+            foreach (String questionId in questionIdList)
+            {
+                QuestionC.DeleteQuestion(questionId);
+            }
+        }       
     }
 }
