@@ -36,8 +36,8 @@ namespace GestureHub
                 {
                     //if username and password is correct, redirect to home page
                     Session["username"] = username;
-                    Session["user_id"] = dt.Rows[0]["user_ID"];
-                    Session["user_role"] = dt.Rows[0]["user_role"];
+                    Session["userId"] = dt.Rows[0]["user_id"];
+                    Session["userRole"] = dt.Rows[0]["user_role"];
                     //if user role is admin then redirect to admin page
                     if (dt.Rows[0]["user_role"].ToString() == "admin")
                     {

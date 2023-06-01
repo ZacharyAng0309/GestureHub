@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace GestureHub.UtilClass
 {
@@ -18,7 +19,8 @@ namespace GestureHub.UtilClass
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM feedback WHERE course_id=@course_id;";
+                    cmd.CommandText = "SELECT * FROM feedback WHERE courseId=@courseid;";
+                    cmd.Parameters.AddWithValue("@courseid", course_id);
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;
@@ -29,5 +31,25 @@ namespace GestureHub.UtilClass
             }
             return dt;
         }
+
+        public static void InsertFeedback(string userId, string courseId, string feedback)
+        {
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO feedback (userId, courseId, feedback, created_at) VALUES (@userId, @courseId, @feedback, @createdAt);";
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    cmd.Parameters.AddWithValue("@feedback", feedback);
+                    cmd.Parameters.AddWithValue("@createdAt", DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
     }
 }

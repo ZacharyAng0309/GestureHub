@@ -12,13 +12,13 @@
         <form id="form2" runat="server">
             <div class="row justify-content-evenly">
                  <div class="col-sm-5 col-md-6 mb-3">
-                      <h5>Member ID:</h5>
-                    <asp:TextBox ID="MemberIDProfile"
+                      <h5>User ID:</h5>
+                    <asp:TextBox ID="UserIDProfile"
                         runat="server"
                         TextMode="SingleLine"
                         ToolTip="Username"
                         Required="required" CssClass="form-control"
-                        Placeholder="MemberID"
+                        Placeholder="UserID"
                         ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
@@ -76,30 +76,21 @@
                         Placeholder="Age"></asp:TextBox>
                 </div>
                  <div class="col-sm-5 col-md-6 mb-3">
-                    <h5>Gender:</h5>
-                    <asp:TextBox ID="GenderProfile"
-                        runat="server"
-                        TextMode="SingleLine"
-                        ToolTip="Gender"
-                        Required="required" CssClass="form-control"
-                        Placeholder="Gender"></asp:TextBox>
-                </div>
-                 <div class="col-sm-5 col-md-6 mb-5">
-                    <h5>Delete Account:</h5>
-                     <div class="d-grid gap-2 col-6">
-                         <asp:Button ID="DeleteBtn" runat="server" Text="Delete" CssClass="btn btn-danger btn-md btn-block" />
-                     </div>
-                </div>
-                <div class="col-sm-5 col-md-6 mb-3">
-                </div>
-                 <div class="d-grid gap-2 col-3">
-                     <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" />
-                    
-                     </div>
-                 <div class="d-grid gap-2 col-3">
-                      <asp:Button ID="BackBtn" runat="server" href="/Admin/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
-                </div>
+                      <h5>Gender:</h5>
+                     <asp:DropDownList ID="GenderDropDownList" runat="server" Required="required" CssClass="form-select">
+                    <asp:ListItem Selected="False" Text="Male" Value="m"></asp:ListItem>
+                    <asp:ListItem Selected="False" Text="Female" Value="f"></asp:ListItem>
+                </asp:DropDownList>
                
+                </div>
+                <div class="d-grid gap-2 col-3 mt-4">
+                    <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" href="#" />
+
+                </div>
+               <div class="d-grid gap-2 col-3 mt-4">
+                    <asp:Button ID="BackBtn" runat="server" href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
+                </div>
+                
             </div>
            
            

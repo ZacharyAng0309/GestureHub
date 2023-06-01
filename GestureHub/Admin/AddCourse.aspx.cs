@@ -11,7 +11,13 @@ namespace GestureHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //check if user is admin
+            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
+            idField.Text = CourseC.GetNextCourseId().ToString();
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -22,10 +28,15 @@ namespace GestureHub
             string description = descriptionField.Text;
             //get selected value for difficulty
             string difficulty = difficultyField.SelectedValue.ToString();
-            //get current datetime
-            DateTime date = DateTime.Now;
+            String newCourseId = CourseC.GetNextCourseId().ToString();
             //AddNewCourse
-            CourseC.AddNewCourse(title, description,difficulty,date,date);
+            CourseC.AddNewCourse(title, description,difficulty);
+            QuizC.addNewQuiz(newCourseId,title,description);
+            //display the message panel with success message
+            MsgLabel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+            MsgLabel.Text = "Course '" + title + "' has been added.";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
         }
     }
 }

@@ -10,23 +10,24 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-<div class="container shadow rounded-3 p-4 mb-5 bg-white">
+    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <h3 class="mb-4">Edit Course</h3>
-        <form>
+        <form runat="server">
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="idField">Course ID:</asp:Label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="idField" ReadOnly="true" placeholder="Course ID"></asp:TextBox>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="idField" OnSelectedIndexChanged="IdField_SelectedIndexChanged" AutoPostBack="true">
+                </asp:DropDownList>
             </div>
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="descriptionField">Description:</asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="descriptionField" TextMode="MultiLine" Rows="3"></asp:TextBox>
             </div>
 
-            <div class="form-group mb-5">
+            <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="titleField">Title:</asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="titleField" placeholder="Insert title"></asp:TextBox>
             </div>
-            <div class="form-group mt-3 mb-4">
+            <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="difficultyField">Difficulty:</asp:Label>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="difficultyField">
                     <asp:ListItem>Easy</asp:ListItem>
@@ -49,6 +50,9 @@
                 <asp:Button runat="server" CssClass="btn btn-primary col-md-4 me-3" Text="Update" OnClick="UpdateButton_Click" />
                 <asp:HyperLink runat="server" CssClass="btn btn-secondary col-md-4" NavigateUrl="#">Back</asp:HyperLink>
             </div>
+            <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
+                <asp:Label ID="MsgLabel" runat="server"></asp:Label>
+            </asp:Panel>
         </form>
     </div>
 </asp:Content>
