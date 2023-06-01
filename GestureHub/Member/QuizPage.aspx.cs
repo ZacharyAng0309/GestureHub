@@ -22,14 +22,15 @@ namespace GestureHub.Member
             QuizDescription.Text = quizData.Rows[0]["description"].ToString();
             //get quiz from database
             QuizC.GetQuestionIdList(quizId);
+
             // loop the question id list and display the question
-            foreach (string questionId in QuizC.GetQuestionIdList(quizId))
-            {
-                //display question
-                Panel questionPanel = QuestionC.DisplayQuestion(questionId);
-                //add question panel to the quiz panel
-                QuizPanel.Controls.Add(questionPanel);
-            }
+            //foreach (string questionId in QuizC.GetQuestionIdList(quizId))
+            //{
+            //    //display question
+            //    Panel questionPanel = QuestionC.DisplayQuestion(questionId,);
+            //    //add question panel to the quiz panel
+            //    QuizPanel.Controls.Add(questionPanel);
+            //}
 
         }
     }

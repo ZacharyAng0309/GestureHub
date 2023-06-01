@@ -30,7 +30,7 @@ namespace GestureHub
             string difficulty = difficultyField.SelectedValue.ToString();
             
             
-            newCourseId = CourseC.GetNextCourseId().ToString();
+            string newCourseId = CourseC.GetNextCourseId().ToString();
             //AddNewCourse
             CourseC.AddNewCourse(title, description,difficulty);
             QuizC.addNewQuiz(newCourseId,title,description);

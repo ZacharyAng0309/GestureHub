@@ -11,7 +11,7 @@ namespace GestureHub
 {
     public static class QuestionC
     {
-        public static Panel DisplayQuetion(string questionId, DataRow questData, int total, int sequence, bool enable = true)
+        public static Panel DisplayQuestion(string questionId, DataRow questData, int total, int sequence, bool enable = true)
         {
             var optTable = GetQuestionOption(questionId);
 

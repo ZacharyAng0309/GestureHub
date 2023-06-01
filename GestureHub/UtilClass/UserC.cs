@@ -66,7 +66,7 @@ namespace GestureHub
         //    }
         //}
 
-        public static DataRow GetUserData(int userId)
+        public static DataRow GetUserData(string userId)
         {
             DataTable dataTable = new DataTable();
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
