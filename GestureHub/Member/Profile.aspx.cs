@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,17 +16,21 @@ namespace GestureHub.Member
         protected void Page_Load(object sender, EventArgs e)
         {
             //get userid from session
-            String userId = Session["userId"].ToString();
-            //get user info from database
-            //display user info
+            string userId = "1";
+            //string userId = Session["userId"].ToString();
+            updateInputFields(userId);
         }
 
-        protected void updateInputFields(String userId)
+        protected void updateInputFields(string userId)
         {
-            //get user info from database
-
-            //display user info
-
+            //get user data from database
+            DataRow user = UserC.GetUserData(userId);
+            //set input fields
+            UsernameProfile.Text = user["username"].ToString();
+            EmailProfile.Text = user["email"].ToString();
+            PasswordProfile.Text = user["password"].ToString();
+            AgeProfile.Text = user["age"].ToString();
+            FirstNameProfile.Text = user["first_name"].ToString();
         }
 
         protected void DeleteBtn_Click(object sender, EventArgs e)
@@ -38,14 +43,15 @@ namespace GestureHub.Member
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
             //get values from input fields
-            String userId = Session["userId"].ToString();
-            String username = UsernameProfile.Text;
-            String email = EmailProfile.Text;
-            String password = PasswordProfile.Text;
-            String age = AgeProfile.Text;
-            String fname = FirstNameProfile.Text;
-            String lname = LastNameProfile.Text;
-            String gender = GenderDropDownList.SelectedValue;
+            string userId = Session["userId"].ToString();
+            string username = UsernameProfile.Text;
+            string email = EmailProfile.Text;
+            string password = PasswordProfile.Text;
+            string age = AgeProfile.Text;
+            string fname = FirstNameProfile.Text;
+            string lname = LastNameProfile.Text;
+            string gender = GenderProfileDropdown.SelectedValue;
+
             UserC.updateUser(userId, username, email, password, fname, lname, age, gender, "Member");
         }
 

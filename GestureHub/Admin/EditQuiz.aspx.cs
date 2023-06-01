@@ -23,7 +23,7 @@ namespace GestureHub
                 //get quiz id from query string
                 string quizId = Request.QueryString["quizId"] ?? "1";
                 // get quiz id list from database
-                List<String> quizIdList = QuizC.GetQuizIdList();
+                List<string> quizIdList = QuizC.GetQuizIdList();
                 //loop through the quiz id list and add each quiz id to the dropdownlist
                 foreach (string quizIds in quizIdList)
                 {
@@ -32,10 +32,12 @@ namespace GestureHub
                 updateInputFields(quizId);
             }
         }
-        protected void updateInputFields(String quizId)
+        protected void updateInputFields(string quizId)
         {
             //get quiz from database
-            DataRow quiz = QuizC.GetQuizById(quizId);
+            DataTable quizTable = QuizC.GetQuizData(quizId);
+            //get quiz
+            DataRow quiz = quizTable.Rows[0];
             if (quiz != null)
             {
                 //set quiz id to the idField
