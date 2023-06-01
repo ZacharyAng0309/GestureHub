@@ -42,7 +42,7 @@ namespace GestureHub.UtilClass
             }
             else
             {
-                Page.MasterPageFile = "~/SiteStudent.Master";
+                Page.MasterPageFile = "~/SiteMember.Master";
             }
         }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteStudent.master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="GestureHub.Member.Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="GestureHub.Member.Profile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -78,9 +78,9 @@
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Gender:</h5>
 
-                    <asp:DropDownList ID="GenderDropDownList" runat="server" Required="required" CssClass="form-select">
-                        <asp:ListItem Selected="False" Text="Male" Value="m"></asp:ListItem>
-                        <asp:ListItem Selected="False" Text="Female" Value="f"></asp:ListItem>
+                    <asp:DropDownList ID="GenderProfileDropdownList" runat="server" Required="required" CssClass="form-select">
+                        <asp:ListItem Selected="False" Text="Male" Value="Male"></asp:ListItem>
+                        <asp:ListItem Selected="False" Text="Female" Value="Female"></asp:ListItem>
                    
                     </asp:DropDownList>
                 </div>

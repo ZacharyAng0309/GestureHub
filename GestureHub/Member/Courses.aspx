@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Member Courses" Language="C#" MasterPageFile="~/SiteStudent.master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="GestureHub.Member.Courses" %>
+﻿<%@ Page Title="Member Courses" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="GestureHub.Member.Courses" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

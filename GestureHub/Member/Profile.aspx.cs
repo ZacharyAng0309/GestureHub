@@ -43,14 +43,15 @@ namespace GestureHub.Member
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
             //get values from input fields
-            string userId = Session["userId"].ToString();
-            string username = UsernameProfile.Text;
-            string email = EmailProfile.Text;
-            string password = PasswordProfile.Text;
-            string age = AgeProfile.Text;
-            string fname = FirstNameProfile.Text;
-            string lname = LastNameProfile.Text;
-            string gender = GenderProfileDropdown.SelectedValue;
+
+            String userId = Session["userId"].ToString();
+            String username = UsernameProfile.Text;
+            String email = EmailProfile.Text;
+            String password = PasswordProfile.Text;
+            String age = AgeProfile.Text;
+            String fname = FirstNameProfile.Text;
+            String lname = LastNameProfile.Text;
+            String gender = GenderProfileDropdownList.SelectedValue;
 
             UserC.updateUser(userId, username, email, password, fname, lname, age, gender, "Member");
         }
