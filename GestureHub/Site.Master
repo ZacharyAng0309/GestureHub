@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <%-- Link to local bootstrap --%>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+<%--    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />--%>
+    <%-- Link to local boostrap script --%>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/bootstrap.bundle.min.js"></script>
 
     <!-- cdn link for bootstrap -->
     <link
@@ -22,6 +28,8 @@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+    <%-- Link to local chart.js --%>
+    <script src="/Scripts/Chart.min.js"></script>
 
     <!-- cdn link for displaying number of chars typed as well as the maximum chars allowed -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-maxlength/1.10.0/bootstrap-maxlength.min.js" integrity="sha512-04L+TAgzlDAaUpaEGriEBg/qEryUjw4GNL/FkxA3h621EFPycccO2Y8vNhvid9UhgGC/9+MHLAFwGythpvOAAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -29,11 +37,7 @@
     <!-- cdn link for bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
 
-    <link href="/Content/master.css" rel="stylesheet" />
-
-    <!-- javascript to prompt user before proceed to deletion -->
-    <!-- defer to make sure it is run after the page is loaded -->
-    <script src="/Scripts/delete.js" defer></script>
+    <%--<link href="/Content/master.css" rel="stylesheet" />--%>
 
     <%--font awersome --%>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -150,50 +154,50 @@
 
     <%--  </header>--%>
 
-  <main id="main">
-    <!-- breadcrumb navigation -->
-    <div class="container pt-5">
-      <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
-        <ol class="breadcrumb">
-          <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
-          </asp:ContentPlaceHolder>
-        </ol>
-      </nav>
-    </div>
-    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-    </asp:ContentPlaceHolder>
-  </main>
+    <main id="main">
+        <!-- breadcrumb navigation -->
+        <div class="container pt-5">
+            <nav id="breadNav" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';" class="fs-5">
+                <ol class="breadcrumb">
+                    <asp:ContentPlaceHolder ID="BreadcrumbContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </ol>
+            </nav>
+        </div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </main>
 
-  <footer id="footer" class="bg-dark">
-    <div class="container-fluid">
-      <div class="row  my-1 p-4 pb-2 text-white border-bottom justify-content-around">
-         
-        <div class="col-md-4 text-center text-md-start">
-          <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3> 
-          <figure class="mb-0">
-            <img
-              src="/images/GestureHubLogo.png"
-              alt="GestureHub Logo"
-              style="width: 150px;"
-              class="rounded-pill" />
-          </figure>
-        </div>
-        <div class="col-md-3 mb-4 text-center text-md-start">
-          <h3 data-toc-skip="true">CONTACT US</h3>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a href="mailto:a@example.com" class="nav-link text-white">
-                <i class="bi bi-envelope-fill"></i> EMAIL
-            </a>
-              <a href="tel:+60123456789" class="nav-link text-white">
-                <i class="bi bi-telephone-fill"></i> PHONE
-            </a>
-              <a href="#" class="nav-link text-white">
-                <i class="bi bi-instagram"></i> INSTAGRAM
-            </a>
-            </li>
-          </ul>
-        </div>
+    <footer id="footer" class="bg-dark">
+        <div class="container-fluid">
+            <div class="row  my-1 p-4 pb-2 text-white border-bottom justify-content-around">
+
+                <div class="col-md-4 text-center text-md-start">
+                    <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3>
+                    <figure class="mb-0">
+                        <img
+                            src="/images/GestureHubLogo.png"
+                            alt="GestureHub Logo"
+                            style="width: 150px;"
+                            class="rounded-pill" />
+                    </figure>
+                </div>
+                <div class="col-md-3 mb-4 text-center text-md-start">
+                    <h3 data-toc-skip="true">CONTACT US</h3>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="mailto:a@example.com" class="nav-link text-white">
+                                <i class="bi bi-envelope-fill"></i>EMAIL
+                            </a>
+                            <a href="tel:+60123456789" class="nav-link text-white">
+                                <i class="bi bi-telephone-fill"></i>PHONE
+                            </a>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-instagram"></i>INSTAGRAM
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
 
             </div>

@@ -17,16 +17,6 @@
          <h6>Already a member?<a href="/Login.aspx"> Log in here</a></h6>
         <form id="form1" runat="server">
               <%--      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
-            <div class="progress mt-3 mb-3">
-                <div class="progress-bar" role="progressbar"
-                    style="width: 0%;"
-                    aria-valuenow="0" aria-valuemin="0"
-                    aria-valuemax="100"
-                    data-password-meter="true"
-                    data-password-meter-target="#<%= PasswordTxtBox.ClientID %>"
-                    data-password-meter-help="#helpLbl">
-                </div>
-            </div>
             <div class="form-floating mb-3">
                 <asp:TextBox ID="UsernameTxtBox"
                     runat="server"
@@ -67,13 +57,13 @@
                         class="text-muted">
                         Password</label>
                 </div>
-                <span class="input-group-text"
-                    data-toggle="passwordToggler"
+                 <button type="button" id="passwordVisibilityToggle" class="input-group-text" 
+                     onclick="toggleRegisterPasswordVisibility()" 
+                     data-toggle="passwordToggler"
                     data-toggle-class="bi-eye"
-                    data-toggle-target="#<%= PasswordTxtBox.ClientID %>"
-                    style="cursor: pointer;">
-                    <i class="bi bi-eye-slash"></i>
-                </span>
+                    data-toggle-target="#<%= PasswordTxtBox.ClientID %>"">
+                        <i class="bi bi-eye-slash"></i>
+                </button>
             </div>
 
             <div class="form-floating mb-3">
@@ -113,77 +103,30 @@
           
     </div>
  
-
-    <%--      <div class="mb-3">
-            <span class="form-text" id="helpLbl"></span>
-        </div>--%>
-
-    <%--<div id="admin-div">
-        <div class="input-group mb-3">
-
-          <div class="form-floating flex-grow-1">
-            <asp:TextBox
-              ID="SecretTxtBox"
-              runat="server"
-              TextMode="Password"
-              CssClass="form-control"
-              ToolTip="Admin Secret Code"
-              Placeholder="Admin Secret Code"
-              Required="required"></asp:TextBox>
-            <label for="<%= SecretTxtBox.ClientID %>" class="text-muted">Secret Code</label>
-          </div>
-          <span class="input-group-text"
-            data-toggle="passwordToggler"
-            data-toggle-class="bi-eye"
-            data-toggle-target="#<%= SecretTxtBox.ClientID %>"
-            style="cursor: pointer;">
-            <i class="bi bi-eye-slash"></i>
-          </span>
-        </div>
-        <asp:Panel ID="SecretPanel" CssClass="alert alert-danger mb-3" runat="server" Visible="false" role="alert">
-          Invalid secret code
-       
-        </asp:Panel>
-      </div>--%>
-
-      <%--<div id="student-div">
-        <div class="form-floating mb-3">
-          <asp:TextBox
-            ID="FullNameTxtBox"
-            runat="server"
-            TextMode="SingleLine"
-            Enabled="false"
-            CssClass="form-control"
-            ToolTip="Full Name"
-            Placeholder="Full Name"
-            Required="required"
-            MaxLength="50"></asp:TextBox>
-          <label for="<%= FullNameTxtBox.ClientID %>" class="text-muted">Full Name</label>
-        </div>
-       
-
-        <div class="form-floating mb-3">
-          <asp:DropDownList ID="GenderDropDownList" runat="server" Enabled="false" Required="required" CssClass="form-select">
-            <asp:ListItem Selected="True" Text="Please select a gender" Value=""></asp:ListItem>
-            <asp:ListItem Selected="False" Text="Male" Value="m"></asp:ListItem>
-            <asp:ListItem Selected="False" Text="Female" Value="f"></asp:ListItem>
-          </asp:DropDownList>
-          <label for="<%=GenderDropDownList.ClientID %>" class="text-muted">Gender</label>
-        </div>
-      </div>--%>
-
-    
-    <%--</form>
-  </div>--%>
   <input type="hidden" id="NavLocation" value="register" disabled="disabled" />
   <script>
-    $("[id$='RegisterBtn']").on('click', function () {
-      const passwd = $passwordTxtBox.val()
-      const valid = isValidPassword(passwd)
-      if (!valid) {
-        $passwordTxtBox.addClass("is-invalid")
+      $("[id$='RegisterBtn']").on('click', function () {
+          const passwd = $passwordTxtBox.val()
+          const valid = isValidPassword(passwd)
+          if (!valid) {
+              $passwordTxtBox.addClass("is-invalid")
+          }
+          return valid
+      })
+
+      function toggleRegisterPasswordVisibility() {
+          const passwordInput = document.getElementById("MainContent_MainContent_PasswordTxtBox");
+          const passwordVisibilityToggle = document.getElementById("passwordVisibilityToggle");
+          //check if passwordInput has class of input-mask
+          if (passwordInput.classList.contains("input-mask")) {
+              passwordInput.classList.remove("input-mask");
+              passwordInput.type = "text";
+              passwordVisibilityToggle.innerHTML = '<i class="bi bi-eye"></i>';
+          } else {
+              passwordInput.classList.add("input-mask");
+              passwordInput.type = "password";
+              passwordVisibilityToggle.innerHTML = '<i class="bi bi-eye-slash"></i>';
+          }
       }
-      return valid
-    })
   </script>
 </asp:Content>

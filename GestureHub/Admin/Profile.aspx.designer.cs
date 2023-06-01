@@ -24,13 +24,13 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
 
         /// <summary>
-        /// MemberIDProfile control.
+        /// UserIDProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MemberIDProfile;
+        protected global::System.Web.UI.WebControls.TextBox UserIDProfile;
 
         /// <summary>
         /// UsernameProfile control.
@@ -87,22 +87,13 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.TextBox AgeProfile;
 
         /// <summary>
-        /// GenderProfile control.
+        /// GenderDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox GenderProfile;
-
-        /// <summary>
-        /// DeleteBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteBtn;
+        protected global::System.Web.UI.WebControls.DropDownList GenderDropDownList;
 
         /// <summary>
         /// SaveBtn control.

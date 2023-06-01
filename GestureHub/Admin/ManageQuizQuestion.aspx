@@ -98,18 +98,16 @@
                 <div class="col-md-5">
                     <div class="row">
                         <div class="col-md-4 pe-0">
-                            <select class="form-select" id="columnSelect" name="columnSelect">
-                                <option value="question_id">Question ID</option>
-                                <option value="quiz_id">Quiz ID</option>
-                                <option value="question">Question</option>
-                                <option value="picture">Picture</option>
-                                <option value="video">Video</option>
-                            </select>
+                            <asp:DropDownList runat="server" ID="ColumnSelect" CssClass="form-select" name="ColumnSelect">
+                                <asp:ListItem Value="question_id">Question ID</asp:ListItem>
+                                <asp:ListItem Value="quiz_id">Quiz ID</asp:ListItem>
+                                <asp:ListItem Value="question">Question</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <div class="col-md-8 ps-0">
                             <div class="d-flex">
-                                <input type="text" class="form-control" id="search" name="search">
-                                <button type="button" class="btn btn-primary" onclick="location.href='ManageQuizQuestion.aspx?Search=' + document.getElementById('search').value + '&Column=' + document.getElementById('columnSelect').value">Search</button>
+                                <asp:TextBox runat="server" ID="SearchBox" CssClass="form-control" name="Search"></asp:TextBox>
+                                <asp:Button runat="server" ID="searchButton" CssClass="btn btn-primary" OnClick="SearchButton_Click" Text="Search" />
                             </div>
                         </div>
                     </div>
