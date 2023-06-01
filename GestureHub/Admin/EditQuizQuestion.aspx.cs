@@ -22,7 +22,7 @@ namespace GestureHub.Admin
             if (questionId != null)
             {
                 SqlDataSource1.SelectParameters["questionId"].DefaultValue = questionId;
-                var quizData = QuizC.GetQuizData(Convert.ToInt32(questionId));
+                var quizData = QuizC.GetQuizData(questionId);
 
             }
         }

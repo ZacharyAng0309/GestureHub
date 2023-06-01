@@ -28,7 +28,9 @@ namespace GestureHub
             string description = descriptionField.Text;
             //get selected value for difficulty
             string difficulty = difficultyField.SelectedValue.ToString();
-            String newCourseId = CourseC.GetNextCourseId().ToString();
+            
+            
+            newCourseId = CourseC.GetNextCourseId().ToString();
             //AddNewCourse
             CourseC.AddNewCourse(title, description,difficulty);
             QuizC.addNewQuiz(newCourseId,title,description);

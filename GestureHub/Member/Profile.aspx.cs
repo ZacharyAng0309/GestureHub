@@ -12,7 +12,8 @@ namespace GestureHub.Member
         protected void Page_Load(object sender, EventArgs e)
         {
             //get userid from session
-            String userId = Session["userId"].ToString();
+            String userId = "1";
+            //String userId = Session["userId"].ToString();
             //get user info from database
             //display user info
         }
