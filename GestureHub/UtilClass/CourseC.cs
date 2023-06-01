@@ -10,7 +10,7 @@ namespace GestureHub
 {
     public static class CourseC
     {
-        public static Panel DisplayCourse(String courseId, string userType)
+        public static Panel DisplayCourse(string courseId, string userType)
         {
             DataTable courseTable = CourseC.GetCourseData(courseId);
             if (courseTable.Rows.Count == 0) return null;
@@ -154,16 +154,16 @@ namespace GestureHub
             return colPanel;
         }
 
-        public static Panel DisplayCoursesByDifficulty(String difficulty, String usertype) {
+        public static Panel DisplayCoursesByDifficulty(string difficulty, string usertype) {
             //get the courseId by difficulty
-            List<String> courseIdList = CourseC.GetCourseIdByDifficulty(difficulty);
+            List<string> courseIdList = CourseC.GetCourseIdByDifficulty(difficulty);
 
             Panel row = new Panel
             {
                 CssClass = "row justify-content-evenly py-2",
             };
             //for each courseId, display the course
-            foreach (String courseId in courseIdList)
+            foreach (string courseId in courseIdList)
             {
                 Panel course = CourseC.DisplayCourse(courseId, usertype);
                 if (course != null)
@@ -174,10 +174,10 @@ namespace GestureHub
             return row;
         }
 
-        public static List<String> GetCourseIdByDifficulty(String difficulty)
+        public static List<string> GetCourseIdByDifficulty(string difficulty)
         {
             //get the list of courseId from the database by difficulty
-            List<String> courseIdList = new List<String>();
+            List<string> courseIdList = new List<string>();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -219,7 +219,7 @@ namespace GestureHub
                 }
             }
         }
-        public static DataTable GetCourseData(String courseId)
+        public static DataTable GetCourseData(string courseId)
         {
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -384,7 +384,7 @@ namespace GestureHub
             }
         }
 
-        public static void UpdateCourse(String courseId, String title, String description, String difficulty)
+        public static void UpdateCourse(string courseId, string title, string description, string difficulty)
         {
             //update course in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -429,12 +429,12 @@ namespace GestureHub
             return courseIdList;
         }
 
-        public static String GetNextCourseId()
+        public static string GetNextCourseId()
         {
             return (CourseC.GetCourseCount() + 1).ToString();
         }
 
-        public static void DeleteCourse(String courseId) {
+        public static void DeleteCourse(string courseId) {
             //delete the course from the course table in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -449,7 +449,7 @@ namespace GestureHub
                 conn.Close();
             }
             //get quiz id from database that is with the course id
-            String quizId = "";
+            string quizId = "";
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();

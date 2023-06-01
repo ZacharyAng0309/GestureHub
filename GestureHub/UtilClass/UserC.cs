@@ -66,7 +66,7 @@ namespace GestureHub
         //    }
         //}
 
-        public static DataRow GetUserData(int userId)
+        public static DataRow GetUserData(string userId)
         {
             DataTable dataTable = new DataTable();
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
@@ -203,9 +203,9 @@ namespace GestureHub
             return count;
         }
 
-        public static List<String> GetUserIdList()
+        public static List<string> GetUserIdList()
         {
-            List<String> userIdList = new List<String>();
+            List<string> userIdList = new List<string>();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -225,7 +225,9 @@ namespace GestureHub
             }
             return userIdList;
         }
-        public static void addUser(String username, String email, String password, String fname, String lname, int age, string gender, string role) {
+
+        public static void addUser(string username, string email, string password, string fname, string lname, string age, string gender, string role) {
+
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -250,7 +252,7 @@ namespace GestureHub
 
 
         // a function to update user details into the database
-        public static void updateUser(String userId,String username, String email, String password, String fname, String lname, String age, string gender, string role)
+        public static void updateUser(string userId,string username, string email, string password, string fname, string lname, string age, string gender, string role)
         {
             //update the user into the database according to the userId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -277,12 +279,12 @@ namespace GestureHub
         }
 
         // a function to check if a username is unique by checking if it is already in the database
-        public static bool isUsernameUnique(String username)
+        public static bool isUsernameUnique(string username)
         {
             //create a boolean variable to store the result
             bool isUnique = false;
             //create a list to store the username from the database
-            List<String> usernameList = new List<String>();
+            List<string> usernameList = new List<string>();
             //get the username from the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -303,7 +305,7 @@ namespace GestureHub
                 conn.Close();
             }
             //check if the username is unique by looping the  usernameList
-            foreach (String usernameFromList in usernameList)
+            foreach (string usernameFromList in usernameList)
             {
                 //if the username is found in the database, set the isUnique to false
                 if (usernameFromList.Equals(username))
@@ -327,7 +329,7 @@ namespace GestureHub
             return count + 1;
         }
 
-        public static void DeleteUser(String userId) {
+        public static void DeleteUser(string userId) {
             //delete the user from the database according to the userId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
