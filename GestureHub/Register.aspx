@@ -81,8 +81,8 @@
 
             <div class="form-floating mb-3">
                 <asp:DropDownList ID="GenderDropDownList" runat="server" Required="required" CssClass="form-select">
-                    <asp:ListItem Selected="False" Text="Male" Value="m"></asp:ListItem>
-                    <asp:ListItem Selected="False" Text="Female" Value="f"></asp:ListItem>
+                    <asp:ListItem Selected="False" Text="Male" Value="Male"></asp:ListItem>
+                    <asp:ListItem Selected="False" Text="Female" Value="Female"></asp:ListItem>
                 </asp:DropDownList>
                 <label for="<%= GenderDropDownList.ClientID %>" class="text-muted">Gender</label>
             </div>

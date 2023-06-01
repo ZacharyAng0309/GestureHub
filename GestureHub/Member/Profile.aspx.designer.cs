@@ -87,16 +87,13 @@ namespace GestureHub.Member
         protected global::System.Web.UI.WebControls.TextBox AgeProfile;
 
         /// <summary>
-        /// GenderDropDownList control.
-      
+        /// GenderProfileDropdownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
-        protected global::System.Web.UI.WebControls.DropDownList GenderDropDownList;
-
+        protected global::System.Web.UI.WebControls.DropDownList GenderProfileDropdownList;
 
         /// <summary>
         /// DeleteBtn control.
@@ -123,24 +120,6 @@ namespace GestureHub.Member
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
-        /// <summary>
-        /// MsgPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel MsgPanel;
-
-        /// <summary>
-        /// MsgLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MsgLabel;
-
+        protected global::System.Web.UI.WebControls.Button BackBtn;
     }
 }

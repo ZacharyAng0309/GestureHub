@@ -485,12 +485,12 @@
     <Compile Include="SiteAnon.master.designer.cs">
       <DependentUpon>SiteAnon.master</DependentUpon>
     </Compile>
-    <Compile Include="SiteStudent.master.cs">
-      <DependentUpon>SiteStudent.master</DependentUpon>
+    <Compile Include="SiteMember.master.cs">
+      <DependentUpon>SiteMember.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SiteStudent.master.designer.cs">
-      <DependentUpon>SiteStudent.master</DependentUpon>
+    <Compile Include="SiteMember.master.designer.cs">
+      <DependentUpon>SiteMember.master</DependentUpon>
     </Compile>
     <Compile Include="UtilClass\BaseAdminPage.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -529,7 +529,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="SiteAdmin.master" />
     <Content Include="SiteAnon.master" />
-    <Content Include="SiteStudent.master" />
+    <Content Include="SiteMember.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

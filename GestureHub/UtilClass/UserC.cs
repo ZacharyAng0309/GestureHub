@@ -156,7 +156,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE role = 'member';";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [user]";
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
                 }
@@ -225,7 +225,7 @@ namespace GestureHub
             }
             return userIdList;
         }
-        public static void addUser(String username, String email, String password, String fname, String lname, String age, string gender, string role) {
+        public static void addUser(String username, String email, String password, String fname, String lname, int age, string gender, string role) {
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();

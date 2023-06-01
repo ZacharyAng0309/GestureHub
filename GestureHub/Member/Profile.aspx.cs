@@ -42,7 +42,7 @@ namespace GestureHub.Member
             String age = AgeProfile.Text;
             String fname = FirstNameProfile.Text;
             String lname = LastNameProfile.Text;
-            String gender = GenderProfileDropdown.SelectedValue;
+            String gender = GenderProfileDropdownList.SelectedValue;
             UserC.updateUser(userId, username, email, password, fname, lname, age, gender, "Member");
             //set success message
             MsgLabel.Visible = true;
