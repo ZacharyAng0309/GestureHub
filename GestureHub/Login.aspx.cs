@@ -41,11 +41,11 @@ namespace GestureHub
                     //if user role is admin then redirect to admin page
                     if (dt.Rows[0]["user_role"].ToString() == "admin")
                     {
-                        Response.Redirect("~/Admin/Dashboard.aspx");
+                        Response.Redirect("/Admin/Dashboard.aspx");
                     }
                     else
                     {
-                        Response.Redirect("~/Member/Dashboard.aspx");
+                        Response.Redirect("/Member/Dashboard.aspx");
                     }
                 }
                 else
