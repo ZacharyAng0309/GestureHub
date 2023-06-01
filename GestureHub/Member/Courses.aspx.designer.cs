@@ -15,21 +15,31 @@ namespace GestureHub.Member
     {
 
         /// <summary>
-        /// EasyCoursePanel control.
+        /// EasyCoursePanelHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel EasyCoursePanel;
-
+      
+        protected global::System.Web.UI.WebControls.Panel EasyCoursePanelHolder;
         /// <summary>
-        /// CourseTitleLabel control.
+        /// IntermediateCoursePanelHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CourseTitleLabel;
+      
+        protected global::System.Web.UI.WebControls.Panel IntermediateCoursePanelHolder;
+        /// <summary>
+        /// HardCoursePanelHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+      
+        protected global::System.Web.UI.WebControls.Panel HardCoursePanelHolder;
     }
 }
