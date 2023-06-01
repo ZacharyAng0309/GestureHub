@@ -27,7 +27,7 @@ namespace GestureHub
             string password = PasswordTxtBox.Text;
             password = MyUtil.ComputeSHA1(password);
             string email =  MyUtil.SanitizeInput(EmailTxtBox);
-            int age = int.Parse(AgeTxtBox.Text);
+            string age = AgeTxtBox.Text;
             string gender = GenderDropDownList.Text;
             string role = "Member";
             
@@ -40,11 +40,8 @@ namespace GestureHub
             //    return;
             //}
 
-            UserC.addUser(username, email, password, null , null , age, gender, role);
+            UserC.AddUser(username, email, password, "" , "", age, gender, role);
 
-            // After successful registration
-            string script = "alert('Registration successful! You can now log in.');";
-            ClientScript.RegisterStartupScript(this.GetType(), "RegistrationSuccessAlert", script, true);
 
 
             Response.Redirect("~/Login.aspx");

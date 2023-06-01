@@ -17,7 +17,7 @@ namespace GestureHub
             DataRow dr = courseTable.Rows[0];
             Panel colPanel = new Panel
             {
-                CssClass = "col-lg-4 course-container d-flex align-items-stretch",
+                CssClass = "col-lg-5 course-container d-flex align-items-evenly",
             };
 
             Panel cPanel = new Panel
@@ -69,7 +69,7 @@ namespace GestureHub
 
                     NavigateUrl = $"/Admin/CourseOverview.aspx?courseId={courseId}",
                     Text = dr["title"].ToString(),
-                    CssClass = "course-title card-title fs-4 mb-1",
+                    CssClass = "course-title card-title fs-4 mb-1 text-center",
                 };
             }
             else {
@@ -78,7 +78,7 @@ namespace GestureHub
 
                     NavigateUrl = $"/Member/CourseOverview.aspx?courseId={courseId}",
                     Text = dr["title"].ToString(),
-                    CssClass = "course-title card-title fs-4 mb-1",
+                    CssClass = "course-title card-title fs-4 mb-1 text-center",
                 };
             }
             detail.Controls.Add(title);
