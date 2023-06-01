@@ -77,14 +77,11 @@
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
                     <h5>Gender:</h5>
-                    <asp:DropDownList ID="GenderProfileDropdown"
-                        runat="server"
-                        Required="required"
-                        AutoPostBack="true"
-                        ToolTip="Gender"
-                        CssClass="form-select">
-                        <asp:ListItem Text="Male" Value="Male" />
-                        <asp:ListItem Text="Female" Value="Female" />
+
+                    <asp:DropDownList ID="GenderDropDownList" runat="server" Required="required" CssClass="form-select">
+                        <asp:ListItem Selected="False" Text="Male" Value="m"></asp:ListItem>
+                        <asp:ListItem Selected="False" Text="Female" Value="f"></asp:ListItem>
+                   
                     </asp:DropDownList>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-5">
@@ -95,16 +92,16 @@
                 </div>
                 <div class="col-sm-5 col-md-6 mb-4">
                 </div>
-                <div class="d-grid gap-2 col-3">
-                    <asp:Button ID="BackBtn" runat="server" href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
-                </div>
-                <div class="d-grid gap-2 col-3">
-                    <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" OnClick="SaveBtn_Click" />
+
+                  <div class="d-grid gap-2 col-3">
+                    <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" />
 
                 </div>
-                <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
-                    <asp:Label ID="MsgLabel" runat="server"></asp:Label>
-                </asp:Panel>
+                 <div class="d-grid gap-2 col-3">
+                    <asp:Button ID="BackBtn" runat="server" href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
+                </div>
+              
+             
 
             </div>
 

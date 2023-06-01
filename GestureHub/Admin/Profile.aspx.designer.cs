@@ -87,13 +87,22 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.TextBox AgeProfile;
 
         /// <summary>
-        /// GenderProfile control.
+        /// GenderDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox GenderProfile;
+        protected global::System.Web.UI.WebControls.DropDownList GenderDropDownList;
+
+        /// <summary>
+        /// SaveBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveBtn;
 
         /// <summary>
         /// BackBtn control.
