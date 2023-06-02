@@ -14,7 +14,7 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
             {
                 //redirect to login page
                 Response.Redirect("~/Login.aspx");
@@ -45,7 +45,7 @@ namespace GestureHub
             string gender = genderField.Text;
             string role = roleField.SelectedValue;
             //add user to database
-            UserC.addUser(username, email, firstName, lastName, age, gender, role, password);
+            UserC.AddUser(username, email, firstName, lastName, age, gender, role, password);
             //display the message panel with success message
             MsgLabel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";

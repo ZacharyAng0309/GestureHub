@@ -12,8 +12,10 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //get quizId from query string
-            string quizId = Request.QueryString["quizId"] ?? "1";
+            //get courseId from query string
+            string courseId = Request.QueryString["courseId"];
+            //get quizId using courseId
+            string quizId = QuizC.GetQuizId(courseId);
             //get quiz data
             DataTable quizData = QuizC.GetQuizData(quizId);
             //set title
@@ -49,7 +51,7 @@ namespace GestureHub.Member
             //string userId = Session["userId"].ToString();
             string userId = "1";
             //insert score into database
-            //QuizC.addQuizResult(userId, quizId, score.ToString());
+            QuizC.addQuizResult(userId, quizId, score.ToString());
             //change the panel to display the score
             QuestionPanel.Visible = false;
             //set score label

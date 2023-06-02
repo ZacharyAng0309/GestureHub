@@ -226,7 +226,7 @@ namespace GestureHub
             return userIdList;
         }
 
-        public static void addUser(string username, string email, string password, string fname, string lname, string age, string gender, string role) {
+        public static void AddUser(string username, string email, string password, string fname, string lname, string age, string gender, string role) {
 
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {

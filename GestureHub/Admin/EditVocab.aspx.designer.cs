@@ -11,53 +11,62 @@ namespace GestureHub.Admin
 {
 
 
-    public partial class ManageUser
+    public partial class EditVocab
     {
 
         /// <summary>
-        /// ColumnSelect control.
+        /// VocabIdField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ColumnSelect;
+        protected global::System.Web.UI.WebControls.TextBox VocabIdField;
 
         /// <summary>
-        /// SearchBox control.
+        /// CourseIdField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchBox;
+        protected global::System.Web.UI.WebControls.TextBox CourseIdField;
 
         /// <summary>
-        /// searchButton control.
+        /// TermField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchButton;
+        protected global::System.Web.UI.WebControls.TextBox TermField;
 
         /// <summary>
-        /// GridView1 control.
+        /// DescriptionField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox DescriptionField;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// ImageUploadControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.FileUpload ImageUploadControl;
+
+        /// <summary>
+        /// VideoField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox VideoField;
 
         /// <summary>
         /// MsgPanel control.
