@@ -45,7 +45,7 @@ namespace GestureHub
             string gender = genderField.Text;
             string role = roleField.SelectedValue;
             //add user to database
-            UserC.addUser(username, email, firstName, lastName, age, gender, role, password);
+            UserC.AddUser(username, email, firstName, lastName, age, gender, role, password);
             //display the message panel with success message
             MsgLabel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
