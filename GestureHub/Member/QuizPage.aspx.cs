@@ -13,25 +13,60 @@ namespace GestureHub.Member
         protected void Page_Load(object sender, EventArgs e)
         {
             //get quizId from query string
-            string quizId = Request.QueryString["quizId"];
+            string quizId = Request.QueryString["quizId"] ?? "1";
             //get quiz data
             DataTable quizData = QuizC.GetQuizData(quizId);
             //set title
             QuizTitle.Text = quizData.Rows[0]["title"].ToString();
             //set description
             QuizDescription.Text = quizData.Rows[0]["description"].ToString();
-            //get quiz from database
-            QuizC.GetQuestionIdList(quizId);
+            //Insert into the panel
+            QuestionPanel.Controls.Add(QuizC.DisplayQuiz(quizId));
+        }
 
-            // loop the question id list and display the question
-            //foreach (string questionId in QuizC.GetQuestionIdList(quizId))
-            //{
-            //    //display question
-            //    Panel questionPanel = QuestionC.DisplayQuestion(questionId,);
-            //    //add question panel to the quiz panel
-            //    QuizPanel.Controls.Add(questionPanel);
-            //}
-
+        protected void submitQuizButton_Click(object sender, EventArgs e)
+        {
+            //get quizId from submitted form
+            string quizId = Request.Form["quizId"];
+            //int score
+            int score = 0;
+            //get questionIds from the quizId
+            List<string> questionIds = QuizC.GetQuestionIdList(quizId);
+            //loop through questionIds
+            foreach (string questionId in questionIds)
+            {
+                //get answerId from submitted form
+                string answerId = Request.Form["ctl00$ctl00$MainContent$MainContent$question-" + questionId].ToString();
+                string correctAnswerId = QuestionC.GetAnswerId(questionId);
+                //check if answer is correct
+                if (answerId == correctAnswerId)
+                {
+                    //increment score
+                    score++;
+                }
+            }
+            //get userId from session
+            //string userId = Session["userId"].ToString();
+            string userId = "1";
+            //insert score into database
+            //QuizC.addQuizResult(userId, quizId, score.ToString());
+            //change the panel to display the score
+            QuestionPanel.Visible = false;
+            //set score label
+            MsgLabel.Text = "Your score is " + score.ToString() + " out of " + questionIds.Count.ToString();
+            if((score / questionIds.Count) > 0.4)
+            {
+                MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+                MsgLabel.ForeColor = System.Drawing.Color.Green;
+                MsgLabel.Text += "<br/>You passed the quiz!";
+            }
+            else
+            {
+                MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                MsgLabel.ForeColor = System.Drawing.Color.Red;
+                MsgLabel.Text += "<br/>You failed the quiz!";
+            }
+            MsgPanel.Visible = true;
         }
     }
 }

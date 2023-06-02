@@ -27,7 +27,7 @@ namespace GestureHub
             string password = PasswordTxtBox.Text;
             password = MyUtil.ComputeSHA1(password);
             string email =  MyUtil.SanitizeInput(EmailTxtBox);
-            int age = int.Parse(AgeTxtBox.Text);
+            string age = AgeTxtBox.Text;
             string gender = GenderDropDownList.Text;
             string role = "Member";
             

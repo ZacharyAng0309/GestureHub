@@ -12,10 +12,11 @@
         <div class="container shadow rounded-3 p-4 mb-5 bg-white">
             <asp:Label runat="server" ID="QuizTitle" Text="Alphabet Test" CssClass="border-bottom border-3 text-center p-2 mb-4"></asp:Label>
             <asp:Label runat="server" ID="QuizDescription" Text="This is a test to see how well you know your alphabet" CssClass="text-center"></asp:Label>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: 0%"></div>
-            </div>
-            <%--Question--%>
+            <asp:Panel runat="server" ID="QuestionPanel">
+                <%--Display question content here--%>
+            </asp:Panel>
+
+            <%--Question
             <div class="py-3">
                 <h3 class="text-danger">Question 1 out of 5</h3>
                 <h5 class="">1. Which of the following is the correct answer?</h5>
@@ -44,8 +45,10 @@
                         <asp:RadioButton ID="radioButton4" runat="server" Text="Radio Button 4" />
                     </div>
                 </div>
-            </div>
-
+            </div>--%>
+            <asp:Panel ID="MsgPanel" runat="server" class="my-3" role="alert" Visible="false">
+                <asp:Label ID="MsgLabel" runat="server"></asp:Label>
+            </asp:Panel>
             <%--buttons--%>
             <div class="row d-flex justify-content-between mt-5">
                 <a href="#" class="btn btn-secondary align-items-center col-5 col-sm-3">BACK</a>

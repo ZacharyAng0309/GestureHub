@@ -6,6 +6,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Threading;
+using System.Web.UI;
 
 namespace GestureHub
 {
@@ -57,7 +59,30 @@ namespace GestureHub
         }
 
         public static Panel DisplayQuiz(string quizId) { 
+            //get questionIdLIst from the database
+            List<string> questionIdList = GetQuestionIdList(quizId);
             Panel row = new Panel();
+            //add the quizId as an input into the panel
+            row.Controls.Add(new LiteralControl("<input type='hidden' name='quizId' value='" + quizId + "' />"));
+            int count = 1;
+            //loop the questionId and display the question
+            foreach (string questionId in questionIdList)
+            {
+                Panel questionPanel = QuestionC.DisplayQuestion(questionId, count);
+                row.Controls.Add(questionPanel);
+                count++;
+            }
+            row.Controls.Add(new LiteralControl("<script>\r\n        " +
+                "$(document).ready(function() {\r\n            " +
+                "// Your JavaScript (jQuery) code here\r\n            " +
+                "$('[data-image]').each(function() {\r\n                " +
+                "var imageUrl = $(this).attr('data-image');\r\n               " +
+                " var imgElement = $('<img>').attr('src', imageUrl);\r\n               " +
+                " $(this).append(imgElement);\r\n            });\r\n\r\n           " +
+                " $('[data-video]').each(function() {\r\n                " +
+                "var videoUrl = $(this).attr('data-video');\r\n                " +
+                "var iframeElement = $('<iframe>').attr('src', videoUrl).attr('width', '100%').attr('height', 'auto');\r\n                " +
+                "$(this).append(iframeElement);\r\n            });\r\n        });\r\n    </script>"));
             return row;
         }
 
@@ -109,6 +134,25 @@ namespace GestureHub
 
         public static List<string> GetQuestionIdList(string quizId) {
             List<string> questionIdList = new List<string>();
+            //get question id from database that is with the quiz id
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT question_id FROM question WHERE quiz_id=@quizId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            questionIdList.Add(reader["question_id"].ToString());
+                        }
+                    }
+                }
+                conn.Close();
+            }
             return questionIdList;
         }
 
@@ -172,5 +216,24 @@ namespace GestureHub
             }
         }
         
+        public static void addQuizResult(string userId, string quizId, string score)
+        {
+            //add quiz result to the database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO quizresult (user_id, quiz_id, score,completed_at) VALUES (@user_id, @quiz_id, @score,@completed_at);";
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    cmd.Parameters.AddWithValue("@score", score);
+                    cmd.Parameters.AddWithValue("@completed_at", DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }   
     }
 }
