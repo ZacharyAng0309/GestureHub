@@ -14,16 +14,19 @@
     <li class="nav-item">
         <a href="/Admin/ManageUser.aspx" class="nav-link text-white" data-nav-loc="student">MANAGE USER</a>
     </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="manageMaterialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MANAGE MATERIAL
-        </a>
-        <div class="dropdown-menu" aria-labelledby="manageMaterialDropdown">
-            <a class="dropdown-item" href="/Admin/ManageCourse.aspx">MANAGE COURSE</a>
-            <a class="dropdown-item" href="/Admin/ManageVocabulary.aspx">MANAGE VOCABULARY</a>
-            <a class="dropdown-item" href="/Admin/ManagerQuiz.aspx">MANAGE QUIZ</a>
-            <a class="dropdown-item" href="/Admin/ManageQuizQuestion.aspx">MANAGE QUIZ QUESTION</a>
-        </div>
-    </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+            MANAGE MATERIALS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/Admin/ManageCourse.aspx">MANAGE COURSE</a></li>
+            <li><a class="dropdown-item" href="/Admin/ManageVocab.aspx">MANAGE VOCABULARY</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/Admin/ManageQuiz.aspx">MANAGE QUIZ</a></li>
+            <li><a class="dropdown-item" href="/Admin/ManageQuizQuestion.aspx">MANAGE QUIZ QUESTION</a></li>
+            
+          </ul>
+        </li>
     <li class="nav-item">
         <a href="/Admin/ViewFeedback.aspx" class="nav-link text-white" data-nav-loc="feedback">VIEW FEEDBACK</a>
     </li>

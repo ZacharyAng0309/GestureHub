@@ -13,5 +13,15 @@ namespace GestureHub.Admin
         {
 
         }
+
+        protected void EditCourseBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void DeleteCourseBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
