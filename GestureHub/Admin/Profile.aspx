@@ -11,6 +11,15 @@
          
         <form id="form2" runat="server">
             <div class="row justify-content-evenly">
+                <div class="col-md-12 mb-3">
+                    <h5>Profile Picture</h5>
+                    <asp:Image ID="ProfilePicture" runat="server" ImageUrl="/Images/bodylanguage_a.jpg" Style="width: 200px" CssClass="border border-4 rounded text-center" />
+
+                    <div class="mb-3 mt-3 col-md-6">
+                        <h6><label for="formFile" class="form-label">Insert File:</label></h6>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                </div>
                  <div class="col-sm-5 col-md-6 mb-3">
                       <h5>User ID:</h5>
                     <asp:TextBox ID="UserIDProfile"
