@@ -12,11 +12,11 @@ namespace GestureHub.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            //if (Session["userType"] == null || Session["userType"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             //get number of admins
             int adminCount = UserC.GetUserCountByRole("admin");
             //insert the value of adminCount to the hidden field
@@ -31,7 +31,20 @@ namespace GestureHub.Admin
             MaleNumberField.Value = maleUserCount.ToString();
             //get number of female user
             int femaleUserCount = UserC.GetUserCountByGender("F");
-
+            //insert the value of femaleUserCount to the hidden field
+            FemaleNumberField.Value = femaleUserCount.ToString();
+            //get the count of courses by difficulty
+            int easyCourseCount = CourseC.GetCourseIdByDifficulty("easy").Count;
+            //insert the value of easyCourseCount to the hidden field
+            EasyCourseNumberField.Text = easyCourseCount.ToString();
+            //get the count of courses by difficulty
+            int intermediateCourseCount = CourseC.GetCourseIdByDifficulty("intermediate").Count;
+            //insert the value of intermediateCourseCount to the hidden field
+            IntermediateCourseNumberField.Text = intermediateCourseCount.ToString();
+            //get the count of courses by difficulty
+            int hardCourseCount = CourseC.GetCourseIdByDifficulty("hard").Count;
+            //insert the value of hardCourseCount to the hidden field
+            HardCourseNumberField.Text = hardCourseCount.ToString();
         }
     }
 }

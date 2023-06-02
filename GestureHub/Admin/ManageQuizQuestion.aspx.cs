@@ -1,6 +1,8 @@
 ﻿using AngleSharp.Dom;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,15 +14,24 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string column = Request.QueryString["Column"];
-            string search = Request.QueryString["Search"];
-
+            //check if user is admin
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack) {
-                if (!string.IsNullOrEmpty(column) && !string.IsNullOrEmpty(search))
+                string column = Request.QueryString["Column"];
+                string search = Request.QueryString["Search"];
+
+                if (!IsPostBack)
                 {
-                    SqlDataSource1.SelectCommand = "SELECT * FROM [question] WHERE " + column + " like '%" + search + "%'";
-                    ColumnSelect.SelectedValue = column;
-                    SearchBox.Text = search;
+                    if (!string.IsNullOrEmpty(column) && !string.IsNullOrEmpty(search))
+                    {
+                        SqlDataSource1.SelectCommand = "SELECT * FROM [question] WHERE " + column + " like '%" + search + "%'";
+                        ColumnSelect.SelectedValue = column;
+                        SearchBox.Text = search;
+                    }
                 }
             }
         }
@@ -31,6 +42,25 @@ namespace GestureHub.Admin
             Response.Write("<script>alert('"+searchValue+"');</script>");
             string redirectUrl = "ManageQuizQuestion.aspx?Search=" + searchValue + "&Column=" + columnValue;
             Response.Redirect(redirectUrl);
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = GridView1.SelectedRow; // get reference to the selected row 
+            if (row != null) // check if a row is selected
+            {
+                String questionId = row.Cells[0].Text; // get the question_id from the first cell of the selected row
+                QuestionC.DeleteQuestion(questionId); // delete the question with the question_id
+            }
+            else
+            {
+                // show error message
+                MsgLabel.Visible = true;
+                MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                MsgLabel.Text = "Please select a row to delete.";
+                MsgLabel.ForeColor = System.Drawing.Color.Red;
+
+            }
         }
     }
 }

@@ -73,9 +73,9 @@
                 <div class="card col-md-3 mb-4">
                     <div class="card-body">
                         <h4 class="card-title">Number of Courses/Quizzes</h4>
-                        <p class="card-text">Beginner Level:</p>
-                        <p class="card-text">Intermediate Level:</p>
-                        <p class="card-text">Advanced Level:</p>
+                        <p class="card-text">Beginner Level:<asp:Label ID="EasyCourseNumberField" runat="server"></asp:Label></p>
+                        <p class="card-text">Intermediate Level: <asp:Label ID="IntermediateCourseNumberField" runat="server"></asp:Label></p>
+                        <p class="card-text">Advanced Level:<asp:Label ID="HardCourseNumberField" runat="server"></asp:Label></p>
 
 
                     </div>

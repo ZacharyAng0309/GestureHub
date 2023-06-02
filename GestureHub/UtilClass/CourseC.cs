@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using AngleSharp.Css.Dom;
+using GestureHub.UtilClass;
 
 namespace GestureHub
 {
     public static class CourseC
     {
-        public static Panel DisplayCourse(string courseId, string userType)
+        public static Panel DisplayCourse(string courseId, string userRole)
         {
             DataTable courseTable = CourseC.GetCourseData(courseId);
             if (courseTable.Rows.Count == 0) return null;
@@ -46,7 +48,7 @@ namespace GestureHub
                 CssClass = "cover img-fluid rounded-start course-img",
                 AlternateText = "Thumbnail Image",
             };
-            thumbnail.Attributes.Add("onload", $"javascript:this.onload=null;this.src='../Images/GestureHubLogo.png'");
+            thumbnail.Attributes.Add("onload", $"javascript:this.onload=null;this.src='../Images/" + dr["images"] +"'");
             //thumbnail.Attributes.Add("onload", $"javascript:this.onload=null;this.src='/upload/thumbnail/{dr["thumbnail"]}'");
             imgCol.Controls.Add(thumbnail);
 
@@ -62,7 +64,7 @@ namespace GestureHub
             };
             detailCol.Controls.Add(detail);
             HyperLink title;
-            if (userType == "admin")
+            if (userRole.Equals("admin"))
             {
                 title = new HyperLink
                 {
@@ -72,13 +74,24 @@ namespace GestureHub
                     CssClass = "course-title card-title fs-4 mb-1 text-center",
                 };
             }
-            else {
+            else if (userRole.Equals("member"))
+            {
                 title = new HyperLink
                 {
 
                     NavigateUrl = $"/Member/CourseOverview.aspx?courseId={courseId}",
                     Text = dr["title"].ToString(),
                     CssClass = "course-title card-title fs-4 mb-1 text-center",
+                };
+            }
+            else
+            {
+                title = new HyperLink
+                {
+
+                    NavigateUrl = $"CourseOverview.aspx?courseId={courseId}",
+                    Text = dr["title"].ToString(),
+                    CssClass = "course-title card-title fs-4 mb-1",
                 };
             }
             detail.Controls.Add(title);
@@ -114,7 +127,7 @@ namespace GestureHub
             linkBtnGroup.Attributes.Add("role", "group");
             linkBtnGroup.Attributes.Add("aria-label", "Course Button Group");
 
-            if (userType == "admin")
+            if (userRole.Equals("admin"))
             {
                 HyperLink editLink = new HyperLink
                 {
@@ -132,29 +145,54 @@ namespace GestureHub
                 delLink.Attributes.Add("data-action", "warn");
                 linkBtnGroup.Controls.Add(delLink);
             }
-            //else if (userType == "student")
-            //{
-            //    HyperLink navLink = new HyperLink
-            //    {
-            //        Text = "View",
-            //        NavigateUrl = $"/Member/CourseOverview.aspx?courseId={courseId}",
-            //        CssClass = "btn btn-outline-primary btn-sm",
-            //    };
-            //    linkBtnGroup.Controls.Add(navLink);
-
-            //}
-            HyperLink viewLink = new HyperLink
+            else if (userRole.Equals("member"))
             {
-                NavigateUrl = $"/ViewCourse.aspx?courseId={courseId}",
-                Text = "View Course",
-                CssClass = "btn btn-outline-primary btn-sm",
-            };
-            linkBtnGroup.Controls.Add(viewLink);
+                HyperLink navLink = new HyperLink
+                {
+                    Text = "View",
+                    NavigateUrl = $"/Member/CourseOverview.aspx?courseId={courseId}",
+                    CssClass = "btn btn-outline-primary btn-sm",
+                };
+                linkBtnGroup.Controls.Add(navLink);
+
+            }
+            else
+            {
+                HyperLink viewLink = new HyperLink
+                {
+                    NavigateUrl = $"/CourseOverview.aspx?courseId={courseId}",
+                    Text = "View Course",
+                    CssClass = "btn btn-outline-primary btn-sm",
+                };
+                linkBtnGroup.Controls.Add(viewLink);
+            }
+
             detail.Controls.Add(linkBtnGroup);
             return colPanel;
         }
 
-        public static Panel DisplayCoursesByDifficulty(string difficulty, string usertype) {
+        public static Panel DisplayCourseVocab(string courseId)
+        {
+            //get vocab list from database
+            List<string> vocabIdList = CourseC.GetVocabIdList(courseId);
+            Panel vocabPanel = new Panel
+            {
+                CssClass = "accordion",
+            };
+            int count = 1;
+            //loop the vocabIdList and display the vocab
+            foreach (string vocabId in vocabIdList)
+            {
+                Panel vocab = VocabC.DisplayVocab(vocabId,count);
+                vocabPanel.Controls.Add(vocab);
+                count++;
+            }
+            return vocabPanel;
+
+        }
+
+        public static Panel DisplayCoursesByDifficulty(string difficulty, string usertype)
+        {
             //get the courseId by difficulty
             List<string> courseIdList = CourseC.GetCourseIdByDifficulty(difficulty);
 
@@ -240,6 +278,30 @@ namespace GestureHub
                 }
             }
         }
+        public static List<string> GetVocabIdList(string courseId)
+        {
+            List<string> vocabIdlist = new List<string>();
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT vocabulary_id FROM vocabulary WHERE course_id=@courseId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            vocabIdlist.Add(reader.GetInt32(0).ToString());
+                        }
+                    }
+                }
+                conn.Close();
+                return vocabIdlist;
+            }
+
+        }
 
         //public static DataTable GetEnrolledCourseData(int student_id)
         //{
@@ -323,26 +385,26 @@ namespace GestureHub
         //    return count;
         //}
 
-        public static DataTable GetPopularCourseID()
-        {
-            DataTable dataTable = new DataTable();
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT course.courseId, ISNULL(AVG(CAST(rating AS DECIMAL)), 0) AS rate FROM course FULL JOIN [rating] ON course.courseId = rating.courseId GROUP BY course.courseId ORDER BY rate DESC;";
-                    using (SqlDataAdapter adapter = new SqlDataAdapter())
-                    {
-                        adapter.SelectCommand = cmd;
-                        adapter.Fill(dataTable);
-                    }
-                }
-                conn.Close();
-            }
-            return dataTable;
-        }
+        //public static DataTable GetPopularCourseID()
+        //{
+        //    DataTable dataTable = new DataTable();
+        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = conn;
+        //            cmd.CommandText = "SELECT course.courseId, ISNULL(AVG(CAST(rating AS DECIMAL)), 0) AS rate FROM course FULL JOIN [rating] ON course.courseId = rating.courseId GROUP BY course.courseId ORDER BY rate DESC;";
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
+        //            {
+        //                adapter.SelectCommand = cmd;
+        //                adapter.Fill(dataTable);
+        //            }
+        //        }
+        //        conn.Close();
+        //    }
+        //    return dataTable;
+        //}
 
         public static int GetCourseCount()
         {
@@ -361,6 +423,7 @@ namespace GestureHub
             }
             return count;
         }
+
         public static void AddNewCourse(string title, string description, string difficulty)
         {
             DateTime createdAt = DateTime.Now;
@@ -405,7 +468,7 @@ namespace GestureHub
             }
         }
 
-        internal static List<string> GetCourseIdList()
+        public static List<string> GetCourseIdList()
         {
             //get all course id from database
             List<string> courseIdList = new List<string>();
@@ -434,7 +497,8 @@ namespace GestureHub
             return (CourseC.GetCourseCount() + 1).ToString();
         }
 
-        public static void DeleteCourse(string courseId) {
+        public static void DeleteCourse(string courseId)
+        {
             //delete the course from the course table in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -462,14 +526,16 @@ namespace GestureHub
                     {
                         while (reader.Read())
                         {
-                            quizId=reader["quizId"].ToString();
+                            quizId = reader["quizId"].ToString();
                         }
                     }
                 }
                 conn.Close();
-            } 
+            }
             QuizC.DeleteQuiz(quizId);
-            
+
         }
+
+
     }
 }

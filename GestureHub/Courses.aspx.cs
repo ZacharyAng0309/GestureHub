@@ -11,16 +11,17 @@ namespace GestureHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userRole = "guest";
             //get panel of easy courses
-            Panel easyCoursePanel = CourseC.DisplayCoursesByDifficulty("easy", "");
+            Panel easyCoursePanel = CourseC.DisplayCoursesByDifficulty("easy", userRole);
             //insert the panel
             EasyCoursePanelHolder.Controls.Add(easyCoursePanel);
             //get panel of intermediate courses
-            Panel intermediateCoursePanel = CourseC.DisplayCoursesByDifficulty("intermediate", "");
+            Panel intermediateCoursePanel = CourseC.DisplayCoursesByDifficulty("intermediate", userRole);
             //insert the panel
             IntermediateCoursePanelHolder.Controls.Add(intermediateCoursePanel);
             //get panel of hard courses
-            Panel hardCoursePanel = CourseC.DisplayCoursesByDifficulty("difficult", "");
+            Panel hardCoursePanel = CourseC.DisplayCoursesByDifficulty("hard", userRole);
             //insert the panel
             HardCoursePanelHolder.Controls.Add(hardCoursePanel);
         }
