@@ -42,9 +42,6 @@ namespace GestureHub
 
             UserC.AddUser(username, email, password, null , null , age, gender, role);
 
-            // After successful registration
-            string script = "alert('Registration successful! You can now log in.');";
-            ClientScript.RegisterStartupScript(this.GetType(), "RegistrationSuccessAlert", script, true);
 
 
             Response.Redirect("~/Login.aspx");

@@ -12,10 +12,10 @@
 <asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <h1 class="border-bottom mb-3">Login</h1>
-        <h6>Not a member? <a href="/Register.aspx">Create Account</a>
+        <h6 class="mb-4">Not a member? <a href="/Register.aspx">Create Account</a>
         </h6>
         <form id="form1" runat="server">
-            <div class="form-floating mt-3">
+            <div class="form-floating mt-4">
                 <asp:TextBox ID="UsernameTxtBox"
                     runat="server"
                     TextMode="SingleLine"
@@ -24,7 +24,7 @@
                     Placeholder="Username"></asp:TextBox>
                 <label for="<%= UsernameTxtBox.ClientID %>" class="text-muted">Username</label>
             </div>
-            <div class="input-group mt-3">
+            <div class="input-group mt-4">
                 <div class="form-floating flex-grow-1">
                     <asp:TextBox ID="PasswordTxtBox"
                         runat="server"
@@ -35,15 +35,15 @@
                         Placeholder="Password"></asp:TextBox>
                     <label for="<%= PasswordTxtBox.ClientID %>" class="text-muted">Password</label>
                 </div>
-                <span class="input-group-text"
-                    data-toggle="passwordToggler"
+                 <button type="button" id="passwordVisibilityToggle" class="input-group-text" 
+                     onclick="toggleLoginPasswordVisibility()" 
+                     data-toggle="passwordToggler"
                     data-toggle-class="bi-eye"
-                    data-toggle-target="#<%= PasswordTxtBox.ClientID %>"
-                    style="cursor: pointer;">
-                    <i class="bi bi-eye-slash"></i>
-                </span>
+                    data-toggle-target="#<%= PasswordTxtBox.ClientID %>"">
+                        <i class="bi bi-eye-slash"></i>
+                </button>
             </div>
-            <div class="mt-3">
+            <div class="mt-4">
                <h6 class="mb-4"><a href="#">Forget Password?</a></h6>
 
                 <div class="d-grid gap-2 col-6 mx-auto">
@@ -59,5 +59,19 @@
     
     <input type="hidden" id="NavLocation" value="login" disabled="disabled" />
     <script>
-</script>
+        function toggleLoginPasswordVisibility() {
+            const passwordInput = document.getElementById("MainContent_MainContent_PasswordTxtBox");
+            const passwordVisibilityToggle = document.getElementById("passwordVisibilityToggle");
+            //check if passwordInput has class of input-mask
+            if (passwordInput.classList.contains("input-mask")) {
+                passwordInput.classList.remove("input-mask");
+                passwordInput.type = "text";
+                passwordVisibilityToggle.innerHTML = '<i class="bi bi-eye"></i>';
+            } else {
+                passwordInput.classList.add("input-mask");
+                passwordInput.type = "password";
+                passwordVisibilityToggle.innerHTML = '<i class="bi bi-eye-slash"></i>';
+            }
+        }
+    </script>
 </asp:Content>

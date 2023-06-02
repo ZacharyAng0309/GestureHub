@@ -156,7 +156,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user]";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [users]";
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
                 }
@@ -174,7 +174,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE gender=@gender;";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [users] WHERE gender=@gender;";
                     cmd.Parameters.AddWithValue("@gender", gender);
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
@@ -193,7 +193,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE user_role=@role;";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [users] WHERE user_role=@role;";
                     cmd.Parameters.AddWithValue("@role", role);
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
@@ -226,8 +226,17 @@ namespace GestureHub
             return userIdList;
         }
 
-        public static void AddUser(string username, string email, string password, string fname, string lname, string age, string gender, string role) {
-
+        public static void AddUser(string username, string email, string password, string fname, string lname, string rawAge, string gender, string role) {
+            int age = int.Parse(rawAge);
+            string profile = "";
+            if (gender == "Female")
+            {
+                profile = "girl1.png";
+            }
+            else
+            {
+                profile = "boy1.png";
+            }
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -235,15 +244,18 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
                     //Create insert command to add user into database
-                    cmd.CommandText = "INSERT INTO users(username, email, password, fname, lname, age, gender, role,created_at, updated_at) VALUES(@uname, @email, @pass, @fname, @lname, @age, @gender, @role,@created_at,@updated_at)";
+                    cmd.CommandText = "INSERT INTO users(username, email, password, first_name, last_name, age, gender, user_role, created_at, updated_at, images) VALUES(@username, @email, @password, @fname, @lname, @age, @gender, @role, @created_at, @updated_at, @images)";
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@password", password);
                     cmd.Parameters.AddWithValue("@fname", fname);
                     cmd.Parameters.AddWithValue("@lname", lname);
                     cmd.Parameters.AddWithValue("@age", age);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@role", role);
                     cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
                     cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@images", profile);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

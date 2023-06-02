@@ -36,7 +36,7 @@ namespace GestureHub
 
         }
 
-        protected void updateInputFields(String userId)
+        protected void updateInputFields(string userId)
         {
             //get user from database
             DataRow user = UserC.GetUserData(userId);
