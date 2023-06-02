@@ -40,7 +40,7 @@ namespace GestureHub
             //    return;
             //}
 
-            UserC.AddUser(username, email, password, "" , "", age, gender, role);
+            UserC.AddUser(username, email, password, null , null , age, gender, role);
 
 
 

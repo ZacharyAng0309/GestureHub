@@ -15,6 +15,42 @@ namespace GestureHub.Admin
     {
 
         /// <summary>
+        /// QuestionIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuestionIdField;
+
+        /// <summary>
+        /// QuizIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuizIdField;
+
+        /// <summary>
+        /// QuestionField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuestionField;
+
+        /// <summary>
+        /// QuestionVideoField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuestionVideoField;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>

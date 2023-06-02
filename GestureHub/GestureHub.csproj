@@ -177,10 +177,12 @@
     <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="Admin\EditQuizQuestion.aspx" />
     <Content Include="Admin\EditUser.aspx" />
+    <Content Include="Admin\EditVocab.aspx" />
     <Content Include="Admin\ManageCourse.aspx" />
     <Content Include="Admin\ManageQuiz.aspx" />
     <Content Include="Admin\ManageQuizQuestion.aspx" />
     <Content Include="Admin\ManageUser.aspx" />
+    <Content Include="Admin\ManageVocab.aspx" />
     <Content Include="Admin\Profile.aspx" />
     <Content Include="Admin\ViewFeedback.aspx" />
     <Content Include="App_Data\GestureHubDatabase.mdf" />
@@ -351,6 +353,13 @@
     <Compile Include="Admin\EditUser.aspx.designer.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditVocab.aspx.cs">
+      <DependentUpon>EditVocab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditVocab.aspx.designer.cs">
+      <DependentUpon>EditVocab.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManageCourse.aspx.cs">
       <DependentUpon>ManageCourse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -378,6 +387,13 @@
     </Compile>
     <Compile Include="Admin\ManageUser.aspx.designer.cs">
       <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageVocab.aspx.cs">
+      <DependentUpon>ManageVocab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageVocab.aspx.designer.cs">
+      <DependentUpon>ManageVocab.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
@@ -541,6 +557,7 @@
     <Compile Include="UtilClass\BaseStudentPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="UtilClass\VocabC.cs" />
     <Compile Include="UtilClass\CourseC.cs" />
     <Compile Include="UtilClass\DatabaseManager.cs" />
     <Compile Include="UtilClass\QuizC.cs" />

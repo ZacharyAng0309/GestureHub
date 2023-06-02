@@ -9,25 +9,44 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <form runat="server">
-        <div class="container shadow rounded-3 p-5 mb-5 bg-white">
-            <h1 class="mb-3">Manage Quiz</h1>
-            <asp:GridView ID="GridView1" class="table table-bordered table-responsive table-hover"
-                runat="server" AutoGenerateColumns="False" DataKeyNames="quiz_id" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." Width="1250px" style="overflow:scroll;">
+        <section class="container shadow rounded-3 p-4 mb-5 bg-white">
+            <h3 class="mb-3">Manage Quiz</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-4 pe-0">
+                            <asp:DropDownList runat="server" ID="ColumnSelect" CssClass="form-select" name="ColumnSelect">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-md-8 ps-0">
+                            <div class="d-flex">
+                                <asp:TextBox runat="server" ID="SearchBox" CssClass="form-control" name="Search"></asp:TextBox>
+                                <asp:Button runat="server" ID="searchButton" CssClass="btn btn-primary" OnClick="SearchButton_Click" Text="Search" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ms-auto d-flex justify-content-end">
+                    <button type="button" onclick="location.href='AddUser.aspx'" class="btn btn-primary mb-3">Add User</button>
+                </div>
+            </div>
+
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="user_id" CssClass="table table-responsive table-bordered " AllowSorting="True">
                 <Columns>
-                    <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" ReadOnly="True" SortExpression="quiz_id"/>
+
+                    <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" InsertVisible="False" ReadOnly="True" SortExpression="quiz_id" />
                     <asp:BoundField DataField="course_id" HeaderText="Course ID" SortExpression="course_id" />
-                    <asp:BoundField DataField="title" HeaderText="Course Title" SortExpression="title" />
-                    <asp:BoundField DataField="description" HeaderText="Created At" SortExpression="description" />
+                    <asp:BoundField DataField="Quiz Title" HeaderText="Quiz Title" SortExpression="title" />
+                    <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
-                            <asp:Button ID="AddQuizBtn" runat="server" Text="Add" href="/Admin/AddQuiz.aspx" class="btn btn-primary"/>
-               <%--             <asp:Button ID="EditQuizBtn" runat="server" Text="Edit" OnClick="EditQuizBtn_Click" class="btn btn-success" />
-                            <asp:Button ID="DeleteQuizBtn" runat="server" Text="Delete" OnClick="DeleteQuizBtn_Click" class="btn btn-danger" />--%>
+                            <%# Eval("user_id","<a href=\"" + ResolveUrl("~/Admin/EditQuiz.aspx?quizId={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <PagerStyle CssClass="pagination d-flex justify-content-center" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [quiz]"></asp:SqlDataSource>
-        </div>
+        </section>
     </form>
 </asp:Content>

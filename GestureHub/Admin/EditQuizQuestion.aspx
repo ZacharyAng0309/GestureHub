@@ -12,18 +12,20 @@
         <h3 class="mb-3">Edit Quiz Question</h3>
         <form runat="server">
             <div class="form-group mb-4">
-                <label for="questionIDField">Question ID:</label>
-                <input type="text" class="form-control" id="questionIDField" placeholder="Question ID">
+                <asp:Label runat="server" AssociatedControlID="questionIDField">Question ID:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="QuestionIdField" placeholder="Question ID"></asp:TextBox>
             </div>
             <div class="form-group mb-4">
-                <label for="quizIDSelect">Quiz ID:</label>
-                <select class="form-select" id="quizIDSelect">
-                    <option value="" disabled selected>Select quiz ID</option>
-                </select>
+                <asp:Label runat="server" AssociatedControlID="quizIDSelect">Quiz ID:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="QuizIdField" placeholder="Question ID"></asp:TextBox>
             </div>
             <div class="form-group mb-4">
-                <label for="questionField">Question:</label>
-                <textarea class="form-control" id="questionField" rows="3"></textarea>
+                <asp:Label runat="server" AssociatedControlID="questionField">Question:</asp:Label>
+                <asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control" ID="QuestionField" Rows="3"></asp:TextBox>
+            </div>
+            <div class="form-group mb-4">
+                <asp:Label runat="server" AssociatedControlID="questionVideoField">Question Video:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="QuestionVideoField" placeholder="Question Video"></asp:TextBox>
             </div>
             <div class="table-responsive">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True" AllowInserts="True" DataKeyNames="option_id">

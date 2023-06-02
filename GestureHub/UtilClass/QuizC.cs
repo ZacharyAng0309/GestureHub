@@ -234,6 +234,30 @@ namespace GestureHub
                 }
                 conn.Close();
             }
-        }   
+        }
+        public static string GetQuizId(string courseId)
+        {
+            //get quiz id from database that is with the course id
+            string quizId = "";
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT quizId FROM quiz WHERE course_id=@courseId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            quizId = reader["quizId"].ToString();
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return quizId;
+        }
     }
 }

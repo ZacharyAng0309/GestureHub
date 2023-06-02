@@ -34,4 +34,5 @@
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [course]"></asp:SqlDataSource>
         </div>
     </form>
+
 </asp:Content>
