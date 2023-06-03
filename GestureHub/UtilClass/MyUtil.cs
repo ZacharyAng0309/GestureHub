@@ -16,11 +16,11 @@ namespace GestureHub
         public const string defaultFemaleProfile = "girl.png";
         public const string defaultProfile = "default.svg";
 
-        public static string ValidateImage(FileUpload file)
+        public static bool ValidateImage(FileUpload file)
         {
             string contentType = file.PostedFile.ContentType;
             System.Diagnostics.Debug.WriteLine(contentType);
-            string[] allowed = {"jpeg", "jpg", "png", "svg+xml"};
+            string[] allowed = { "jpeg", "jpg", "png", "svg+xml" };
             bool valid = false;
             foreach (string allowedItem in allowed)
             {
@@ -30,15 +30,13 @@ namespace GestureHub
                     break;
                 }
             }
-            if (!valid)
-            {
-                return "Upload status: Only JPEG, JPG, PNG, or SVG file is allowed";
-            }
+
             if (file.PostedFile.ContentLength > 409600)
             {
-                return "Upload status: Only image lower than 400 KBs is allowed";
+                valid = false;
             }
-            return "Upload success";
+
+            return valid;
         }
 
         public static string GetUploadExtension(FileUpload file)
@@ -98,7 +96,7 @@ namespace GestureHub
                     {
                         while (sdr.Read())
                         {
-                            usedFile.Add(dir+sdr[col].ToString());
+                            usedFile.Add(dir + sdr[col].ToString());
                         }
                     }
                     List<string> unusedFile = currFile.Except(usedFile).ToList();

@@ -12,6 +12,15 @@
         <h3 class="mb-3">Edit User</h3>
         <form runat="server">
             <div class="row justify-content-around mb-3">
+                <asp:Image ID="ProfilePicture" runat="server" ImageUrl="boy1.png" Style="width: 200px" CssClass="border border-4 rounded text-center" />
+                <div class="mb-3 mt-3 col-md-6">
+                    <h6>
+                        <asp:Label ID="ImageLabel" AssociatedControlID="formFile" runat="server" Text="Insert Image:"></asp:Label>
+
+                    </h6>
+                    <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" />
+                    <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/Images/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" />
+                </div>
                 <div class="col-md-5">
                     <div class="form-group mb-2">
                         <label for="idField">ID:</label>
@@ -67,7 +76,7 @@
                     </div>
                     <div class="form-group mt-3 pt-2 d-flex justify-content-around">
                         <asp:Button runat="server" ID="updateButton" Text="Update" CssClass="btn btn-primary col-md-5" OnClick="updateButton_Click" />
-                        <a NavigateUrl="~/Admin/ManageUser.aspx" runat="server" id="backButton" class="btn btn-secondary col-md-5">Back</a>
+                        <a navigateurl="~/Admin/ManageUser.aspx" runat="server" id="backButton" class="btn btn-secondary col-md-5">Back</a>
                     </div>
                 </div>
             </div>

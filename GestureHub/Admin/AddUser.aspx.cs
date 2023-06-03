@@ -14,11 +14,11 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            {
-                //redirect to login page
-                Response.Redirect("~/Login.aspx");
-            }
+            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            //{
+            //    //redirect to login page
+            //    Response.Redirect("~/Login.aspx");
+            //}
             //get new userid
             idField.Text = UserC.GetNewUserId().ToString();
         }
@@ -28,7 +28,7 @@ namespace GestureHub
             //get the values from the input fields
             string username = usernameField.Text;
             //check if the username is unique
-            if (UserC.isUsernameUnique(username))
+            if (UserC.IsUsernameUnique(username))
             {
                 //display the message panel with error message
                 MsgLabel.Visible = true;

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace GestureHub
 {
@@ -65,7 +67,7 @@ namespace GestureHub
             string username = usernameField.Text;
 
             //check if the username is unique
-            if (!UserC.isUsernameUnique(username))
+            if (!UserC.IsUsernameUnique(username))
             {
                 //display error message
                 MsgPanel.Visible = true;
@@ -82,7 +84,35 @@ namespace GestureHub
             string gender = genderField.SelectedValue;
             string role = roleField.SelectedValue;
             //use the values to update the user
-            UserC.updateUser(userId,username,email,password,fname,lname,age,gender,role);
+            string imageUrl;
+            if (ImageUpload.HasFile)
+            {
+                // Get the uploaded file
+                HttpPostedFile file = ImageUpload.PostedFile;
+                //validate file type
+                if (file.ContentType != "image/jpeg" && file.ContentType != "image/png")
+                {
+                    DisplayAlert("Only JPEG and PNG files are accepted!");
+                    return;
+                }
+                //validate file size
+                if (file.ContentLength > 102400)
+                {
+                    DisplayAlert("File size cannot exceed 100KB!");
+                    return;
+                }
+                //set file name to user id with extension
+                imageUrl = userId + Path.GetExtension(file.FileName);
+                //save file to server
+                file.SaveAs(Server.MapPath("~/Images/" + imageUrl));
+
+            }
+            else
+            {
+                //set the imageUrl to the current image
+                imageUrl = UserC.GetUserData(userId)["images"].ToString();
+            }
+            UserC.UpdateUser(userId,username,email,password,fname,lname,age,gender,role,imageUrl);
             //display the message panel with success message
             MsgLabel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
@@ -96,6 +126,10 @@ namespace GestureHub
             // Get the selected item from the dropdown list
             var userId = ((DropDownList)sender).SelectedItem;
             updateInputFields(userId.ToString());
+        }
+        private void DisplayAlert(string message)
+        {
+            MessageBox.Show(message, "Alert");
         }
     }
 }

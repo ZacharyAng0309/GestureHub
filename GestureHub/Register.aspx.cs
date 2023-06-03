@@ -24,28 +24,30 @@ namespace GestureHub
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
             string username = MyUtil.SanitizeInput(UsernameTxtBox);
+            //validate if the username is unique
+            if (!UserC.IsUsernameUnique(username))
+            {
+                //display error message
+                MsgPanel.Visible = true;
+                MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                MsgLabel.Text = "Username is taken.";
+                MsgLabel.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
             string password = PasswordTxtBox.Text;
             password = MyUtil.ComputeSHA1(password);
             string email =  MyUtil.SanitizeInput(EmailTxtBox);
             string age = AgeTxtBox.Text;
             string gender = GenderDropDownList.Text;
             string role = "member";
-            
-
-
-            //var client = new MyService();
-            //if (client.IsValidUsername("users", username) != "valid")
-            //{
-            //    this.UsernameTxtBox.Focus();
-            //    return;
-            //}
 
             UserC.AddUser(username, email, password, "" , "" , age, gender, role);
 
-
-
-            Response.Redirect("~/Login.aspx");
-
+            //prompt a success message to the user using javascript. By selecting on okay, the user will be redirected to the login page
+            string script = "alert(\"You have successfully registered. Please login to continue.\");";
+            script += "window.location.replace(\"/Login.aspx\");";
+            ScriptManager.RegisterStartupScript(this, GetType(),
+                                                         "ServerControlScript", script, true);
         }
 
     }
