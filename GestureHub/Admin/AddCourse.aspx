@@ -39,8 +39,8 @@
                         </asp:DropDownList>
                     </div>
                     <div class="d-flex justify-content-between mt-4">
-                        <asp:Button runat="server" Text="Add" CssClass="btn btn-primary col-md-4 col-5 me-3" OnClick="AddButton_Click" />
-                        <a NavigateUrl="~/Admin/ManageCourse.aspx" class="btn btn-secondary col-md-4 col-5">Back</a>
+                        <asp:Button runat="server" Text="Add" CssClass="btn btn-success col-md-4 col-5 me-3" OnClick="AddButton_Click" />
+                        <a href="/Admin/ManageCourse.aspx" class="btn btn-secondary col-md-4 col-5 me-3" >Back</a>
                     </div>
                 </div>
                    

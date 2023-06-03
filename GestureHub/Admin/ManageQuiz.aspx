@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="user_id" CssClass="table table-responsive table-bordered " AllowSorting="True">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="user_id" CssClass="table table-responsive table-hover " AllowSorting="True">
                 <Columns>
 
                     <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" InsertVisible="False" ReadOnly="True" SortExpression="quiz_id" />
