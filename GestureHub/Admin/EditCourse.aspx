@@ -15,8 +15,10 @@
         <form runat="server">
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="idField" readonly="true">Course ID:</asp:Label>
-                <asp:DropDownList runat="server" CssClass="form-control" ID="idField" OnSelectedIndexChanged="IdField_SelectedIndexChanged" AutoPostBack="true">
+                <asp:DropDownList runat="server" CssClass="form-control" ID="idField" OnSelectedIndexChanged="IdField_SelectedIndexChanged"
+                    AutoPostBack="true" Enabled="false">
                 </asp:DropDownList>
+
             </div>
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="descriptionField">Description:</asp:Label>
@@ -48,7 +50,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <asp:Button runat="server" CssClass="btn btn-primary col-md-4 me-3" Text="Update" OnClick="UpdateButton_Click" />
-                <asp:HyperLink runat="server" CssClass="btn btn-secondary col-md-4" NavigateUrl="~/Admin/Courses.aspx">Back</asp:HyperLink>
+                <a href="/Admin/ManageCourse.aspx" class="btn btn-secondary col-md-4 me-3" >Back</a>
             </div>
             <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
                 <asp:Label ID="MsgLabel" runat="server"></asp:Label>
