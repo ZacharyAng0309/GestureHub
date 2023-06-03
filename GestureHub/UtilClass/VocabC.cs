@@ -65,15 +65,15 @@ namespace GestureHub.UtilClass
             if (vocab["video"].ToString() != "")
             {
                 //create an iframe element
-                HtmlGenericControl vocabVideo = new HtmlGenericControl("iframe")
-                {
-                    ID = $"video_{vocabId}",
-                    Attributes = {
-                            ["src"] = vocab["video"].ToString(),
-                            ["allowfullscreen"] = "true"
-                        }
-                };
-                body.Controls.Add(vocabVideo);
+                //HtmlGenericControl vocabVideo = new HtmlGenericControl("iframe")
+                //{
+                //    ID = $"video_{vocabId}",
+                //    Attributes = {
+                //            ["src"] = vocab["video"].ToString(),
+                //            ["allowfullscreen"] = "true"
+                //        }
+                //};
+                //body.Controls.Add(vocabVideo);
             }
             row.Controls.Add(header);
             header.Controls.Add(button);
