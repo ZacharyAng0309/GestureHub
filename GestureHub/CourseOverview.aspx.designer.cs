@@ -15,12 +15,30 @@ namespace GestureHub
     {
 
         /// <summary>
-        /// CourseLabel control.
+        /// CourseTitleLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CourseLabel;
+        protected global::System.Web.UI.WebControls.Label CourseTitleLabel;
+
+        /// <summary>
+        /// CourseDescriptionLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CourseDescriptionLabel;
+
+        /// <summary>
+        /// VocabularyPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel VocabularyPanel;
     }
 }

@@ -24,9 +24,9 @@ namespace GestureHub.Member
             DataTable course = CourseC.GetCourseData(courseId);
             if (course.Rows.Count > 0)
             {
-                //set CourseLabel
+                ////set CourseLabel
                 CourseTitleLabel.Text = course.Rows[0]["title"].ToString();
-                //set CourseDescriptionLabel
+                set CourseDescriptionLabel
                 CourseDescriptionLabel.Text = course.Rows[0]["description"].ToString();
             }
             //display vocab list

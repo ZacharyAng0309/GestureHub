@@ -13,7 +13,7 @@
             <div class="row justify-content-evenly">
                  <div class="col-md-12 mb-3">
                    <h5>Profile Picture</h5>
-                    <asp:Image ID="ProfilePicture" runat="server" ImageUrl="/Images/bodylanguage_a.jpg" style="width:200px" CssClass="border border-4 rounded text-center"/>
+                    <asp:Image ID="ProfilePicture" runat="server" ImageUrl="boy1.png" style="width:200px" CssClass="border border-4 rounded text-center"/>
                       
                      <div class="mb-3 mt-3 col-md-6">
                          <h6><label for="formFile" class="form-label">Insert File:</label></h6>
@@ -53,8 +53,7 @@
                     <asp:TextBox ID="FirstNameProfile"
                         runat="server"
                         TextMode="SingleLine"
-                        ToolTip="First Name"
-                        Required="required" CssClass="form-control"
+                        ToolTip="First Name" CssClass="form-control"
                         Placeholder="First Name"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
@@ -62,8 +61,7 @@
                     <asp:TextBox ID="LastNameProfile"
                         runat="server"
                         TextMode="SingleLine"
-                        ToolTip="Last Name"
-                        Required="required" CssClass="form-control"
+                        ToolTip="Last Name" CssClass="form-control"
                         Placeholder="Last Name"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
@@ -80,8 +78,7 @@
                     <asp:TextBox ID="AgeProfile"
                         runat="server"
                         TextMode="Number"
-                        ToolTip="Age"
-                        Required="required" CssClass="form-control"
+                        ToolTip="Age" CssClass="form-control"
                         Placeholder="Age"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">

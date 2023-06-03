@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-md-8 ps-0">
                             <div class="d-flex">
-                                <asp:TextBox runat="server" ID="SearchBox" CssClass="form-control" name="Search"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="SearchQuizBox" CssClass="form-control" name="Search"></asp:TextBox>
                                 <asp:Button runat="server" ID="searchButton" CssClass="btn btn-primary" OnClick="SearchButton_Click" Text="Search" />
                             </div>
                         </div>

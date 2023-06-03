@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,18 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //get userid from session
+            string userId = Session["userId"].ToString();
+
+            //get user data from database
+            DataRow user = UserC.GetUserData(userId);
+
+            //set input fields
+            AdminName.Text = user["username"].ToString();
+
+
+
             //check if user is admin
             if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
             {

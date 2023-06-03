@@ -33,76 +33,76 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.Image ProfilePicture;
 
         /// <summary>
-        /// UserIDProfile control.
+        /// UserIDAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserIDProfile;
+        protected global::System.Web.UI.WebControls.TextBox UserIDAdmin;
 
         /// <summary>
-        /// UsernameProfile control.
+        /// UsernameAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UsernameProfile;
+        protected global::System.Web.UI.WebControls.TextBox UsernameAdmin;
 
         /// <summary>
-        /// EmailProfile control.
+        /// EmailAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailProfile;
+        protected global::System.Web.UI.WebControls.TextBox EmailAdmin;
 
         /// <summary>
-        /// FirstNameProfile control.
+        /// FirstNameAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FirstNameProfile;
+        protected global::System.Web.UI.WebControls.TextBox FirstNameAdmin;
 
         /// <summary>
-        /// LastNameProfile control.
+        /// LastNameAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LastNameProfile;
+        protected global::System.Web.UI.WebControls.TextBox LastNameAdmin;
 
         /// <summary>
-        /// PasswordProfile control.
+        /// PasswordAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordProfile;
+        protected global::System.Web.UI.WebControls.TextBox PasswordAdmin;
 
         /// <summary>
-        /// AgeProfile control.
+        /// AgeAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AgeProfile;
+        protected global::System.Web.UI.WebControls.TextBox AgeAdmin;
 
         /// <summary>
-        /// GenderDropDownList control.
+        /// GenderAdminDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GenderDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList GenderAdminDropDownList;
 
         /// <summary>
         /// SaveBtn control.
