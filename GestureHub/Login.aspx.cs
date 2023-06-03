@@ -59,12 +59,21 @@ namespace GestureHub
                     }
                     if (!foundUser)
                     {
-                        ErrorLbl.Text = "Invalid username or password";
+                        MsgPanel.Visible = true;
+                        MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                        MsgLabel.Text = "Invalid username or password";
+                        MsgLabel.ForeColor = System.Drawing.Color.Red;
+                        return;
+
                     }
                 }
                 else
                 {
-                    ErrorLbl.Text = "Invalid username or password";
+                    MsgPanel.Visible = true;
+                    MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                    MsgLabel.Text = "Invalid username or password";
+                    MsgLabel.ForeColor = System.Drawing.Color.Red;
+                    return;
                 }
             }
         }

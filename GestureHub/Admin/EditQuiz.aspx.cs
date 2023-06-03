@@ -13,11 +13,11 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            {
-                //redirect to login page
-                Response.Redirect("~/Login.aspx");
-            }
+            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            //{
+            //    //redirect to login page
+            //    Response.Redirect("~/Login.aspx");
+            //}
             if (!IsPostBack)
             {
                 //get quiz id from query string
@@ -59,7 +59,7 @@ namespace GestureHub
             QuizC.UpdateQuiz(quizId, title, description);
             //set the success message
             //display the message panel with success message
-            MsgLabel.Visible = true;
+            MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "Quiz "+ quizId + " updated successfully!";
             MsgLabel.ForeColor = System.Drawing.Color.Green;

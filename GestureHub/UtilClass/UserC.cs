@@ -253,8 +253,8 @@ namespace GestureHub
                     cmd.Parameters.AddWithValue("@age", age);
                     cmd.Parameters.AddWithValue("@gender", gender);
                     cmd.Parameters.AddWithValue("@role", role);
-                    cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@created_at", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
+                    cmd.Parameters.AddWithValue("@updated_at", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
                     cmd.Parameters.AddWithValue("@images", profile);
                     cmd.ExecuteNonQuery();
                 }
@@ -264,7 +264,7 @@ namespace GestureHub
 
 
         // a function to update user details into the database
-        public static void updateUser(string userId,string username, string email, string password, string fname, string lname, string age, string gender, string role)
+        public static void UpdateUser(string userId,string username, string email, string password, string fname, string lname, string age, string gender, string role,string image)
         {
             //update the user into the database according to the userId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -275,15 +275,18 @@ namespace GestureHub
                     cmd.Connection = conn;
                     //update the user details into the database
                     cmd.CommandText = "UPDATE [users] SET username=@username, email=@email,"
-                        + "password=@password, first_name=@fname, last_name=@lname, age=@age, updated_at=@datetime WHERE user_id=@userId;";
-                    cmd.Parameters.AddWithValue("@userId", userId);
+                        + "password=@password, first_name=@fname, last_name=@lname, age=@age, gender = @gender, images=@image, updated_at=@datetime, user_role = @role WHERE user_id=@userId;";
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@password", password);
                     cmd.Parameters.AddWithValue("@fname", fname);
                     cmd.Parameters.AddWithValue("@lname", lname);
                     cmd.Parameters.AddWithValue("@age", age);
-                    cmd.Parameters.AddWithValue("@datetime", DateTime.Now);
+                    cmd.Parameters.AddWithValue("gender", gender);
+                    cmd.Parameters.AddWithValue("@role", role); 
+                    cmd.Parameters.AddWithValue("@image", image);
+                    cmd.Parameters.AddWithValue("@datetime", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
+                    cmd.Parameters.AddWithValue("@userId", userId);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
@@ -291,7 +294,7 @@ namespace GestureHub
         }
 
         // a function to check if a username is unique by checking if it is already in the database
-        public static bool isUsernameUnique(string username)
+        public static bool IsUsernameUnique(string username)
         {
             //create a boolean variable to store the result
             bool isUnique = false;

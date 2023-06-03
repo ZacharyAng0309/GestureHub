@@ -13,7 +13,7 @@ namespace GestureHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //var date = DateTime.Now;
+            //var date =  DateTime.Now.ToString("dd/MM/yy");
             //int h = date.Hour;
             //string time = "";
             //if (h >= 6 && h < 12) time = "morning";

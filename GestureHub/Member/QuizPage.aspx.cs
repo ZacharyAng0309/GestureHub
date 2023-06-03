@@ -16,6 +16,7 @@ namespace GestureHub.Member
             string courseId = Request.QueryString["courseId"];
             //get quizId using courseId
             string quizId = QuizC.GetQuizId(courseId);
+
             //get quiz data
             DataTable quizData = QuizC.GetQuizData(quizId);
             //set title
@@ -28,8 +29,10 @@ namespace GestureHub.Member
 
         protected void submitQuizButton_Click(object sender, EventArgs e)
         {
-            //get quizId from submitted form
-            string quizId = Request.Form["quizId"];
+            //get courseId from query string
+            string courseId = Request.QueryString["courseId"];
+            //get quizId using courseId
+            string quizId = QuizC.GetQuizId(courseId);
             //int score
             int score = 0;
             //get questionIds from the quizId
@@ -38,7 +41,12 @@ namespace GestureHub.Member
             foreach (string questionId in questionIds)
             {
                 //get answerId from submitted form
-                string answerId = Request.Form["ctl00$ctl00$MainContent$MainContent$question-" + questionId].ToString();
+                string answerId = Request.Form["ctl00$ctl00$MainContent$MainContent$question-" + questionId];
+                if(answerId == null)
+                {
+                    //if answerId is null, skip this question
+                    continue;
+                }   
                 string correctAnswerId = QuestionC.GetAnswerId(questionId);
                 //check if answer is correct
                 if (answerId == correctAnswerId)

@@ -48,12 +48,11 @@
 
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click" CssClass="btn btn-md btn-block text-white" Style="background-color: #6A5ACD;" />
-                    <asp:Panel ID="ErrorPanel" runat="server" class="alert alert-danger mt-3" role="alert" Visible="false">
-                        <asp:Label ID="ErrorLbl" runat="server" Text="Login credential is incorrect."></asp:Label>
+                   <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
+                        <asp:Label ID="MsgLabel" runat="server"></asp:Label>
                     </asp:Panel>
                 </div>
             </div>
-            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
         </form>
     </div>
     

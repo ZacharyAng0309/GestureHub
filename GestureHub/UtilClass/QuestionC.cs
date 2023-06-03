@@ -221,13 +221,13 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "DELETE questionoption WHERE questionId=@questionId;";
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.CommandText = "DELETE questionoption WHERE optionId=@optionId;";
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
 
-                    cmd.CommandText = "DELETE question WHERE questionId=@questionId;";
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.CommandText = "DELETE question WHERE optionId=@optionId;";
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
@@ -244,8 +244,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM question WHERE question_id=@questionId;";
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.CommandText = "SELECT * FROM question WHERE question_id=@optionId;";
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;
@@ -268,8 +268,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM questionoption WHERE question_id=@questionId;";
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.CommandText = "SELECT * FROM questionoption WHERE question_id=@optionId;";
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
                         sda.SelectCommand = cmd;
@@ -290,8 +290,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT option_id FROM questionoption WHERE question_id=@questionId AND is_correct='True';";
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.CommandText = "SELECT option_id FROM questionoption WHERE question_id=@optionId AND is_correct='True';";
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     var result = cmd.ExecuteScalar();
                     if (result != null)
                         answerId = result.ToString();
@@ -300,6 +300,24 @@ namespace GestureHub
             }
             return answerId;
         }
+
+        public static void DeleteQuestionOption(string optionId)
+        {
+            //Question.UpdateQueSequence(quiz_id, maxSeq, oldSeq);
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    cmd.CommandText = "DELETE questionoption WHERE option_id=@optionId;";
+                    cmd.Parameters.AddWithValue("@optionId", optionId);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }       
 
         //public static int GetQueMaxSeq(int quizId)
         //{
@@ -363,8 +381,8 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
 
-                    cmd.CommandText = "INSERT INTO [option] (questionId, option_text, picture, video, is_correct) VALUES (@questionId, @optionText, @picture, @video, @is_correct);";
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.CommandText = "INSERT INTO [option] (optionId, option_text, picture, video, is_correct) VALUES (@optionId, @optionText, @picture, @video, @is_correct);";
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.Parameters.AddWithValue("@optionText", optionText);
                     cmd.Parameters.AddWithValue("@picture", picture);
                     cmd.Parameters.AddWithValue("@video", video);
@@ -384,9 +402,9 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
 
-                    cmd.CommandText = "UPDATE [option] SET questionId=@questionId, option_text=@optionText, picture=@picture, video=@video, is_correct=@is_correct WHERE option_id=@optionId;";
+                    cmd.CommandText = "UPDATE [option] SET optionId=@optionId, option_text=@optionText, picture=@picture, video=@video, is_correct=@is_correct WHERE option_id=@optionId;";
                     cmd.Parameters.AddWithValue("@optionId", optionId);
-                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.Parameters.AddWithValue("@optionText", optionText);
                     cmd.Parameters.AddWithValue("@picture", picture);
                     cmd.Parameters.AddWithValue("@video", video);

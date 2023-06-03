@@ -170,9 +170,11 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\AddCourse.aspx" />
+    <Content Include="Admin\AddQuestionOption.aspx" />
     <Content Include="Admin\AddUser.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\DeleteCourse.aspx" />
+    <Content Include="Admin\DeleteQuizQuestion.aspx" />
     <Content Include="Admin\EditCourse.aspx" />
     <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="Admin\EditQuizQuestion.aspx" />
@@ -303,6 +305,13 @@
     <Compile Include="Admin\AddCourse.aspx.designer.cs">
       <DependentUpon>AddCourse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddQuestionOption.aspx.cs">
+      <DependentUpon>AddQuestionOption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddQuestionOption.aspx.designer.cs">
+      <DependentUpon>AddQuestionOption.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -323,6 +332,13 @@
     </Compile>
     <Compile Include="Admin\DeleteCourse.aspx.designer.cs">
       <DependentUpon>DeleteCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DeleteQuizQuestion.aspx.cs">
+      <DependentUpon>DeleteQuizQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DeleteQuizQuestion.aspx.designer.cs">
+      <DependentUpon>DeleteQuizQuestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditCourse.aspx.cs">
       <DependentUpon>EditCourse.aspx</DependentUpon>
