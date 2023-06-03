@@ -29,7 +29,7 @@ namespace GestureHub
             string email =  MyUtil.SanitizeInput(EmailTxtBox);
             string age = AgeTxtBox.Text;
             string gender = GenderDropDownList.Text;
-            string role = "Member";
+            string role = "member";
             
 
 
@@ -40,7 +40,7 @@ namespace GestureHub
             //    return;
             //}
 
-            UserC.AddUser(username, email, password, null , null , age, gender, role);
+            UserC.AddUser(username, email, password, "" , "" , age, gender, role);
 
 
 

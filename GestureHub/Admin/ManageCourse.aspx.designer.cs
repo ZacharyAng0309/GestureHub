@@ -13,5 +13,41 @@ namespace GestureHub.Admin
 
     public partial class ManageCourse
     {
+
+        /// <summary>
+        /// addCourseButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addCourseButton;
+
+        /// <summary>
+        /// EasyCoursePanelHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel EasyCoursePanelHolder;
+
+        /// <summary>
+        /// IntermediateCoursePanelHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel IntermediateCoursePanelHolder;
+
+        /// <summary>
+        /// HardCoursePanelHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel HardCoursePanelHolder;
     }
 }

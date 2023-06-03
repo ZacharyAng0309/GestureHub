@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group mt-4 pt-2 row justify-content-around">
                         <asp:Button runat="server" ID="addButton" Text="Add" CssClass="btn btn-primary col-md-5" OnClick="addButton_Click" />
-                        <a href="#" runat="server" id="backButton" cssclass="btn btn-secondary col-md-5">Back</a>
+                        <a NavigateUrl="~/Admin/ManageUser.aspx" runat="server" id="backButton" cssclass="btn btn-secondary col-md-5">Back</a>
                     </div>
                 </div>
             </div>

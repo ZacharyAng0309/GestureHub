@@ -32,25 +32,38 @@ namespace GestureHub
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                 }
+
                 if (dt.Rows.Count > 0)
                 {
-                    //if username and password is correct, redirect to home page
-                    Session["username"] = username;
-                    Session["userId"] = dt.Rows[0]["user_id"];
-                    Session["userRole"] = dt.Rows[0]["user_role"];
-                    //if user role is admin then redirect to admin page
-                    if (dt.Rows[0]["user_role"].ToString() == "admin")
+                    bool foundUser = false;
+                    foreach (DataRow row in dt.Rows)
                     {
-                        Response.Redirect("/Admin/Dashboard.aspx");
+                        if (row["username"].ToString() == username && row["password"].ToString() == password)
+                        {
+                            foundUser = true;
+                            //if username and password is correct, redirect to home page
+                            Session["username"] = username;
+                            Session["userId"] = dt.Rows[0]["user_id"];
+                            Session["userRole"] = dt.Rows[0]["user_role"];
+                            //if user role is admin then redirect to admin page
+                            if (dt.Rows[0]["user_role"].ToString() == "admin")
+                            {
+                                Response.Redirect("/Admin/Dashboard.aspx");
+                            }
+                            else
+                            {
+                                Response.Redirect("/Member/Dashboard.aspx");
+                            }
+                            break;
+                        }
                     }
-                    else
+                    if (!foundUser)
                     {
-                        Response.Redirect("/Member/Dashboard.aspx");
+                        ErrorLbl.Text = "Invalid username or password";
                     }
                 }
                 else
                 {
-                    //if username and password is incorrect, show error message
                     ErrorLbl.Text = "Invalid username or password";
                 }
             }

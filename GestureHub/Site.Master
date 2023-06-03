@@ -42,7 +42,7 @@
         <div id="header_nav">
             <nav class="navbar navbar-expand-md" style="background-color: #6A5ACD;">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/Home.aspx" style="margin-right: 0px">
+                    <a class="navbar-brand" href="#" style="margin-right: 0px">
                         <figure style="margin: 0.7rem;">
                             <img
                                 src="/images/GestureHubLogo.png"

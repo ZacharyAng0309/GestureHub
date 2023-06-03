@@ -71,7 +71,7 @@ namespace GestureHub
 
                     NavigateUrl = $"/Admin/CourseOverview.aspx?courseId={courseId}",
                     Text = dr["title"].ToString(),
-                    CssClass = "course-title card-title fs-4 mb-1 text-center",
+                    CssClass = "course-title card-title fs-4 mb-1 item-align-center ",
                 };
             }
             else if (userRole.Equals("member"))
@@ -129,18 +129,20 @@ namespace GestureHub
 
             if (userRole.Equals("admin"))
             {
+               
+
                 HyperLink editLink = new HyperLink
                 {
                     Text = "Edit Course",
                     NavigateUrl = $"/Admin/EditCourse.aspx?courseId={courseId}",
-                    CssClass = "btn btn-outline-primary btn-sm",
+                    CssClass = "btn btn-primary btn-sm mt-4",
                 };
                 linkBtnGroup.Controls.Add(editLink);
                 HyperLink delLink = new HyperLink
                 {
                     Text = "Delete Course",
                     NavigateUrl = $"~/Admin/DeleteCourse.aspx?courseId={courseId}",
-                    CssClass = "btn btn-outline-danger btn-sm",
+                    CssClass = "btn btn-danger btn-sm mt-4 ml-2",
                 };
                 delLink.Attributes.Add("data-action", "warn");
                 linkBtnGroup.Controls.Add(delLink);
@@ -151,9 +153,10 @@ namespace GestureHub
                 {
                     Text = "View",
                     NavigateUrl = $"/Member/CourseOverview.aspx?courseId={courseId}",
-                    CssClass = "btn btn-outline-primary btn-sm",
+                    CssClass = "btn btn-primary btn-sm mt-4",
                 };
                 linkBtnGroup.Controls.Add(navLink);
+
 
             }
             else
@@ -162,9 +165,11 @@ namespace GestureHub
                 {
                     NavigateUrl = $"/CourseOverview.aspx?courseId={courseId}",
                     Text = "View Course",
-                    CssClass = "btn btn-outline-primary btn-sm",
+                    CssClass = "btn btn-primary btn-sm mt-4",
                 };
                 linkBtnGroup.Controls.Add(viewLink);
+
+              
             }
 
             detail.Controls.Add(linkBtnGroup);
@@ -455,7 +460,7 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,updated_at=@updatedAt WHERE courseId=@courseId";
+                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,updated_at=@updatedAt WHERE course_id=@courseId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@courseId", courseId);
                     cmd.Parameters.AddWithValue("@title", title);
@@ -477,13 +482,13 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT courseId FROM course";
+                    cmd.CommandText = "SELECT course_id FROM course";
                     cmd.Connection = conn;
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            courseIdList.Add(reader["courseId"].ToString());
+                            courseIdList.Add(reader["course_id"].ToString());
                         }
                     }
                 }

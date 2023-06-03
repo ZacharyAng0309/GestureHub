@@ -13,9 +13,9 @@ namespace GestureHub.Member
         protected void Page_Load(object sender, EventArgs e)
         {
             //get course id from query string
-            string courseId = Request.QueryString["courseId"];
+            string courseId = Request.QueryString["course_id"];
             //get user id from session
-            string userId = Session["userId"].ToString();
+            string userId = Session["userid"].ToString();
             MemberIdFeedback.Text = userId;
             CourseIdFeedback.Text = courseId;
         }
@@ -23,7 +23,7 @@ namespace GestureHub.Member
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             //get values from input fields
-            string userId = Session["userId"].ToString();
+            string userId = Session["userid"].ToString();
             string courseId = CourseIdFeedback.Text;
             string feedback = CommentsFeedback.Text;
             //insert feedback into database

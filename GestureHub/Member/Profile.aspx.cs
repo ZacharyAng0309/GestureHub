@@ -18,10 +18,10 @@ namespace GestureHub.Member
             //get userid from session
             string userId = Session["userId"].ToString();
             //string userId = Session["userId"].ToString();
-            updateInputFields(userId);
+            UpdateInputFields(userId);
         }
 
-        protected void updateInputFields(string userId)
+        protected void UpdateInputFields(string userId)
         {
             //get user data from database
             DataRow user = UserC.GetUserData(userId);
@@ -34,6 +34,7 @@ namespace GestureHub.Member
             FirstNameProfile.Text = user["first_name"].ToString();
             LastNameProfile.Text = user["last_name"].ToString();
             GenderProfileDropdownList.SelectedValue = user["gender"].ToString();
+            
         }
 
         protected void DeleteBtn_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace GestureHub.Member
             String lname = LastNameProfile.Text;
             String gender = GenderProfileDropdownList.SelectedValue;
 
-            UserC.updateUser(userId, username, email, password, fname, lname, age, gender, "Member");
+            UserC.updateUser(userId, username, email, password, fname, lname, age, gender, "member");
         }
 
     }

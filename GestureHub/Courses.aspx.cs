@@ -21,7 +21,7 @@ namespace GestureHub
             //insert the panel
             IntermediateCoursePanelHolder.Controls.Add(intermediateCoursePanel);
             //get panel of hard courses
-            Panel hardCoursePanel = CourseC.DisplayCoursesByDifficulty("hard", userRole);
+            Panel hardCoursePanel = CourseC.DisplayCoursesByDifficulty("difficult", userRole);
             //insert the panel
             HardCoursePanelHolder.Controls.Add(hardCoursePanel);
         }

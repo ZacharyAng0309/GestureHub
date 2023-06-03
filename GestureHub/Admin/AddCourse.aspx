@@ -4,7 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="Admin/Dashboard.aspx">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="Admin/ManageCourse.aspx">Manage Course</a></li>
+    <li class="breadcrumb-item" aria-current="page">Manage Materials</li>
+    <li class="breadcrumb-item"><a href="/Admin/ManageCourse.aspx">Manage Course</a></li>
     <li class="breadcrumb-item active" aria-current="page">Add Course</li>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
@@ -39,7 +40,7 @@
                     </div>
                     <div class="d-flex justify-content-between mt-4">
                         <asp:Button runat="server" Text="Add" CssClass="btn btn-primary col-md-4 col-5 me-3" OnClick="AddButton_Click" />
-                        <a href="#" class="btn btn-secondary col-md-4 col-5">Back</a>
+                        <a NavigateUrl="~/Admin/ManageCourse.aspx" class="btn btn-secondary col-md-4 col-5">Back</a>
                     </div>
                 </div>
                    
