@@ -11,7 +11,7 @@
             <div class="row justify-content-between p-3 px-2">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h3 class="card-title">Welcome back, Admin</h3>
+                        <h3 class="card-title">Welcome back, <asp:Label runat="server" ID="AdminName"></asp:Label></h3>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     </div>
                 </div>
