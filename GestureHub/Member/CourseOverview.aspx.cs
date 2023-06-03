@@ -26,7 +26,7 @@ namespace GestureHub.Member
             {
                 ////set CourseLabel
                 CourseTitleLabel.Text = course.Rows[0]["title"].ToString();
-                set CourseDescriptionLabel
+                //set CourseDescriptionLabel
                 CourseDescriptionLabel.Text = course.Rows[0]["description"].ToString();
             }
             //display vocab list
