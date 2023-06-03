@@ -39,7 +39,7 @@ namespace GestureHub.UtilClass
             button.Attributes["aria-controls"] = "MainContent_MainContent_collapse" + count.ToString();
             Panel collapse = new Panel
             {
-                CssClass="accordion-collapse collapse show",
+                CssClass="accordion-collapse collapse",
                 ID="collapse" + count.ToString()
             };
             Panel body = new Panel
@@ -50,7 +50,7 @@ namespace GestureHub.UtilClass
             {
                 Text= vocab["description"].ToString()
             };
-
+            body.Controls.Add(label);
             // image
             if (vocab["image"].ToString() != "")
             {
@@ -64,22 +64,19 @@ namespace GestureHub.UtilClass
             // video
             if (vocab["video"].ToString() != "")
             {
-                //create an iframe element
-                //HtmlGenericControl vocabVideo = new HtmlGenericControl("iframe")
-                //{
-                //    ID = $"video_{vocabId}",
-                //    Attributes = {
-                //            ["src"] = vocab["video"].ToString(),
-                //            ["allowfullscreen"] = "true"
-                //        }
-                //};
-                //body.Controls.Add(vocabVideo);
+                //create a "a href" button to the video
+                HyperLink video = new HyperLink
+                {
+                    NavigateUrl = vocab["video"].ToString(),
+                    Text = "Video",
+                    CssClass = "btn btn-primary"
+                };
+                body.Controls.Add(video);
             }
             row.Controls.Add(header);
             header.Controls.Add(button);
             row.Controls.Add(collapse);
             collapse.Controls.Add(body);
-            body.Controls.Add(label);
             //
             return row;
         }

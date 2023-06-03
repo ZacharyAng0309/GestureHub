@@ -229,7 +229,7 @@ namespace GestureHub
                     cmd.Parameters.AddWithValue("@user_id", userId);
                     cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.Parameters.AddWithValue("@score", score);
-                    cmd.Parameters.AddWithValue("@completed_at", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@completed_at", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

@@ -26,21 +26,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 ms-auto d-flex justify-content-end">
-                    <button type="button" onclick="location.href='AddUser.aspx'" class="btn btn-primary mb-3">Add User</button>
-                </div>
             </div>
 
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="user_id" CssClass="table table-responsive table-hover " AllowSorting="True">
-                <Columns>
 
+                <Columns>
                     <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" InsertVisible="False" ReadOnly="True" SortExpression="quiz_id" />
                     <asp:BoundField DataField="course_id" HeaderText="Course ID" SortExpression="course_id" />
-                    <asp:BoundField DataField="Quiz Title" HeaderText="Quiz Title" SortExpression="title" />
+                    <asp:BoundField DataField="title" HeaderText="Quiz Title" SortExpression="title" />
                     <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
-                            <%# Eval("user_id","<a href=\"" + ResolveUrl("~/Admin/EditQuiz.aspx?quizId={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
+                            <%# Eval("quiz_id","<a href=\"" + ResolveUrl("~/Admin/EditQuiz.aspx?quizId={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

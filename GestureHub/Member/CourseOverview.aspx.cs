@@ -38,5 +38,8 @@ namespace GestureHub.Member
             //redirect to quiz page
             Response.Redirect("~/Member/QuizPage.aspx?courseId=" + Request.QueryString["courseId"]);
         }
+        protected void RedirectToFeedbackPage(object sender, EventArgs e) { 
+            Response.Redirect("/Member/Feedback.aspx?courseId=" + Request.QueryString["courseId"]);
+        }
     }
 }

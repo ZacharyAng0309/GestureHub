@@ -49,7 +49,7 @@ namespace GestureHub.Admin
             GridViewRow row = GridView1.SelectedRow; // get reference to the selected row 
             if (row != null) // check if a row is selected
             {
-                String questionId = row.Cells[0].Text; // get the question_id from the first cell of the selected row
+                string questionId = row.Cells[0].Text; // get the question_id from the first cell of the selected row
                 QuestionC.DeleteQuestion(questionId); // delete the question with the question_id
             }
             else

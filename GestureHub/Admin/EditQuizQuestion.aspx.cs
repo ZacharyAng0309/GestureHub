@@ -35,8 +35,22 @@ namespace GestureHub.Admin
                 //set question to QuestionField
                 QuestionField.Text = quizData.Rows[0]["title"].ToString();
 
-
             }
+        }
+
+        protected void SubmitButton_Click(object sender, EventArgs e)
+        {
+            //get the values of the input fields
+            string questionId = QuestionIdField.Text;
+            string quizId = QuizIdField.Text;
+            string question = QuestionField.Text;
+            //update quiz in database
+            QuizC.UpdateQuiz(questionId, quizId, question);
+            //create success alert
+            MsgPanel.Visible = true;
+            MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
+            MsgLabel.Text = "Question updated successfully!";
+            MsgLabel.ForeColor = System.Drawing.Color.Green;
         }
     }
 }

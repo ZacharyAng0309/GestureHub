@@ -431,8 +431,8 @@ namespace GestureHub
 
         public static void AddNewCourse(string title, string description, string difficulty)
         {
-            DateTime createdAt = DateTime.Now;
-            DateTime updatedAt = DateTime.Now;
+            string createdAt = DateTime.Now.ToString("dd/MM/yy hh:mm:ss");
+            string updatedAt = DateTime.Now.ToString("dd/MM/yy hh:mm:ss");
             //Insert record into course table
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -466,7 +466,7 @@ namespace GestureHub
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@description", description);
                     cmd.Parameters.AddWithValue("@difficulty", difficulty);
-                    cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

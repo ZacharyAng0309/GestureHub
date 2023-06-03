@@ -44,7 +44,7 @@ namespace GestureHub.UtilClass
                     cmd.Parameters.AddWithValue("@userid", userId);
                     cmd.Parameters.AddWithValue("@courseid", courseId);
                     cmd.Parameters.AddWithValue("@feedback", feedback);
-                    cmd.Parameters.AddWithValue("@createdAt", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

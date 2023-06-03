@@ -13,9 +13,10 @@ namespace GestureHub.Member
         protected void Page_Load(object sender, EventArgs e)
         {
             //get course id from query string
-            string courseId = Request.QueryString["course_id"];
+            string courseId = Request.QueryString["courseId"];
             //get user id from session
-            string userId = Session["userid"].ToString();
+            //string userId = Session["userId"].ToString();
+            string userId = "1";
             MemberIdFeedback.Text = userId;
             CourseIdFeedback.Text = courseId;
         }
@@ -23,13 +24,13 @@ namespace GestureHub.Member
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             //get values from input fields
-            string userId = Session["userid"].ToString();
+            string userId = Session["userId"].ToString();
             string courseId = CourseIdFeedback.Text;
             string feedback = CommentsFeedback.Text;
             //insert feedback into database
             FeedbackC.InsertFeedback(userId, courseId, feedback);
             //set success message
-            MsgLabel.Visible = true;
+            MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "Feedback submitted successfully";
             MsgLabel.ForeColor = System.Drawing.Color.Green;

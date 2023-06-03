@@ -33,7 +33,7 @@
                 <div class="row justify-content-around mt-5">
                     <a href="/Member/Courses.aspx" class="btn btn-secondary align-items-center col-3">BACK</a>
                     <asp:Button ID="quizButton" runat="server" CssClass="btn btn-success align-items-center col-3" Text="TAKE QUIZ" OnClick="QuizButton_Click" />
-                    <a href="/Member/Feedback.aspx" class="btn btn-primary align-items-center col-3">GIVE FEEDBACK</a>
+                    <asp:Button ID="feedbackButton" runat="server" CssClass="btn btn-primary align-items-center col-3" Text="GIVE FEEDBACK" OnClick="RedirectToFeedbackPage" />
                 </div>
             </div>
         </div>
