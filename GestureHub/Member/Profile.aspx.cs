@@ -103,7 +103,6 @@ namespace GestureHub.Member
                 //set the imageUrl to the current image
                 imageUrl = UserC.GetUserData(userId)["images"].ToString();
             }
-            Response.Write(userId, username, email, password, fname, lname, age, gender, "member", imageUrl);
             //update user data in database
             UserC.UpdateUser(userId, username, email, password, fname, lname, age, gender, "member", imageUrl);
 
