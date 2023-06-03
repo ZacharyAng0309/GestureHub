@@ -45,8 +45,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quiz_id;";
-                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quizId;";
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;
@@ -63,7 +63,7 @@ namespace GestureHub
             List<string> questionIdList = GetQuestionIdList(quizId);
             Panel row = new Panel();
             //add the quizId as an input into the panel
-            row.Controls.Add(new LiteralControl("<input type='hidden' name='quizId' value='" + quizId + "' />"));
+            row.Controls.Add(new LiteralControl("<input type='hidden' name='quiz_id' value='" + quizId + "' />"));
             int count = 1;
             //loop the questionId and display the question
             foreach (string questionId in questionIdList)
@@ -165,8 +165,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "UPDATE quiz SET title=@title, description=@description WHERE quiz_id=@quiz_id;";
-                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    cmd.CommandText = "UPDATE quiz SET title=@title, description=@description WHERE quiz_id=@quizId;";
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@description", description);
                     cmd.ExecuteNonQuery();
@@ -181,7 +181,7 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "DELETE FROM quiz WHERE quiz_Id=@quizId";
+                    cmd.CommandText = "DELETE FROM quiz WHERE quiz_id=@quizId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.ExecuteNonQuery();
@@ -196,7 +196,7 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT questionId FROM question WHERE quizId=@quizId";
+                    cmd.CommandText = "SELECT question_id FROM question WHERE quiz_id=@quizId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@quizId", quizId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -225,9 +225,9 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO quizresult (user_id, quiz_id, score,completed_at) VALUES (@user_id, @quiz_id, @score,@completed_at);";
+                    cmd.CommandText = "INSERT INTO quizresult (user_id, quiz_id, score,completed_at) VALUES (@user_id, @quizId, @score,@completed_at);";
                     cmd.Parameters.AddWithValue("@user_id", userId);
-                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.Parameters.AddWithValue("@score", score);
                     cmd.Parameters.AddWithValue("@completed_at", DateTime.Now);
                     cmd.ExecuteNonQuery();
@@ -244,14 +244,14 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT quizId FROM quiz WHERE course_id=@courseId";
+                    cmd.CommandText = "SELECT quiz_id FROM quiz WHERE course_id=@courseId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@courseId", courseId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            quizId = reader["quizId"].ToString();
+                            quizId = reader["quiz_id"].ToString();
                         }
                     }
                 }
