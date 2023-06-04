@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
@@ -35,7 +32,6 @@ namespace GestureHub
                 idField.SelectedValue = userId;
                 updateInputFields(userId);
             }
-
         }
 
         protected void updateInputFields(string userId)
@@ -60,7 +56,6 @@ namespace GestureHub
                 string imageUrl = user["image"].ToString();
                 ProfilePicture.ImageUrl = "/Images/" + imageUrl;
             }
-
         }
 
         protected void updateButton_Click(object sender, EventArgs e)
@@ -109,7 +104,6 @@ namespace GestureHub
                 imageUrl = userId + Path.GetExtension(file.FileName);
                 //save file to server
                 file.SaveAs(Server.MapPath("~/Images/" + imageUrl));
-
             }
             else
             {
@@ -127,6 +121,7 @@ namespace GestureHub
             var userId = ((DropDownList)sender).SelectedItem;
             updateInputFields(userId.ToString());
         }
+
         private void DisplayAlert(string message)
         {
             MessageBox.Show(message, "Alert");

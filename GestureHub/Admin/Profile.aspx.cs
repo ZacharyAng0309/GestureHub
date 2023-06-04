@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace GestureHub.Admin
@@ -14,7 +10,8 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
+            if (!IsPostBack)
+            {
                 //check if user is admin
                 //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
                 //{
@@ -78,7 +75,6 @@ namespace GestureHub.Admin
                 imageUrl = userId + Path.GetExtension(file.FileName);
                 //save file to server
                 file.SaveAs(Server.MapPath("~/Images/" + imageUrl));
-
             }
             else
             {
@@ -86,8 +82,8 @@ namespace GestureHub.Admin
                 imageUrl = UserC.GetUserData(userId)["images"].ToString();
             }
 
-            UserC.UpdateUser(userId, username, email, password, fname, lname, age, gender, "admin",imageUrl);
-        } 
+            UserC.UpdateUser(userId, username, email, password, fname, lname, age, gender, "admin", imageUrl);
+        }
 
         private void DisplayAlert(string message)
         {

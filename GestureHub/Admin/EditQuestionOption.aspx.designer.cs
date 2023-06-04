@@ -11,53 +11,44 @@ namespace GestureHub.Admin
 {
 
 
-    public partial class EditVocab
+    public partial class EditOptionOption
     {
 
         /// <summary>
-        /// VocabularyIdField control.
+        /// OptionIdField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList VocabularyIdField;
+        protected global::System.Web.UI.WebControls.TextBox OptionIdField;
 
         /// <summary>
-        /// CourseIdField control.
+        /// QuestionIdField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CourseIdField;
+        protected global::System.Web.UI.WebControls.TextBox QuestionIdField;
 
         /// <summary>
-        /// TermField control.
+        /// OptionTextField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TermField;
+        protected global::System.Web.UI.WebControls.TextBox OptionTextField;
 
         /// <summary>
-        /// DescriptionField control.
+        /// OptionPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DescriptionField;
-
-        /// <summary>
-        /// ImageField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImageField;
+        protected global::System.Web.UI.WebControls.Image OptionPicture;
 
         /// <summary>
         /// ImageLabel control.
@@ -87,21 +78,39 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.Image InsertedImage;
 
         /// <summary>
-        /// VideoUrlField control.
+        /// OptionVideoField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox VideoUrlField;
+        protected global::System.Web.UI.WebControls.TextBox OptionVideoField;
 
         /// <summary>
-        /// UpdateButton control.
+        /// IsCorrectCheckbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateButton;
+        protected global::System.Web.UI.WebControls.CheckBox IsCorrectCheckbox;
+
+        /// <summary>
+        /// DeleteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteButton;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

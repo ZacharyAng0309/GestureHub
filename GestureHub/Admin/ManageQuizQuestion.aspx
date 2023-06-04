@@ -114,11 +114,11 @@
                     </div>
                 </div>
                 <div class="col-md-2 ms-auto d-flex justify-content-end">
-                    <a href="/Admin/EditQuizQuestion.aspx" class="btn btn-success mb-3" >Add Question</a>
+                    <a href="/Admin/AddQuizQuestion.aspx" class="btn btn-success mb-3" >Add Question</a>
                 </div>
             </div>
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="question_id" CssClass="table table-responsive table-hover " AllowSorting="True" OnRowDeleting="GridView1_RowDeleting">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="question_id" CssClass="table table-responsive table-hover " AllowSorting="True" >
                 <Columns>
                     <asp:BoundField DataField="question_id" HeaderText="Question ID" ReadOnly="True" SortExpression="question_id" />
                     <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" SortExpression="quiz_id" />
@@ -128,13 +128,12 @@
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
                             <%# Eval("question_id","<a href=\"" + ResolveUrl("~/Admin/EditQuizQuestion.aspx?questionId={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
-                            <asp:LinkButton CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this question?')" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
                 <PagerStyle CssClass="pagination d-flex justify-content-center" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [question]" DeleteCommand="DELETE FROM question WHERE question_id=@question_id"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [question]"></asp:SqlDataSource>
             <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
                 <asp:Label ID="MsgLabel" runat="server"></asp:Label>
             </asp:Panel>

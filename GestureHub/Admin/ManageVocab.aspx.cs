@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GestureHub.Admin
 {
@@ -15,15 +10,11 @@ namespace GestureHub.Admin
             {
                 string column = Request.QueryString["Column"];
                 string search = Request.QueryString["Search"];
-
-                if (!IsPostBack)
+                if (!string.IsNullOrEmpty(column) && !string.IsNullOrEmpty(search))
                 {
-                    if (!string.IsNullOrEmpty(column) && !string.IsNullOrEmpty(search))
-                    {
-                        SqlDataSource1.SelectCommand = "SELECT * FROM [vocabulary] WHERE " + column + " like '%" + search + "%'";
-                        ColumnSelect.SelectedValue = column;
-                        SearchBox.Text = search;
-                    }
+                    SqlDataSource1.SelectCommand = "SELECT * FROM [vocabulary] WHERE " + column + " like '%" + search + "%'";
+                    ColumnSelect.SelectedValue = column;
+                    SearchBox.Text = search;
                 }
             }
         }
