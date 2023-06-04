@@ -31,12 +31,12 @@ namespace GestureHub
             questionTitleHeader.Controls.Add(question);
             questionTitleCol.Controls.Add(questionTitleHeader);
             Panel questionTitleBody = new Panel();
-            //check if the question has picture
-            if (questData.Rows[0]["picture"] != DBNull.Value)
+            //check if the question has image
+            if (questData.Rows[0]["image"] != DBNull.Value)
             {
                 Image questionImage = new Image
                 {
-                    ImageUrl = $"../Images/{questData.Rows[0]["picture"].ToString()}",
+                    ImageUrl = $"../Images/{questData.Rows[0]["image"].ToString()}",
                     CssClass = "img-fluid",
                 };
                 questionTitleBody.Controls.Add(questionImage);
@@ -81,11 +81,11 @@ namespace GestureHub
                     Value = optData["option_id"].ToString(),
                 };
                 //check if the option has picture
-                if (optData["picture"] != DBNull.Value)
+                if (optData["image"] != DBNull.Value)
                 {
                     Image optImage = new Image
                     {
-                        ImageUrl = $"../Images/{optData["picture"].ToString()}",
+                        ImageUrl = $"../Images/{optData["image"].ToString()}",
                         CssClass = "img-fluid",
                     };
                     optListItem.Attributes.Add("data-image", optImage.ImageUrl);
@@ -192,7 +192,7 @@ namespace GestureHub
             //return qPanel;
         }
 
-        public static void AddQuestion(int quizId, string question, string type, string picture, string video, string isCorrect)
+        public static void AddQuestion(int quizId, string question, string type, string image, string video, string isCorrect)
         {
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -200,11 +200,11 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO question (quiz_id,question, type, picture, video, is_correct) VALUES (@quizId, @question, @type, @picture, @video, @isCorrect);";
+                    cmd.CommandText = "INSERT INTO question (quiz_id,question, type, image, video, is_correct) VALUES (@quizId, @question, @type, @image, @video, @isCorrect);";
                     cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.Parameters.AddWithValue("@question", question);
                     cmd.Parameters.AddWithValue("@type", type);
-                    cmd.Parameters.AddWithValue("@picture", picture);
+                    cmd.Parameters.AddWithValue("@image", image);
                     cmd.Parameters.AddWithValue("@video", video);
                     cmd.Parameters.AddWithValue("@isCorrect", isCorrect);
                     cmd.ExecuteNonQuery();
@@ -371,7 +371,7 @@ namespace GestureHub
         //    }
         //}
 
-        public static void addQuestionOption(string questionId, string optionText, string picture, string video, string is_correct)
+        public static void addQuestionOption(string questionId, string optionText, string image, string video, string is_correct)
         {
             //add question option into database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -381,10 +381,10 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
 
-                    cmd.CommandText = "INSERT INTO [option] (optionId, option_text, picture, video, is_correct) VALUES (@optionId, @optionText, @picture, @video, @is_correct);";
+                    cmd.CommandText = "INSERT INTO [option] (optionId, option_text, image, video, is_correct) VALUES (@optionId, @optionText, @image, @video, @is_correct);";
                     cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.Parameters.AddWithValue("@optionText", optionText);
-                    cmd.Parameters.AddWithValue("@picture", picture);
+                    cmd.Parameters.AddWithValue("@image", image);
                     cmd.Parameters.AddWithValue("@video", video);
                     cmd.Parameters.AddWithValue("@is_correct", is_correct);
                     cmd.ExecuteNonQuery();
@@ -392,7 +392,7 @@ namespace GestureHub
                 conn.Close();
             }
         }
-        public static void updateQuestionOption(string optionId, string questionId, string optionText, string picture, string video, string is_correct)
+        public static void updateQuestionOption(string optionId, string questionId, string optionText, string image, string video, string is_correct)
         {
             //update question option into database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -402,11 +402,11 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
 
-                    cmd.CommandText = "UPDATE [option] SET optionId=@optionId, option_text=@optionText, picture=@picture, video=@video, is_correct=@is_correct WHERE option_id=@optionId;";
+                    cmd.CommandText = "UPDATE [option] SET optionId=@optionId, option_text=@optionText, image=@image, video=@video, is_correct=@is_correct WHERE option_id=@optionId;";
                     cmd.Parameters.AddWithValue("@optionId", optionId);
                     cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.Parameters.AddWithValue("@optionText", optionText);
-                    cmd.Parameters.AddWithValue("@picture", picture);
+                    cmd.Parameters.AddWithValue("@image", image);
                     cmd.Parameters.AddWithValue("@video", video);
                     cmd.Parameters.AddWithValue("@is_correct", is_correct);
                     cmd.ExecuteNonQuery();

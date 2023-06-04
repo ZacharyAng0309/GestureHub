@@ -14,16 +14,18 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //check if user is admin
-            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
-            //get user id from session
-            //String userId = Session["userId"].ToString();
-            String userId = "1"; //for testing purposes
-            UpdateInputFields(userId);
+            if (!IsPostBack) {
+                //check if user is admin
+                //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+                //{
+                //    //redirect to login page
+                //    Response.Redirect("~/Login.aspx");
+                //}
+                //get user id from session
+                //String userId = Session["userId"].ToString();
+                String userId = "1"; //for testing purposes
+                UpdateInputFields(userId);
+            }
         }
 
         protected void UpdateInputFields(string userId)
@@ -67,7 +69,7 @@ namespace GestureHub.Admin
                     return;
                 }
                 //validate file size
-                if (file.ContentLength > 102400)
+                if (file.ContentLength > 409600)
                 {
                     DisplayAlert("File size cannot exceed 100KB!");
                     return;

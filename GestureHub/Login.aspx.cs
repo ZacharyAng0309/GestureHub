@@ -21,14 +21,13 @@ namespace GestureHub
             string password = PasswordTxtBox.Text;
             password = MyUtil.ComputeSHA1(password);
             //get username and password from database
-            string query = "SELECT * FROM [users] WHERE username = @username AND password = @password";
+            string query = "SELECT * FROM [users] WHERE username = @username";
             DataTable dt = new DataTable();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                 }

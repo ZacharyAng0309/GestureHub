@@ -42,7 +42,7 @@
                         <asp:BoundField DataField="option_id" HeaderText="option_id" SortExpression="option_id" ReadOnly="True" />
                         <asp:BoundField DataField="question_id" HeaderText="question_id" SortExpression="question_id" />
                         <asp:BoundField DataField="option_text" HeaderText="option_text" SortExpression="option_text" />
-                        <asp:BoundField DataField="picture" HeaderText="picture" SortExpression="picture" />
+                        <asp:BoundField DataField="image" HeaderText="image" SortExpression="image" />
                         <asp:BoundField DataField="video" HeaderText="video" SortExpression="video" />
                         <asp:TemplateField>
                             <ItemTemplate>

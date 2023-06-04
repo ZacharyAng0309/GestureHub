@@ -123,7 +123,7 @@
                     <asp:BoundField DataField="question_id" HeaderText="Question ID" ReadOnly="True" SortExpression="question_id" />
                     <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" SortExpression="quiz_id" />
                     <asp:BoundField DataField="question" HeaderText="Question" SortExpression="question" />
-                    <asp:BoundField DataField="picture" HeaderText="Picture" SortExpression="picture" />
+                    <asp:BoundField DataField="image" HeaderText="Image" SortExpression="image" />
                     <asp:BoundField DataField="video" HeaderText="Video" SortExpression="video" />
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
