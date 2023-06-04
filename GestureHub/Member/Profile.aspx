@@ -19,7 +19,7 @@
                             <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label></h6>
                         <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" OnTextChanged="ImageUpload_TextChanged" />
 
-                        <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/Images/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" Visible="false" />
+                        <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/image/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" Visible="false" />
                     </div>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
@@ -33,11 +33,11 @@
                         ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
-                    <h5>Username:</h5>
+                    <h5>Member ID:</h5>
                     <asp:TextBox ID="UsernameProfile"
                         runat="server"
                         TextMode="SingleLine"
-                        ToolTip="Username"
+                        ToolTip="UsernameProfile"
                         Required="required" CssClass="form-control"
                         Placeholder="Username"></asp:TextBox>
                 </div>
@@ -67,12 +67,12 @@
                         Placeholder="Last Name"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
-                    <h5>Password:</h5>
+                    <h5>Updated Password:</h5>
                     <asp:TextBox ID="PasswordProfile"
                         runat="server"
                         TextMode="Password"
                         ToolTip="Password"
-                        Required="required" CssClass="form-control"
+                        CssClass="form-control"
                         Placeholder="Password" Text-Mode="Password"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
@@ -89,7 +89,6 @@
                     <asp:DropDownList ID="GenderProfileDropdownList" runat="server" Required="required" CssClass="form-select">
                         <asp:ListItem Selected="False" Text="Male" Value="Male"></asp:ListItem>
                         <asp:ListItem Selected="False" Text="Female" Value="Female"></asp:ListItem>
-
                     </asp:DropDownList>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-5">
@@ -100,17 +99,10 @@
                 </div>
                 <div class="col-sm-5 col-md-6 mb-4">
                 </div>
-
-                <div class="d-grid gap-2 col-3">
-                    <asp:Button ID="SaveBtn" runat="server" Text="Save" CssClass="btn btn-success btn-md btn-block" OnClick="SaveButton_Click" />
-
-                </div>
+                <asp:Button ID="SaveProfileBtn" runat="server" Text="Save" CssClass="btn btn-primary btn-md btn-block" OnClick="SaveProfileBtn_Click" />
                 <div class="d-grid gap-2 col-3">
                     <asp:Button ID="BackBtn" runat="server" href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
                 </div>
-
-
-
             </div>
 
 

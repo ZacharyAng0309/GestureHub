@@ -45,7 +45,7 @@
                     <a class="navbar-brand" href="#" style="margin-right: 0px">
                         <figure style="margin: 0.7rem;">
                             <img
-                                src="/images/GestureHubLogo.png"
+                                src="/Images/GestureHubLogo.png"
                                 alt="GestureHub Logo"
                                 style="width: 45px"
                                 class="rounded-pill" />
@@ -99,7 +99,7 @@
                     <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3>
                     <figure class="mb-0">
                         <img
-                            src="/images/GestureHubLogo.png"
+                            src="/Images/GestureHubLogo.png"
                             alt="GestureHub Logo"
                             style="width: 150px;"
                             class="rounded-pill" />
@@ -167,7 +167,7 @@
                     <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 0px; padding-top: 3%;">GESTUREHUB</h3>
                     <figure class="mb-0">
                         <img
-                            src="/images/GestureHubLogo.png"
+                            src="/Images/GestureHubLogo.png"
                             alt="GestureHub Logo"
                             style="width: 150px;"
                             class="rounded-pill" />

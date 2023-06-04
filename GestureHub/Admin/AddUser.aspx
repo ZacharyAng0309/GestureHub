@@ -28,15 +28,15 @@
                     <div class="form-group mb-2">
                         <label for="genderField">Gender:</label>
                         <asp:DropDownList runat="server" ID="genderField" CssClass="form-control">
-                            <asp:ListItem Text="Male"></asp:ListItem>
-                            <asp:ListItem Text="Female"></asp:ListItem>
+                            <asp:ListItem Value= "Male" Text="Male"></asp:ListItem>
+                            <asp:ListItem Value= "Female" Text="Female"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
                     <div class="form-group mb-2">
                         <label for="roleField">Role:</label>
                         <asp:DropDownList runat="server" ID="roleField" CssClass="form-control">
-                            <asp:ListItem Text="Admin"></asp:ListItem>
-                            <asp:ListItem Text="Member"></asp:ListItem>
+                            <asp:ListItem Value= "admin" Text="Admin"></asp:ListItem>
+                            <asp:ListItem Value="member" Text="Member"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
 
@@ -53,11 +53,11 @@
 
                     <div class="form-group mb-2">
                         <label for="passwordField">Password:</label>
-                        <asp:TextBox runat="server" ID="passwordField" CssClass="form-control" placeholder="Password"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="passwordField" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
                     </div>
                     <div class="form-group mb-2">
                         <label for="ageField">Age:</label>
-                        <asp:TextBox runat="server" ID="ageField" CssClass="form-control" placeholder="Insert age"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="ageField" TextMode="Number" CssClass="form-control" placeholder="Insert age"></asp:TextBox>
                     </div>
                     <div class="form-group mt-4 pt-2 row justify-content-around">
                         <asp:Button runat="server" ID="addButton" Text="Add" CssClass="btn btn-primary col-md-5" OnClick="addButton_Click" />

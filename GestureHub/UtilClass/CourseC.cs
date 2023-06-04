@@ -44,11 +44,11 @@ namespace GestureHub
             Image thumbnail = new Image
             {
                 ImageUrl = "../Images/GestureHubLogo.png",
-                //ImageUrl = "/images/loading.gif",
+                //ImageUrl = "/Images/loading.gif",
                 CssClass = "cover img-fluid rounded-start course-img",
                 AlternateText = "Thumbnail Image",
             };
-            thumbnail.Attributes.Add("onload", $"javascript:this.onload=null;this.src='../Images/" + dr["images"] +"'");
+            thumbnail.Attributes.Add("onload", $"javascript:this.onload=null;this.src='../Images/" + dr["image"] +"'");
             //thumbnail.Attributes.Add("onload", $"javascript:this.onload=null;this.src='/upload/thumbnail/{dr["thumbnail"]}'");
             imgCol.Controls.Add(thumbnail);
 
