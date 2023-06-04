@@ -18,11 +18,11 @@
          
          <%--Recent Quizzes--%>
         <h3 class="mb-3">View Recent Quiz Results</h3>
-           <%--<form runat="server">
-                <asp:GridView ID="GridView2" class="table table-bordered table-responsive table-hover"
-                runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True"
-                PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" AllowSorting="True"
-                DataKeyNames="result_id">
+           <form runat="server">
+               <asp:GridView ID="GridView2" class="table table-bordered table-responsive table-hover"
+                   runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowPaging="True"
+                   PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" AllowSorting="True"
+                   DataKeyNames="result_id">
                 <Columns>
                     <asp:BoundField DataField="result_id" HeaderText="Result ID" SortExpression="result_id"
                         InsertVisible="False" ReadOnly="True" />
@@ -41,10 +41,10 @@
                     <asp:SessionParameter Name="UserId" SessionField="UserId" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            </form>--%>
+        
             <%--Feedbacks Given--%>
             <h3 class="mb-3">View Feedback</h3>
-            <form runat="server">
+        
                 <asp:GridView ID="GridView1" class="table table-bordered table-responsive table-hover"
                 runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True"
                 PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" AllowSorting="True"
