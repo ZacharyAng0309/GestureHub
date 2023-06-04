@@ -31,7 +31,6 @@
                     <button type="button" onclick="location.href='/Admin/AddVocab.aspx'" class="btn btn-primary mb-3">Add Vocabulary</button>
                 </div>
             </div>
-
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="vocabulary_id" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="vocabulary_id" HeaderText="Vocabulary ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />

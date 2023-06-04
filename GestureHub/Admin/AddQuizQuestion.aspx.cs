@@ -7,9 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace GestureHub.Admin
 {
-    public partial class AddQuestionOption : System.Web.UI.Page
+    public partial class AddQuizQuestion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void AddButton_Click()
         {
 
         }

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GestureHub.Admin
 {
@@ -20,28 +15,15 @@ namespace GestureHub.Admin
             //}
             //get the quiz id from the query string
             string questionId = Request.QueryString["questionId"];
-            if (questionId != null)
-            {
-                SqlDataSource1.SelectParameters["questionId"].DefaultValue = questionId;
-                DataTable quizData = QuizC.GetQuizData(questionId);
-                if (quizData != null)
-                {
-                    DataRow quiz = quizData.Rows[0];
-                }
-                //set question id to QuestionIdField
-                QuestionIdField.Text = questionId;
-                //set quizId to QuizIdField
-                QuizIdField.Text = quizData.Rows[0]["quiz_id"].ToString();
-                //set question to QuestionField
-                QuestionField.Text = quizData.Rows[0]["title"].ToString();
-
             }
         }
+
+        
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             //get the values of the input fields
-            string questionId = QuestionIdField.Text;
+            string questionId = QuestionId.Text;
             string quizId = QuizIdField.Text;
             string question = QuestionField.Text;
             //update quiz in database

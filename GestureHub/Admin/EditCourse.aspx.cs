@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace GestureHub
@@ -18,7 +15,8 @@ namespace GestureHub
                 //redirect to login page
                 Response.Redirect("~/Login.aspx");
             }
-            if (!IsPostBack) {
+            if (!IsPostBack)
+            {
                 //get course_id from query string
                 string course_id = Request.QueryString["courseId"] ?? "1";
                 //get course id list
@@ -49,10 +47,12 @@ namespace GestureHub
             return;
         }
 
-        protected void IdField_SelectedIndexChanged(object sender, EventArgs e) {
+        protected void IdField_SelectedIndexChanged(object sender, EventArgs e)
+        {
             var courseId = ((DropDownList)sender).SelectedItem;
             updateInputFields(courseId.ToString());
         }
+
         protected void updateInputFields(String courseId)
         {
             //get course from database
@@ -69,7 +69,6 @@ namespace GestureHub
                 createdAtField.Text = course["created_at"].ToString();
                 updatedAtField.Text = course["updated_at"].ToString();
             }
-
-        }   
+        }
     }
 }

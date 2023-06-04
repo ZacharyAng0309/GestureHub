@@ -259,5 +259,10 @@ namespace GestureHub
             }
             return quizId;
         }
+
+        internal static string GetNewQuestionId()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

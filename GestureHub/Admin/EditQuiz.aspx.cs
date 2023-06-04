@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace GestureHub
@@ -32,6 +29,7 @@ namespace GestureHub
                 updateInputFields(quizId);
             }
         }
+
         protected void updateInputFields(string quizId)
         {
             //get quiz from database
@@ -48,7 +46,6 @@ namespace GestureHub
             }
         }
 
-
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
             //get the value from the input fields
@@ -61,7 +58,7 @@ namespace GestureHub
             //display the message panel with success message
             MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
-            MsgLabel.Text = "Quiz "+ quizId + " updated successfully!";
+            MsgLabel.Text = "Quiz " + quizId + " updated successfully!";
             MsgLabel.ForeColor = System.Drawing.Color.Green;
         }
 

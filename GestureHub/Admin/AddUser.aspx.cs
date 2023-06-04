@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GestureHub
 {
@@ -45,7 +38,7 @@ namespace GestureHub
             string gender = genderField.Text;
             string role = roleField.SelectedValue;
             //add user to database
-            UserC.AddUser(username,email,password,firstName,lastName,age,gender,role);
+            UserC.AddUser(username, email, password, firstName, lastName, age, gender, role);
             //display the message panel with success message
             MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";

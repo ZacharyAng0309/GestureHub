@@ -11,25 +11,29 @@
     <div class="container shadow rounded-3 p-4 mb-5 bg-white">
         <h3 class="mb-3">Edit Quiz Question</h3>
         <form runat="server">
-            <div class="form-group mb-4">
-                <asp:Label runat="server" AssociatedControlID="questionIDField">Question ID:</asp:Label>
+                       <div class="form-group mb-4">
+                <asp:Label runat="server" AssociatedControlID="QuestionIdField">Question ID:</asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="QuestionIdField" placeholder="Question ID"></asp:TextBox>
             </div>
             <div class="form-group mb-4">
-                <asp:Label runat="server" AssociatedControlID="quizIDSelect">Quiz ID:</asp:Label>
+                <asp:Label runat="server" AssociatedControlID="QuizIdField">Quiz ID:</asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="QuizIdField" placeholder="Question ID"></asp:TextBox>
             </div>
             <div class="form-group mb-4">
-                <asp:Label runat="server" AssociatedControlID="questionField">Question:</asp:Label>
+                <asp:Label runat="server" AssociatedControlID="QuestionField">Question:</asp:Label>
                 <asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control" ID="QuestionField" Rows="3"></asp:TextBox>
             </div>
-            //display the image file
             <div class="form-group mb-4">
-                <asp:Label runat="server" AssociatedControlID="questionImageField">Question Image:</asp:Label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="QuestionImageField" placeholder="Question Image"></asp:TextBox>
+                <div class="mb-3 mt-3 col-md-6">
+                    <h6>
+                        <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label>
+                    </h6>
+                    <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" OnTextChanged="ImageUpload_TextChanged" />
+                    <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/image/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" Visible="false" />
+                </div>
             </div>
             <div class="form-group mb-4">
-                <asp:Label runat="server" AssociatedControlID="questionVideoField">Question Video:</asp:Label>
+                <asp:Label runat="server" AssociatedControlID="QuestionVideoField">Question Video:</asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="QuestionVideoField" placeholder="Question Video"></asp:TextBox>
             </div>
             <asp:Button runat="server" CssClass="btn btn-primary" ID="SubmitButton" Text="Submit" OnClick="SubmitButton_Click" />

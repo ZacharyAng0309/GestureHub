@@ -11,53 +11,26 @@ namespace GestureHub.Admin
 {
 
 
-    public partial class EditVocab
+    public partial class AddQuizQuestion
     {
 
         /// <summary>
-        /// VocabularyIdField control.
+        /// QuizIdDropdownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList VocabularyIdField;
+        protected global::System.Web.UI.WebControls.DropDownList QuizIdDropdownList;
 
         /// <summary>
-        /// CourseIdField control.
+        /// QuestionField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CourseIdField;
-
-        /// <summary>
-        /// TermField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TermField;
-
-        /// <summary>
-        /// DescriptionField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DescriptionField;
-
-        /// <summary>
-        /// ImageField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImageField;
+        protected global::System.Web.UI.WebControls.TextBox QuestionField;
 
         /// <summary>
         /// ImageLabel control.
@@ -87,21 +60,39 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.Image InsertedImage;
 
         /// <summary>
-        /// VideoUrlField control.
+        /// QuestionVideoField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox VideoUrlField;
+        protected global::System.Web.UI.WebControls.TextBox QuestionVideoField;
 
         /// <summary>
-        /// UpdateButton control.
+        /// SubmitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateButton;
+        protected global::System.Web.UI.WebControls.Button SubmitButton;
+
+        /// <summary>
+        /// MsgPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MsgPanel;
+
+        /// <summary>
+        /// MsgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgLabel;
     }
 }

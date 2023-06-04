@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GestureHub.Admin
 {
@@ -18,6 +13,7 @@ namespace GestureHub.Admin
             //    Response.Redirect("~/Login.aspx");
             //}
         }
+
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             string searchValue = SearchQuizBox.Text;

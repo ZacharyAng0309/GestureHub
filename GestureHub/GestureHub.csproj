@@ -192,7 +192,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\AddCourse.aspx" />
-    <Content Include="Admin\AddQuestionOption.aspx" />
+    <Content Include="Admin\AddQuizQuestion.aspx" />
     <Content Include="Admin\AddUser.aspx" />
     <Content Include="Admin\AddVocab.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
@@ -328,12 +328,12 @@
     <Compile Include="Admin\AddCourse.aspx.designer.cs">
       <DependentUpon>AddCourse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddQuestionOption.aspx.cs">
-      <DependentUpon>AddQuestionOption.aspx</DependentUpon>
+    <Compile Include="Admin\AddQuizQuestion.aspx.cs">
+      <DependentUpon>AddQuizQuestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AddQuestionOption.aspx.designer.cs">
-      <DependentUpon>AddQuestionOption.aspx</DependentUpon>
+    <Compile Include="Admin\AddQuizQuestion.aspx.designer.cs">
+      <DependentUpon>AddQuizQuestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
