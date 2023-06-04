@@ -8,12 +8,12 @@
     <li class="breadcrumb-item active" aria-current="page">Edit Quiz</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container shadow rounded-3 p-4 mb-5 bg-white">
+    <section class="container shadow rounded-3 p-4 mb-5 bg-white">
         <h3 class="mb-3">Edit Quiz</h3>
         <form runat="server">
             <div class="form-group mb-2">
                 <label for="quizIDField">Quiz ID:</label>
-                <asp:DropDownList runat="server" CssClass="form-control" ID="IdField" OnSelectedIndexChanged="IdField_SelectedIndexChanged" AutoPostBack="true">
+                <asp:DropDownList runat="server" CssClass="form-control" ID="quizIDField" OnSelectedIndexChanged="IdField_SelectedIndexChanged" AutoPostBack="true">
                 </asp:DropDownList>
             </div>
             <div class="form-group mb-2">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="form-group mb-2">
-                <label for="courseIDField">Course ID:</label>
+                <label for="courseIdField">Course ID:</label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="courseIdField"
                     placeholder="Course ID" ReadOnly="true"></asp:TextBox>
             </div>
@@ -39,5 +39,5 @@
                 <asp:Label ID="MsgLabel" runat="server"></asp:Label>
             </asp:Panel>
         </form>
-    </div>
+    </section>
 </asp:Content>
