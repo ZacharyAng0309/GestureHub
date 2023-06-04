@@ -31,25 +31,25 @@ namespace GestureHub.Admin
             //insert the value of memberCount to the hidden field
             MemberNumberField.Value = memberCount.ToString();
             //get number of male user
-            int maleUserCount = UserC.GetUserCountByGender("M");
+            int maleUserCount = UserC.GetUserCountByGender("Male");
             //insert the value of maleUserCount to the hidden field
             MaleNumberField.Value = maleUserCount.ToString();
             //get number of female user
-            int femaleUserCount = UserC.GetUserCountByGender("F");
+            int femaleUserCount = UserC.GetUserCountByGender("Female");
             //insert the value of femaleUserCount to the hidden field
             FemaleNumberField.Value = femaleUserCount.ToString();
             //get the count of courses by difficulty
             int easyCourseCount = CourseC.GetCourseIdByDifficulty("easy").Count;
             //insert the value of easyCourseCount to the hidden field
-            EasyCourseNumberField.Text = easyCourseCount.ToString();
+            EasyCourseNumberField.Value = easyCourseCount.ToString();
             //get the count of courses by difficulty
             int intermediateCourseCount = CourseC.GetCourseIdByDifficulty("intermediate").Count;
             //insert the value of intermediateCourseCount to the hidden field
-            IntermediateCourseNumberField.Text = intermediateCourseCount.ToString();
+            IntermediateCourseNumberField.Value = intermediateCourseCount.ToString();
             //get the count of courses by difficulty
-            int hardCourseCount = CourseC.GetCourseIdByDifficulty("hard").Count;
+            int hardCourseCount = CourseC.GetCourseIdByDifficulty("difficult").Count;
             //insert the value of hardCourseCount to the hidden field
-            HardCourseNumberField.Text = hardCourseCount.ToString();
+            HardCourseNumberField.Value = hardCourseCount.ToString();
         }
     }
 }
