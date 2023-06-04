@@ -51,7 +51,7 @@
             </asp:Panel>
             <%--buttons--%>
             <div class="row d-flex justify-content-between mt-5">
-                <a href="#" class="btn btn-secondary align-items-center col-5 col-sm-3">BACK</a>
+                <a href="/Member/Courses.aspx" class="btn btn-secondary align-items-center col-5 col-sm-3">BACK</a>
                 <asp:Button ID="submitQuizButton" runat="server" Text="SUBMIT" CssClass="btn btn-success align-items-center col-5 col-sm-3" OnClick="submitQuizButton_Click" />
             </div>
 
