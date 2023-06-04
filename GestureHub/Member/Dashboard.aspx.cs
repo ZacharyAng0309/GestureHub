@@ -15,7 +15,6 @@ namespace GestureHub.Member
         {
             //get userid from session
             string userId = Session["userId"].ToString();
-
             //get user data from database
             DataRow user = UserC.GetUserData(userId);
 

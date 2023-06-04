@@ -111,7 +111,9 @@
                 </div>
                 <div class="col-sm-5 col-md-6 mb-4">
                 </div>
+                <div class="d-grid gap-2 col-3">
                 <asp:Button ID="SaveProfileBtn" runat="server" Text="Save" CssClass="btn btn-primary btn-md btn-block" OnClick="SaveProfileBtn_Click" />
+                </div>
                 <div class="d-grid gap-2 col-3">
                     <asp:Button ID="BackBtn" runat="server" href="/Member/Dashboard.aspx" Text="Back" CssClass="btn btn-secondary btn-md btn-block" />
                 </div>
