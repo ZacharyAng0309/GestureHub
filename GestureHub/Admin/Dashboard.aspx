@@ -20,11 +20,14 @@
                 <asp:HiddenField ID="MaleNumberField" runat="server" Value="23" />
                 <asp:HiddenField ID="FemaleNumberField" runat="server" Value="23" />
                 <canvas id="UserChart" height="400" width="400"></canvas>
+                <canvas id="GenderChart" height="400" width="400"></canvas>
                 <script>
                     $(document).ready(function () {
 
                         var admins = parseInt($('#MainContent_MainContent_AdminNumberField').val());
                         var members = parseInt($('#MainContent_MainContent_MemberNumberField').val());
+                        var males = parseInt($('#MainContent_MainContent_MaleNumberField').val());
+                        var females = parseInt($('#MainContent_MainContent_FemaleNumberField').val());
 
                         var ctx = document.getElementById('UserChart').getContext('2d');
                         var UserChart = new Chart(ctx, {
@@ -46,7 +49,27 @@
                                 height: 500
                             }
                         });
+                        var GenderChart = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: ['Males', 'Females'],
+                                datasets: [{
+                                    label: '# of Males and Females',
+                                    data: [males, females],
+                                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+                                    hoverBackgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                //maintainAspectRatio: false,
+                                width: 500,
+                                height: 500
+                            }
+                        });
                     });
+
                 </script>
                 <%--Number of Users--%>
                 <div class="card col-md-3 mb-4">

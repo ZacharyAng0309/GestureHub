@@ -12,6 +12,12 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is admin
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
 
             //get userid from session
             string userId = Session["userId"].ToString();
@@ -21,15 +27,6 @@ namespace GestureHub.Admin
 
             //set input fields
             AdminName.Text = user["username"].ToString();
-
-
-
-            //check if user is admin
-            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            {
-                //redirect to login page
-                Response.Redirect("~/Login.aspx");
-            }
             //get number of admins
             int adminCount = UserC.GetUserCountByRole("admin");
             //insert the value of adminCount to the hidden field
