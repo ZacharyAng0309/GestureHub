@@ -37,7 +37,6 @@ namespace GestureHub.Admin
         {
             string searchValue = SearchBox.Text;
             string columnValue = ColumnSelect.SelectedValue;
-            Response.Write("<script>alert('" + searchValue + "');</script>");
             string redirectUrl = "ManageUser.aspx?Search=" + searchValue + "&Column=" + columnValue;
             Response.Redirect(redirectUrl);
         }

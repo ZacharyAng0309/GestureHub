@@ -62,6 +62,8 @@ namespace GestureHub.Member
             QuizC.addQuizResult(userId, quizId, score.ToString());
             //change the panel to display the score
             QuestionPanel.Visible = false;
+            //set submit button invinsible
+            submitQuizButton.Visible = false;
             //set score label
             MsgLabel.Text = "Your score is " + score.ToString() + " out of " + questionIds.Count.ToString();
             if((score / questionIds.Count) > 0.4)
