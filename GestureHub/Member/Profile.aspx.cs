@@ -106,8 +106,6 @@ namespace GestureHub.Member
             //update user data in database
             UserC.UpdateUser(userId, username, email, password, fname, lname, age, gender, "member", imageUrl);
 
-            //prompt an success alert
-            DisplayAlert("Profile updated successfully!");
         }
     }
 }
