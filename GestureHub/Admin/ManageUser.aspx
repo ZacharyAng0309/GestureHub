@@ -57,9 +57,10 @@
                 </Columns>
                 <PagerStyle CssClass="pagination d-flex justify-content-center" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [users]" DeleteCommand="">
+
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>" SelectCommand="SELECT * FROM [users]" DeleteCommand="DELETE FROM [users] WHERE [user_id] = @user_id">
                 <DeleteParameters>
-                    <asp:Parameter Name="user_id" Type="Int32" />
+                    <asp:Parameter Name="user_id"  Type="Int32" />
                 </DeleteParameters>
             </asp:SqlDataSource>
             <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">

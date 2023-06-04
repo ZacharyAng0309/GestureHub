@@ -20,7 +20,7 @@ namespace GestureHub.Member
         {
             if (!IsPostBack) {
                 //check if the userId is null if null then assign to 1
-                string userId = Session["userId"] == null ? "6" : Session["userId"].ToString();
+                string userId = Session["userId"].ToString();
                 //update input fields
                 UpdateInputFields(userId);
             }
@@ -62,7 +62,7 @@ namespace GestureHub.Member
             if (confirmDeletion)
             {
                 //check if the userId is null if null then assign to 1
-                string userId = Session["userId"] == null ? "6" : Session["userId"].ToString();
+                string userId = Session["userId"].ToString();
                 //delete user from database
                 UserC.DeleteUser(userId);
                 //redirect to login page
@@ -82,8 +82,7 @@ namespace GestureHub.Member
 
         protected void SaveProfileBtn_Click(object sender, EventArgs e)
         {
-            //String userId = Session["userId"].ToString();
-            string userId = "6"; //for testing purposes
+            String userId = Session["userId"].ToString();
             //get user data from database
             DataRow user = UserC.GetUserData(userId);
             string username = UsernameProfile.Text;
