@@ -60,40 +60,13 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.HiddenField FemaleNumberField;
 
         /// <summary>
-        /// MembersNumberLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MembersNumberLabel;
-
-        /// <summary>
-        /// AdminsNumberLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AdminsNumberLabel;
-
-        /// <summary>
-        /// UsersNumberLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsersNumberLabel;
-
-        /// <summary>
         /// EasyCourseNumberField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EasyCourseNumberField;
+        protected global::System.Web.UI.WebControls.HiddenField EasyCourseNumberField;
 
         /// <summary>
         /// IntermediateCourseNumberField control.
@@ -102,7 +75,7 @@ namespace GestureHub.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label IntermediateCourseNumberField;
+        protected global::System.Web.UI.WebControls.HiddenField IntermediateCourseNumberField;
 
         /// <summary>
         /// HardCourseNumberField control.
@@ -111,6 +84,8 @@ namespace GestureHub.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label HardCourseNumberField;
+        protected global::System.Web.UI.WebControls.HiddenField HardCourseNumberField;
+
+  
     }
 }
