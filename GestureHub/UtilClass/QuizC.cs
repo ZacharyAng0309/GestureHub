@@ -259,5 +259,75 @@ namespace GestureHub
             }
             return quizId;
         }
+
+        public static string GetNewQuestionId()
+        {
+            //get new quiz id
+            List<string> quizIdList = GetQuizIdList();
+            int max = 0;
+            foreach (string quizId in quizIdList)
+            {
+                int id = Int32.Parse(quizId);
+                if (id > max)
+                {
+                    max = id;
+                }
+            }
+            return (max + 1).ToString();
+        }
+
+        public static void AddQuizQuestion(string quizId, string question, string image, string video)
+        {
+            //add quiz question to the database
+            string questionId = GetNewQuestionId();
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    //check if image is blank
+                    if (image == "")
+                    {
+                        cmd.CommandText = "INSERT INTO question ( question_id, quiz_id, question, video) VALUES (@questionId, @quizId, @question, @video);";
+                        cmd.Parameters.AddWithValue("@questionId", questionId);
+                        cmd.Parameters.AddWithValue("@quizId", quizId);
+                        cmd.Parameters.AddWithValue("@question", question);
+                        cmd.Parameters.AddWithValue("@video", video);
+                    }
+                }
+                conn.Close();
+            }
+            //add 4 questionOption to the database with the reference to the question id
+            for (int i = 0; i < 4; i++)
+            {
+                AddQuizQuestionOption(questionId, i, false);
+            }
+        }
+
+        public static void AddQuizQuestionOption(string questionId, int count , bool v3)
+        {
+            //add quiz question option to the database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO questionoption ( question_id, is_correct) VALUES (@questionId, @isCorrect);";
+                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    if(count==0)
+                    {
+                        cmd.Parameters.AddWithValue("@isCorrect", true);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@isCorrect", false);
+                    }
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
     }
 }

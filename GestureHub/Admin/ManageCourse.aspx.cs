@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace GestureHub.Admin
@@ -26,6 +22,5 @@ namespace GestureHub.Admin
             //insert the panel
             HardCoursePanelHolder.Controls.Add(hardCoursePanel);
         }
-
     }
 }

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GestureHub.Admin
 {
@@ -12,10 +7,9 @@ namespace GestureHub.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //get quizQuestionOption
-            string quizQuestionOption = Request.QueryString["quizQuestionOption"];
+            string quizQuestion = Request.QueryString["quizQuestion"];
             //delete quizQuestionOption
-            QuestionC.DeleteQuestionOption(quizQuestionOption);
-
+            QuestionC.DeleteQuestion(quizQuestion);
         }
     }
 }

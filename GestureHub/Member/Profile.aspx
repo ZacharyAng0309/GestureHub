@@ -17,9 +17,21 @@
                     <div class="mb-3 mt-3 col-md-6">
                         <h6>
                             <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label></h6>
-                        <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" OnTextChanged="ImageUpload_TextChanged" />
+                        <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" />
 
                         <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/image/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" Visible="false" />
+                        <script type="text/javascript">
+                            document.getElementById("<%= ImageUpload.ClientID %>").onchange = function () {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    if (e.target && e.target.result) {
+                                        document.getElementById("InsertedImage").src = e.target.result;
+                                    }
+                                    document.getElementById("InsertedImage").style.display = "block";
+                                }
+                                reader.readAsDataURL(this.files[0]);
+                            }
+                        </script>
                     </div>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">

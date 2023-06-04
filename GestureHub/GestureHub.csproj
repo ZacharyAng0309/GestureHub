@@ -192,13 +192,14 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\AddCourse.aspx" />
-    <Content Include="Admin\AddQuestionOption.aspx" />
+    <Content Include="Admin\AddQuizQuestion.aspx" />
     <Content Include="Admin\AddUser.aspx" />
     <Content Include="Admin\AddVocab.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\DeleteCourse.aspx" />
     <Content Include="Admin\DeleteQuizQuestion.aspx" />
     <Content Include="Admin\EditCourse.aspx" />
+    <Content Include="Admin\EditQuestionOption.aspx" />
     <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="Admin\EditQuizQuestion.aspx" />
     <Content Include="Admin\EditUser.aspx" />
@@ -328,12 +329,12 @@
     <Compile Include="Admin\AddCourse.aspx.designer.cs">
       <DependentUpon>AddCourse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddQuestionOption.aspx.cs">
-      <DependentUpon>AddQuestionOption.aspx</DependentUpon>
+    <Compile Include="Admin\AddQuizQuestion.aspx.cs">
+      <DependentUpon>AddQuizQuestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AddQuestionOption.aspx.designer.cs">
-      <DependentUpon>AddQuestionOption.aspx</DependentUpon>
+    <Compile Include="Admin\AddQuizQuestion.aspx.designer.cs">
+      <DependentUpon>AddQuizQuestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
@@ -376,6 +377,13 @@
     </Compile>
     <Compile Include="Admin\EditCourse.aspx.designer.cs">
       <DependentUpon>EditCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditQuestionOption.aspx.cs">
+      <DependentUpon>EditQuestionOption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditQuestionOption.aspx.designer.cs">
+      <DependentUpon>EditQuestionOption.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditQuiz.aspx.cs">
       <DependentUpon>EditQuiz.aspx</DependentUpon>

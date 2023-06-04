@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GestureHub
 {
@@ -28,12 +23,11 @@ namespace GestureHub
             string description = descriptionField.Text;
             //get selected value for difficulty
             string difficulty = difficultyField.SelectedValue.ToString();
-            
-            
+
             string newCourseId = CourseC.GetNextCourseId().ToString();
             //AddNewCourse
-            CourseC.AddNewCourse(title, description,difficulty);
-            QuizC.addNewQuiz(newCourseId,title,description);
+            CourseC.AddNewCourse(title, description, difficulty);
+            QuizC.addNewQuiz(newCourseId, title, description);
             //display the message panel with success message
             MsgLabel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
