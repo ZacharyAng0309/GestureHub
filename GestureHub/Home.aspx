@@ -18,12 +18,12 @@
     <script src="Scripts/Home.js"></script>
 </asp:Content>
 
-<asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server">
+<asp:Content ID="BreadContent" ContentPlaceHolderID="BreadcrumbContent" runat="server" class="pt-0">
 </asp:Content>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main  style="background-color:#ADD8E6;">
+    <main>
         <section class="container pt-3">
             <div class="row justify-content-around">
                 <div class="col-md-6 d-flex flex-column justify-content-center ms-5 ps-5">
@@ -46,26 +46,26 @@
             <div class="row justify-content-around desc-group ">
                 <div class="col-md-3 p-5">
                     <div class="d-flex flex-column align-items-center">
-                        <h4 class="ms-4 align-self-center">Title A</h4>
-                        <p class="text-center">Promote your website with this sentence.</p>
+                        <h4 class="ms-4 align-self-center">300+</h4>
+                        <p class="text-center">Learning Materials.</p>
                     </div>
                 </div>
                 <div class="col-md-3 p-5">
                     <div class="d-flex flex-column align-items-center">
-                        <h4 class="ms-4 align-self-center">Title B</h4>
-                        <p class="text-center">Promote your website with this sentence.</p>
+                        <h4 class="ms-4 align-self-center">20+</h4>
+                        <p class="text-center">Trending Categories.</p>
                     </div>
                 </div>
                 <div class="col-md-3 p-5">
                     <div class="d-flex flex-column align-items-center">
-                        <h4 class="ms-4 align-self-center">Title C</h4>
-                        <p class="text-center">Promote your website with this sentence.</p>
+                        <h4 class="ms-4 align-self-center">10K+</h4>
+                        <p class="text-center">Worldwide Students.</p>
                     </div>
                 </div>
                 <div class="col-md-3 p-5">
                     <div class="d-flex flex-column align-items-center">
-                        <h4 class="ms-4 align-self-center">Title D</h4>
-                        <p class="text-center">Promote your website with this sentence.</p>
+                        <h4 class="ms-4 align-self-center">5K+</h4>
+                        <p class="text-center">Feeback/Reviews.</p>
                     </div>
                 </div>
             </div>

@@ -56,8 +56,8 @@ namespace GestureHub.Member
                 }
             }
             //get userId from session
-            //string userId = Session["userId"].ToString();
-            string userId = "1";
+            string userId = Session["userId"].ToString();
+            //string userId = "1";
             //insert score into database
             QuizC.addQuizResult(userId, quizId, score.ToString());
             //change the panel to display the score
