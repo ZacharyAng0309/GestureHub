@@ -20,7 +20,7 @@ namespace GestureHub
             if (course.Rows.Count > 0)
             {
                 ////set CourseLabel
-                //CourseTitleLabel.Text = course.Rows[0]["title"].ToString();
+                CourseTitleLabel.Text = course.Rows[0]["title"].ToString();
                 //set CourseDescriptionLabel
                 CourseDescriptionLabel.Text = course.Rows[0]["description"].ToString();
             }

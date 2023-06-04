@@ -36,7 +36,7 @@ namespace GestureHub.Member
                 MemberIdProfile.Text = userId;
                 UsernameProfile.Text = user["username"].ToString();
                 EmailProfile.Text = user["email"].ToString();
-                //PasswordProfile.Attributes["value"] = user["password"].ToString();
+                PasswordProfile.Attributes["value"] = user["password"].ToString();
                 AgeProfile.Text = user["age"].ToString();
                 //if first_name in user is not null assign to FirstNameProfile.Text
                 if (user["first_name"] != null)
@@ -82,7 +82,10 @@ namespace GestureHub.Member
 
         protected void SaveProfileBtn_Click(object sender, EventArgs e)
         {
-            String userId = Session["userId"].ToString();
+
+            string userId = Session["userId"].ToString();
+            /*string userId = "6"; *///for testing purposes
+
             //get user data from database
             DataRow user = UserC.GetUserData(userId);
             string username = UsernameProfile.Text;

@@ -16,7 +16,12 @@
                     <div class="row">
                         <div class="col-md-4 pe-0">
                             <asp:DropDownList runat="server" ID="ColumnSelect" CssClass="form-select" name="ColumnSelect">
+                                 <asp:ListItem Value="quiz_id">Quiz ID</asp:ListItem>
+                                <asp:ListItem Value="course_id">Course ID</asp:ListItem>
+                                <asp:ListItem Value="title">Question Title</asp:ListItem>
+                                <asp:ListItem Value="description">Course Description</asp:ListItem>
                             </asp:DropDownList>
+                             
                         </div>
                         <div class="col-md-8 ps-0">
                             <div class="d-flex">
@@ -28,7 +33,7 @@
                 </div>
             </div>
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="user_id" CssClass="table table-responsive table-hover " AllowSorting="True">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="quiz_id" CssClass="table table-responsive table-hover mt-4" AllowSorting="True">
 
                 <Columns>
                     <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" InsertVisible="False" ReadOnly="True" SortExpression="quiz_id" />
