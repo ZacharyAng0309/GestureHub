@@ -11,8 +11,17 @@ namespace GestureHub.Admin
 {
 
 
-    public partial class AdminEditQuizQuestion
+    public partial class EditOptionOption
     {
+
+        /// <summary>
+        /// OptionIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox OptionIdField;
 
         /// <summary>
         /// QuestionIdField control.
@@ -24,31 +33,22 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.TextBox QuestionIdField;
 
         /// <summary>
-        /// QuizIdField control.
+        /// OptionTextField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuizIdField;
+        protected global::System.Web.UI.WebControls.TextBox OptionTextField;
 
         /// <summary>
-        /// QuestionField control.
+        /// OptionPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuestionField;
-
-        /// <summary>
-        /// QuestionPicture control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image QuestionPicture;
+        protected global::System.Web.UI.WebControls.Image OptionPicture;
 
         /// <summary>
         /// ImageLabel control.
@@ -78,13 +78,22 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.Image InsertedImage;
 
         /// <summary>
-        /// QuestionVideoField control.
+        /// OptionVideoField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuestionVideoField;
+        protected global::System.Web.UI.WebControls.TextBox OptionVideoField;
+
+        /// <summary>
+        /// IsCorrectCheckbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox IsCorrectCheckbox;
 
         /// <summary>
         /// DeleteButton control.
@@ -103,41 +112,5 @@ namespace GestureHub.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// MsgPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel MsgPanel;
-
-        /// <summary>
-        /// MsgLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MsgLabel;
-
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

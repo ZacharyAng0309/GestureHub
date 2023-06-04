@@ -7,9 +7,9 @@ namespace GestureHub.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //get quizQuestionOption
-            string quizQuestionOption = Request.QueryString["quizQuestionOption"];
+            string quizQuestion = Request.QueryString["quizQuestion"];
             //delete quizQuestionOption
-            QuestionC.DeleteQuestionOption(quizQuestionOption);
+            QuestionC.DeleteQuestion(quizQuestion);
         }
     }
 }

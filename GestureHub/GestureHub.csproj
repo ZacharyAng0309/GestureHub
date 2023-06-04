@@ -199,6 +199,7 @@
     <Content Include="Admin\DeleteCourse.aspx" />
     <Content Include="Admin\DeleteQuizQuestion.aspx" />
     <Content Include="Admin\EditCourse.aspx" />
+    <Content Include="Admin\EditQuestionOption.aspx" />
     <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="Admin\EditQuizQuestion.aspx" />
     <Content Include="Admin\EditUser.aspx" />
@@ -376,6 +377,13 @@
     </Compile>
     <Compile Include="Admin\EditCourse.aspx.designer.cs">
       <DependentUpon>EditCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditQuestionOption.aspx.cs">
+      <DependentUpon>EditQuestionOption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditQuestionOption.aspx.designer.cs">
+      <DependentUpon>EditQuestionOption.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditQuiz.aspx.cs">
       <DependentUpon>EditQuiz.aspx</DependentUpon>

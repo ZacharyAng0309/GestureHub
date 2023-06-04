@@ -5,7 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server">
+    <section class="container shadow rounded-3 p-4 mb-5 bg-white">
+        <form runat="server">
         <div class="form-group mb-2">
             <label for="CourseIdField">Course ID:</label>
             <asp:DropDownList runat="server" CssClass="form-control" ID="CourseIdField">
@@ -39,4 +40,5 @@
             <asp:Label ID="MsgLabel" runat="server"></asp:Label>
         </asp:Panel>
     </form>
+    </section>
 </asp:Content>
