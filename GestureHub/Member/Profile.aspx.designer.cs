@@ -141,13 +141,13 @@ namespace GestureHub.Member
         protected global::System.Web.UI.WebControls.Button DeleteBtn;
 
         /// <summary>
-        /// SaveBtn control.
+        /// SaveProfileBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveBtn;
+        protected global::System.Web.UI.WebControls.Button SaveProfileBtn;
 
         /// <summary>
         /// BackBtn control.

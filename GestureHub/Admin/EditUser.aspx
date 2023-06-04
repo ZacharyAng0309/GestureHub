@@ -15,11 +15,9 @@
                 <asp:Image ID="ProfilePicture" runat="server" ImageUrl="boy1.png" Style="width: 200px" CssClass="border border-4 rounded text-center" />
                 <div class="mb-3 mt-3 col-md-6">
                     <h6>
-                        <asp:Label ID="ImageLabel" AssociatedControlID="formFile" runat="server" Text="Insert Image:"></asp:Label>
-
+                        <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label>
                     </h6>
                     <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" />
-                    <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/Images/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" />
                 </div>
                 <div class="col-md-5">
                     <div class="form-group mb-2">
@@ -38,15 +36,15 @@
                     <div class="form-group mb-2">
                         <label for="genderField">Gender:</label>
                         <asp:DropDownList runat="server" ID="genderField" CssClass="form-control">
-                            <asp:ListItem Text="Male"></asp:ListItem>
-                            <asp:ListItem Text="Female"></asp:ListItem>
+                            <asp:ListItem Value="Male" Text="Male"></asp:ListItem>
+                            <asp:ListItem Value="Female" Text="Female"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
                     <div class="form-group mb-2">
                         <label for="roleField">Role:</label>
                         <asp:DropDownList runat="server" ID="roleField" CssClass="form-control">
-                            <asp:ListItem Text="Admin"></asp:ListItem>
-                            <asp:ListItem Text="Member"></asp:ListItem>
+                            <asp:ListItem Value="admin" Text="Admin"></asp:ListItem>
+                            <asp:ListItem Value="member" Text="Member"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
 
