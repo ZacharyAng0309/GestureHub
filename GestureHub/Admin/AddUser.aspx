@@ -53,15 +53,15 @@
 
                     <div class="form-group mb-2">
                         <label for="passwordField">Password:</label>
-                        <asp:TextBox runat="server" ID="passwordField" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="passwordField" CssClass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
                     </div>
                     <div class="form-group mb-2">
                         <label for="ageField">Age:</label>
-                        <asp:TextBox runat="server" ID="ageField" TextMode="Number" CssClass="form-control" placeholder="Insert age"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="ageField" CssClass="form-control" placeholder="Insert age" TextMode="Number"></asp:TextBox>
                     </div>
                     <div class="form-group mt-4 pt-2 row justify-content-around">
-                        <asp:Button runat="server" ID="addButton" Text="Add" CssClass="btn btn-primary col-md-5" OnClick="addButton_Click" />
-                        <a NavigateUrl="~/Admin/ManageUser.aspx" runat="server" id="backButton" cssclass="btn btn-secondary col-md-5">Back</a>
+                        <asp:Button runat="server" ID="addButton" Text="Add" CssClass="btn btn-success col-md-5" OnClick="addButton_Click" />
+                        <a href="/Admin/ManageUser.aspx" class="btn btn-secondary col-md-5" >Back</a>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,7 @@ namespace GestureHub.Admin
                 //set quizId to QuizIdField
                 QuizIdField.Text = quizData.Rows[0]["quiz_id"].ToString();
                 //set question to QuestionField
-                QuestionField.Text = quizData.Rows[0]["question"].ToString();
+                QuestionField.Text = quizData.Rows[0]["title"].ToString();
 
             }
         }
