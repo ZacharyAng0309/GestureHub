@@ -19,58 +19,9 @@
                 <asp:HiddenField ID="MemberNumberField" runat="server" Value="23" />
                 <asp:HiddenField ID="MaleNumberField" runat="server" Value="23" />
                 <asp:HiddenField ID="FemaleNumberField" runat="server" Value="23" />
-                <canvas id="UserChart" height="400" width="400"></canvas>
-                <canvas id="GenderChart" height="400" width="400"></canvas>
-                <script>
-                    $(document).ready(function () {
-
-                        var admins = parseInt($('#MainContent_MainContent_AdminNumberField').val());
-                        var members = parseInt($('#MainContent_MainContent_MemberNumberField').val());
-                        var males = parseInt($('#MainContent_MainContent_MaleNumberField').val());
-                        var females = parseInt($('#MainContent_MainContent_FemaleNumberField').val());
-
-                        var ctx = document.getElementById('UserChart').getContext('2d');
-                        var UserChart = new Chart(ctx, {
-                            type: 'pie',
-                            data: {
-                                labels: ['Admins', 'Members'],
-                                datasets: [{
-                                    label: '# of Users and Admins',
-                                    data: [admins, members],
-                                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-                                    hoverBackgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                //maintainAspectRatio: false,
-                                width: 500,
-                                height: 500
-                            }
-                        });
-                        var GenderChart = new Chart(ctx, {
-                            type: 'pie',
-                            data: {
-                                labels: ['Males', 'Females'],
-                                datasets: [{
-                                    label: '# of Males and Females',
-                                    data: [males, females],
-                                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-                                    hoverBackgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                //maintainAspectRatio: false,
-                                width: 500,
-                                height: 500
-                            }
-                        });
-                    });
-
-                </script>
+                <asp:HiddenField ID="EasyCourseNumberField" runat="server" Value="23" />
+                <asp:HiddenField ID="IntermediateCourseNumberField" runat="server" Value="23" />
+                <asp:HiddenField ID="HardCourseNumberField" runat="server" Value="23" />
                 <%--Number of Users--%>
                 <div class="card col-md-3 mb-4">
                     <div class="card-body">
@@ -106,8 +57,6 @@
                         </script>
                     </div>
                 </div>             
-                 <asp:HiddenField ID="MaleNumberField" runat="server" Value="7" />
-                <asp:HiddenField ID="FemaleNumberField" runat="server" Value="23" />
                 <div class="card col-md-3 mb-4">
                     <div class="card-body">
                         <h4 class="card-title">Type of Genders</h4>
@@ -144,10 +93,6 @@
 
 
                 </div>
-                <asp:HiddenField ID="EasyCourseNumberField" runat="server" Value="7" />
-                <asp:HiddenField ID="IntermediateCourseNumberField" runat="server" Value="7"  />
-                <asp:HiddenField ID="HardCourseNumberField" runat="server"  Value="7" />
-
                 <div class="card col-md-3 mb-4">
                     <div class="card-body">
                         <h4 class="card-title">Number of Difficulty Levels</h4>
@@ -166,7 +111,7 @@
                                         labels: ['Easy', 'Intermediate','Hard'],
                                         datasets: [{
                                             label: '# of Easy,Intermediate,Hard',
-                                            data: [male, female],
+                                            data: [easy, medium, hard],
                                             backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
                                             hoverBackgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
                                             borderWidth: 1

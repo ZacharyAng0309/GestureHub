@@ -44,15 +44,15 @@ namespace GestureHub.Admin
             //insert the value of femaleUserCount to the hidden field
             FemaleNumberField.Value = femaleUserCount.ToString();
             //get the count of courses by difficulty
-            int easyCourseCount = CourseC.GetCourseIdByDifficulty("easy").Count;
+            int easyCourseCount = CourseC.GetCourseIdByDifficulty("Easy").Count;
             //insert the value of easyCourseCount to the hidden field
             EasyCourseNumberField.Value = easyCourseCount.ToString();
             //get the count of courses by difficulty
-            int intermediateCourseCount = CourseC.GetCourseIdByDifficulty("intermediate").Count;
+            int intermediateCourseCount = CourseC.GetCourseIdByDifficulty("Intermediate").Count;
             //insert the value of intermediateCourseCount to the hidden field
             IntermediateCourseNumberField.Value = intermediateCourseCount.ToString();
             //get the count of courses by difficulty
-            int hardCourseCount = CourseC.GetCourseIdByDifficulty("difficult").Count;
+            int hardCourseCount = CourseC.GetCourseIdByDifficulty("Difficult").Count;
             //insert the value of hardCourseCount to the hidden field
             HardCourseNumberField.Value = hardCourseCount.ToString();
         }

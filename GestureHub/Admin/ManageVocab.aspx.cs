@@ -36,5 +36,24 @@ namespace GestureHub.Admin
             string redirectUrl = "ManageVocab.aspx?Search=" + searchValue + "&Column=" + columnValue;
             Response.Redirect(redirectUrl);
         }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = GridView1.SelectedRow; // get reference to the selected row 
+            if (row != null) // check if a row is selected
+            {
+                string questionId = row.Cells[0].Text; // get the question_id from the first cell of the selected row
+                QuestionC.DeleteQuestion(questionId); // delete the question with the question_id
+            }
+            else
+            {
+                // show error message
+                MsgLabel.Visible = true;
+                MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                MsgLabel.Text = "Please select a row to delete.";
+                MsgLabel.ForeColor = System.Drawing.Color.Red;
+
+            }
+        }
     }
 }
