@@ -76,59 +76,51 @@
             </div>
             <div class="owl-carousel owl-theme mx-5 justify-content-center mt-3">
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/AlphabetCourseImage.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
                         <h5 class="card-title">Alphabet</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
+                        <a href="/Courses.aspx" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/WeekCourseImage.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
-                        <h5 class="card-title">Alphabet</h5>
+                        <h5 class="card-title">Weekdays</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
+                        <a href="/Courses.aspx" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/BodyCourseImage.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
-                        <h5 class="card-title">Alphabet</h5>
+                        <h5 class="card-title">Body</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
+                        <a href="/Courses.aspx" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/DailyItemsCourseImage.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
-                        <h5 class="card-title">Alphabet</h5>
+                        <h5 class="card-title">Daily Item</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
+                        <a href="/Courses.aspx" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
                     </div>
                 </div>
                 <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/SubjectCourseImage.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
-                        <h5 class="card-title">Alphabet</h5>
+                        <h5 class="card-title">Subject</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
+                        <a href="/Courses.aspx" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
                     </div>
                 </div>
                <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
+                    <img src="Images/AnimalCourseImage.png" class="card-img-top" alt="IMAGE">
                     <div class="card-body">
-                        <h5 class="card-title">Alphabet</h5>
+                        <h5 class="card-title">Animal</h5>
                         <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
-                    </div>
-                </div>
-                <div class="card me-3 item h-75 w-75" data-mdb-ripple-color="light">
-                    <img src="Images/GestureHubLogo.png" class="card-img-top" alt="IMAGE">
-                    <div class="card-body">
-                        <h5 class="card-title">Alphabet</h5>
-                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
+                        <a href="/Courses.aspx" class="btn btn-success align-items-center d-grid gap-2">VIEW</a>
                     </div>
                 </div>
             </div>
