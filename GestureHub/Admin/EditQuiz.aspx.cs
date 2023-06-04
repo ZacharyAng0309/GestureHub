@@ -13,17 +13,17 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
-            {
-                //redirect to login page
-                Response.Redirect("~/Login.aspx");
-            }
+            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            //{
+            //    //redirect to login page
+            //    Response.Redirect("~/Login.aspx");
+            //}
             if (!IsPostBack)
             {
                 //get quiz id from query string
                 string quizId = Request.QueryString["quizId"] ?? "1";
                 // get quiz id list from database
-                List<String> quizIdList = QuizC.GetQuizIdList();
+                List<string> quizIdList = QuizC.GetQuizIdList();
                 //loop through the quiz id list and add each quiz id to the dropdownlist
                 foreach (string quizIds in quizIdList)
                 {
@@ -32,10 +32,12 @@ namespace GestureHub
                 updateInputFields(quizId);
             }
         }
-        protected void updateInputFields(String quizId)
+        protected void updateInputFields(string quizId)
         {
             //get quiz from database
-            DataRow quiz = QuizC.GetQuizById(quizId);
+            DataTable quizTable = QuizC.GetQuizData(quizId);
+            //get quiz
+            DataRow quiz = quizTable.Rows[0];
             if (quiz != null)
             {
                 //set quiz id to the idField
@@ -57,7 +59,7 @@ namespace GestureHub
             QuizC.UpdateQuiz(quizId, title, description);
             //set the success message
             //display the message panel with success message
-            MsgLabel.Visible = true;
+            MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "Quiz "+ quizId + " updated successfully!";
             MsgLabel.ForeColor = System.Drawing.Color.Green;

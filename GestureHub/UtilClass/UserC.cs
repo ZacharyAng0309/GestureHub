@@ -66,7 +66,7 @@ namespace GestureHub
         //    }
         //}
 
-        public static DataRow GetUserData(int userId)
+        public static DataRow GetUserData(string userId)
         {
             DataTable dataTable = new DataTable();
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
@@ -156,7 +156,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE role = 'member';";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [users]";
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
                 }
@@ -174,7 +174,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE gender=@gender;";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [users] WHERE gender=@gender;";
                     cmd.Parameters.AddWithValue("@gender", gender);
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
@@ -193,7 +193,7 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT COUNT(*) FROM [user] WHERE user_role=@role;";
+                    cmd.CommandText = "SELECT COUNT(*) FROM [users] WHERE user_role=@role;";
                     cmd.Parameters.AddWithValue("@role", role);
                     var result = cmd.ExecuteScalar();
                     count = Convert.ToInt32(result);
@@ -203,9 +203,9 @@ namespace GestureHub
             return count;
         }
 
-        public static List<String> GetUserIdList()
+        public static List<string> GetUserIdList()
         {
-            List<String> userIdList = new List<String>();
+            List<string> userIdList = new List<string>();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -225,7 +225,19 @@ namespace GestureHub
             }
             return userIdList;
         }
-        public static void addUser(String username, String email, String password, String fname, String lname, String age, string gender, string role) {
+
+        public static void AddUser(string username, string email, string password, string fname, string lname, string age, string gender, string role)
+        {
+            string profile = "";
+            if (gender == "Female")
+            {
+                profile = "girl1.png";
+            }
+            else
+            {
+                profile = "boy1.png";
+            }
+
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
@@ -233,15 +245,17 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
                     //Create insert command to add user into database
-                    cmd.CommandText = "INSERT INTO users(username, email, password, fname, lname, age, gender, role,created_at, updated_at) VALUES(@uname, @email, @pass, @fname, @lname, @age, @gender, @role,@created_at,@updated_at)";
+                    cmd.CommandText = "INSERT INTO users(username, email, password, first_name, last_name, age, gender, created_at, updated_at, user_role, image) " +
+                        "VALUES(@username, @email, @password, @fname, @lname, @age, @gender, GETDATE(), GETDATE(), @role, @image)";
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@password", password);
                     cmd.Parameters.AddWithValue("@fname", fname);
                     cmd.Parameters.AddWithValue("@lname", lname);
                     cmd.Parameters.AddWithValue("@age", age);
-                    cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@role", role);
+                    cmd.Parameters.AddWithValue("@image", profile);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
@@ -250,7 +264,7 @@ namespace GestureHub
 
 
         // a function to update user details into the database
-        public static void updateUser(String userId,String username, String email, String password, String fname, String lname, String age, string gender, string role)
+        public static void UpdateUser(string userId, string username, string email, string password, string fname, string lname, string age, string gender, string role, string image)
         {
             //update the user into the database according to the userId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -260,16 +274,8 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
                     //update the user details into the database
-                    cmd.CommandText = "UPDATE [users] SET username=@username, email=@email,"
-                        + "password=@password, first_name=@fname, last_name=@lname, age=@age, updated_at=@datetime WHERE user_id=@userId;";
+                    cmd.CommandText = "UPDATE users SET username='" + username + "', email='" + email + "', password='" + password + " ', first_name='" + fname + "', last_name = '" + lname + "', gender = '" + gender + " ', user_role = '" + role + "', image = '" + image + "' ,age=" + age + ", updated_at = GETDATE() where user_id = @userId";
                     cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@fname", fname);
-                    cmd.Parameters.AddWithValue("@lname", lname);
-                    cmd.Parameters.AddWithValue("@age", age);
-                    cmd.Parameters.AddWithValue("@datetime", DateTime.Now);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
@@ -277,12 +283,12 @@ namespace GestureHub
         }
 
         // a function to check if a username is unique by checking if it is already in the database
-        public static bool isUsernameUnique(String username)
+        public static bool IsUsernameUnique(string username)
         {
             //create a boolean variable to store the result
             bool isUnique = false;
             //create a list to store the username from the database
-            List<String> usernameList = new List<String>();
+            List<string> usernameList = new List<string>();
             //get the username from the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -303,7 +309,7 @@ namespace GestureHub
                 conn.Close();
             }
             //check if the username is unique by looping the  usernameList
-            foreach (String usernameFromList in usernameList)
+            foreach (string usernameFromList in usernameList)
             {
                 //if the username is found in the database, set the isUnique to false
                 if (usernameFromList.Equals(username))
@@ -327,7 +333,8 @@ namespace GestureHub
             return count + 1;
         }
 
-        public static void DeleteUser(String userId) {
+        public static void DeleteUser(string userId)
+        {
             //delete the user from the database according to the userId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
@@ -344,5 +351,24 @@ namespace GestureHub
             }
         }
 
+        public static void UpdateUserByCol(string userId, string col, string value)
+        {
+            //update the user into the database according to the userId
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    //update the user details into the database
+                    cmd.CommandText = "UPDATE users SET @col = '@value', updated_at = GETDATE() where user_id = @userId";
+                    cmd.Parameters.AddWithValue("@col", col);
+                    cmd.Parameters.AddWithValue("@value", value);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
     }
 }

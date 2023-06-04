@@ -15,21 +15,30 @@ namespace GestureHub.Admin
     {
 
         /// <summary>
-        /// GridView1 control.
+        /// EasyCoursePanelHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Panel EasyCoursePanelHolder;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// IntermediateCoursePanelHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Panel IntermediateCoursePanelHolder;
+
+        /// <summary>
+        /// HardCoursePanelHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel HardCoursePanelHolder;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Member Courses" Language="C#" MasterPageFile="~/SiteStudent.master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="GestureHub.Member.Courses" %>
+﻿<%@ Page Title="Member Courses" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="GestureHub.Member.Courses" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -18,12 +18,12 @@
                 <asp:Panel ID="EasyCoursePanelHolder" runat="server"></asp:Panel>
             </div>
             <%--INTERMEDIATE LEVEL--%>
-            <h2 class="border-bottom border-3 text-center p-2 mt-3">INTERMEDIATE LEVEL</h2>
+            <h2 class="border-bottom border-3 text-center p-2 mt-2">INTERMEDIATE LEVEL</h2>
             <div class="row justify-content-evenly py-3 mb-3">
                 <asp:Panel ID="IntermediateCoursePanelHolder" runat="server"></asp:Panel>
             </div>
             <%-- ADVANCED LEVEL--%>
-            <h2 class="border-bottom border-3 text-center p-2 mt-3">ADVANCED LEVEL</h2>
+            <h2 class="border-bottom border-3 text-center p-2 mt-2">ADVANCED LEVEL</h2>
             <div class="row justify-content-evenly py-3 mb-3">
                 <asp:Panel ID="HardCoursePanelHolder" runat="server"></asp:Panel>
             </div>

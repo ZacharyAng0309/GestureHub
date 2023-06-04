@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +13,20 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //get userid from session
+            //string userId = Session["userId"].ToString();
+            string userId = "1";
+
+            //get user data from database
+            DataRow user = UserC.GetUserData(userId);
+
+            //set input fields
+            MemberName.Text = user["username"].ToString();
+
+
+
 
         }
+
     }
 }

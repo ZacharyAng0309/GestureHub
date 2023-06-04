@@ -11,15 +11,9 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //check if user is admin
-            //if (Session["userType"] == null)
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
-            //get user role
-            //string userRole = Session["userType"].ToString();
-            string userRole = "member";
+ 
+            //get user role if session is not null
+            string userRole = Session["userRole"] == null ? "member" : Session["userRole"].ToString();
             //get panel of easy courses
             Panel easyCoursePanel = CourseC.DisplayCoursesByDifficulty("easy",userRole);
             //insert the panel
@@ -29,7 +23,7 @@ namespace GestureHub.Member
             //insert the panel
             IntermediateCoursePanelHolder.Controls.Add(intermediateCoursePanel);
             //get panel of hard courses
-            Panel hardCoursePanel = CourseC.DisplayCoursesByDifficulty("hard", userRole);
+            Panel hardCoursePanel = CourseC.DisplayCoursesByDifficulty("difficult", userRole);
             //insert the panel
             HardCoursePanelHolder.Controls.Add(hardCoursePanel);
         }

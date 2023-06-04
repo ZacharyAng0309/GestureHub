@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.master" AutoEventWireup="true" CodeBehind="ViewFeedback.aspx.cs" Inherits="GestureHub.AdminViewFeedback" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
@@ -10,11 +9,11 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
-        <h1>View Feedback</h1>
+    <div class="container shadow rounded-3 p-5 mb-5 bg-white">
+        <h1 class="mb-3">View Feedback</h1>
         <form runat="server">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True" DataKeyNames="feedback_id">
-                <HeaderStyle CssClass="bg-dark"></HeaderStyle>
+            <asp:GridView ID="GridView1" class="table table-bordered table-responsive table-hover"
+                runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" AllowSorting="True" DataKeyNames="feedback_id">
                 <Columns>
                     <asp:BoundField DataField="feedback_id" HeaderText="Feedback ID" SortExpression="feedback_id" InsertVisible="False" ReadOnly="True" />
                     <asp:BoundField DataField="user_id" HeaderText="User ID" SortExpression="user_id" />

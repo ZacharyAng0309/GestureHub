@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GestureHub
+namespace GestureHub.Admin
 {
 
 
-    public partial class Contact
+    public partial class AddQuestionOption
     {
     }
 }

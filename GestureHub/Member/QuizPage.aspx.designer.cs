@@ -15,40 +15,49 @@ namespace GestureHub.Member
     {
 
         /// <summary>
-        /// radioButton1 control.
+        /// QuizTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioButton1;
+        protected global::System.Web.UI.WebControls.Label QuizTitle;
 
         /// <summary>
-        /// radioButton2 control.
+        /// QuizDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioButton2;
+        protected global::System.Web.UI.WebControls.Label QuizDescription;
 
         /// <summary>
-        /// radioButton3 control.
+        /// QuestionPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioButton3;
+        protected global::System.Web.UI.WebControls.Panel QuestionPanel;
 
         /// <summary>
-        /// radioButton4 control.
+        /// MsgPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioButton4;
+        protected global::System.Web.UI.WebControls.Panel MsgPanel;
+
+        /// <summary>
+        /// MsgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgLabel;
 
         /// <summary>
         /// submitQuizButton control.

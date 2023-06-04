@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Net;
 using System.Collections.Specialized;
 
+
 namespace GestureHub
 {
     public partial class Register : UtilClass.BasePage
@@ -23,67 +24,30 @@ namespace GestureHub
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
             string username = MyUtil.SanitizeInput(UsernameTxtBox);
-            string password = PasswordTxtBox.Text;
-            password = MyUtil.ComputeSHA1(password);
-            //string userType = UserTypeRadio.SelectedValue;
-            //if (userType == "admin")
-            //{
-            //    string secretCode = SecretTxtBox.Text;
-            //    string secretCodeHash = MyUtil.ComputeSHA1(secretCode);
-            //    // Demonstration purpose: valid secret code = 31337
-            //    if (secretCodeHash != "E580726D31F6E1AD216FFD87279E536D1F74E606")
-            //    {
-            //        SecretPanel.Visible = true;
-            //        SecretTxtBox.CssClass = "form-control is-invalid";
-            //        SecretTxtBox.Focus();
-            //        return;
-            //    }
-            //    SecretPanel.Visible = false;
-            //    SecretTxtBox.CssClass = "form-control";
-            //}
-            var client = new MyService();
-            if (client.IsValidUsername("users", username) != "valid")
+            //validate if the username is unique
+            if (!UserC.IsUsernameUnique(username))
             {
-                this.UsernameTxtBox.Focus();
+                //display error message
+                MsgPanel.Visible = true;
+                MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                MsgLabel.Text = "Username is taken.";
+                MsgLabel.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            string queryInsert = "INSERT INTO users";
-            using (SqlConnection conn = DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    if (userType == "admin")
-                    {
-                        queryInsert += " (username, password) VALUES (@username, @password);";
-                        cmd.CommandText = queryInsert;
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
-                    }
-                    else
-                    {
-                        //string fullName = MyUtil.SanitizeInput(FullNameTxtBox);
-                        string email = MyUtil.SanitizeInput(EmailTxtBox);
-                        string gender = GenderDropDownList.SelectedValue;
-                        queryInsert += " (username, password, email, gender) VALUES (@username, @password, @email, @gender);";
-                        cmd.CommandText = queryInsert;
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
-                        //cmd.Parameters.AddWithValue("@full_name", fullName);
-                        cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@gender", gender);
-                        //if (gender == "m")
-                        //    cmd.Parameters.AddWithValue("@profile", "man.png");
-                        //else
-                        //    cmd.Parameters.AddWithValue("@profile", "girl.png");
-                    }
+            string password = PasswordTxtBox.Text;
+            password = MyUtil.ComputeSHA1(password);
+            string email =  MyUtil.SanitizeInput(EmailTxtBox);
+            string age = AgeTxtBox.Text;
+            string gender = GenderDropDownList.Text;
+            string role = "member";
 
-                    cmd.Connection = conn;
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-                Response.Redirect("~/Login.aspx");
-            }
+            UserC.AddUser(username, email, password, "" , "" , age, gender, role);
+
+            //prompt a success message to the user using javascript. By selecting on okay, the user will be redirected to the login page
+            string script = "alert(\"You have successfully registered. Please login to continue.\");";
+            script += "window.location.replace(\"/Login.aspx\");";
+            ScriptManager.RegisterStartupScript(this, GetType(),
+                                                         "ServerControlScript", script, true);
         }
 
     }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteStudent.master" AutoEventWireup="true" CodeBehind="Feedback.aspx.cs" Inherits="GestureHub.Member.Feedback" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="Feedback.aspx.cs" Inherits="GestureHub.Member.Feedback" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -17,7 +17,7 @@
                     <asp:TextBox ID="MemberIdFeedback"
                         runat="server"
                         TextMode="SingleLine"
-                        ToolTip="Username"
+                        ToolTip="MemberID"
                         Required="required" CssClass="form-control"
                         Placeholder="MemberID"
                         ReadOnly="true"></asp:TextBox>
@@ -27,7 +27,7 @@
                     <asp:TextBox ID="CourseIdFeedback"
                         runat="server"
                         TextMode="SingleLine"
-                        ToolTip="Username"
+                        ToolTip="CourseID"
                         Required="required" CssClass="form-control"
                         Placeholder="CourseID"
                         ReadOnly="true"></asp:TextBox>
@@ -37,12 +37,12 @@
                     <asp:TextBox ID="CommentsFeedback"
                         runat="server"
                         TextMode="multiLine"
-                        ToolTip="Username"
+                        ToolTip="Feedback"
                         Required="required" CssClass="form-control"
                         Placeholder="Feedback"></asp:TextBox>
                 </div>
                 <div class="row justify-content-between">
-                    <asp:HyperLink ID="BtnBackToOverview" CssClass="btn btn-secondary align-items-center col-5" runat="server" NavigateUrl="/CourseOverview.aspx" Text="BACK" />
+                    <asp:HyperLink ID="BtnBackToOverview" CssClass="btn btn-secondary align-items-center col-5" runat="server" NavigateUrl="~/Member/CourseOverview.aspx" Text="BACK" />
                     <asp:Button ID="BtnSubmit" CssClass="btn btn-success align-items-center col-5" runat="server" Text="SUBMIT" OnClick="BtnSubmit_Click" />
                 </div>
 

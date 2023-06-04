@@ -15,7 +15,8 @@ namespace GestureHub.Member
             //get course id from query string
             string courseId = Request.QueryString["courseId"];
             //get user id from session
-            string userId = Session["userId"].ToString();
+            //string userId = Session["userId"].ToString();
+            string userId = "1";
             MemberIdFeedback.Text = userId;
             CourseIdFeedback.Text = courseId;
         }
@@ -29,7 +30,7 @@ namespace GestureHub.Member
             //insert feedback into database
             FeedbackC.InsertFeedback(userId, courseId, feedback);
             //set success message
-            MsgLabel.Visible = true;
+            MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "Feedback submitted successfully";
             MsgLabel.ForeColor = System.Drawing.Color.Green;

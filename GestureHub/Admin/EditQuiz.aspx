@@ -33,7 +33,7 @@
             <div class="d-flex justify-content-center mb-3">
                 <asp:Button runat="server" CssClass="btn btn-primary col-md-4 me-3"
                     Text="Update" OnClick="UpdateButton_Click"></asp:Button>
-                <a href="#" class="btn btn-secondary col-md-4">Back</a>
+                <a href="~/Admin/ManageQuiz.aspx" class="btn btn-secondary col-md-4">Back</a>
             </div>
             <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
                 <asp:Label ID="MsgLabel" runat="server"></asp:Label>

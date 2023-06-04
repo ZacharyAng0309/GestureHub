@@ -15,6 +15,15 @@ namespace GestureHub.Admin
     {
 
         /// <summary>
+        /// AdminName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AdminName;
+
+        /// <summary>
         /// AdminNumberField control.
         /// </summary>
         /// <remarks>
@@ -51,30 +60,32 @@ namespace GestureHub.Admin
         protected global::System.Web.UI.WebControls.HiddenField FemaleNumberField;
 
         /// <summary>
-        /// MembersNumberLabel control.
+        /// EasyCourseNumberField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MembersNumberLabel;
+        protected global::System.Web.UI.WebControls.HiddenField EasyCourseNumberField;
 
         /// <summary>
-        /// AdminsNumberLabel control.
+        /// IntermediateCourseNumberField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AdminsNumberLabel;
+        protected global::System.Web.UI.WebControls.HiddenField IntermediateCourseNumberField;
 
         /// <summary>
-        /// UsersNumberLabel control.
+        /// HardCourseNumberField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsersNumberLabel;
+        protected global::System.Web.UI.WebControls.HiddenField HardCourseNumberField;
+
+  
     }
 }

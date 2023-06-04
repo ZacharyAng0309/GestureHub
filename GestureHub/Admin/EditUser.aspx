@@ -12,6 +12,13 @@
         <h3 class="mb-3">Edit User</h3>
         <form runat="server">
             <div class="row justify-content-around mb-3">
+                <asp:Image ID="ProfilePicture" runat="server" ImageUrl="boy1.png" Style="width: 200px" CssClass="border border-4 rounded text-center" />
+                <div class="mb-3 mt-3 col-md-6">
+                    <h6>
+                        <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label>
+                    </h6>
+                    <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" />
+                </div>
                 <div class="col-md-5">
                     <div class="form-group mb-2">
                         <label for="idField">ID:</label>
@@ -29,15 +36,15 @@
                     <div class="form-group mb-2">
                         <label for="genderField">Gender:</label>
                         <asp:DropDownList runat="server" ID="genderField" CssClass="form-control">
-                            <asp:ListItem Text="Male"></asp:ListItem>
-                            <asp:ListItem Text="Female"></asp:ListItem>
+                            <asp:ListItem Value="Male" Text="Male"></asp:ListItem>
+                            <asp:ListItem Value="Female" Text="Female"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
                     <div class="form-group mb-2">
                         <label for="roleField">Role:</label>
                         <asp:DropDownList runat="server" ID="roleField" CssClass="form-control">
-                            <asp:ListItem Text="Admin"></asp:ListItem>
-                            <asp:ListItem Text="Member"></asp:ListItem>
+                            <asp:ListItem Value="admin" Text="Admin"></asp:ListItem>
+                            <asp:ListItem Value="member" Text="Member"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
 
@@ -67,7 +74,7 @@
                     </div>
                     <div class="form-group mt-3 pt-2 d-flex justify-content-around">
                         <asp:Button runat="server" ID="updateButton" Text="Update" CssClass="btn btn-primary col-md-5" OnClick="updateButton_Click" />
-                        <a href="#" runat="server" id="backButton" class="btn btn-secondary col-md-5">Back</a>
+                        <a navigateurl="~/Admin/ManageUser.aspx" runat="server" id="backButton" class="btn btn-secondary col-md-5">Back</a>
                     </div>
                 </div>
             </div>

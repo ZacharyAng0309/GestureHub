@@ -5,6 +5,9 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Threading;
+using System.Web.UI;
 
 namespace GestureHub
 {
@@ -32,7 +35,7 @@ namespace GestureHub
         //    return dataTable;
         //}
 
-        public static DataTable GetQuizData(int quiz_id)
+        public static DataTable GetQuizData(string quizId)
         {
             //use the quiz_id to fetch the quiz data from the database called GestureHubDatabase
             DataTable dataTable = new DataTable();
@@ -42,8 +45,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quiz_id;";
-                    cmd.Parameters.AddWithValue("@quiz_id", quiz_id);
+                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quizId;";
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
                     using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
                         adapter.SelectCommand = cmd;
@@ -55,78 +58,35 @@ namespace GestureHub
             return dataTable;
         }
 
-        public static Panel DisplayQue(int exam_id, DataRow questData, bool enable = true)
-        {
-            int question_id = int.Parse(questData["question_id"].ToString());
-            Panel qPanel = new Panel
+        public static Panel DisplayQuiz(string quizId) { 
+            //get questionIdLIst from the database
+            List<string> questionIdList = GetQuestionIdList(quizId);
+            Panel row = new Panel();
+            //add the quizId as an input into the panel
+            row.Controls.Add(new LiteralControl("<input type='hidden' name='quiz_id' value='" + quizId + "' />"));
+            int count = 1;
+            //loop the questionId and display the question
+            foreach (string questionId in questionIdList)
             {
-                ID = $"qPanel_{question_id}",
-            };
-            qPanel.Attributes.Add("data-question-id", question_id.ToString());
-            Panel qNoPanel = new Panel
-            {
-                ID = $"qNoPanel_{question_id}",
-            };
-            qPanel.Controls.Add(qNoPanel);
-            Literal questionNo = new Literal
-            {
-                Text = $"<h5>Question {questData["sequence"]}</h5>",
-            };
-            qNoPanel.Controls.Add(questionNo);
-            Panel qQuestionPanel = new Panel
-            {
-                ID = $"qQuestionPanel_{question_id}",
-            };
-            qPanel.Controls.Add(qQuestionPanel);
-            Literal question = new Literal
-            {
-                Text = $"{questData["content"]}",
-            };
-            qQuestionPanel.Controls.Add(question);
-            int numOfAnswer = QuestionC.GetAnswerID(question_id).Count;
-            DataTable optTable = QuestionC.GetQuestionOption(question_id);
-            if (numOfAnswer > 1)
-            {
-                CheckBoxList optList = new CheckBoxList
-                {
-                    ID = $"optList_{question_id}",
-                    Enabled = enable,
-                };
-                optList.Attributes.Add("data-question-id", question_id.ToString());
-                foreach (DataRow optData in optTable.Rows)
-                {
-                    ListItem optListItem = new ListItem
-                    {
-                        Text = optData["content"].ToString(),
-                        Value = optData["option_id"].ToString(),
-                    };
-                    optList.Items.Add(optListItem);
-                }
-                qQuestionPanel.Controls.Add(optList);
+                Panel questionPanel = QuestionC.DisplayQuestion(questionId, count);
+                row.Controls.Add(questionPanel);
+                count++;
             }
-            else
-            {
-                RadioButtonList optList = new RadioButtonList
-                {
-                    ID = $"optList_{question_id}",
-                    Enabled = enable,
-                };
-                optList.Attributes.Add("data-question-id", question_id.ToString());
-                foreach (DataRow optData in optTable.Rows)
-                {
-                    ListItem optListItem = new ListItem
-                    {
-                        Text = optData["content"].ToString(),
-                        Value = optData["option_id"].ToString(),
-                    };
-                    optList.Items.Add(optListItem);
-                }
-                qQuestionPanel.Controls.Add(optList);
-            }
-            return qPanel;
+            row.Controls.Add(new LiteralControl("<script>\r\n        " +
+                "$(document).ready(function() {\r\n            " +
+                "// Your JavaScript (jQuery) code here\r\n            " +
+                "$('[data-image]').each(function() {\r\n                " +
+                "var imageUrl = $(this).attr('data-image');\r\n               " +
+                " var imgElement = $('<img>').attr('src', imageUrl);\r\n               " +
+                " $(this).append(imgElement);\r\n            });\r\n\r\n           " +
+                " $('[data-video]').each(function() {\r\n                " +
+                "var videoUrl = $(this).attr('data-video');\r\n                " +
+                "var iframeElement = $('<iframe>').attr('src', videoUrl).attr('width', '100%').attr('height', 'auto');\r\n                " +
+                "$(this).append(iframeElement);\r\n            });\r\n        });\r\n    </script>"));
+            return row;
         }
 
-        public static void addNewQuiz(String courseId, String title, String description)
+        public static void addNewQuiz(string courseId, string title, string description)
         {
             //add new quiz to the database
             using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
@@ -143,29 +103,6 @@ namespace GestureHub
                 }
                 conn.Close();
             }
-        }
-
-        internal static DataRow GetQuizById(string quizId)
-        {
-            //get the quiz data from the database
-            DataTable dataTable = new DataTable();
-            using (SqlConnection conn = GestureHub.DatabaseManager.CreateConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM quiz WHERE quiz_id=@quiz_id;";
-                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
-                    using (SqlDataAdapter adapter = new SqlDataAdapter())
-                    {
-                        adapter.SelectCommand = cmd;
-                        adapter.Fill(dataTable);
-                    }
-                }
-                conn.Close();
-            }
-            return dataTable.Rows[0];
         }
 
         public static List<string> GetQuizIdList()
@@ -195,6 +132,30 @@ namespace GestureHub
             return quizIdList;
         }
 
+        public static List<string> GetQuestionIdList(string quizId) {
+            List<string> questionIdList = new List<string>();
+            //get question id from database that is with the quiz id
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT question_id FROM question WHERE quiz_id=@quizId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            questionIdList.Add(reader["question_id"].ToString());
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return questionIdList;
+        }
+
         public static void UpdateQuiz(string quizId, string title, string description)
         {
             //update the quiz data in the database
@@ -204,8 +165,8 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "UPDATE quiz SET title=@title, description=@description WHERE quiz_id=@quiz_id;";
-                    cmd.Parameters.AddWithValue("@quiz_id", quizId);
+                    cmd.CommandText = "UPDATE quiz SET title=@title, description=@description WHERE quiz_id=@quizId;";
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@description", description);
                     cmd.ExecuteNonQuery();
@@ -220,7 +181,7 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "DELETE FROM quiz WHERE quiz_Id=@quizId";
+                    cmd.CommandText = "DELETE FROM quiz WHERE quiz_id=@quizId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.ExecuteNonQuery();
@@ -229,13 +190,13 @@ namespace GestureHub
             }
 
             //get question id from database that is with the quiz id
-            List<String> questionIdList = new List<String>();
+            List<string> questionIdList = new List<string>();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT questionId FROM question WHERE quizId=@quizId";
+                    cmd.CommandText = "SELECT question_id FROM question WHERE quiz_id=@quizId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@quizId", quizId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -249,10 +210,54 @@ namespace GestureHub
                 conn.Close();
             }
             //delete all question in the question table
-            foreach (String questionId in questionIdList)
+            foreach (string questionId in questionIdList)
             {
                 QuestionC.DeleteQuestion(questionId);
             }
-        }       
+        }
+        
+        public static void addQuizResult(string userId, string quizId, string score)
+        {
+            //add quiz result to the database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO quizresult (user_id, quiz_id, score,completed_at) VALUES (@user_id, @quizId, @score,@completed_at);";
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
+                    cmd.Parameters.AddWithValue("@score", score);
+                    cmd.Parameters.AddWithValue("@completed_at", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+        public static string GetQuizId(string courseId)
+        {
+            //get quiz id from database that is with the course id
+            string quizId = "";
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT quiz_id FROM quiz WHERE course_id=@courseId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            quizId = reader["quiz_id"].ToString();
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return quizId;
+        }
     }
 }

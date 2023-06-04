@@ -23,8 +23,8 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main>
-        <section class="container pt-3 px-5">
+    <main  style="background-color:#ADD8E6;">
+        <section class="container pt-3">
             <div class="row justify-content-around">
                 <div class="col-md-6 d-flex flex-column justify-content-center ms-5 ps-5">
                     <h3 class="mb-2">LEARN ABOUT SIGN LANGUAGES FOR FREE!
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </section>
-        <section class="p-5 bg-grey">
+        <section class="p-5" style="background-color:#D3D3D3;">
             <div class="row justify-content-around desc-group ">
                 <div class="col-md-3 p-5">
                     <div class="d-flex flex-column align-items-center">

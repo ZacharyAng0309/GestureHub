@@ -12,7 +12,7 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
             {
                 //redirect to login page
                 Response.Redirect("~/Login.aspx");
@@ -28,7 +28,9 @@ namespace GestureHub
             string description = descriptionField.Text;
             //get selected value for difficulty
             string difficulty = difficultyField.SelectedValue.ToString();
-            String newCourseId = CourseC.GetNextCourseId().ToString();
+            
+            
+            string newCourseId = CourseC.GetNextCourseId().ToString();
             //AddNewCourse
             CourseC.AddNewCourse(title, description,difficulty);
             QuizC.addNewQuiz(newCourseId,title,description);

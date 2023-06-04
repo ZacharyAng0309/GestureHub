@@ -14,11 +14,11 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            if (Session["userType"] == null || Session["userType"].ToString() != "admin")
-            {
-                //redirect to login page
-                Response.Redirect("~/Login.aspx");
-            }
+            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            //{
+            //    //redirect to login page
+            //    Response.Redirect("~/Login.aspx");
+            //}
             //get new userid
             idField.Text = UserC.GetNewUserId().ToString();
         }
@@ -28,7 +28,7 @@ namespace GestureHub
             //get the values from the input fields
             string username = usernameField.Text;
             //check if the username is unique
-            if (UserC.isUsernameUnique(username))
+            if (UserC.IsUsernameUnique(username))
             {
                 //display the message panel with error message
                 MsgLabel.Visible = true;
@@ -45,9 +45,9 @@ namespace GestureHub
             string gender = genderField.Text;
             string role = roleField.SelectedValue;
             //add user to database
-            UserC.addUser(username, email, firstName, lastName, age, gender, role, password);
+            UserC.AddUser(username,email,password,firstName,lastName,age,gender,role);
             //display the message panel with success message
-            MsgLabel.Visible = true;
+            MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "User added successfully";
             MsgLabel.ForeColor = System.Drawing.Color.Green;

@@ -21,37 +21,58 @@ namespace GestureHub
             string password = PasswordTxtBox.Text;
             password = MyUtil.ComputeSHA1(password);
             //get username and password from database
-            string query = "SELECT * FROM [users] WHERE username = @username AND password = @password";
+            string query = "SELECT * FROM [users] WHERE username = @username";
             DataTable dt = new DataTable();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                 }
+
                 if (dt.Rows.Count > 0)
                 {
-                    //if username and password is correct, redirect to home page
-                    Session["username"] = username;
-                    Session["userId"] = dt.Rows[0]["user_id"];
-                    Session["userRole"] = dt.Rows[0]["user_role"];
-                    //if user role is admin then redirect to admin page
-                    if (dt.Rows[0]["user_role"].ToString() == "admin")
+                    bool foundUser = false;
+                    foreach (DataRow row in dt.Rows)
                     {
-                        Response.Redirect("~/Admin/Dashboard.aspx");
+                        if (row["username"].ToString() == username && row["password"].ToString() == password)
+                        {
+                            foundUser = true;
+                            //if username and password is correct, redirect to home page
+                            Session["username"] = username;
+                            Session["userId"] = dt.Rows[0]["user_id"];
+                            Session["userRole"] = dt.Rows[0]["user_role"];
+                            //if user role is admin then redirect to admin page
+                            if (dt.Rows[0]["user_role"].ToString() == "admin")
+                            {
+                                Response.Redirect("/Admin/Dashboard.aspx");
+                            }
+                            else
+                            {
+                                Response.Redirect("/Member/Dashboard.aspx");
+                            }
+                            break;
+                        }
                     }
-                    else
+                    if (!foundUser)
                     {
-                        Response.Redirect("~/Member/Dashboard.aspx");
+                        MsgPanel.Visible = true;
+                        MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                        MsgLabel.Text = "Invalid username or password";
+                        MsgLabel.ForeColor = System.Drawing.Color.Red;
+                        return;
+
                     }
                 }
                 else
                 {
-                    //if username and password is incorrect, show error message
-                    ErrorLbl.Text = "Invalid username or password";
+                    MsgPanel.Visible = true;
+                    MsgPanel.CssClass = "alert alert-danger alert-dismissible fade show";
+                    MsgLabel.Text = "Invalid username or password";
+                    MsgLabel.ForeColor = System.Drawing.Color.Red;
+                    return;
                 }
             }
         }

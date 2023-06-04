@@ -40,11 +40,11 @@ namespace GestureHub.UtilClass
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO feedback (userId, courseId, feedback, created_at) VALUES (@userId, @courseId, @feedback, @createdAt);";
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    cmd.CommandText = "INSERT INTO feedback (user_id, course_id, feedback, created_at) VALUES (@userid, @courseid, @feedback, @createdAt);";
+                    cmd.Parameters.AddWithValue("@userid", userId);
+                    cmd.Parameters.AddWithValue("@courseid", courseId);
                     cmd.Parameters.AddWithValue("@feedback", feedback);
-                    cmd.Parameters.AddWithValue("@createdAt", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
