@@ -20,8 +20,7 @@
                 </div>
                 <div class="col-6">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
-                        <asp:Button runat="server" ID="addCourseButton" Text="Add Course" CssClass="btn btn-success" NavigateUrl="~/Admin/AddCourse.aspx" />
+                        <button type="button" onclick="location.href='AddCourse.aspx'" class="btn btn-success mb-3">Add Course</button>
                     </div>
                 </div>
 

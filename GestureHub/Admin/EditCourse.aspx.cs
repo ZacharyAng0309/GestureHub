@@ -20,7 +20,7 @@ namespace GestureHub
             }
             if (!IsPostBack) {
                 //get course_id from query string
-                string course_id = Request.QueryString["course_id"] ?? "1";
+                string course_id = Request.QueryString["courseId"] ?? "1";
                 //get course id list
                 List<String> courseIdList = CourseC.GetCourseIdList();
                 //insert the course id list into the dropdownlist

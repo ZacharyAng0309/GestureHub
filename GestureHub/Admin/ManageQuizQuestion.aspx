@@ -114,11 +114,11 @@
                     </div>
                 </div>
                 <div class="col-md-2 ms-auto d-flex justify-content-end">
-                    <button type="button" onclick="location.href='AddQuestion.aspx'" class="btn btn-primary mb-3">Add Question</button>
+                    <a href="/Admin/EditQuizQuestion.aspx" class="btn btn-success mb-3" >Add Question</a>
                 </div>
             </div>
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="question_id" CssClass="table table-responsive table-bordered " AllowSorting="True" OnRowDeleting="GridView1_RowDeleting">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="question_id" CssClass="table table-responsive table-hover " AllowSorting="True" OnRowDeleting="GridView1_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="question_id" HeaderText="Question ID" ReadOnly="True" SortExpression="question_id" />
                     <asp:BoundField DataField="quiz_id" HeaderText="Quiz ID" SortExpression="quiz_id" />
