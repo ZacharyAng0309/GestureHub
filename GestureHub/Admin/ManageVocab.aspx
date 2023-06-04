@@ -115,7 +115,8 @@
                     <button type="button" onclick="location.href='/Admin/AddVocab.aspx'" class="btn btn-success mb-3">Add Vocabulary</button>
                 </div>
             </div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="vocabulary_id" DataSourceID="SqlDataSource1">
+           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="vocabulary_id" 
+               CssClass="table table-responsive table-hover mt-4" AllowSorting="True">
                 <Columns>
                     <asp:BoundField DataField="vocabulary_id" HeaderText="Vocabulary ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                     <asp:BoundField DataField="course_id" HeaderText="Coure ID" SortExpression="Word" />
