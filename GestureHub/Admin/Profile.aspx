@@ -18,7 +18,7 @@
                         <asp:Image ID="ProfilePicture" runat="server" ImageUrl="boy1.png" Style="width: 200px" CssClass="border border-4 rounded text-center" />
                         <div class="mb-3 mt-3 col-md-6">
                             <h6>
-                                <asp:Label ID="ImageLabel" AssociatedControlID="formFile" runat="server" Text="Insert Image:"></asp:Label>
+                                <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label>
                             </h6>
                             <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" />
                             <asp:Image ID="InsertedImage" runat="server" ImageUrl="~/Images/image.png" CssClass="mt-2" Style="max-height: 200px; max-width: 100%;" />

@@ -112,84 +112,6 @@ namespace GestureHub
             questionPanel.Controls.Add(questionOptCol);
             //add jquery into the questionPanel
             return questionPanel;
-            ////skeleton for the question panel
-            //Panel qPanel = new Panel
-            //{
-            //    ID = $"qPanel_{questionId}",
-            //};
-            //qPanel.Attributes.Add("data-question-id", questionId);
-            //Panel qNoPanel = new Panel
-            //{
-            //    ID = $"qNoPanel_{questionId}",
-            //};
-            //qPanel.Controls.Add(qNoPanel);
-            //Literal questionNo = new Literal
-            //{
-            //    Text = $"<h5>Question {sequence} of {total}</h5>",
-            //};
-            //qNoPanel.Controls.Add(questionNo);
-
-            ////skeleton for the question
-            //Panel qQuestionPanel = new Panel
-            //{
-            //    ID = $"qQuestionPanel_{questionId}",
-            //};
-            //qPanel.Controls.Add(qQuestionPanel);
-            //Literal question = new Literal
-            //{
-            //    Text = $"{questData["question"]}",
-            //};
-            //qQuestionPanel.Controls.Add(question);
-
-            ////int numOfAnswer = QuestionC.GetAnswerId(questionId).Count;
-            //DataTable optTable = QuestionC.GetQuestionOption(questionId);
-            ////if (numOfAnswer > 1)
-            ////{
-            ////    CheckBoxList optList = new CheckBoxList
-            ////    {
-            ////        ID = $"optList_{questionId}",
-            ////        Enabled = enable,
-            ////    };
-            ////    optList.Attributes.Add("data-question-id", questionId.ToString());
-            ////    foreach (DataRow optData in optTable.Rows)
-            ////    {
-            ////        ListItem optListItem = new ListItem
-            ////        {
-            ////            Text = optData["option_text"].ToString(),
-            ////            Value = optData["option_id"].ToString(),
-            ////        };
-
-            ////        optList.Items.Add(optListItem);
-            ////    }
-            ////    qQuestionPanel.Controls.Add(optList);
-            ////}
-            ////else
-            ////{
-            //    RadioButtonList optList = new RadioButtonList
-            //    {
-            //        ID = $"optList_{questionId}",
-            //        Enabled = enable,
-            //    };
-            //    optList.Attributes.Add("data-question-id", questionId.ToString());
-            //    foreach (DataRow optData in optTable.Rows)
-            //    {
-            //        ListItem optListItem = new ListItem
-            //        {
-            //            Text = optData["option_text"].ToString(),
-            //            Value = optData["option_id"].ToString(),
-            //        };
-            //        optList.Items.Add(optListItem);
-            //    }
-            //    qQuestionPanel.Controls.Add(optList);
-            ////add a hidden field of getting the correct option id with is_correct = true
-            //HiddenField correctOptId = new HiddenField
-            //{
-            //    ID = $"correctOptId_{questionId}",
-            //    Value = QuestionC.GetAnswerId(questionId).ToString(),
-            //};
-
-            ////}
-            //return qPanel;
         }
 
         public static void AddQuestion(int quizId, string question, string type, string image, string video, string isCorrect)
@@ -382,6 +304,27 @@ namespace GestureHub
                 conn.Close();
             }
             return optionTable;
+        }
+
+        public static void UpdateQuestionOption(string optionId, string questionId, string text, string image, string video, bool isCorrect) { 
+            //update question option
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "UPDATE questionoption SET question_id=@questionId, option_text=@text, image=@image, video=@video, is_correct=@isCorrect WHERE option_id=@optionId;";
+                    cmd.Parameters.AddWithValue("@optionId", optionId);
+                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    cmd.Parameters.AddWithValue("@text", text);
+                    cmd.Parameters.AddWithValue("@image", image);
+                    cmd.Parameters.AddWithValue("@video", video);
+                    cmd.Parameters.AddWithValue("@isCorrect", isCorrect);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
         }
     }
 }
