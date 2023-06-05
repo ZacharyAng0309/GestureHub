@@ -10,9 +10,6 @@ namespace GestureHub
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //}
         }
 
         protected void LoginBtn_Click(object sender, EventArgs e)

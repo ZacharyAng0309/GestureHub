@@ -87,6 +87,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
+    <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Dashboard</a></li>
+    <li class="breadcrumb-item text-primary">Manage Materials</li>
+    <li class="breadcrumb-item active" aria-current="page">Manage Vocab</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <form runat="server">
@@ -115,14 +118,12 @@
                     <button type="button" onclick="location.href='/Admin/AddVocab.aspx'" class="btn btn-success mb-3">Add Vocabulary</button>
                 </div>
             </div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="vocabulary_id" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="vocabulary_id" DataSourceID="SqlDataSource1" CssClass="table table-responsive table-hover mt-4" AllowPaging="True" PageSize="10">
                 <Columns>
                     <asp:BoundField DataField="vocabulary_id" HeaderText="Vocabulary ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                     <asp:BoundField DataField="course_id" HeaderText="Coure ID" SortExpression="Word" />
                     <asp:BoundField DataField="term" HeaderText="Term" SortExpression="Description" />
                     <asp:BoundField DataField="description" HeaderText="Description" SortExpression="Category" />
-                    <asp:BoundField DataField="image" HeaderText="Image" SortExpression="Image" />
-                    <asp:BoundField DataField="video" HeaderText="Video" SortExpression="Video" />
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
                             <%# Eval("vocabulary_id","<a href=\"" + ResolveUrl("~/Admin/EditVocab.aspx?vocabId={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
@@ -135,8 +136,8 @@
                 <DeleteParameters>
                     <asp:Parameter Name="vocabulary_id" Type="Int32" />
                 </DeleteParameters>
-
             </asp:SqlDataSource>
+
             <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
                 <asp:Label ID="MsgLabel" runat="server"></asp:Label>
             </asp:Panel>

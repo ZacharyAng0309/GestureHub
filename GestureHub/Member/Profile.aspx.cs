@@ -18,8 +18,14 @@ namespace GestureHub.Member
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is logged in
+            if (Session["userId"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack) {
-                //check if the userId is null if null then assign to 1
+                //check if the userId is null
                 string userId = Session["userId"].ToString();
                 //update input fields
                 UpdateInputFields(userId);
@@ -36,7 +42,6 @@ namespace GestureHub.Member
                 MemberIdProfile.Text = userId;
                 UsernameProfile.Text = user["username"].ToString();
                 EmailProfile.Text = user["email"].ToString();
-                PasswordProfile.Attributes["value"] = user["password"].ToString();
                 AgeProfile.Text = user["age"].ToString();
                 //if first_name in user is not null assign to FirstNameProfile.Text
                 if (user["first_name"] != null)
@@ -91,8 +96,18 @@ namespace GestureHub.Member
             string username = UsernameProfile.Text;
             string email = EmailProfile.Text;
             string password = PasswordProfile.Text;
-            //hash password
-            password = MyUtil.ComputeSHA1(password);
+            if (MyUtil.ComputeSHA1(password) == user["password"].ToString())
+            {
+                //if password is the same as the one in database
+                //set password to the one in database
+                password = user["password"].ToString();
+            }
+            else
+            {
+                //if password is different from the one in database
+                //hash password
+                password = MyUtil.ComputeSHA1(password);
+            }
             string age = AgeProfile.Text;
             string fname = FirstNameProfile.Text;
             string lname = LastNameProfile.Text;

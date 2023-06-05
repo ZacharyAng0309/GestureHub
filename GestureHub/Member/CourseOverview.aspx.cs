@@ -13,13 +13,18 @@ namespace GestureHub.Member
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             //get course id
-            string courseId = Request.QueryString["courseId"] ?? "1";
+            string courseId = Request.QueryString["courseId"];
+            if(courseId == null)
+            {
+                //redirect to manage course page
+                Response.Redirect("~/Member/Courses.aspx");
+            }
             //get course data
             DataTable course = CourseC.GetCourseData(courseId);
             if (course.Rows.Count > 0)

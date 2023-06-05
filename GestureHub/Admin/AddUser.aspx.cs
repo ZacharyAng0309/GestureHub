@@ -7,11 +7,11 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             //get new userid
             idField.Text = UserC.GetNewUserId().ToString();
         }

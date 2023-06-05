@@ -11,23 +11,27 @@ namespace GestureHub.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
-            //get the quiz id from the query string
-            string questionId = Request.QueryString["questionId"];
-            //get question data
-            DataTable questionTable = QuestionC.GetQuestionData(questionId);
-            DataRow question = questionTable.Rows[0];
-            //check if question is null
-            if (question != null)
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
             {
-                //update input fields
-                UpdateInputFields(questionId);
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
             }
+            if (!IsPostBack) {
+                //get the quiz id from the query string
+                string questionId = Request.QueryString["questionId"];
+                //get question data
+                DataTable questionTable = QuestionC.GetQuestionData(questionId);
+                DataRow question = questionTable.Rows[0];
+                //check if question is null
+                if (question != null)
+                {
+                    //update input fields
+                    UpdateInputFields(questionId);
+                }
+                //set select command of sql data source
+                SqlDataSource1.SelectCommand = "SELECT * FROM [questionoption] WHERE question_id = " + questionId;
             }
+        }
 
         protected void UpdateInputFields(string questionId)
         {
@@ -106,6 +110,7 @@ namespace GestureHub.Admin
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "Question deleted successfully!";
             MsgLabel.ForeColor = System.Drawing.Color.Green;
+            Response.Redirect("~/Admin/ManageQuizQuestion.aspx");
         }
 
         private void DisplayAlert(string message)

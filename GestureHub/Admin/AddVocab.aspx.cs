@@ -13,8 +13,14 @@ namespace GestureHub.Admin
         {
             if (!IsPostBack)
             {
+                //check if user is admin
+                if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+                {
+                    //redirect to login page
+                    Response.Redirect("~/Login.aspx");
+                }
                 //getCourseIdList
-                List<String> courseIdList = CourseC.GetCourseIdList();
+                List<string> courseIdList = CourseC.GetCourseIdList();
                 //insert the courseIdList into the dropdownlist
                 foreach (string courseId in courseIdList)
                 {

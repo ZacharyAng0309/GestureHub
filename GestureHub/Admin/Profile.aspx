@@ -73,7 +73,7 @@
                         Placeholder="Last Name"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">
-                    <h5>Password:</h5>
+                    <h5>Updated Password:</h5>
                     <asp:TextBox ID="PasswordAdmin"
                         runat="server"
                         TextMode="Password"

@@ -41,7 +41,7 @@
                         Required="required" CssClass="form-control"
                         Placeholder="Feedback"></asp:TextBox>
                 </div>
-                <div class="row justify-content-between">
+                <div class="row justify-content-between mb-3">
                     <asp:HyperLink ID="BtnBackToOverview" CssClass="btn btn-secondary align-items-center col-5" runat="server" NavigateUrl="~/Member/CourseOverview.aspx" Text="BACK" />
                     <asp:Button ID="BtnSubmit" CssClass="btn btn-success align-items-center col-5" runat="server" Text="SUBMIT" OnClick="BtnSubmit_Click" />
                 </div>

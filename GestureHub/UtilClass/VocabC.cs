@@ -206,5 +206,23 @@ namespace GestureHub.UtilClass
             }
             return (max + 1).ToString();
         }
+
+        public static void DeleteVocabByCourse(string courseId)
+        {
+            //delete vocab in database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    //Create insert command to add user into database
+                    cmd.CommandText = "DELETE FROM vocabulary WHERE course_id=@courseId";
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
     }
 }
