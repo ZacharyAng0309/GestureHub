@@ -11,9 +11,14 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
- 
-            //get user role if session is not null
-            string userRole = Session["userRole"] == null ? "member" : Session["userRole"].ToString();
+            //check if user is logged in
+            if (Session["userId"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("/Login.aspx");
+            }
+            //get user role from session
+            string userRole = Session["userRole"].ToString();
             //get panel of easy courses
             Panel easyCoursePanel = CourseC.DisplayCoursesByDifficulty("easy",userRole);
             //insert the panel

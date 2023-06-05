@@ -97,29 +97,6 @@ namespace GestureHub
             detail.Controls.Add(title);
             detail.Controls.Add(new Literal { Text = "<br />" });
 
-            //double overallRating = CourseC.GetCourseOverallRating(course_id);
-            //int ratingCount = CourseC.GetCourseRatingCount(course_id);
-            //Label rating = new Label
-            //{
-            //    Text = $"Rating: {overallRating:0.00}/5.00 ({ratingCount})",
-            //};
-            //detail.Controls.Add(rating);
-            //Panel categoryPanel = new Panel
-            //{
-            //    CssClass = "course-category mb-3"
-            //};
-            //detail.Controls.Add(categoryPanel);
-
-            //foreach (DataRow categoryRow in courseCatTable.Rows)
-            //{
-            //    Label cat = new Label
-            //    {
-            //        Text = categoryRow["name"].ToString(),
-            //        CssClass = "course-category-item badge rounded-pill bg-secondary",
-            //    };
-            //    categoryPanel.Controls.Add(cat);
-            //}
-
             Panel linkBtnGroup = new Panel
             {
                 CssClass = "btn-group btn-group-md"
@@ -141,7 +118,7 @@ namespace GestureHub
                 HyperLink delLink = new HyperLink
                 {
                     Text = "Delete Course",
-                    NavigateUrl = $"~/Admin/DeleteCourse.aspx?courseId={courseId}",
+                    NavigateUrl = $"javascript:if(confirm('Are you sure you want to delete this course?')) {{ window.location = \'/Admin/DeleteCourse.aspx?courseId={courseId}\'; }}",
                     CssClass = "btn btn-danger btn-sm mt-4 ml-2",
                 };
                 delLink.Attributes.Add("data-action", "warn");
@@ -308,109 +285,6 @@ namespace GestureHub
 
         }
 
-        //public static DataTable GetEnrolledCourseData(int student_id)
-        //{
-        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.CommandText = "SELECT * FROM [course] INNER JOIN [enroll] ON course.course_id = enroll.course_id WHERE enroll.student_id=@student_id";
-        //            cmd.Connection = conn;
-        //            cmd.Parameters.AddWithValue("@student_id", student_id);
-        //            using (SqlDataAdapter sda = new SqlDataAdapter())
-        //            {
-        //                sda.SelectCommand = cmd;
-        //                DataTable dataTable = new DataTable();
-        //                sda.Fill(dataTable);
-        //                conn.Close();
-        //                return dataTable;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //public static DataTable GetCourseRating(int course_id)
-        //{
-        //    DataTable ratingTable = new DataTable();
-        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = conn;
-        //            cmd.CommandText = "SELECT * FROM rating WHERE course_id=@course_id;";
-        //            cmd.Parameters.AddWithValue("@course_id", course_id);
-        //            using (SqlDataAdapter sda = new SqlDataAdapter())
-        //            {
-        //                sda.SelectCommand = cmd;
-        //                sda.Fill(ratingTable);
-        //            }
-        //        }
-        //        conn.Close();
-        //    }
-        //    return ratingTable;
-        //}
-
-        //public static double GetCourseOverallRating(int course_id)
-        //{
-        //    double rating = 0;
-        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = conn;
-        //            cmd.CommandText = "SELECT ISNULL(AVG(CAST(rating as DECIMAL)), 0) FROM [rating] WHERE course_id=@course_id;";
-        //            cmd.Parameters.AddWithValue("@course_id", course_id);
-        //            var result = cmd.ExecuteScalar();
-        //            rating = double.Parse(result.ToString());
-        //        }
-        //        conn.Close();
-        //    }
-        //    return rating;
-        //}
-
-        //public static int GetCourseRatingCount(int course_id)
-        //{
-        //    int count;
-        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = conn;
-        //            cmd.CommandText = "SELECT COUNT(*) FROM [rating] WHERE course_id=@course_id;";
-        //            cmd.Parameters.AddWithValue("@course_id", course_id);
-        //            var result = cmd.ExecuteScalar();
-        //            count = Convert.ToInt32(result);
-        //        }
-        //        conn.Close();
-        //    }
-        //    return count;
-        //}
-
-        //public static DataTable GetPopularCourseID()
-        //{
-        //    DataTable dataTable = new DataTable();
-        //    using (SqlConnection conn = DatabaseManager.CreateConnection())
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = conn;
-        //            cmd.CommandText = "SELECT course.courseId, ISNULL(AVG(CAST(rating AS DECIMAL)), 0) AS rate FROM course FULL JOIN [rating] ON course.courseId = rating.courseId GROUP BY course.courseId ORDER BY rate DESC;";
-        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
-        //            {
-        //                adapter.SelectCommand = cmd;
-        //                adapter.Fill(dataTable);
-        //            }
-        //        }
-        //        conn.Close();
-        //    }
-        //    return dataTable;
-        //}
-
         public static int GetCourseCount()
         {
             int count;
@@ -452,7 +326,7 @@ namespace GestureHub
             }
         }
 
-        public static void UpdateCourse(string courseId, string title, string description, string difficulty)
+        public static void UpdateCourse(string courseId, string title, string description, string difficulty, string image)
         {
             //update course in the database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -460,12 +334,13 @@ namespace GestureHub
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,updated_at=@updatedAt WHERE course_id=@courseId";
+                    cmd.CommandText = "UPDATE course SET title=@title, description=@description, difficulty=@difficulty,image=@image, updated_at=@updatedAt WHERE course_id=@courseId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@courseId", courseId);
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@description", description);
                     cmd.Parameters.AddWithValue("@difficulty", difficulty);
+                    cmd.Parameters.AddWithValue("@image", image);
                     cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now.ToString("dd/MM/yy hh:mm:ss"));
                     cmd.ExecuteNonQuery();
                 }
@@ -504,43 +379,52 @@ namespace GestureHub
 
         public static void DeleteCourse(string courseId)
         {
-            //delete the course from the course table in the database
+            //get the quizId from the database based on the courseId 
+            string quizId = QuizC.GetQuizId(courseId);
+            //get the questionId from the database based on the quizId 
+            List<string> questionIdList = QuestionC.GetQuestionIdList(quizId);
+            //delete all the question
+            foreach (string questionId in questionIdList)
+            {
+                QuestionC.DeleteQuestion(questionId);
+            }
+            //delete the quiz result based on the quizId
+            QuizC.DeleteQuizResult(quizId);
+            //delete the quiz based on the quizId
+            QuizC.DeleteQuiz(quizId);
+            //delete the vocabulary based on the courseId
+            VocabC.DeleteVocabByCourse(courseId);
+            CourseC.DeleteFeedback(courseId);
+            //delete the course based on the courseId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "DELETE FROM course WHERE courseId=@courseId";
+                    cmd.CommandText = "DELETE FROM course WHERE course_id=@courseId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@courseId", courseId);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
             }
-            //get quiz id from database that is with the course id
-            string quizId = "";
+        }
+
+        public static void DeleteFeedback(string courseId)
+        {
+            //delete the feedback based on the courseId
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT quizId FROM quiz WHERE courseId=@courseId";
+                    cmd.CommandText = "DELETE FROM feedback WHERE course_id=@courseId";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@courseId", courseId);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            quizId = reader["quizId"].ToString();
-                        }
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 conn.Close();
             }
-            QuizC.DeleteQuiz(quizId);
-
         }
-
-
     }
 }

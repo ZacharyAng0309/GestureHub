@@ -85,6 +85,7 @@
                         TextMode="Password"
                         ToolTip="Password"
                         CssClass="form-control"
+                        Required="required"
                         Placeholder="Password" Text-Mode="Password"></asp:TextBox>
                 </div>
                 <div class="col-sm-5 col-md-6 mb-3">

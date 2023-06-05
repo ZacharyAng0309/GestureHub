@@ -12,8 +12,19 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is logged in
+            if (Session["userId"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             //get courseId from query string
             string courseId = Request.QueryString["courseId"];
+            if (courseId == null)
+            {
+                //redirect to home page
+                Response.Redirect("~/Member/Courses.aspx");
+            }
             //get quizId using courseId
             string quizId = QuizC.GetQuizId(courseId);
 
@@ -47,11 +58,11 @@ namespace GestureHub.Member
                     //if answerId is null, skip this question
                     continue;
                 }   
-                string correctAnswerId = QuestionC.GetAnswerId(questionId);
-                //check if answer is correct
-                if (answerId == correctAnswerId)
+                List<string> correctAnswerIds = QuestionC.GetAnswerId(questionId);
+                //check if answerId is in correctAnswerIds
+                if (correctAnswerIds.Contains(answerId))
                 {
-                    //increment score
+                    //if answerId is in correctAnswerIds, increment score
                     score++;
                 }
             }
@@ -66,7 +77,7 @@ namespace GestureHub.Member
             submitQuizButton.Visible = false;
             //set score label
             MsgLabel.Text = "Your score is " + score.ToString() + " out of " + questionIds.Count.ToString();
-            if((score / questionIds.Count) > 0.4)
+            if((score / questionIds.Count) > (0.4*questionIds.Count))
             {
                 MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
                 MsgLabel.ForeColor = System.Drawing.Color.Green;

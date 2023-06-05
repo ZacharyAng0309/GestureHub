@@ -13,17 +13,17 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 //get user_id from query string
                 string userId = Request.QueryString["userId"] ?? "1";
                 //get user id list
-                List<String> userIdList = UserC.GetUserIdList();
+                List<string> userIdList = UserC.GetUserIdList();
                 //insert the user id list into the dropdownlist
                 foreach (string userIds in userIdList)
                 {

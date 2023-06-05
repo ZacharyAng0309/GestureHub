@@ -14,6 +14,8 @@ namespace GestureHub.Admin
             }
             //delete course from table
             CourseC.DeleteCourse(Request.QueryString["courseId"]);
+            //redirect back to manage course page
+            Response.Redirect("~/Admin/ManageCourse.aspx");
         }
     }
 }

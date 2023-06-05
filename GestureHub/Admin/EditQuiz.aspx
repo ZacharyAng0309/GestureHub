@@ -17,14 +17,13 @@
                 </asp:DropDownList>
             </div>
             <div class="form-group mb-2">
-                <label for="titleField">Title:</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="titleField" placeholder="Insert title"></asp:TextBox>
-            </div>
-
-            <div class="form-group mb-2">
                 <label for="courseIdField">Course ID:</label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="courseIdField"
                     placeholder="Course ID" ReadOnly="true"></asp:TextBox>
+            </div>
+            <div class="form-group mb-2">
+                <label for="titleField">Title:</label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="titleField" placeholder="Insert title"></asp:TextBox>
             </div>
             <div class="form-group mb-4">
                 <label for="descriptionField">Description:</label>

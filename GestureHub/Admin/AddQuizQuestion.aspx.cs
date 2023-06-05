@@ -13,6 +13,12 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is admin
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack) {
                 //get quiz id list
                 List<string> quizIdList = QuizC.GetQuizIdList();
@@ -58,7 +64,7 @@ namespace GestureHub.Admin
             //get video url
             string videoUrl = QuestionVideoField.Text;
             //insert quiz into database
-            QuizC.AddQuizQuestion( quizId, question, imageUrl,videoUrl);
+            QuizC.AddQuizQuestion(quizId, question, imageUrl,videoUrl);
             MsgPanel.Visible = true;
             MsgPanel.CssClass = "alert alert-success alert-dismissible fade show";
             MsgLabel.Text = "Quiz Question added successfully";

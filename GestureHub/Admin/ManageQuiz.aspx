@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Dashboard</a></li>
-    <li class="breadcrumb-item" aria-current="page">Manage Materials</li>
+    <li class="breadcrumb-item text-primary" aria-current="page">Manage Materials</li>
     <li class="breadcrumb-item active" aria-current="page">Manage Quiz</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
@@ -12,22 +12,19 @@
         <section class="container shadow rounded-3 p-4 mb-5 bg-white">
             <h3 class="mb-3">Manage Quiz</h3>
             <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="row">
-                        <div class="col-md-4 pe-0">
-                            <asp:DropDownList runat="server" ID="ColumnSelect" CssClass="form-select" name="ColumnSelect">
-                                 <asp:ListItem Value="quiz_id">Quiz ID</asp:ListItem>
-                                <asp:ListItem Value="course_id">Course ID</asp:ListItem>
-                                <asp:ListItem Value="title">Question Title</asp:ListItem>
-                                <asp:ListItem Value="description">Course Description</asp:ListItem>
-                            </asp:DropDownList>
-                             
-                        </div>
-                        <div class="col-md-8 ps-0">
-                            <div class="d-flex">
-                                <asp:TextBox runat="server" ID="SearchQuizBox" CssClass="form-control" name="Search"></asp:TextBox>
-                                <asp:Button runat="server" ID="searchButton" CssClass="btn btn-primary" OnClick="SearchButton_Click" Text="Search" />
-                            </div>
+                <div class="col-md-6 d-flex ms-auto">
+                    <div class="col-md-4 pe-0">
+                        <asp:DropDownList runat="server" ID="ColumnSelect" CssClass="form-select" name="ColumnSelect">
+                            <asp:ListItem Value="quiz_id">Quiz ID</asp:ListItem>
+                            <asp:ListItem Value="course_id">Course ID</asp:ListItem>
+                            <asp:ListItem Value="title">Question Title</asp:ListItem>
+                            <asp:ListItem Value="description">Course Description</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-md-8 ps-0">
+                        <div class="d-flex">
+                            <asp:TextBox runat="server" ID="SearchQuizBox" CssClass="form-control" name="Search"></asp:TextBox>
+                            <asp:Button runat="server" ID="searchButton" CssClass="btn btn-primary" OnClick="SearchButton_Click" Text="Search" />
                         </div>
                     </div>
                 </div>

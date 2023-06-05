@@ -17,14 +17,11 @@ namespace GestureHub.Admin
                 string column = Request.QueryString["Column"];
                 string search = Request.QueryString["Search"];
 
-                if (!IsPostBack)
+                if (!string.IsNullOrEmpty(column) && !string.IsNullOrEmpty(search))
                 {
-                    if (!string.IsNullOrEmpty(column) && !string.IsNullOrEmpty(search))
-                    {
-                        SqlDataSource1.SelectCommand = "SELECT * FROM [quiz] WHERE " + column + " like '%" + search + "%'";
-                        ColumnSelect.SelectedValue = column;
-                        SearchQuizBox.Text = search;
-                    }
+                    SqlDataSource1.SelectCommand = "SELECT * FROM [quiz] WHERE " + column + " like '%" + search + "%'";
+                    ColumnSelect.SelectedValue = column;
+                    SearchQuizBox.Text = search;
                 }
             }
         }
