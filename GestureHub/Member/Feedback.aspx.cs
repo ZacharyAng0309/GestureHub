@@ -12,11 +12,21 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is logged in
+            if (Session["userId"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("/Login.aspx");
+            }
             //get course id from query string
             string courseId = Request.QueryString["courseId"];
+            if (courseId == null)
+            {
+                //redirect to home page
+                Response.Redirect("/Member/Dashboard.aspx");
+            }
             //get user id from session
-            //string userId = Session["userId"].ToString();
-            string userId = "1";
+            string userId = Session["userId"].ToString();
             MemberIdFeedback.Text = userId;
             CourseIdFeedback.Text = courseId;
         }

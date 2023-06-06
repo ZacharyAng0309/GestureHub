@@ -14,7 +14,12 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //get course id
-            string courseId = Request.QueryString["courseId"] ?? "1";
+            string courseId = Request.QueryString["courseId"];
+            if (courseId == null)
+            {
+                //redirect to home page
+                Response.Redirect("/Courses.aspx");
+            }
             //get course data
             DataTable course = CourseC.GetCourseData(courseId);
             if (course.Rows.Count > 0)

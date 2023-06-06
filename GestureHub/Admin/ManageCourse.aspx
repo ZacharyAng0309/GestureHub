@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BreadcrumbContent" runat="server">
     <li class="breadcrumb-item"><a href="/Admin/Dashboard.aspx">Dashboard</a></li>
-     <li class="breadcrumb-item" aria-current="page">Manage Materials</li>
+     <li class="breadcrumb-item make the text in primary colour in bootstrap">Manage Materials</li>
     <li class="breadcrumb-item active" aria-current="page">Manage Course</li>
 </asp:Content>
 

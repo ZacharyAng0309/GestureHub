@@ -10,11 +10,11 @@ namespace GestureHub
         protected void Page_Load(object sender, EventArgs e)
         {
             //check if user is admin
-            //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-            //{
-            //    //redirect to login page
-            //    Response.Redirect("~/Login.aspx");
-            //}
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 //get quiz id from query string
@@ -24,7 +24,7 @@ namespace GestureHub
                 //loop through the quiz id list and add each quiz id to the dropdownlist
                 foreach (string quizIds in quizIdList)
                 {
-                    IdField.Items.Add(quizIds);
+                    quizIDField.Items.Add(quizIds);
                 }
                 updateInputFields(quizId);
             }
@@ -39,7 +39,7 @@ namespace GestureHub
             if (quiz != null)
             {
                 //set quiz id to the idField
-                IdField.Text = quizId;
+                quizIDField.Text = quizId;
                 courseIdField.Text = quiz["course_id"].ToString();
                 titleField.Text = quiz["title"].ToString();
                 descriptionField.Text = quiz["description"].ToString();
@@ -49,7 +49,7 @@ namespace GestureHub
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
             //get the value from the input fields
-            string quizId = IdField.SelectedValue;
+            string quizId = quizIDField.SelectedValue;
             string title = titleField.Text;
             string description = descriptionField.Text;
             //update quiz in database

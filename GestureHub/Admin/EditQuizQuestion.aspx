@@ -49,28 +49,25 @@
             <div class="table-responsive">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PagerSettings-PageButtonCount="5" PagerSettings-Mode="NumericFirstLast" CssClass="table table-striped" AllowSorting="True" DataKeyNames="option_id">
                     <Columns>
-                        <asp:BoundField DataField="option_id" HeaderText="option_id" SortExpression="option_id" ReadOnly="True" />
-                        <asp:BoundField DataField="question_id" HeaderText="question_id" SortExpression="question_id" />
-                        <asp:BoundField DataField="option_text" HeaderText="option_text" SortExpression="option_text" />
-                        <asp:BoundField DataField="image" HeaderText="image" SortExpression="image" />
-                        <asp:BoundField DataField="video" HeaderText="video" SortExpression="video" />
-                        <asp:TemplateField>
+                        <asp:BoundField DataField="option_id" HeaderText="Option ID" SortExpression="option_id" ReadOnly="True" InsertVisible="False" />
+                        <asp:BoundField DataField="question_id" HeaderText="Question ID" SortExpression="question_id" />
+                        <asp:BoundField DataField="option_text" HeaderText="Option Text" SortExpression="option_text" />
+                        <asp:BoundField DataField="image" HeaderText="Image" SortExpression="image" />
+                        <asp:BoundField DataField="video" HeaderText="Video" SortExpression="video" />
+                        <asp:BoundField DataField="is_correct" HeaderText="Correct Option" SortExpression="is_correct" />
+                        <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <%# Eval("option_id","<a href=\"" + ResolveUrl("~/Admin/EditQuestionOption.aspx?QuestionOption={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
+                                <%# Eval("option_id","<a href=\"" + ResolveUrl("~/Admin/EditQuestionOption.aspx?optionId={0}") + "\" class=\"btn btn-primary\">Edit</a>") %>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
+
                     <PagerSettings Mode="NumericFirstLast" PageButtonCount="5"></PagerSettings>
                 </asp:GridView>
             </div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                 ConnectionString="<%$ ConnectionStrings:GestureHubDatabase %>"
-                SelectCommand="SELECT * FROM [questionoption] WHERE question_id = @questionId">
-                <SelectParameters>
-                    <asp:QueryStringParameter Name="questionId" QueryStringField="id" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-
+                SelectCommand="SELECT * FROM [questionoption]"></asp:SqlDataSource>
 
         </form>
     </div>

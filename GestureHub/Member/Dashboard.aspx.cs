@@ -13,6 +13,12 @@ namespace GestureHub.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is logged in
+            if (Session["userId"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             //get userid from session
             string userId = Session["userId"].ToString();
             //get user data from database
@@ -20,9 +26,6 @@ namespace GestureHub.Member
 
             //set input fields
             MemberName.Text = user["username"].ToString();
-
-
-
 
         }
 

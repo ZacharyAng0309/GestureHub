@@ -142,12 +142,12 @@ namespace GestureHub
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "DELETE questionoption WHERE question_Id=@questionId;";
+                    cmd.CommandText = "DELETE questionoption WHERE question_id=@questionId;";
                     cmd.Parameters.AddWithValue("@questionId", questionId);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
 
-                    cmd.CommandText = "DELETE question WHERE questionId=@questionId;";
+                    cmd.CommandText = "DELETE question WHERE question_id=@questionId;";
                     cmd.Parameters.AddWithValue("@questionId", questionId);
                     cmd.ExecuteNonQuery();
                 }
@@ -200,24 +200,33 @@ namespace GestureHub
             return optionTable;
         }
 
-        public static string GetAnswerId(string questionId)
+        public static List<string> GetAnswerId(string questionId)
         {
-            string answerId = "";
+            //get list of answers
+            List<string> answerList = new List<string>();
+            DataTable answerTable = new DataTable();
             using (SqlConnection conn = DatabaseManager.CreateConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT option_id FROM questionoption WHERE question_id=@optionId AND is_correct='True';";
-                    cmd.Parameters.AddWithValue("@optionId", questionId);
-                    var result = cmd.ExecuteScalar();
-                    if (result != null)
-                        answerId = result.ToString();
+
+                    cmd.CommandText = "SELECT option_id FROM questionoption WHERE question_id=@questionId AND is_correct='True';";
+                    cmd.Parameters.AddWithValue("@questionId", questionId);
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        sda.SelectCommand = cmd;
+                        sda.Fill(answerTable);
+                    }
+                }
+                foreach (DataRow row in answerTable.Rows)
+                {
+                    answerList.Add(row["option_id"].ToString());
                 }
                 conn.Close();
+                return answerList;
             }
-            return answerId;
         }
 
         public static void DeleteQuestionOption(string optionId)
@@ -237,7 +246,7 @@ namespace GestureHub
                 conn.Close();
             }
         }       
-        public static void UpdateQuestionOption(string optionId, string questionId, string optionText, string image, string video, string is_correct)
+        public static void UpdateQuestionOption(string optionId, string optionText, string image, string video, string is_correct)
         {
             //update question option into database
             using (SqlConnection conn = DatabaseManager.CreateConnection())
@@ -247,9 +256,8 @@ namespace GestureHub
                 {
                     cmd.Connection = conn;
 
-                    cmd.CommandText = "UPDATE [option] SET optionId=@optionId, option_text=@optionText, image=@image, video=@video, is_correct=@is_correct WHERE option_id=@optionId;";
+                    cmd.CommandText = "UPDATE [questionoption] SET option_text=@optionText, image=@image, video=@video, is_correct=@is_correct WHERE option_id=@optionId;";
                     cmd.Parameters.AddWithValue("@optionId", optionId);
-                    cmd.Parameters.AddWithValue("@optionId", questionId);
                     cmd.Parameters.AddWithValue("@optionText", optionText);
                     cmd.Parameters.AddWithValue("@image", image);
                     cmd.Parameters.AddWithValue("@video", video);
@@ -282,7 +290,7 @@ namespace GestureHub
             }
         }
 
-        public static DataTable GetQuestionOptionData(string questionOption)
+        public static DataTable GetQuestionOptionData(string optionId)
         {
             //get question option data from database
             DataTable optionTable = new DataTable();
@@ -294,7 +302,7 @@ namespace GestureHub
                     cmd.Connection = conn;
 
                     cmd.CommandText = "SELECT * FROM questionoption WHERE option_id=@optionId;";
-                    cmd.Parameters.AddWithValue("@optionId", questionOption);
+                    cmd.Parameters.AddWithValue("@optionId", optionId);
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
                         sda.SelectCommand = cmd;
@@ -325,6 +333,35 @@ namespace GestureHub
                 }
                 conn.Close();
             }
+        }
+
+        public static List<string> GetQuestionIdList(string quizId)
+        {
+            //get question id list from database
+            List<string> questionIdList = new List<string>();
+            DataTable questionTable = new DataTable();
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    cmd.CommandText = "SELECT question_id FROM question WHERE quiz_id=@quizId;";
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        sda.SelectCommand = cmd;
+                        sda.Fill(questionTable);
+                    }
+                }
+                conn.Close();
+            }
+            foreach (DataRow row in questionTable.Rows)
+            {
+                questionIdList.Add(row["question_id"].ToString());
+            }
+            return questionIdList;
         }
     }
 }

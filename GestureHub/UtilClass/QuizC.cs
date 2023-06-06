@@ -289,19 +289,35 @@ namespace GestureHub
                     //check if image is blank
                     if (image == "")
                     {
-                        cmd.CommandText = "INSERT INTO question ( question_id, quiz_id, question, video) VALUES (@questionId, @quizId, @question, @video);";
-                        cmd.Parameters.AddWithValue("@questionId", questionId);
+                        cmd.CommandText = "INSERT INTO question ( quiz_id, question, video) VALUES ( @quizId, @question, @video);";
                         cmd.Parameters.AddWithValue("@quizId", quizId);
                         cmd.Parameters.AddWithValue("@question", question);
                         cmd.Parameters.AddWithValue("@video", video);
                     }
+                    else
+                    {
+                        //add image parameter if image is not blank
+                        cmd.CommandText = "INSERT INTO question ( quiz_id, question, image, video) VALUES ( @quizId, @question, @image, @video);";
+                        cmd.Parameters.AddWithValue("@quizId", quizId);
+                        cmd.Parameters.AddWithValue("@question", question);
+                        cmd.Parameters.AddWithValue("@image", image);
+                        cmd.Parameters.AddWithValue("@video", video);
+                    }
+                    //execute query
+                    cmd.ExecuteNonQuery();
                 }
                 conn.Close();
             }
             //add 4 questionOption to the database with the reference to the question id
             for (int i = 0; i < 4; i++)
             {
-                AddQuizQuestionOption(questionId, i, false);
+                if (i == 0)
+                {
+                    AddQuizQuestionOption(questionId, i, true);
+                }
+                else {
+                    AddQuizQuestionOption(questionId, i, false);
+                }
             }
         }
 
@@ -324,6 +340,23 @@ namespace GestureHub
                     {
                         cmd.Parameters.AddWithValue("@isCorrect", false);
                     }
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        public static void DeleteQuizResult(string quizId)
+        {
+            //delete quiz result from the database
+            using (SqlConnection conn = DatabaseManager.CreateConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "DELETE FROM quizresult WHERE quiz_id=@quizId";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@quizId", quizId);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

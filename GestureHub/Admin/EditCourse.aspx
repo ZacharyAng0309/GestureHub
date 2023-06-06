@@ -20,15 +20,24 @@
                 </asp:DropDownList>
 
             </div>
+            <div class="mb-3 mt-3 col-md-6">
+                <h5>Thumbnail Picture</h5>
+                <asp:Image ID="CoursePicture" runat="server" Style="width: 200px" CssClass="border border-4 rounded text-center" />
+                <h6>
+                    <asp:Label ID="ImageLabel" AssociatedControlID="ImageUpload" runat="server" Text="Insert Image:"></asp:Label>
+                </h6>
+                <asp:FileUpload ID="ImageUpload" runat="server" CssClass="form-control" />
+
+            </div>
+            <div class="form-group mb-4">
+                <asp:Label runat="server" AssociatedControlID="titleField">Title:</asp:Label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="titleField" placeholder="Insert title"></asp:TextBox>
+            </div>
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="descriptionField">Description:</asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="descriptionField" TextMode="MultiLine" Rows="3"></asp:TextBox>
             </div>
 
-            <div class="form-group mb-4">
-                <asp:Label runat="server" AssociatedControlID="titleField">Title:</asp:Label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="titleField" placeholder="Insert title"></asp:TextBox>
-            </div>
             <div class="form-group mb-4">
                 <asp:Label runat="server" AssociatedControlID="difficultyField">Difficulty:</asp:Label>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="difficultyField">
@@ -50,7 +59,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <asp:Button runat="server" CssClass="btn btn-primary col-md-4 me-3" Text="Update" OnClick="UpdateButton_Click" />
-                <a href="/Admin/ManageCourse.aspx" class="btn btn-secondary col-md-4 me-3" >Back</a>
+                <a href="/Admin/ManageCourse.aspx" class="btn btn-secondary col-md-4 me-3">Back</a>
             </div>
             <asp:Panel ID="MsgPanel" runat="server" class="mt-3" role="alert" Visible="false">
                 <asp:Label ID="MsgLabel" runat="server"></asp:Label>

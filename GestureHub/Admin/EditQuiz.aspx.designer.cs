@@ -24,15 +24,6 @@ namespace GestureHub
         protected global::System.Web.UI.WebControls.DropDownList quizIDField;
 
         /// <summary>
-        /// titleField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox titleField;
-
-        /// <summary>
         /// courseIdField control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace GestureHub
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox courseIdField;
+
+        /// <summary>
+        /// titleField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox titleField;
 
         /// <summary>
         /// descriptionField control.

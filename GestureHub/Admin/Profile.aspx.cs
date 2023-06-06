@@ -10,17 +10,17 @@ namespace GestureHub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is admin
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
             if (!IsPostBack)
             {
-                //check if user is admin
-                //if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
-                //{
-                //    //redirect to login page
-                //    Response.Redirect("~/Login.aspx");
-                //}
+
                 //get user id from session
-                //String userId = Session["userId"].ToString();
-                String userId = "1"; //for testing purposes
+                string userId = Session["userId"].ToString();
                 UpdateInputFields(userId);
             }
         }
@@ -44,15 +44,28 @@ namespace GestureHub.Admin
         {
             //get values from input fields
 
-            //String userId = Session["userId"].ToString();
-            String userId = "1"; //for testing purposes
-            String username = UsernameAdmin.Text;
-            String email = EmailAdmin.Text;
-            String password = PasswordAdmin.Text;
-            String age = AgeAdmin.Text;
-            String fname = FirstNameAdmin.Text;
-            String lname = LastNameAdmin.Text;
-            String gender = GenderAdminDropDownList.SelectedValue;
+            string userId = Session["userId"].ToString();
+            //get user data from database
+            DataRow user = UserC.GetUserData(userId);
+            string username = UsernameAdmin.Text;
+            string email = EmailAdmin.Text;
+            string password = PasswordAdmin.Text;
+            if (MyUtil.ComputeSHA1(password) == user["password"].ToString())
+            {
+                //if password is the same as the one in database
+                //set password to the one in database
+                password = user["password"].ToString();
+            }
+            else
+            {
+                //if password is different from the one in database
+                //hash password
+                password = MyUtil.ComputeSHA1(password);
+            }
+            string age = AgeAdmin.Text;
+            string fname = FirstNameAdmin.Text;
+            string lname = LastNameAdmin.Text;
+            string gender = GenderAdminDropDownList.SelectedValue;
 
             string imageUrl;
             if (ImageUpload.HasFile)
